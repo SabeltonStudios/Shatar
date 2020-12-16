@@ -11,6 +11,20 @@ public class Grid : MonoBehaviour
     private List<GridNode> GridNodes = new List<GridNode>();
     public Vector3 GetNearestPointOnGrid(Vector3 position)
     {
+        Vector3 res;
+        float nearD = float.MaxValue;
+        GridNode aux= null;
+        foreach(GridNode n in GridNodes)
+        {
+            if (Vector3.Distance(position, n.pos) < nearD)
+            {
+                nearD = Vector3.Distance(position, n.pos);
+                aux = n;
+            }
+        }
+        res = aux.pos;
+        return res;
+        /*
         //position -= transform.position;
         Debug.Log(position.x + " " + position.y + " " + position.z);
         float xCount =(float) Mathf.RoundToInt(position.x / size);
@@ -39,7 +53,7 @@ public class Grid : MonoBehaviour
             (float)zCount * size);
 
         //result += transform.position;
-        return result;
+        return result;*/
     }
     public Vector3 CreatePoints(Vector3 position)
     {
@@ -68,9 +82,10 @@ public class Grid : MonoBehaviour
                             || ((x == 0 || x == gridSize - size) && (z % size == size / 2) && (y % size == size / 2))
                             || ((y == 0 || y == gridSize - size) && (x % size == size / 2) && (z % size == size / 2)))
                         {
-                            GridNode point = new GridPoint(CreatePoints(new Vector3(x, y, z)));
+                            var p = CreatePoints(new Vector3(x, y, z));
+                            GridNode point = new GridNode(p);
                             GridNodes.Add(point);
-                            Gizmos.DrawSphere(point, 0.1f);
+                            Gizmos.DrawSphere(p, 0.1f);
                         }
                     }
                 }

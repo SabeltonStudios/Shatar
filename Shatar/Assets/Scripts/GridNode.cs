@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GridNode
 {
-    Vector3 pos;
+    public Vector3 pos;
     public GridNode(Vector3 p)
     {
         pos.x = p.x;

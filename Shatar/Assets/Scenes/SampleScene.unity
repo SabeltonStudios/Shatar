@@ -149,8 +149,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2496aa0e0f4adbb4984fd64e214c7fb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  size: 2
-  gridSize: 6
+  size: 1
+  gridSize: 3
 --- !u!4 &466029442
 Transform:
   m_ObjectHideFlags: 0
@@ -238,7 +238,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 7, y: 8, z: -10, w: 8}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0

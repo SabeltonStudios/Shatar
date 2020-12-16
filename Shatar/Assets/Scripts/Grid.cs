@@ -6,39 +6,75 @@ public class Grid : MonoBehaviour
 {
     [SerializeField]
     private float size = 1f;
-
+    [SerializeField]
+    private int gridSize = 3;
+    private List<GridNode> GridNodes = new List<GridNode>();
     public Vector3 GetNearestPointOnGrid(Vector3 position)
     {
-        position -= transform.position;
+        //position -= transform.position;
+        Debug.Log(position.x + " " + position.y + " " + position.z);
+        float xCount =(float) Mathf.RoundToInt(position.x / size);
+        if (position.x -(int) position.x == 0.5f) { xCount += 1; }
 
-        int xCount = Mathf.RoundToInt(position.x / size);
-        int yCount = Mathf.RoundToInt(position.y / size);
-        int zCount = Mathf.RoundToInt(position.z / size);
+        if (!(position.x < size / 2 || position.x > gridSize - size - size / 2)) {
+            if (position.x > xCount) { xCount += 0.5f; }
+            else { xCount -= 0.5f; } }
 
+        float yCount = (float)Mathf.RoundToInt(position.y / size);
+        if (position.y - (int)position.y == 0.5f) { yCount += 1; }
+
+        if (!(position.y < size / 2 || position.y > gridSize - size - size / 2))
+        { if (position.y > yCount) { yCount += 0.5f; } else { yCount -= 0.5f; } }
+
+        float zCount = (float)Mathf.RoundToInt(position.z / size);
+        if (position.z - (int)position.z == 0.5f) { zCount += 1; }
+
+        if (!(position.z < size / 2 || position.z > gridSize - size - size / 2))
+        { if (position.z > zCount) { zCount += 0.5f; } else { zCount -= 0.5f; } }
+
+        Debug.Log(xCount + "" + yCount + "" + zCount);
         Vector3 result = new Vector3(
             (float)xCount * size,
             (float)yCount * size,
             (float)zCount * size);
 
-        result += transform.position;
+        //result += transform.position;
+        return result;
+    }
+    public Vector3 CreatePoints(Vector3 position)
+    {
+        position -= transform.position;
+        Vector3 result = new Vector3(
+            (float)position.x * size,
+            (float)position.y * size,
+            (float)position.z * size);
 
+        result += transform.position;
         return result;
     }
 
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
-        for (float x = 0; x < 3; x += size)
+        if (size < gridSize && size > 0)
         {
-            for (float z = 0; z < 3; z += size)
+            for (float x = 0; x < gridSize- size / 2; x += size/2 )
             {
-                for (float y = 0; y < 3; y += size)
+                for (float z = 0; z < gridSize - size / 2; z += size/2 )
                 {
-                    var point = GetNearestPointOnGrid(new Vector3(x, y, z));
-                    Gizmos.DrawSphere(point, 0.1f);
+                    for (float y = 0; y < gridSize - size / 2; y += size / 2)
+                    {
+                        if (((z == 0 || z==gridSize-size) && (x % size == size / 2)&& (y % size == size / 2))
+                            || ((x == 0 || x == gridSize - size) && (z % size == size / 2) && (y % size == size / 2))
+                            || ((y == 0 || y == gridSize - size) && (x % size == size / 2) && (z % size == size / 2)))
+                        {
+                            GridNode point = new GridPoint(CreatePoints(new Vector3(x, y, z)));
+                            GridNodes.Add(point);
+                            Gizmos.DrawSphere(point, 0.1f);
+                        }
+                    }
                 }
             }
-
         }
     }
 }

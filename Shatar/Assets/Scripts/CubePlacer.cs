@@ -30,8 +30,9 @@ public class CubePlacer : MonoBehaviour
         var finalPosition = grid.GetNearestPointOnGrid(clickPoint);
 
         GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        cube.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
         cube.transform.position= finalPosition;
-        cube.transform.localScale = new Vector3(0.5f, 0.5f,0.5f);
+        
 
         //GameObject.CreatePrimitive(PrimitiveType.Sphere).transform.position = nearPoint;
     }

@@ -151,6 +151,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   size: 1
   gridSize: 3
+  createNodes: 0
 --- !u!4 &466029442
 Transform:
   m_ObjectHideFlags: 0

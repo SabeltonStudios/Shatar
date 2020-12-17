@@ -8,6 +8,8 @@ public class Grid : MonoBehaviour
     private float size = 1f;
     [SerializeField]
     private int gridSize = 3;
+    [SerializeField]
+    private bool createNodes= true;
     private List<GridNode> GridNodes = new List<GridNode>();
     public Vector3 GetNearestPointOnGrid(Vector3 position)
     {
@@ -84,12 +86,19 @@ public class Grid : MonoBehaviour
                         {
                             var p = CreatePoints(new Vector3(x, y, z));
                             GridNode point = new GridNode(p);
-                            GridNodes.Add(point);
+                            if (createNodes == true)
+                            {
+                                
+                                GridNodes.Add(point);
+                                
+                                GameObject node = new GameObject("Node " + x + " " + y + " " + z);
+                            }
                             Gizmos.DrawSphere(p, 0.1f);
                         }
                     }
                 }
             }
+            createNodes = false;
         }
     }
 }

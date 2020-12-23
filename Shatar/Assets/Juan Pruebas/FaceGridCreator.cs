@@ -28,27 +28,17 @@ public class FaceGridCreator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Initialize bidimensional array
+        
+    }
+
+
+    private void CreateGrid()
+    {
         grid = new Node[xSquares][];
         for (int i = 0; i < xSquares; i++)
         {
             grid[i] = new Node[zSquares];
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (execute)
-        {
-            execute = false;
-            CreateGrid();
-            SetAdjacencies();
-        }
-    }
-
-    private void CreateGrid()
-    {
         grid[0][0] = corner1;
         grid[xSquares - 1][zSquares - 1] = corner2;
         corner1.InitializeAdjacencies();
@@ -73,6 +63,17 @@ public class FaceGridCreator : MonoBehaviour
         }
     }
 
+    private void OnDrawGizmos()
+    {
+
+        if (execute)
+        {
+            execute = false;
+            CreateGrid();
+            SetAdjacencies();
+        }
+        
+    }
     private void SetAdjacencies()
     {
         if (forward.x > 0)// Forward vector is (1, 0, 0)

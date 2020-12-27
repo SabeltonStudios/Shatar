@@ -44,40 +44,174 @@ public class Node : MonoBehaviour
 
     public void DrawAdjacencies(TipoPieza pieza, bool apertura)
     {
+        seleccionables = new List<Node>();
+        Node superior = this;
+        Node inferior = this;
+        Node derecha = this;
+        Node izquierda = this;
+        Node izqSuperior = this;
+        Node izqInferior = this;
+        Node derInferior = this;
+        Node derSuperior = this;
         switch (pieza)
         {
             case TipoPieza.PEON:
-                seleccionables = new List<Node>();
+                //Busca la casilla de delante
                 seleccionables.Add(adjacencies[1]);
-                adjacencies[1].seleccionable = true;
+                //Si es apertura, también selecciona la siguiente
                 if (apertura)
                 {
-                    adjacencies[1].GetComponent<MeshRenderer>().material.color = colorSeleccionable;
-                    adjacencies[1].adjacencies[1].GetComponent<MeshRenderer>().material.color = colorSeleccionable;
                     seleccionables.Add(adjacencies[1].adjacencies[1]);
-                    adjacencies[1].adjacencies[1].seleccionable = true;
                 }
-                else
-                {
-                    adjacencies[1].GetComponent<MeshRenderer>().material.color = colorSeleccionable;
-                }
-                
                 break;
+
             case TipoPieza.ALFIL:
+                //Busca las adyacencias en diagonal
+                for(int i = 0; i < 1; i++)
+                {
+                    izqSuperior = izqSuperior.adjacencies[0];
+                    seleccionables.Add(izqSuperior);
+
+                    derSuperior = derSuperior.adjacencies[2];
+                    seleccionables.Add(derSuperior);
+
+                    izqInferior = izqInferior.adjacencies[5];
+                    seleccionables.Add(izqInferior);
+
+                    derInferior = derInferior.adjacencies[7];
+                    seleccionables.Add(derInferior);
+                }
                 break;
+
             case TipoPieza.TORRE:
+                //Busca las adyacencias rectas
+                for (int i = 0; i < 1; i++)
+                {
+                    superior = superior.adjacencies[1];
+                    seleccionables.Add(superior);
+
+                    derecha = derecha.adjacencies[4];
+                    seleccionables.Add(derecha);
+
+                    inferior = inferior.adjacencies[6];
+                    seleccionables.Add(inferior);
+
+                    izquierda = izquierda.adjacencies[3];
+                    seleccionables.Add(izquierda);
+                    
+                }
                 break;
             case TipoPieza.CABALLO:
+                //Hacia delante
+                for (int i = 0; i < 3; i++)
+                {
+                    superior = superior.adjacencies[1];
+                    
+                }
+                seleccionables.Add(superior.adjacencies[3]);
+                seleccionables.Add(superior.adjacencies[4]);
+
+                //Hacia detras
+                for (int i = 0; i < 3; i++)
+                {
+                    inferior = inferior.adjacencies[6];
+
+                }
+                seleccionables.Add(inferior.adjacencies[3]);
+                seleccionables.Add(inferior.adjacencies[4]);
+
+                //Hacia derecha
+                for (int i = 0; i < 3; i++)
+                {
+                    derecha = derecha.adjacencies[4];
+
+                }
+                seleccionables.Add(derecha.adjacencies[3]);
+                seleccionables.Add(derecha.adjacencies[4]);
+
+                //Hacia izquierda
+                for (int i = 0; i < 3; i++)
+                {
+                    izquierda = izquierda.adjacencies[3];
+
+                }
+                seleccionables.Add(izquierda.adjacencies[3]);
+                seleccionables.Add(izquierda.adjacencies[4]);
                 break;
+
             case TipoPieza.REINA:
+                //Busca adyacencias rectas y en diagonal
+                for (int i = 0; i < 1; i++)
+                {
+                    superior = superior.adjacencies[1];
+                    seleccionables.Add(superior);
+
+                    derecha = derecha.adjacencies[4];
+                    seleccionables.Add(derecha);
+
+                    inferior = inferior.adjacencies[6];
+                    seleccionables.Add(inferior);
+
+                    izquierda = izquierda.adjacencies[3];
+                    seleccionables.Add(izquierda);
+
+                    izqSuperior = izqSuperior.adjacencies[0];
+                    seleccionables.Add(izqSuperior);
+
+                    derSuperior = derSuperior.adjacencies[2];
+                    seleccionables.Add(derSuperior);
+
+                    izqInferior = izqInferior.adjacencies[5];
+                    seleccionables.Add(izqInferior);
+
+                    derInferior = derInferior.adjacencies[7];
+                    seleccionables.Add(derInferior);
+                }
                 break;
             case TipoPieza.REY:
+                //Busca adyacencias rectas y en diagonal
+                for (int i = 0; i < 1; i++)
+                {
+                    superior = superior.adjacencies[1];
+                    seleccionables.Add(superior);
+
+                    derecha = derecha.adjacencies[4];
+                    seleccionables.Add(derecha);
+
+                    inferior = inferior.adjacencies[6];
+                    seleccionables.Add(inferior);
+
+                    izquierda = izquierda.adjacencies[3];
+                    seleccionables.Add(izquierda);
+
+                    izqSuperior = izqSuperior.adjacencies[0];
+                    seleccionables.Add(izqSuperior);
+
+                    derSuperior = derSuperior.adjacencies[2];
+                    seleccionables.Add(derSuperior);
+
+                    izqInferior = izqInferior.adjacencies[5];
+                    seleccionables.Add(izqInferior);
+
+                    derInferior = derInferior.adjacencies[7];
+                    seleccionables.Add(derInferior);
+                }
                 break;
             default:
                 break;
         }
+        //Pone las casillas seleccionables a true y cambia el color
+        setColor();
     }
 
+    private void setColor()
+    {
+        foreach (Node n in seleccionables)
+        {
+            n.GetComponent<MeshRenderer>().material.color = colorSeleccionable;
+            n.seleccionable = true;
+        }
+    }
     public void UndrawAdjacencies()
     {
         foreach(Node nodo in seleccionables)

@@ -31,6 +31,7 @@ public class Enemie : MonoBehaviour
 
         //Mover la pieza
         node = nodesMovimiento[ID%nodesMovimiento.Count];
+        ID++;
         transform.position = node.transform.position;
         transform.up = node.orientation;
         node.pieza = this.gameObject;

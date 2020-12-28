@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public enum TipoPieza
@@ -40,14 +41,16 @@ public class Node : MonoBehaviour
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawSphere(transform.position, 1);
-        for(int i = 0; i < adjacencies.Length; i++)
+        /*Handles.color = Color.red;
+        Handles.Label(transform.position, this.gameObject.name);*/
+        for (int i = 0; i < adjacencies.Length; i++)
         {
             if(adjacencies[i] == null)
             {
                 return;
             }
         }
-        Gizmos.DrawLine(transform.position, adjacencies[1].transform.position);
+        //Gizmos.DrawLine(transform.position, adjacencies[1].transform.position);
     }
 
     public void DrawAdjacencies(TipoPieza pieza, bool apertura, Color color)

@@ -62,11 +62,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Juan Pruebas\FaceGridCreator.cs" />
-    <Compile Include="Assets\Juan Pruebas\Node.cs" />
-    <Compile Include="Assets\Scripts\CubePlacer.cs" />
+    <Compile Include="Assets\Scripts\Enemie.cs" />
+    <Compile Include="Assets\Scripts\FaceGridCreator.cs" />
+    <Compile Include="Assets\Scripts\GameController.cs" />
     <Compile Include="Assets\Scripts\Grid.cs" />
-    <Compile Include="Assets\Scripts\GridNode.cs" />
+    <Compile Include="Assets\Scripts\Node.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/Rocio/Documents/GitHub/Shatar/Shatar/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>

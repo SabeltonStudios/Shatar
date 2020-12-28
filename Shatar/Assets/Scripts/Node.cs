@@ -19,9 +19,9 @@ public class Node : MonoBehaviour
 
     // The list of adjacent nodes/squares
     public Node[] adjacencies;
-    Color colorSeleccionable = new Color(0.75f, 1, 0, 1);
     public List<Node> seleccionables;
     public bool seleccionable = false;
+    public GameObject pieza;
 
     /*
     The adjacencies will be represented like shown:
@@ -40,9 +40,17 @@ public class Node : MonoBehaviour
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawSphere(transform.position, 1);
+        for(int i = 0; i < adjacencies.Length; i++)
+        {
+            if(adjacencies[i] == null)
+            {
+                return;
+            }
+        }
+        Gizmos.DrawLine(transform.position, adjacencies[1].transform.position);
     }
 
-    public void DrawAdjacencies(TipoPieza pieza, bool apertura)
+    public void DrawAdjacencies(TipoPieza pieza, bool apertura, Color color)
     {
         seleccionables = new List<Node>();
         Node superior = this;
@@ -67,7 +75,7 @@ public class Node : MonoBehaviour
 
             case TipoPieza.ALFIL:
                 //Busca las adyacencias en diagonal
-                for(int i = 0; i < 1; i++)
+                for(int i = 0; i < 2; i++)
                 {
                     izqSuperior = izqSuperior.adjacencies[0];
                     seleccionables.Add(izqSuperior);
@@ -85,7 +93,7 @@ public class Node : MonoBehaviour
 
             case TipoPieza.TORRE:
                 //Busca las adyacencias rectas
-                for (int i = 0; i < 1; i++)
+                for (int i = 0; i < 2; i++)
                 {
                     superior = superior.adjacencies[1];
                     seleccionables.Add(superior);
@@ -141,7 +149,7 @@ public class Node : MonoBehaviour
 
             case TipoPieza.REINA:
                 //Busca adyacencias rectas y en diagonal
-                for (int i = 0; i < 1; i++)
+                for (int i = 0; i < 2; i++)
                 {
                     superior = superior.adjacencies[1];
                     seleccionables.Add(superior);
@@ -201,14 +209,14 @@ public class Node : MonoBehaviour
                 break;
         }
         //Pone las casillas seleccionables a true y cambia el color
-        setColor();
+        setColor(color);
     }
 
-    private void setColor()
+    private void setColor(Color color)
     {
         foreach (Node n in seleccionables)
         {
-            n.GetComponent<MeshRenderer>().material.color = colorSeleccionable;
+            n.GetComponent<MeshRenderer>().material.color = color;
             n.seleccionable = true;
         }
     }

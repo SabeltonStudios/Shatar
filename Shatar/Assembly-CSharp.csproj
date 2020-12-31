@@ -73,6 +73,7 @@
     <Compile Include="Assets\UIManager\CSVLoader.cs" />
     <Compile Include="Assets\UIManager\Localization.cs" />
     <Compile Include="Assets\UIManager\MenuUIManager.cs" />
+    <Compile Include="Assets\UIManager\SoundManager.cs" />
     <Compile Include="Assets\UIManager\TextLocalizerUI.cs" />
     <Compile Include="Assets\UIManager\UIRipple\Ripple.cs" />
     <Compile Include="Assets\UIManager\UIRipple\RippleTimer.cs" />

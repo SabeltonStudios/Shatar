@@ -36,13 +36,13 @@ public class Node : MonoBehaviour
     {
         adjacencies = new Node[8];
     }
-
+    /*
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawSphere(transform.position, 1);
-        /*Handles.color = Color.red;
-        Handles.Label(transform.position, this.gameObject.name);*/
+        Handles.color = Color.red;
+        Handles.Label(transform.position, this.gameObject.name);
         for (int i = 0; i < adjacencies.Length; i++)
         {
             if(adjacencies[i] == null)
@@ -52,7 +52,7 @@ public class Node : MonoBehaviour
         }
         //Gizmos.DrawLine(transform.position, adjacencies[1].transform.position);
     }
-
+    */
     public void DrawAdjacencies(TipoPieza pieza, bool apertura, Color color)
     {
         seleccionables = new List<Node>();
@@ -219,7 +219,9 @@ public class Node : MonoBehaviour
     {
         foreach (Node n in seleccionables)
         {
-            n.GetComponent<MeshRenderer>().material.color = color;
+            //n.GetComponent<MeshRenderer>().material.color = color;
+            n.GetComponent<MeshRenderer>().material.EnableKeyword("_EMISSION");
+            n.GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", color);
             n.seleccionable = true;
         }
     }
@@ -227,7 +229,8 @@ public class Node : MonoBehaviour
     {
         foreach(Node nodo in seleccionables)
         {
-            nodo.GetComponent<MeshRenderer>().material.color = Color.white;
+            nodo.GetComponent<MeshRenderer>().material.DisableKeyword("_EMISSION");
+            //nodo.GetComponent<MeshRenderer>().material.color = Color.white;
         }
     }
 }

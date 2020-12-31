@@ -7,7 +7,7 @@ public class Enemie : MonoBehaviour
     public Node node;
     public TipoPieza tipoPieza;
     public bool apertura = false;
-    Color colorSeleccionable = new Color(1, 0.8f, 0.8f, 1);
+    Color colorSeleccionable = new Color(237.0f/255.0f, 33.0f/255.0f, 115.0f/255.0f, 1);
     public int ID = 0;
     public bool turno = false;
     public List<Node> nodesMovimiento;

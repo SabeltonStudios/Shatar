@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
     public float distancia = 10;
     public bool turno;
 
-    public Color colorSeleccionable = new Color(0.75f, 1, 0, 1);
+    public Color colorSeleccionable = new Color(0, 1, 0, 1);
     GameController gameController;
 
     // Start is called before the first frame update

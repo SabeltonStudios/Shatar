@@ -69,14 +69,17 @@ public class MenuUIManager : MonoBehaviour
 
     private bool changeStateDisablePanel = false;
 
-    public bool soundEffectsMuted = false;
-    public bool musicMuted = false;
-
     private Localization.Language currentLanguage;
 
     private static int currentGems;
+    public static bool soundEffectsMuted = false;
+    public static bool musicMuted = false;
 
     private bool isInLevelsMap = false;
+
+    [Header("Scripts")]
+    [SerializeField] private SoundManager m_soundManager = null;
+
     #endregion
 
     #region LoadScene Methods
@@ -106,6 +109,9 @@ public class MenuUIManager : MonoBehaviour
         AddSocialMediaButtonListeners();
         AddLevelButtonListeners();
         goToMainMenu(null);
+
+        m_soundManager.Mute_Music("song_menu", musicMuted);
+        m_soundManager.Play_Music("song_menu");
     }
 
     private void Update()
@@ -145,10 +151,10 @@ public class MenuUIManager : MonoBehaviour
 
     private void AddSocialMediaButtonListeners()
     {
-        b_twitter.onClick.AddListener(() => OpenSocialMedia("https://twitter.com/SabeltonStudios"));
-        b_instagram.onClick.AddListener(() => OpenSocialMedia("https://www.instagram.com/sabeltonstudios"));
-        b_youtube.onClick.AddListener(() => OpenSocialMedia("https://www.youtube.com/channel/UCaw0EJIphiofJF5lcD1SEJg"));
-        b_tiktok.onClick.AddListener(() => OpenSocialMedia("https://vm.tiktok.com/ZSnu8T8B/"));
+        b_twitter.onClick.AddListener(() => { PlaySoundEffect("click_button"); OpenSocialMedia("https://twitter.com/SabeltonStudios"); });
+        b_instagram.onClick.AddListener(() => { PlaySoundEffect("click_button"); OpenSocialMedia("https://www.instagram.com/sabeltonstudios"); });
+        b_youtube.onClick.AddListener(() => { PlaySoundEffect("click_button"); OpenSocialMedia("https://www.youtube.com/channel/UCaw0EJIphiofJF5lcD1SEJg"); });
+        b_tiktok.onClick.AddListener(() => { PlaySoundEffect("click_button"); OpenSocialMedia("https://vm.tiktok.com/ZSnu8T8B/"); });
     }
     #endregion  
 
@@ -178,13 +184,13 @@ public class MenuUIManager : MonoBehaviour
         switch (levelNumber)
         {
             case 0:
-                b_playLevel.onClick.AddListener(() => LoadScene("SampleScene"));
+                b_playLevel.onClick.AddListener(() => { PlaySoundEffect("click_button"); LoadScene("SampleScene"); });
                 break;
             case 1:
-                //b_playLevel.onClick.AddListener(() => LoadScene("Level1"));
+                //b_playLevel.onClick.AddListener(() => { PlaySoundEffect("click_button"); LoadScene("Level1"); });
                 break;
             case 2:
-                //b_playLevel.onClick.AddListener(() => LoadScene("Level2"));
+                //b_playLevel.onClick.AddListener(() => { PlaySoundEffect("click_button"); LoadScene("Level2"); });
                 break;
         }
     }
@@ -201,9 +207,9 @@ public class MenuUIManager : MonoBehaviour
 
     private void AddLevelButtonListeners()
     {
-        b_level0.onClick.AddListener(() => OpenLevelPanel(0));
-        b_level1.onClick.AddListener(() => OpenLevelPanel(1));
-        b_level2.onClick.AddListener(() => OpenLevelPanel(2));
+        b_level0.onClick.AddListener(() => { PlaySoundEffect("click_button"); OpenLevelPanel(0); });
+        b_level1.onClick.AddListener(() => { PlaySoundEffect("click_button"); OpenLevelPanel(1); });
+        b_level2.onClick.AddListener(() => { PlaySoundEffect("click_button"); OpenLevelPanel(2); });
     }
     #endregion 
 
@@ -244,6 +250,7 @@ public class MenuUIManager : MonoBehaviour
             i_mutedMusic.SetActive(true);
             i_unmutedMusic.SetActive(false);
         }
+        m_soundManager.Mute_Music("song_menu", musicMuted);
     }
 
     private void UpdateLanguage()
@@ -306,7 +313,7 @@ public class MenuUIManager : MonoBehaviour
                 gemsPurchased = 15;
                 break;
         }
-        b_confirm.onClick.AddListener(() => { confirmPurchasePanel.SetActive(false); OpenThankYouPanel(gemsPurchased); });
+        b_confirm.onClick.AddListener(() => { PlaySoundEffect("click_button"); confirmPurchasePanel.SetActive(false); OpenThankYouPanel(gemsPurchased); });
     }
 
     private void OpenThankYouPanel(int gemsPurchased)
@@ -366,37 +373,47 @@ public class MenuUIManager : MonoBehaviour
     private void AddListeners()
     {
         //Main Menu Buttons
-        b_play.onClick.AddListener(() => StartCoroutine(LoadMenuAfterWait(mainMenu, 0.23f)));
-        b_settings.onClick.AddListener(() => goToSettings(mainMenu));
+        b_play.onClick.AddListener(() => { PlaySoundEffect("click_button"); StartCoroutine(LoadMenuAfterWait(mainMenu, 0.23f)); });
+        b_settings.onClick.AddListener(() => { PlaySoundEffect("click_button"); goToSettings(mainMenu); });
 
         //Settings Buttons
-        b_muteSoundEffects.onClick.AddListener(() => updateSoundEffectsState());
-        b_muteMusic.onClick.AddListener(() => updateMusicState());
-        b_backToMenu_settings.onClick.AddListener(() => { goToMainMenu(settings); });
-        b_language_left.onClick.AddListener(() => { UpdateLanguage(); });
-        b_language_right.onClick.AddListener(() => { UpdateLanguage(); });
+        b_muteSoundEffects.onClick.AddListener(() => { PlaySoundEffect("click_button"); updateSoundEffectsState(); });
+        b_muteMusic.onClick.AddListener(() => { PlaySoundEffect("click_button"); updateMusicState(); });
+        b_backToMenu_settings.onClick.AddListener(() => { PlaySoundEffect("click_button"); goToMainMenu(settings); });
+        b_language_left.onClick.AddListener(() => { PlaySoundEffect("click_button"); UpdateLanguage(); });
+        b_language_right.onClick.AddListener(() => { PlaySoundEffect("click_button"); UpdateLanguage(); });
 
         //Level Map Buttons
-        b_store.onClick.AddListener(() => { goToStore(levelsMap); isInLevelsMap = false; });
-        b_backToMenu_levelsMap.onClick.AddListener(() => { goToMainMenu(levelsMap); isInLevelsMap = false; });
-        b_backToLevelMap.onClick.AddListener(() => { ActivateLevelPanel(false); });
+        b_store.onClick.AddListener(() => { PlaySoundEffect("click_button"); goToStore(levelsMap); isInLevelsMap = false; });
+        b_backToMenu_levelsMap.onClick.AddListener(() => { PlaySoundEffect("click_button"); goToMainMenu(levelsMap); isInLevelsMap = false; });
+        b_backToLevelMap.onClick.AddListener(() => { PlaySoundEffect("click_button"); ActivateLevelPanel(false); });
 
         //Store Buttons
-        b_purchase_5gems.onClick.AddListener(() => { OpenPurchasePanel("5_Gems"); });
-        b_purchase_10gems.onClick.AddListener(() => { OpenPurchasePanel("10_Gems"); });
-        b_purchase_15gems.onClick.AddListener(() => { OpenPurchasePanel("15_Gems"); });
-        b_cancel.onClick.AddListener(() => 
+        b_purchase_5gems.onClick.AddListener(() => { PlaySoundEffect("click_button"); OpenPurchasePanel("5_Gems"); });
+        b_purchase_10gems.onClick.AddListener(() => { PlaySoundEffect("click_button"); OpenPurchasePanel("10_Gems"); });
+        b_purchase_15gems.onClick.AddListener(() => { PlaySoundEffect("click_button"); OpenPurchasePanel("15_Gems"); });
+        b_cancel.onClick.AddListener(() =>
         {
+            PlaySoundEffect("click_button");
             b_confirm.onClick.RemoveAllListeners();
             confirmPurchasePanel.SetActive(false);
             trasparentPanel_store.SetActive(false);
         });
         b_back_store.onClick.AddListener(() =>
         {
+            PlaySoundEffect("click_button");
             b_confirm.onClick.RemoveAllListeners();
             thankYouForPurchase.SetActive(false);
             trasparentPanel_store.SetActive(false);
         });
-        b_backToMenu_store.onClick.AddListener(() => { goToLevelsMap(store); });
+        b_backToMenu_store.onClick.AddListener(() => { PlaySoundEffect("click_button"); goToLevelsMap(store); });
+    }
+
+    private void PlaySoundEffect(string name)
+    {
+        if (!soundEffectsMuted)
+        {
+            m_soundManager.Play_SoundEffect(name);
+        }
     }
 }

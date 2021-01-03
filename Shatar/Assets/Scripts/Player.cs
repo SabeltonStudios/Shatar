@@ -58,7 +58,7 @@ public class Player : MonoBehaviour
         Debug.Log("Deshacer movimiento");
         numMovs++;
         node.UndrawAdjacencies();
-        node.pieza = null;
+        node.pieza= null;
 
         //Añadir el nuevo nodo, mover hacia él
         node = previousNode;

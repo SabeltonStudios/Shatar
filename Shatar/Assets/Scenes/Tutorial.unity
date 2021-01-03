@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.9160112, g: 0.604576, b: 0.41097936, a: 1}
+  m_IndirectSpecularColor: {r: 0.9160112, g: 0.60457623, b: 0.41097924, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -153,7 +153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 1, z: 0}
   adjacencies:
-  - {fileID: 1363736252}
+  - {fileID: 0}
   - {fileID: 453761642}
   - {fileID: 925780369}
   - {fileID: 1363736252}
@@ -161,6 +161,7 @@ MonoBehaviour:
   - {fileID: 130468479}
   - {fileID: 1494025565}
   - {fileID: 1612768158}
+  adjacencieNoAlcanzable: 0100000100010000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
@@ -264,7 +265,8 @@ MonoBehaviour:
   - {fileID: 1822848349}
   - {fileID: 2031163530}
   - {fileID: 1152957722}
-  - {fileID: 1822848349}
+  - {fileID: 0}
+  adjacencieNoAlcanzable: 0000010001010101
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
@@ -369,6 +371,7 @@ MonoBehaviour:
   - {fileID: 220507153}
   - {fileID: 1591035969}
   - {fileID: 2030051753}
+  adjacencieNoAlcanzable: 0000000000010101
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
@@ -470,9 +473,10 @@ MonoBehaviour:
   - {fileID: 1612768158}
   - {fileID: 1011071948}
   - {fileID: 73180688}
-  - {fileID: 1011071948}
+  - {fileID: 0}
   - {fileID: 220507153}
   - {fileID: 1591035969}
+  adjacencieNoAlcanzable: 0100000100000101
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
@@ -571,12 +575,13 @@ MonoBehaviour:
   adjacencies:
   - {fileID: 1608114731}
   - {fileID: 866818574}
-  - {fileID: 866818574}
+  - {fileID: 0}
   - {fileID: 698898685}
   - {fileID: 583148327}
   - {fileID: 1318246716}
   - {fileID: 1361471617}
   - {fileID: 121549898}
+  adjacencieNoAlcanzable: 0101010001000001
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
@@ -681,6 +686,7 @@ MonoBehaviour:
   - {fileID: 1459646502}
   - {fileID: 574635046}
   - {fileID: 2108450924}
+  adjacencieNoAlcanzable: 0101010000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
@@ -791,6 +797,7 @@ MonoBehaviour:
   - {fileID: 34053414}
   - {fileID: 1363736252}
   - {fileID: 1608114731}
+  adjacencieNoAlcanzable: 0100000100010000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
@@ -930,7 +937,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: 1}
   adjacencies:
-  - {fileID: 1011071948}
+  - {fileID: 0}
   - {fileID: 89188031}
   - {fileID: 73180688}
   - {fileID: 1011071948}
@@ -938,6 +945,7 @@ MonoBehaviour:
   - {fileID: 1880425321}
   - {fileID: 1234646482}
   - {fileID: 1984126393}
+  adjacencieNoAlcanzable: 0101010000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
@@ -1098,9 +1106,10 @@ MonoBehaviour:
   - {fileID: 574635046}
   - {fileID: 2102045512}
   - {fileID: 1579174796}
-  - {fileID: 2102045512}
+  - {fileID: 0}
   - {fileID: 1890605509}
   - {fileID: 1798686516}
+  adjacencieNoAlcanzable: 0000000000010000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
@@ -1197,7 +1206,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: -1}
   adjacencies:
-  - {fileID: 1363736252}
+  - {fileID: 0}
   - {fileID: 1363736252}
   - {fileID: 1608114731}
   - {fileID: 34053414}
@@ -1205,6 +1214,7 @@ MonoBehaviour:
   - {fileID: 1248980939}
   - {fileID: 925780369}
   - {fileID: 1318246716}
+  adjacencieNoAlcanzable: 0101010000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
@@ -1401,7 +1411,8 @@ MonoBehaviour:
   - {fileID: 853512199}
   - {fileID: 1798686516}
   - {fileID: 1406844278}
-  - {fileID: 853512199}
+  - {fileID: 0}
+  adjacencieNoAlcanzable: 0000010001000001
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
@@ -1506,6 +1517,7 @@ MonoBehaviour:
   - {fileID: 343618972}
   - {fileID: 1579174796}
   - {fileID: 527955738}
+  adjacencieNoAlcanzable: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
@@ -1604,12 +1616,13 @@ MonoBehaviour:
   adjacencies:
   - {fileID: 1361471617}
   - {fileID: 114931607}
-  - {fileID: 866818574}
+  - {fileID: 0}
   - {fileID: 121549898}
   - {fileID: 866818574}
   - {fileID: 574635046}
   - {fileID: 2108450924}
   - {fileID: 1677798317}
+  adjacencieNoAlcanzable: 0101010000000001
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
@@ -1773,6 +1786,7 @@ MonoBehaviour:
   - {fileID: 966044936}
   - {fileID: 2031163530}
   - {fileID: 1152957722}
+  adjacencieNoAlcanzable: 0000000000010101
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
@@ -1877,6 +1891,7 @@ MonoBehaviour:
   - {fileID: 925780369}
   - {fileID: 1318246716}
   - {fileID: 1361471617}
+  adjacencieNoAlcanzable: 0101010000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
@@ -2311,12 +2326,13 @@ MonoBehaviour:
   adjacencies:
   - {fileID: 1234646482}
   - {fileID: 1406844278}
-  - {fileID: 527955738}
+  - {fileID: 0}
   - {fileID: 1880425321}
   - {fileID: 527955738}
   - {fileID: 1863031886}
   - {fileID: 1677798317}
   - {fileID: 2108450924}
+  adjacencieNoAlcanzable: 0000010001000001
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
@@ -2513,7 +2529,8 @@ MonoBehaviour:
   - {fileID: 583148327}
   - {fileID: 698898685}
   - {fileID: 114931607}
-  - {fileID: 583148327}
+  - {fileID: 0}
+  adjacencieNoAlcanzable: 0000010001010101
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
@@ -2577,6 +2594,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 866818573}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &875177306 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 5739c46c30ce87f46bff09f258025862,
+    type: 3}
+  m_PrefabInstance: {fileID: 1608093751}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &888958601
 GameObject:
   m_ObjectHideFlags: 0
@@ -2677,6 +2700,7 @@ MonoBehaviour:
   - {fileID: 1129958113}
   - {fileID: 1648036667}
   - {fileID: 2140914198}
+  adjacencieNoAlcanzable: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
@@ -2874,6 +2898,7 @@ MonoBehaviour:
   - {fileID: 1822848349}
   - {fileID: 1152957722}
   - {fileID: 2031163530}
+  adjacencieNoAlcanzable: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
@@ -3060,7 +3085,8 @@ MonoBehaviour:
   - {fileID: 2110284989}
   - {fileID: 644779085}
   - {fileID: 1835838005}
-  - {fileID: 1835838005}
+  - {fileID: 0}
+  adjacencieNoAlcanzable: 0000010001010101
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
@@ -3157,7 +3183,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 1, y: 0, z: 0}
   adjacencies:
-  - {fileID: 89188031}
+  - {fileID: 0}
   - {fileID: 220507153}
   - {fileID: 1234646482}
   - {fileID: 89188031}
@@ -3165,6 +3191,7 @@ MonoBehaviour:
   - {fileID: 1494025565}
   - {fileID: 130468479}
   - {fileID: 1863031886}
+  adjacencieNoAlcanzable: 0100000100010000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
@@ -3275,6 +3302,7 @@ MonoBehaviour:
   - {fileID: 2110284989}
   - {fileID: 1835838005}
   - {fileID: 644779085}
+  adjacencieNoAlcanzable: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
@@ -3376,9 +3404,10 @@ MonoBehaviour:
   - {fileID: 1318246716}
   - {fileID: 1822848349}
   - {fileID: 2031163530}
-  - {fileID: 36538139}
+  - {fileID: 0}
   - {fileID: 36538139}
   - {fileID: 644779085}
+  adjacencieNoAlcanzable: 0000000000010101
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
@@ -3477,12 +3506,13 @@ MonoBehaviour:
   adjacencies:
   - {fileID: 1531088088}
   - {fileID: 2030051753}
-  - {fileID: 1935873503}
+  - {fileID: 0}
   - {fileID: 894251126}
   - {fileID: 1935873503}
   - {fileID: 1648036667}
   - {fileID: 2140914198}
   - {fileID: 1882930360}
+  adjacencieNoAlcanzable: 0000010001000001
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
@@ -3587,6 +3617,7 @@ MonoBehaviour:
   - {fileID: 853512199}
   - {fileID: 1406844278}
   - {fileID: 1798686516}
+  adjacencieNoAlcanzable: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
@@ -3691,6 +3722,7 @@ MonoBehaviour:
   - {fileID: 1494025565}
   - {fileID: 1612768158}
   - {fileID: 1882930360}
+  adjacencieNoAlcanzable: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
@@ -3898,6 +3930,7 @@ MonoBehaviour:
   - {fileID: 1152957722}
   - {fileID: 2031163530}
   - {fileID: 966044936}
+  adjacencieNoAlcanzable: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
@@ -4002,6 +4035,7 @@ MonoBehaviour:
   - {fileID: 2031163530}
   - {fileID: 966044936}
   - {fileID: 2110284989}
+  adjacencieNoAlcanzable: 0000010001000001
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
@@ -4103,9 +4137,10 @@ MonoBehaviour:
   - {fileID: 1863031886}
   - {fileID: 34053414}
   - {fileID: 1608114731}
-  - {fileID: 34053414}
+  - {fileID: 0}
   - {fileID: 453761642}
   - {fileID: 698898685}
+  adjacencieNoAlcanzable: 0100000100010101
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
@@ -4200,6 +4235,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   node: {fileID: 1011071948}
   tipoPieza: 1
+  playerChange: 0
   apertura: 0
   ID: 0
   turno: 0
@@ -4261,9 +4297,10 @@ MonoBehaviour:
   - {fileID: 1984126393}
   - {fileID: 853512199}
   - {fileID: 1798686516}
-  - {fileID: 853512199}
+  - {fileID: 0}
   - {fileID: 527955738}
   - {fileID: 1579174796}
+  adjacencieNoAlcanzable: 0000000000010000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
@@ -4504,13 +4541,33 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -1504981713932161579, guid: 836eb5b2fde0c6b48aa145dd5d8e7cc2,
         type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -1504981713932161579, guid: 836eb5b2fde0c6b48aa145dd5d8e7cc2,
+        type: 3}
       propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3c95f852f1b8e53458b8f4a446c0f6e6, type: 2}
+    - target: {fileID: -1504981713932161579, guid: 836eb5b2fde0c6b48aa145dd5d8e7cc2,
+        type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1504981713932161579, guid: 836eb5b2fde0c6b48aa145dd5d8e7cc2,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: 3c95f852f1b8e53458b8f4a446c0f6e6, type: 2}
     - target: {fileID: -927199367670048503, guid: 836eb5b2fde0c6b48aa145dd5d8e7cc2,
         type: 3}
       propertyPath: m_Name
       value: Pawn
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 836eb5b2fde0c6b48aa145dd5d8e7cc2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 836eb5b2fde0c6b48aa145dd5d8e7cc2, type: 3}
@@ -4555,6 +4612,7 @@ MonoBehaviour:
   - {fileID: 2102045512}
   - {fileID: 343618972}
   - {fileID: 1579174796}
+  adjacencieNoAlcanzable: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
@@ -4696,6 +4754,7 @@ MonoBehaviour:
   - {fileID: 1011071948}
   - {fileID: 89188031}
   - {fileID: 73180688}
+  adjacencieNoAlcanzable: 0100000100010000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
@@ -4806,6 +4865,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1830624340}
+  - {fileID: 875177306}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4850,6 +4910,7 @@ MonoBehaviour:
   - {fileID: 1798686516}
   - {fileID: 1890605509}
   - {fileID: 2102045512}
+  adjacencieNoAlcanzable: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
@@ -4954,6 +5015,7 @@ MonoBehaviour:
   - {fileID: 1890605509}
   - {fileID: 1798686516}
   - {fileID: 1406844278}
+  adjacencieNoAlcanzable: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
@@ -5152,6 +5214,7 @@ MonoBehaviour:
   - {fileID: 1234646482}
   - {fileID: 1984126393}
   - {fileID: 1531088088}
+  adjacencieNoAlcanzable: 0101010000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
@@ -5215,6 +5278,95 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1591035968}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &1608093751
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1501000197}
+    m_Modifications:
+    - target: {fileID: -4216859302048453862, guid: 5739c46c30ce87f46bff09f258025862,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 5739c46c30ce87f46bff09f258025862,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 5739c46c30ce87f46bff09f258025862,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 5739c46c30ce87f46bff09f258025862,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.000000021855694
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 5739c46c30ce87f46bff09f258025862,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.00000004371139
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 5739c46c30ce87f46bff09f258025862,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 1.0165751e-15
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 5739c46c30ce87f46bff09f258025862,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 5739c46c30ce87f46bff09f258025862,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 5739c46c30ce87f46bff09f258025862,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 5739c46c30ce87f46bff09f258025862,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 5739c46c30ce87f46bff09f258025862,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 5739c46c30ce87f46bff09f258025862,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 5739c46c30ce87f46bff09f258025862,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 5739c46c30ce87f46bff09f258025862,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 5739c46c30ce87f46bff09f258025862,
+        type: 3}
+      propertyPath: m_Name
+      value: Horse
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 5739c46c30ce87f46bff09f258025862,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5739c46c30ce87f46bff09f258025862, type: 3}
 --- !u!1 &1608114730
 GameObject:
   m_ObjectHideFlags: 0
@@ -5256,6 +5408,7 @@ MonoBehaviour:
   - {fileID: 453761642}
   - {fileID: 698898685}
   - {fileID: 114931607}
+  adjacencieNoAlcanzable: 0000000000010101
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
@@ -5360,6 +5513,7 @@ MonoBehaviour:
   - {fileID: 89188031}
   - {fileID: 73180688}
   - {fileID: 1935873503}
+  adjacencieNoAlcanzable: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
@@ -5557,6 +5711,7 @@ MonoBehaviour:
   - {fileID: 1835838005}
   - {fileID: 644779085}
   - {fileID: 36538139}
+  adjacencieNoAlcanzable: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
@@ -5661,6 +5816,7 @@ MonoBehaviour:
   - {fileID: 1608114731}
   - {fileID: 866818574}
   - {fileID: 583148327}
+  adjacencieNoAlcanzable: 0000010001000001
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
@@ -5798,6 +5954,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   node: {fileID: 453761642}
   tipoPieza: 1
+  playerChange: 3
   apertura: 0
   ID: 0
   turno: 0
@@ -5860,6 +6017,7 @@ MonoBehaviour:
   - {fileID: 527955738}
   - {fileID: 1579174796}
   - {fileID: 343618972}
+  adjacencieNoAlcanzable: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
@@ -5958,12 +6116,13 @@ MonoBehaviour:
   adjacencies:
   - {fileID: 925780369}
   - {fileID: 1152957722}
-  - {fileID: 36538139}
+  - {fileID: 0}
   - {fileID: 1248980939}
   - {fileID: 36538139}
   - {fileID: 1612768158}
   - {fileID: 1882930360}
   - {fileID: 2140914198}
+  adjacencieNoAlcanzable: 0000010001000001
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
@@ -6071,9 +6230,10 @@ MonoBehaviour:
   - {fileID: 1648036667}
   - {fileID: 2110284989}
   - {fileID: 644779085}
-  - {fileID: 2110284989}
+  - {fileID: 0}
   - {fileID: 966044936}
   - {fileID: 2031163530}
+  adjacencieNoAlcanzable: 0000000000010101
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
@@ -6272,6 +6432,7 @@ MonoBehaviour:
   - {fileID: 1363736252}
   - {fileID: 1608114731}
   - {fileID: 866818574}
+  adjacencieNoAlcanzable: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
@@ -6376,6 +6537,7 @@ MonoBehaviour:
   - {fileID: 130468479}
   - {fileID: 1863031886}
   - {fileID: 1677798317}
+  adjacencieNoAlcanzable: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
@@ -6480,6 +6642,7 @@ MonoBehaviour:
   - {fileID: 73180688}
   - {fileID: 1935873503}
   - {fileID: 1206409369}
+  adjacencieNoAlcanzable: 0000010001000001
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
@@ -6583,7 +6746,8 @@ MonoBehaviour:
   - {fileID: 2102045512}
   - {fileID: 1579174796}
   - {fileID: 343618972}
-  - {fileID: 2102045512}
+  - {fileID: 0}
+  adjacencieNoAlcanzable: 0000000000000001
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
@@ -6687,7 +6851,8 @@ MonoBehaviour:
   - {fileID: 1206409369}
   - {fileID: 1591035969}
   - {fileID: 2030051753}
-  - {fileID: 1206409369}
+  - {fileID: 0}
+  adjacencieNoAlcanzable: 0000010001010101
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
@@ -6885,6 +7050,7 @@ MonoBehaviour:
   - {fileID: 1406844278}
   - {fileID: 1798686516}
   - {fileID: 1890605509}
+  adjacencieNoAlcanzable: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
@@ -6994,6 +7160,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   node: {fileID: 866818574}
   tipoPieza: 1
+  playerChange: 0
   apertura: 0
   ID: 0
   turno: 0
@@ -7033,6 +7200,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   node: {fileID: 853512199}
   tipoPieza: 1
+  playerChange: 0
   apertura: 0
   ID: 0
   turno: 0
@@ -7091,12 +7259,13 @@ MonoBehaviour:
   adjacencies:
   - {fileID: 73180688}
   - {fileID: 1935873503}
-  - {fileID: 1206409369}
+  - {fileID: 0}
   - {fileID: 1591035969}
   - {fileID: 1206409369}
   - {fileID: 1984126393}
   - {fileID: 1531088088}
   - {fileID: 894251126}
+  adjacencieNoAlcanzable: 0101010000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
@@ -7201,6 +7370,7 @@ MonoBehaviour:
   - {fileID: 36538139}
   - {fileID: 644779085}
   - {fileID: 1835838005}
+  adjacencieNoAlcanzable: 0000000000010101
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
@@ -7639,7 +7809,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: -1, y: 0, z: 0}
   adjacencies:
-  - {fileID: 343618972}
+  - {fileID: 0}
   - {fileID: 1890605509}
   - {fileID: 1531088088}
   - {fileID: 343618972}
@@ -7647,6 +7817,7 @@ MonoBehaviour:
   - {fileID: 1459646502}
   - {fileID: 1129958113}
   - {fileID: 1648036667}
+  adjacencieNoAlcanzable: 0100000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
@@ -7751,6 +7922,7 @@ MonoBehaviour:
   - {fileID: 1579174796}
   - {fileID: 527955738}
   - {fileID: 853512199}
+  adjacencieNoAlcanzable: 0000010001000001
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
@@ -7847,7 +8019,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: -1, z: 0}
   adjacencies:
-  - {fileID: 1835838005}
+  - {fileID: 0}
   - {fileID: 966044936}
   - {fileID: 1361471617}
   - {fileID: 1835838005}
@@ -7855,6 +8027,7 @@ MonoBehaviour:
   - {fileID: 1129958113}
   - {fileID: 1459646502}
   - {fileID: 574635046}
+  adjacencieNoAlcanzable: 0101010000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
@@ -7959,6 +8132,7 @@ MonoBehaviour:
   - {fileID: 644779085}
   - {fileID: 36538139}
   - {fileID: 1822848349}
+  adjacencieNoAlcanzable: 0000010001000001
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}

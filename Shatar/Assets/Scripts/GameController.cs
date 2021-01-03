@@ -48,8 +48,23 @@ public class GameController : MonoBehaviour
     }
     public void destruirEnemigo(GameObject pieza)
     {
+        player.tipoPieza = pieza.GetComponent<Enemie>().playerChange;
         enemigos.Remove(pieza.GetComponent<Enemie>());
         Destroy(pieza);
+        GameObject child;
+        player.transform.GetChild(0).gameObject.SetActive(false);
+        player.transform.GetChild(1).gameObject.SetActive(false);
+        switch (player.tipoPieza)
+        {
+            case TipoPieza.PEON:
+                player.transform.GetChild(0).gameObject.SetActive(true);
+                break;
+            case TipoPieza.CABALLO:
+                player.transform.GetChild(1).gameObject.SetActive(true);
+                break;
+            default:
+                break;
+        }
     }
     //Enumator empleado para mover las piezas suavemente
     public IEnumerator MoveOverSeconds(GameObject objectToMove, Node end, float seconds, bool player, Node previo)

@@ -184,7 +184,7 @@ public class MenuUIManager : MonoBehaviour
         switch (levelNumber)
         {
             case 0:
-                b_playLevel.onClick.AddListener(() => { PlaySoundEffect("click_button"); LoadScene("SampleScene"); });
+                b_playLevel.onClick.AddListener(() => { PlaySoundEffect("click_button"); LoadScene("Tutorial"); });
                 break;
             case 1:
                 //b_playLevel.onClick.AddListener(() => { PlaySoundEffect("click_button"); LoadScene("Level1"); });

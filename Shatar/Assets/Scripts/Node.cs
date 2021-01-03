@@ -74,6 +74,14 @@ public class Node : MonoBehaviour
                 {
                     seleccionables.Add(adjacencies[1].adjacencies[1]);
                 }
+                if (adjacencies[0].pieza != null)
+                {
+                    seleccionables.Add(adjacencies[0]);
+                }
+                if(adjacencies[2].pieza != null)
+                {
+                    seleccionables.Add(adjacencies[2]);
+                }
                 break;
 
             case TipoPieza.ALFIL:
@@ -222,6 +230,7 @@ public class Node : MonoBehaviour
             //n.GetComponent<MeshRenderer>().material.color = color;
             n.GetComponent<MeshRenderer>().material.EnableKeyword("_EMISSION");
             n.GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", color);
+            n.GetComponent<MeshRenderer>().material.color = color;
             n.seleccionable = true;
         }
     }
@@ -230,7 +239,7 @@ public class Node : MonoBehaviour
         foreach(Node nodo in seleccionables)
         {
             nodo.GetComponent<MeshRenderer>().material.DisableKeyword("_EMISSION");
-            //nodo.GetComponent<MeshRenderer>().material.color = Color.white;
+            nodo.GetComponent<MeshRenderer>().material.color = Color.white;
         }
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    [SerializeField]
+    bool enabledMov = true;
 
 
     // Start is called before the first frame update
@@ -16,6 +16,42 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.RotateAround(Vector3.zero, Vector3.up, 20 * Time.deltaTime);
+        if (enabledMov)
+        {
+            if (Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+                StartCoroutine(rotateSmooth(new Vector3(0, 90, 0), 1));
+            }
+            else if (Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                if (transform.rotation.eulerAngles.x == 290)
+                {
+                    StartCoroutine(rotateSmooth(new Vector3(70, 0, 0), 1));
+                }
+            }else if (Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                if (transform.rotation.eulerAngles.x == 0) {
+                    StartCoroutine(rotateSmooth(new Vector3(-70, 0, 0), 1));
+                }
+            }else if (Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                StartCoroutine(rotateSmooth(new Vector3(0, -90, 0), 1));
+            }
+        }
+    }
+    IEnumerator rotateSmooth(Vector3 angle, float seconds)
+    {
+        enabledMov = false;
+        float elapsedTime = 0;
+        Vector3 startingRot = transform.rotation.eulerAngles;
+        Vector3 end = transform.rotation.eulerAngles+angle;
+        while (elapsedTime < seconds)
+        {
+            transform.rotation = Quaternion.Euler(Vector3.Lerp(startingRot, end, (elapsedTime / seconds)));
+            elapsedTime += Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
+        transform.rotation = Quaternion.Euler(end);
+        enabledMov = true;
     }
 }

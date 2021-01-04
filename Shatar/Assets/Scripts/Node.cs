@@ -507,46 +507,40 @@ public class Node : MonoBehaviour
     private void orientarAdjacencies(Node adyacencia)
     {
         //Calcular ángulo
-        
-       
-        if(adyacencia!= null)
+        if (adyacencia != null)
         {
-            int angulo = 0;
-            Transform transformAdy = Instantiate(adyacencia.transform, adyacencia.transform.position, adyacencia.transform.rotation);
-            Vector3 diferenciaNormal = this.orientation - adyacencia.orientation;
-            if (!adyacencia.orientation.Equals(this.orientation))
-            {
-                Debug.Log("no es igual");
-            }
-            transformAdy.rotation = Quaternion.Euler(adyacencia.orientation + diferenciaNormal);
-            float calculoAngulo = Vector3.Angle(this.transform.forward, transformAdy.forward);
-            angulo = (int)calculoAngulo;
-            if (calculoAngulo > 0)
-            {
-                Debug.Log("orientando");
-            }
-            switch (angulo)
-            {
-                case 0:
-                    adjacenciesOrientadas = adjacencies;
-                    adjacencieNoAlcanzableOrientada = adjacencieNoAlcanzable;
-                    break;
-                case 89:
-                    adjacenciesOrientadas = adjacencies90;
-                    adjacencieNoAlcanzableOrientada = adjacencieNoAlcanzable90;
-                    break;
-                case 180:
-                    adjacenciesOrientadas = adjacencies180;
-                    adjacencieNoAlcanzableOrientada = adjacencieNoAlcanzable180;
-                    break;
-                case 270:
-                    adjacenciesOrientadas = adjacencies270;
-                    adjacencieNoAlcanzableOrientada = adjacencieNoAlcanzable270;
-                    break;
-                default:
-                    break;
+            Vector3 ady = adyacencia.orientation;
+            Vector3 diferenciaNormal = this.transform.up - adyacencia.transform.up;
+            diferenciaNormal = diferenciaNormal * 90;
+            ady = Quaternion.Euler(diferenciaNormal) * ady;
+            float angle = Vector3.Angle(this.orientation, ady);
+            float sign = Mathf.Sign(Vector3.Dot(this.transform.up, Vector3.Cross(this.orientation, ady)));
+            float signed_angle = angle * sign;
+            float angle360 = (signed_angle + 180) % 360;
+            int angulo = (int)angle360;
 
+            //Orienta las caras
+            if (angulo < 5)
+            {
+                adjacenciesOrientadas = adjacencies;
+                adjacencieNoAlcanzableOrientada = adjacencieNoAlcanzable;
             }
+            else if (angulo > 85 && angulo < 95)
+            {
+                adjacenciesOrientadas = adjacencies90;
+                adjacencieNoAlcanzableOrientada = adjacencieNoAlcanzable90;
+            }
+            else if (angulo > 175 && angulo < 185)
+            {
+                adjacenciesOrientadas = adjacencies180;
+                adjacencieNoAlcanzableOrientada = adjacencieNoAlcanzable180;
+            }
+            else if (angulo > 265 && angulo < 275)
+            {
+                adjacenciesOrientadas = adjacencies270;
+                adjacencieNoAlcanzableOrientada = adjacencieNoAlcanzable270;
+            }
+
         }
     }
 }

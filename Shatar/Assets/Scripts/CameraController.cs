@@ -20,23 +20,46 @@ public class CameraController : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
-                StartCoroutine(rotateSmooth(new Vector3(0, 90, 0), 1));
+                turnLeft();
             }
             else if (Input.GetKeyDown(KeyCode.UpArrow))
             {
-                if (transform.rotation.eulerAngles.x == 290)
-                {
-                    StartCoroutine(rotateSmooth(new Vector3(70, 0, 0), 1));
-                }
+                turnUp();
             }else if (Input.GetKeyDown(KeyCode.DownArrow))
             {
-                if (transform.rotation.eulerAngles.x == 0) {
-                    StartCoroutine(rotateSmooth(new Vector3(-70, 0, 0), 1));
-                }
+                turnDown();
             }else if (Input.GetKeyDown(KeyCode.RightArrow))
             {
-                StartCoroutine(rotateSmooth(new Vector3(0, -90, 0), 1));
+                turnRight();
             }
+        }
+    }
+    public void turnRight()
+    {
+        if (enabledMov)
+        {
+            StartCoroutine(rotateSmooth(new Vector3(0, -90, 0), 1));
+        }
+    }
+    public void turnLeft()
+    {
+        if (enabledMov)
+        {
+            StartCoroutine(rotateSmooth(new Vector3(0, 90, 0), 1));
+        }
+    }
+    public void turnUp()
+    {
+        if (transform.rotation.eulerAngles.x == 290 && enabledMov)
+        {
+            StartCoroutine(rotateSmooth(new Vector3(70, 0, 0), 1));
+        }
+    }
+    public void turnDown()
+    {
+        if (transform.rotation.eulerAngles.x == 0&& enabledMov)
+        {
+            StartCoroutine(rotateSmooth(new Vector3(-70, 0, 0), 1));
         }
     }
     IEnumerator rotateSmooth(Vector3 angle, float seconds)

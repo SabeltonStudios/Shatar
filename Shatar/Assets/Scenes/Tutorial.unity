@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.9160112, g: 0.60457623, b: 0.41097924, a: 1}
+  m_IndirectSpecularColor: {r: 0.9160112, g: 0.604576, b: 0.41097936, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -152,6 +152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 1, z: 0}
+  isGoal: 0
   adjacencies:
   - {fileID: 0}
   - {fileID: 453761642}
@@ -257,6 +258,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: -1, y: 0, z: 0}
+  isGoal: 0
   adjacencies:
   - {fileID: 1648036667}
   - {fileID: 2140914198}
@@ -362,6 +364,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 1, z: 0}
+  isGoal: 0
   adjacencies:
   - {fileID: 1494025565}
   - {fileID: 1612768158}
@@ -467,6 +470,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 1, z: 0}
+  isGoal: 0
   adjacencies:
   - {fileID: 130468479}
   - {fileID: 1494025565}
@@ -572,6 +576,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: -1}
+  isGoal: 0
   adjacencies:
   - {fileID: 1608114731}
   - {fileID: 866818574}
@@ -677,6 +682,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: -1, z: 0}
+  isGoal: 0
   adjacencies:
   - {fileID: 966044936}
   - {fileID: 1361471617}
@@ -788,6 +794,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 1, y: 0, z: 0}
+  isGoal: 0
   adjacencies:
   - {fileID: 89188031}
   - {fileID: 1011071948}
@@ -904,6 +911,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 990df5ec155b6074f927e038c35d06f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxMovs: 25
 --- !u!1 &220507152
 GameObject:
   m_ObjectHideFlags: 0
@@ -936,6 +944,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: 1}
+  isGoal: 0
   adjacencies:
   - {fileID: 0}
   - {fileID: 89188031}
@@ -1066,7 +1075,7 @@ Transform:
   - {fileID: 1011071949}
   - {fileID: 1880425322}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 90}
 --- !u!1 &343618971
 GameObject:
@@ -1100,6 +1109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: -1, z: 0}
+  isGoal: 0
   adjacencies:
   - {fileID: 1129958113}
   - {fileID: 1459646502}
@@ -1205,6 +1215,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: -1}
+  isGoal: 0
   adjacencies:
   - {fileID: 0}
   - {fileID: 1363736252}
@@ -1403,6 +1414,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: -1, z: 0}
+  isGoal: 0
   adjacencies:
   - {fileID: 574635046}
   - {fileID: 2108450924}
@@ -1508,6 +1520,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: -1, z: 0}
+  isGoal: 0
   adjacencies:
   - {fileID: 2110284989}
   - {fileID: 121549898}
@@ -1613,6 +1626,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: -1, z: 0}
+  isGoal: 0
   adjacencies:
   - {fileID: 1361471617}
   - {fileID: 114931607}
@@ -1743,7 +1757,7 @@ Transform:
   - {fileID: 2030051754}
   - {fileID: 1591035970}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 89.99999, z: 89.99999}
 --- !u!1 &644779084
 GameObject:
@@ -1777,6 +1791,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: -1, y: 0, z: 0}
+  isGoal: 0
   adjacencies:
   - {fileID: 1129958113}
   - {fileID: 1648036667}
@@ -1882,6 +1897,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: -1}
+  isGoal: 0
   adjacencies:
   - {fileID: 1363736252}
   - {fileID: 1608114731}
@@ -2289,7 +2305,7 @@ Transform:
   - {fileID: 453761643}
   - {fileID: 698898686}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 90, y: 90.00001, z: 90.00001}
 --- !u!1 &853512198
 GameObject:
@@ -2323,6 +2339,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 1, y: 0, z: 0}
+  isGoal: 0
   adjacencies:
   - {fileID: 1234646482}
   - {fileID: 1406844278}
@@ -2521,6 +2538,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 1, y: 0, z: 0}
+  isGoal: 0
   adjacencies:
   - {fileID: 1863031886}
   - {fileID: 1677798317}
@@ -2657,7 +2675,7 @@ Transform:
   - {fileID: 2110284990}
   - {fileID: 121549899}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &894251125
 GameObject:
@@ -2691,6 +2709,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: -1, y: 0, z: 0}
+  isGoal: 0
   adjacencies:
   - {fileID: 1890605509}
   - {fileID: 1531088088}
@@ -2889,6 +2908,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: -1}
+  isGoal: 0
   adjacencies:
   - {fileID: 34053414}
   - {fileID: 453761642}
@@ -3077,6 +3097,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: -1}
+  isGoal: 0
   adjacencies:
   - {fileID: 1318246716}
   - {fileID: 1361471617}
@@ -3182,6 +3203,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 1, y: 0, z: 0}
+  isGoal: 0
   adjacencies:
   - {fileID: 0}
   - {fileID: 220507153}
@@ -3293,6 +3315,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: -1, y: 0, z: 0}
+  isGoal: 0
   adjacencies:
   - {fileID: 343618972}
   - {fileID: 2102045512}
@@ -3398,6 +3421,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: -1}
+  isGoal: 0
   adjacencies:
   - {fileID: 1248980939}
   - {fileID: 925780369}
@@ -3503,6 +3527,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: -1, y: 0, z: 0}
+  isGoal: 0
   adjacencies:
   - {fileID: 1531088088}
   - {fileID: 2030051753}
@@ -3608,6 +3633,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: 1}
+  isGoal: 0
   adjacencies:
   - {fileID: 1011071948}
   - {fileID: 220507153}
@@ -3713,6 +3739,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 1, z: 0}
+  isGoal: 0
   adjacencies:
   - {fileID: 453761642}
   - {fileID: 925780369}
@@ -3816,7 +3843,7 @@ Transform:
   m_Children:
   - {fileID: 963194228}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: -45, z: 0}
 --- !u!114 &1275877757
 MonoBehaviour:
@@ -3887,7 +3914,7 @@ Transform:
   - {fileID: 1206409370}
   - {fileID: 894251127}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 90.00001}
 --- !u!1 &1318246715
 GameObject:
@@ -3921,6 +3948,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: -1}
+  isGoal: 0
   adjacencies:
   - {fileID: 453761642}
   - {fileID: 698898685}
@@ -4026,6 +4054,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: -1}
+  isGoal: 0
   adjacencies:
   - {fileID: 698898685}
   - {fileID: 114931607}
@@ -4131,6 +4160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 1, y: 0, z: 0}
+  isGoal: 0
   adjacencies:
   - {fileID: 1494025565}
   - {fileID: 130468479}
@@ -4291,6 +4321,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: 1}
+  isGoal: 0
   adjacencies:
   - {fileID: 1880425321}
   - {fileID: 1234646482}
@@ -4460,7 +4491,7 @@ Transform:
   m_LocalScale: {x: 29.9, y: 29.9, z: 29.9}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1455211884
 PrefabInstance:
@@ -4603,6 +4634,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: -1, z: 0}
+  isGoal: 0
   adjacencies:
   - {fileID: 1835838005}
   - {fileID: 2110284989}
@@ -4711,7 +4743,7 @@ Transform:
   - {fileID: 912746720}
   - {fileID: 754526493}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1494025564
 GameObject:
@@ -4745,6 +4777,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 1, z: 0}
+  isGoal: 0
   adjacencies:
   - {fileID: 1363736252}
   - {fileID: 34053414}
@@ -4848,6 +4881,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   node: {fileID: 73180688}
+  numMovs: 0
   tipoPieza: 0
   apertura: 1
   distancia: 4
@@ -4901,6 +4935,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: 1}
+  isGoal: 0
   adjacencies:
   - {fileID: 1591035969}
   - {fileID: 2030051753}
@@ -5006,6 +5041,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: -1, z: 0}
+  isGoal: 0
   adjacencies:
   - {fileID: 1459646502}
   - {fileID: 574635046}
@@ -5205,6 +5241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: 1}
+  isGoal: 1
   adjacencies:
   - {fileID: 89188031}
   - {fileID: 73180688}
@@ -5399,6 +5436,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 1, y: 0, z: 0}
+  isGoal: 0
   adjacencies:
   - {fileID: 130468479}
   - {fileID: 1863031886}
@@ -5504,6 +5542,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 1, z: 0}
+  isGoal: 0
   adjacencies:
   - {fileID: 34053414}
   - {fileID: 1248980939}
@@ -5702,6 +5741,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: -1, y: 0, z: 0}
+  isGoal: 0
   adjacencies:
   - {fileID: 2102045512}
   - {fileID: 894251126}
@@ -5807,6 +5847,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 1, y: 0, z: 0}
+  isGoal: 0
   adjacencies:
   - {fileID: 1880425321}
   - {fileID: 853512199}
@@ -5880,49 +5921,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1677798316}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1724011073
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1724011075}
-  - component: {fileID: 1724011074}
-  m_Layer: 0
-  m_Name: CubePlacer
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1724011074
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1724011073}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d732c6464040b54288eb39040d118c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1724011075
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1724011073}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1795618350
 GameObject:
   m_ObjectHideFlags: 0
@@ -6008,6 +6006,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: 1}
+  isGoal: 0
   adjacencies:
   - {fileID: 1234646482}
   - {fileID: 1984126393}
@@ -6113,6 +6112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 1, z: 0}
+  isGoal: 0
   adjacencies:
   - {fileID: 925780369}
   - {fileID: 1152957722}
@@ -6224,6 +6224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: -1, y: 0, z: 0}
+  isGoal: 0
   adjacencies:
   - {fileID: 1459646502}
   - {fileID: 1129958113}
@@ -6423,6 +6424,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 1, y: 0, z: 0}
+  isGoal: 0
   adjacencies:
   - {fileID: 1011071948}
   - {fileID: 1880425321}
@@ -6528,6 +6530,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 1, y: 0, z: 0}
+  isGoal: 0
   adjacencies:
   - {fileID: 220507153}
   - {fileID: 1234646482}
@@ -6633,6 +6636,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 1, z: 0}
+  isGoal: 0
   adjacencies:
   - {fileID: 1248980939}
   - {fileID: 1822848349}
@@ -6738,6 +6742,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: 1}
+  isGoal: 0
   adjacencies:
   - {fileID: 1984126393}
   - {fileID: 1531088088}
@@ -6843,6 +6848,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 1, z: 0}
+  isGoal: 0
   adjacencies:
   - {fileID: 1612768158}
   - {fileID: 1882930360}
@@ -7041,6 +7047,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: 1}
+  isGoal: 0
   adjacencies:
   - {fileID: 220507153}
   - {fileID: 1591035969}
@@ -7256,6 +7263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: 1}
+  isGoal: 0
   adjacencies:
   - {fileID: 73180688}
   - {fileID: 1935873503}
@@ -7361,6 +7369,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: -1}
+  isGoal: 0
   adjacencies:
   - {fileID: 925780369}
   - {fileID: 1318246716}
@@ -7604,7 +7613,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 92ad0b367024a1a43adf0e4f494b439b,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 2000
+      value: 2500
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 92ad0b367024a1a43adf0e4f494b439b,
         type: 3}
@@ -7619,6 +7628,11 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 92ad0b367024a1a43adf0e4f494b439b,
         type: 3}
       propertyPath: m_Name
+      value: Goal
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 92ad0b367024a1a43adf0e4f494b439b,
+        type: 3}
+      propertyPath: m_TagString
       value: Goal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -7774,7 +7788,7 @@ Transform:
   - {fileID: 1822848350}
   - {fileID: 1248980940}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &2102045511
 GameObject:
@@ -7808,6 +7822,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: -1, y: 0, z: 0}
+  isGoal: 0
   adjacencies:
   - {fileID: 0}
   - {fileID: 1890605509}
@@ -7913,6 +7928,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: -1, z: 0}
+  isGoal: 0
   adjacencies:
   - {fileID: 121549898}
   - {fileID: 583148327}
@@ -8018,6 +8034,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: -1, z: 0}
+  isGoal: 0
   adjacencies:
   - {fileID: 0}
   - {fileID: 966044936}
@@ -8123,6 +8140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: -1, y: 0, z: 0}
+  isGoal: 0
   adjacencies:
   - {fileID: 894251126}
   - {fileID: 1206409369}

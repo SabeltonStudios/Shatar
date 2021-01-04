@@ -7,6 +7,9 @@ public class GameController : MonoBehaviour
 {
     List<Enemie> enemigos= new List<Enemie>();
     Player player;
+    [SerializeField]
+    int maxMovs;
+    int numStars;
 
     // Start is called before the first frame update
     void Start()
@@ -67,8 +70,9 @@ public class GameController : MonoBehaviour
         }
     }
     //Enumator empleado para mover las piezas suavemente
-    public IEnumerator MoveOverSeconds(GameObject objectToMove, Node end, float seconds, bool player, Node previo)
+    public IEnumerator MoveOverSeconds(GameObject objectToMove, Node end, float seconds, bool playerBool, Node previo)
     {
+        
         float elapsedTime = 0;
         Vector3 startingPos = objectToMove.transform.position;
         Vector3 startingRot = objectToMove.transform.up;
@@ -81,10 +85,20 @@ public class GameController : MonoBehaviour
         }
         objectToMove.transform.position = end.transform.position;
         objectToMove.transform.up = end.orientation;
-        if (player){
+        if (playerBool)
+        {
+            player.numMovs++;
+            if(player.numMovs>= maxMovs)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }
             if (end.pieza != null)
             {
                 destruirEnemigo(end.pieza);
+            }
+            if (end.isGoal)
+            {
+                Victoria();
             }
             EnemigosTurno();
         }
@@ -97,5 +111,23 @@ public class GameController : MonoBehaviour
             objectToMove.GetComponent<Enemie>().turno = false;
         }
         end.pieza = objectToMove;
+    }
+    private void Victoria()
+    {
+        if (player.numMovs <= 10)
+        {
+            numStars = 3;
+        }else if (player.numMovs < 15)
+        {
+            numStars = 2;
+        }else if (player.numMovs < 20)
+        {
+            numStars = 1;
+        }
+        else
+        {
+            numStars = 0;
+        }
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

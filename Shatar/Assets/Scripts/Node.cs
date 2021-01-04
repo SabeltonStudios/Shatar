@@ -17,7 +17,7 @@ public class Node : MonoBehaviour
 {
     // The normal vector to the node/square
     public Vector3 orientation;
-
+    public bool isGoal;
     // The list of adjacent nodes/squares
     public Node[] adjacencies;
     public bool[] adjacencieNoAlcanzable = new bool[8];

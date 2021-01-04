@@ -1,13 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
     [SerializeField]
     public Node node;
     Node previousNode;
-    int numMovs = 0;
+    public int numMovs = 0;
     [SerializeField]
     public TipoPieza tipoPieza;
 
@@ -80,8 +81,7 @@ public class Player : MonoBehaviour
 
         if(nearD <= distancia)
         {
-            numMovs++;
-            Debug.Log("Número de movimientos: "+numMovs);
+            
             //Eliminar casillas seleccionables anteriores
             node.UndrawAdjacencies();
             node.pieza = null;
@@ -93,5 +93,4 @@ public class Player : MonoBehaviour
             StartCoroutine(gameController.MoveOverSeconds(this.gameObject, node, 1, true, previousNode));
         }
     }
-    
 }

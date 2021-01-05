@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.9160112, g: 0.604576, b: 0.41097936, a: 1}
+  m_IndirectSpecularColor: {r: 0.9160112, g: 0.60457623, b: 0.41097924, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -120,121 +120,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &3218953
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3218954}
-  - component: {fileID: 3218957}
-  - component: {fileID: 3218956}
-  - component: {fileID: 3218955}
-  m_Layer: 0
-  m_Name: Node12
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3218954
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3218953}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.99999994, y: -0.00000038146973, z: 0.00000005960464}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
-  m_Children: []
-  m_Father: {fileID: 644449629}
-  m_RootOrder: 13
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &3218955
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3218953}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 616bc9a3b2994da459afdd56ca8b218d, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
---- !u!33 &3218956
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3218953}
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &3218957
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3218953}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93cc9d9609f104b42b3ed5c6216d3c73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  orientation: {x: 0, y: 0, z: 1}
-  nodeForward: {x: 0, y: 0, z: 0}
-  isGoal: 0
-  adjacencies:
-  - {fileID: 0}
-  - {fileID: 220507153}
-  - {fileID: 1335402796}
-  - {fileID: 0}
-  - {fileID: 1635767455}
-  - {fileID: 0}
-  - {fileID: 764516120}
-  - {fileID: 46237246}
-  adjacencies90: []
-  adjacencies180: []
-  adjacencies270: []
-  adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000001
-  adjacencieNoAlcanzable90: 0000000000000000
-  adjacencieNoAlcanzable180: 0000000000000000
-  adjacencieNoAlcanzable270: 0000000000000000
-  adjacencieNoAlcanzableOrientada: 0000000000000000
-  seleccionables: []
-  seleccionable: 0
-  pieza: {fileID: 0}
 --- !u!4 &4739416 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: e8eb30973a4b2ea419c71d841c0f31c7,
@@ -317,14 +202,8 @@ MonoBehaviour:
   - {fileID: 130468479}
   - {fileID: 1494025565}
   - {fileID: 1612768158}
-  adjacencies90: []
-  adjacencies180: []
-  adjacencies270: []
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0100000100010000
-  adjacencieNoAlcanzable90: 0000000000000000
-  adjacencieNoAlcanzable180: 0000000000000000
-  adjacencieNoAlcanzable270: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -432,14 +311,8 @@ MonoBehaviour:
   - {fileID: 2031163530}
   - {fileID: 1152957722}
   - {fileID: 0}
-  adjacencies90: []
-  adjacencies180: []
-  adjacencies270: []
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0000010001010101
-  adjacencieNoAlcanzable90: 0000000000000000
-  adjacencieNoAlcanzable180: 0000000000000000
-  adjacencieNoAlcanzable270: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -504,121 +377,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 36538138}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &46237245
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 46237247}
-  - component: {fileID: 46237246}
-  - component: {fileID: 46237249}
-  - component: {fileID: 46237248}
-  m_Layer: 0
-  m_Name: Node01
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &46237246
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 46237245}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93cc9d9609f104b42b3ed5c6216d3c73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  orientation: {x: 0, y: 0, z: 1}
-  nodeForward: {x: 0, y: 0, z: 0}
-  isGoal: 0
-  adjacencies:
-  - {fileID: 3218957}
-  - {fileID: 1635767455}
-  - {fileID: 809097531}
-  - {fileID: 764516120}
-  - {fileID: 1890605509}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  adjacencies90: []
-  adjacencies180: []
-  adjacencies270: []
-  adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000001
-  adjacencieNoAlcanzable90: 0000000000000000
-  adjacencieNoAlcanzable180: 0000000000000000
-  adjacencieNoAlcanzable270: 0000000000000000
-  adjacencieNoAlcanzableOrientada: 0000000000000000
-  seleccionables: []
-  seleccionable: 0
-  pieza: {fileID: 0}
---- !u!4 &46237247
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 46237245}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.99999994, y: 0, z: -0.99999994}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
-  m_Children: []
-  m_Father: {fileID: 644449629}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &46237248
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 46237245}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 616bc9a3b2994da459afdd56ca8b218d, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
---- !u!33 &46237249
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 46237245}
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &73180687
 GameObject:
   m_ObjectHideFlags: 0
@@ -662,14 +420,8 @@ MonoBehaviour:
   - {fileID: 220507153}
   - {fileID: 1591035969}
   - {fileID: 2030051753}
-  adjacencies90: []
-  adjacencies180: []
-  adjacencies270: []
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0000000000010101
-  adjacencieNoAlcanzable90: 0000000000000000
-  adjacencieNoAlcanzable180: 0000000000000000
-  adjacencieNoAlcanzable270: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -777,14 +529,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 220507153}
   - {fileID: 1591035969}
-  adjacencies90: []
-  adjacencies180: []
-  adjacencies270: []
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0100000100000101
-  adjacencieNoAlcanzable90: 0000000000000000
-  adjacencieNoAlcanzable180: 0000000000000000
-  adjacencieNoAlcanzable270: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -976,14 +722,8 @@ MonoBehaviour:
   - {fileID: 1318246716}
   - {fileID: 1361471617}
   - {fileID: 121549898}
-  adjacencies90: []
-  adjacencies180: []
-  adjacencies270: []
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0101010001000001
-  adjacencieNoAlcanzable90: 0000000000000000
-  adjacencieNoAlcanzable180: 0000000000000000
-  adjacencieNoAlcanzable270: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -1091,14 +831,8 @@ MonoBehaviour:
   - {fileID: 1459646502}
   - {fileID: 574635046}
   - {fileID: 2108450924}
-  adjacencies90: []
-  adjacencies180: []
-  adjacencies270: []
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0101010000000000
-  adjacencieNoAlcanzable90: 0000000000000000
-  adjacencieNoAlcanzable180: 0000000000000000
-  adjacencieNoAlcanzable270: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -1212,14 +946,8 @@ MonoBehaviour:
   - {fileID: 34053414}
   - {fileID: 1363736252}
   - {fileID: 1608114731}
-  adjacencies90: []
-  adjacencies180: []
-  adjacencies270: []
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0100000100010000
-  adjacencieNoAlcanzable90: 0000000000000000
-  adjacencieNoAlcanzable180: 0000000000000000
-  adjacencieNoAlcanzable270: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -1448,21 +1176,15 @@ MonoBehaviour:
   isGoal: 0
   adjacencies:
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 1335402796}
-  - {fileID: 0}
-  - {fileID: 3218957}
-  - {fileID: 1635767455}
-  adjacencies90: []
-  adjacencies180: []
-  adjacencies270: []
+  - {fileID: 89188031}
+  - {fileID: 73180688}
+  - {fileID: 1011071948}
+  - {fileID: 1591035969}
+  - {fileID: 1880425321}
+  - {fileID: 1234646482}
+  - {fileID: 1984126393}
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0101010000000000
-  adjacencieNoAlcanzable90: 0000000000000000
-  adjacencieNoAlcanzable180: 0000000000000000
-  adjacencieNoAlcanzable270: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -1893,14 +1615,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 1890605509}
   - {fileID: 1798686516}
-  adjacencies90: []
-  adjacencies180: []
-  adjacencies270: []
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0000000000010000
-  adjacencieNoAlcanzable90: 0000000000000000
-  adjacencieNoAlcanzable180: 0000000000000000
-  adjacencieNoAlcanzable270: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -2215,14 +1931,8 @@ MonoBehaviour:
   - {fileID: 1248980939}
   - {fileID: 925780369}
   - {fileID: 1318246716}
-  adjacencies90: []
-  adjacencies180: []
-  adjacencies270: []
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0101010000000000
-  adjacencieNoAlcanzable90: 0000000000000000
-  adjacencieNoAlcanzable180: 0000000000000000
-  adjacencieNoAlcanzable270: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -2330,14 +2040,8 @@ MonoBehaviour:
   - {fileID: 1798686516}
   - {fileID: 1406844278}
   - {fileID: 0}
-  adjacencies90: []
-  adjacencies180: []
-  adjacencies270: []
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0000010001000001
-  adjacencieNoAlcanzable90: 0000000000000000
-  adjacencieNoAlcanzable180: 0000000000000000
-  adjacencieNoAlcanzable270: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -2697,14 +2401,8 @@ MonoBehaviour:
   - {fileID: 343618972}
   - {fileID: 1579174796}
   - {fileID: 527955738}
-  adjacencies90: []
-  adjacencies180: []
-  adjacencies270: []
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0000000000000000
-  adjacencieNoAlcanzable90: 0000000000000000
-  adjacencieNoAlcanzable180: 0000000000000000
-  adjacencieNoAlcanzable270: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -2812,14 +2510,8 @@ MonoBehaviour:
   - {fileID: 574635046}
   - {fileID: 2108450924}
   - {fileID: 1677798317}
-  adjacencies90: []
-  adjacencies180: []
-  adjacencies270: []
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0101010000000001
-  adjacencieNoAlcanzable90: 0000000000000000
-  adjacencieNoAlcanzable180: 0000000000000000
-  adjacencieNoAlcanzable270: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -2946,13 +2638,6 @@ Transform:
   - {fileID: 1234646483}
   - {fileID: 2030051754}
   - {fileID: 1591035970}
-  - {fileID: 46237247}
-  - {fileID: 764516123}
-  - {fileID: 809097528}
-  - {fileID: 1635767452}
-  - {fileID: 3218954}
-  - {fileID: 926665532}
-  - {fileID: 1335402793}
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 89.99999, z: 89.99999}
@@ -2999,14 +2684,8 @@ MonoBehaviour:
   - {fileID: 966044936}
   - {fileID: 2031163530}
   - {fileID: 1152957722}
-  adjacencies90: []
-  adjacencies180: []
-  adjacencies270: []
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0000000000010101
-  adjacencieNoAlcanzable90: 0000000000000000
-  adjacencieNoAlcanzable180: 0000000000000000
-  adjacencieNoAlcanzable270: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -3205,14 +2884,8 @@ MonoBehaviour:
   - {fileID: 925780369}
   - {fileID: 1318246716}
   - {fileID: 1361471617}
-  adjacencies90: []
-  adjacencies180: []
-  adjacencies270: []
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0101010000000000
-  adjacencieNoAlcanzable90: 0000000000000000
-  adjacencieNoAlcanzable180: 0000000000000000
-  adjacencieNoAlcanzable270: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -3368,236 +3041,6 @@ Transform:
   m_Father: {fileID: 1275877756}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &764516119
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 764516123}
-  - component: {fileID: 764516120}
-  - component: {fileID: 764516122}
-  - component: {fileID: 764516121}
-  m_Layer: 0
-  m_Name: Node02
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &764516120
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 764516119}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93cc9d9609f104b42b3ed5c6216d3c73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  orientation: {x: 0, y: 0, z: 1}
-  nodeForward: {x: 0, y: 0, z: 0}
-  isGoal: 0
-  adjacencies:
-  - {fileID: 0}
-  - {fileID: 3218957}
-  - {fileID: 1635767455}
-  - {fileID: 0}
-  - {fileID: 46237246}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  adjacencies90: []
-  adjacencies180: []
-  adjacencies270: []
-  adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000001
-  adjacencieNoAlcanzable90: 0000000000000000
-  adjacencieNoAlcanzable180: 0000000000000000
-  adjacencieNoAlcanzable270: 0000000000000000
-  adjacencieNoAlcanzableOrientada: 0000000000000000
-  seleccionables: []
-  seleccionable: 0
-  pieza: {fileID: 0}
---- !u!23 &764516121
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 764516119}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 616bc9a3b2994da459afdd56ca8b218d, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
---- !u!33 &764516122
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 764516119}
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &764516123
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 764516119}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.99999994, y: 0, z: -0.99999994}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
-  m_Children: []
-  m_Father: {fileID: 644449629}
-  m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &809097527
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 809097528}
-  - component: {fileID: 809097531}
-  - component: {fileID: 809097530}
-  - component: {fileID: 809097529}
-  m_Layer: 0
-  m_Name: Node10
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &809097528
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 809097527}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.99999994, y: -0.00000038146973, z: 0.00000005960464}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
-  m_Children: []
-  m_Father: {fileID: 644449629}
-  m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &809097529
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 809097527}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 616bc9a3b2994da459afdd56ca8b218d, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
---- !u!33 &809097530
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 809097527}
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &809097531
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 809097527}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93cc9d9609f104b42b3ed5c6216d3c73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  orientation: {x: 0, y: 0, z: 1}
-  nodeForward: {x: 0, y: 0, z: 0}
-  isGoal: 0
-  adjacencies:
-  - {fileID: 1335402796}
-  - {fileID: 926665529}
-  - {fileID: 0}
-  - {fileID: 1635767455}
-  - {fileID: 0}
-  - {fileID: 46237246}
-  - {fileID: 1890605509}
-  - {fileID: 0}
-  adjacencies90: []
-  adjacencies180: []
-  adjacencies270: []
-  adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000001
-  adjacencieNoAlcanzable90: 0000000000000000
-  adjacencieNoAlcanzable180: 0000000000000000
-  adjacencieNoAlcanzable270: 0000000000000000
-  adjacencieNoAlcanzableOrientada: 0000000000000000
-  seleccionables: []
-  seleccionable: 0
-  pieza: {fileID: 0}
 --- !u!1 &844734867
 GameObject:
   m_ObjectHideFlags: 0
@@ -3700,14 +3143,8 @@ MonoBehaviour:
   - {fileID: 1863031886}
   - {fileID: 1677798317}
   - {fileID: 2108450924}
-  adjacencies90: []
-  adjacencies180: []
-  adjacencies270: []
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0000010001000001
-  adjacencieNoAlcanzable90: 0000000000000000
-  adjacencieNoAlcanzable180: 0000000000000000
-  adjacencieNoAlcanzable270: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -3815,14 +3252,8 @@ MonoBehaviour:
   - {fileID: 698898685}
   - {fileID: 114931607}
   - {fileID: 0}
-  adjacencies90: []
-  adjacencies180: []
-  adjacencies270: []
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0000010001010101
-  adjacencieNoAlcanzable90: 0000000000000000
-  adjacencieNoAlcanzable180: 0000000000000000
-  adjacencieNoAlcanzable270: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -3995,14 +3426,8 @@ MonoBehaviour:
   - {fileID: 1129958113}
   - {fileID: 1648036667}
   - {fileID: 2140914198}
-  adjacencies90: []
-  adjacencies180: []
-  adjacencies270: []
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0000000000000000
-  adjacencieNoAlcanzable90: 0000000000000000
-  adjacencieNoAlcanzable180: 0000000000000000
-  adjacencieNoAlcanzable270: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -4110,14 +3535,8 @@ MonoBehaviour:
   - {fileID: 1822848349}
   - {fileID: 1152957722}
   - {fileID: 2031163530}
-  adjacencies90: []
-  adjacencies180: []
-  adjacencies270: []
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0000000000000000
-  adjacencieNoAlcanzable90: 0000000000000000
-  adjacencieNoAlcanzable180: 0000000000000000
-  adjacencieNoAlcanzable270: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -4182,121 +3601,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 925780368}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &926665528
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 926665532}
-  - component: {fileID: 926665529}
-  - component: {fileID: 926665531}
-  - component: {fileID: 926665530}
-  m_Layer: 0
-  m_Name: Node20
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &926665529
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 926665528}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93cc9d9609f104b42b3ed5c6216d3c73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  orientation: {x: 0, y: 0, z: 1}
-  nodeForward: {x: 0, y: 0, z: 0}
-  isGoal: 0
-  adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 1335402796}
-  - {fileID: 0}
-  - {fileID: 1635767455}
-  - {fileID: 809097531}
-  - {fileID: 0}
-  adjacencies90: []
-  adjacencies180: []
-  adjacencies270: []
-  adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000001
-  adjacencieNoAlcanzable90: 0000000000000000
-  adjacencieNoAlcanzable180: 0000000000000000
-  adjacencieNoAlcanzable270: 0000000000000000
-  adjacencieNoAlcanzableOrientada: 0000000000000000
-  seleccionables: []
-  seleccionable: 0
-  pieza: {fileID: 0}
---- !u!23 &926665530
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 926665528}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 616bc9a3b2994da459afdd56ca8b218d, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
---- !u!33 &926665531
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 926665528}
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &926665532
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 926665528}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.99999994, y: -0.00000076293946, z: 1.0000001}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
-  m_Children: []
-  m_Father: {fileID: 644449629}
-  m_RootOrder: 14
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -4423,14 +3727,8 @@ MonoBehaviour:
   - {fileID: 644779085}
   - {fileID: 1835838005}
   - {fileID: 0}
-  adjacencies90: []
-  adjacencies180: []
-  adjacencies270: []
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0000010001010101
-  adjacencieNoAlcanzable90: 0000000000000000
-  adjacencieNoAlcanzable180: 0000000000000000
-  adjacencieNoAlcanzable270: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -4544,14 +3842,8 @@ MonoBehaviour:
   - {fileID: 1494025565}
   - {fileID: 130468479}
   - {fileID: 1863031886}
-  adjacencies90: []
-  adjacencies180: []
-  adjacencies270: []
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0100000100010000
-  adjacencieNoAlcanzable90: 0000000000000000
-  adjacencieNoAlcanzable180: 0000000000000000
-  adjacencieNoAlcanzable270: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -4755,14 +4047,8 @@ MonoBehaviour:
   - {fileID: 2110284989}
   - {fileID: 1835838005}
   - {fileID: 644779085}
-  adjacencies90: []
-  adjacencies180: []
-  adjacencies270: []
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0000000000000000
-  adjacencieNoAlcanzable90: 0000000000000000
-  adjacencieNoAlcanzable180: 0000000000000000
-  adjacencieNoAlcanzable270: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -4876,14 +4162,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 36538139}
   - {fileID: 644779085}
-  adjacencies90: []
-  adjacencies180: []
-  adjacencies270: []
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0000000000010101
-  adjacencieNoAlcanzable90: 0000000000000000
-  adjacencieNoAlcanzable180: 0000000000000000
-  adjacencieNoAlcanzable270: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -4997,14 +4277,8 @@ MonoBehaviour:
   - {fileID: 1648036667}
   - {fileID: 2140914198}
   - {fileID: 1882930360}
-  adjacencies90: []
-  adjacencies180: []
-  adjacencies270: []
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0000010001000001
-  adjacencieNoAlcanzable90: 0000000000000000
-  adjacencieNoAlcanzable180: 0000000000000000
-  adjacencieNoAlcanzable270: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -5112,14 +4386,8 @@ MonoBehaviour:
   - {fileID: 853512199}
   - {fileID: 1406844278}
   - {fileID: 1798686516}
-  adjacencies90: []
-  adjacencies180: []
-  adjacencies270: []
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0000000000000000
-  adjacencieNoAlcanzable90: 0000000000000000
-  adjacencieNoAlcanzable180: 0000000000000000
-  adjacencieNoAlcanzable270: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -5227,14 +4495,8 @@ MonoBehaviour:
   - {fileID: 1494025565}
   - {fileID: 1612768158}
   - {fileID: 1882930360}
-  adjacencies90: []
-  adjacencies180: []
-  adjacencies270: []
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0000000000000000
-  adjacencieNoAlcanzable90: 0000000000000000
-  adjacencieNoAlcanzable180: 0000000000000000
-  adjacencieNoAlcanzable270: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -5526,14 +4788,8 @@ MonoBehaviour:
   - {fileID: 1152957722}
   - {fileID: 2031163530}
   - {fileID: 966044936}
-  adjacencies90: []
-  adjacencies180: []
-  adjacencies270: []
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0000000000000000
-  adjacencieNoAlcanzable90: 0000000000000000
-  adjacencieNoAlcanzable180: 0000000000000000
-  adjacencieNoAlcanzable270: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -5598,121 +4854,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1318246715}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1335402792
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1335402793}
-  - component: {fileID: 1335402796}
-  - component: {fileID: 1335402795}
-  - component: {fileID: 1335402794}
-  m_Layer: 0
-  m_Name: Node21
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1335402793
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1335402792}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.99999994, y: -0.00000076293946, z: 1.0000001}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
-  m_Children: []
-  m_Father: {fileID: 644449629}
-  m_RootOrder: 15
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &1335402794
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1335402792}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 616bc9a3b2994da459afdd56ca8b218d, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
---- !u!33 &1335402795
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1335402792}
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1335402796
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1335402792}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93cc9d9609f104b42b3ed5c6216d3c73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  orientation: {x: 0, y: 0, z: 1}
-  nodeForward: {x: 0, y: 0, z: 0}
-  isGoal: 0
-  adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 220507153}
-  - {fileID: 926665529}
-  - {fileID: 3218957}
-  - {fileID: 1635767455}
-  - {fileID: 809097531}
-  adjacencies90: []
-  adjacencies180: []
-  adjacencies270: []
-  adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000001
-  adjacencieNoAlcanzable90: 0000000000000000
-  adjacencieNoAlcanzable180: 0000000000000000
-  adjacencieNoAlcanzable270: 0000000000000000
-  adjacencieNoAlcanzableOrientada: 0000000000000000
-  seleccionables: []
-  seleccionable: 0
-  pieza: {fileID: 0}
 --- !u!1 &1341944888
 GameObject:
   m_ObjectHideFlags: 0
@@ -5879,14 +5020,8 @@ MonoBehaviour:
   - {fileID: 2031163530}
   - {fileID: 966044936}
   - {fileID: 2110284989}
-  adjacencies90: []
-  adjacencies180: []
-  adjacencies270: []
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0000010001000001
-  adjacencieNoAlcanzable90: 0000000000000000
-  adjacencieNoAlcanzable180: 0000000000000000
-  adjacencieNoAlcanzable270: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -5994,14 +5129,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 453761642}
   - {fileID: 698898685}
-  adjacencies90: []
-  adjacencies180: []
-  adjacencies270: []
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0100000100010101
-  adjacencieNoAlcanzable90: 0000000000000000
-  adjacencieNoAlcanzable180: 0000000000000000
-  adjacencieNoAlcanzable270: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -6254,14 +5383,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 527955738}
   - {fileID: 1579174796}
-  adjacencies90: []
-  adjacencies180: []
-  adjacencies270: []
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0000000000010000
-  adjacencieNoAlcanzable90: 0000000000000000
-  adjacencieNoAlcanzable180: 0000000000000000
-  adjacencieNoAlcanzable270: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -6711,14 +5834,8 @@ MonoBehaviour:
   - {fileID: 2102045512}
   - {fileID: 343618972}
   - {fileID: 1579174796}
-  adjacencies90: []
-  adjacencies180: []
-  adjacencies270: []
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0000000000000000
-  adjacencieNoAlcanzable90: 0000000000000000
-  adjacencieNoAlcanzable180: 0000000000000000
-  adjacencieNoAlcanzable270: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -6863,14 +5980,8 @@ MonoBehaviour:
   - {fileID: 1011071948}
   - {fileID: 89188031}
   - {fileID: 73180688}
-  adjacencies90: []
-  adjacencies180: []
-  adjacencies270: []
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0100000100010000
-  adjacencieNoAlcanzable90: 0000000000000000
-  adjacencieNoAlcanzable180: 0000000000000000
-  adjacencieNoAlcanzable270: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -6969,7 +6080,7 @@ MonoBehaviour:
   tipoPieza: 0
   apertura: 1
   distancia: 4
-  turno: 0
+  turno: 1
   colorSeleccionable: {r: 0, g: 1, b: 0.18253279, a: 1}
 --- !u!4 &1501000197
 Transform:
@@ -7030,14 +6141,8 @@ MonoBehaviour:
   - {fileID: 1798686516}
   - {fileID: 1890605509}
   - {fileID: 2102045512}
-  adjacencies90: []
-  adjacencies180: []
-  adjacencies270: []
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0000000000000000
-  adjacencieNoAlcanzable90: 0000000000000000
-  adjacencieNoAlcanzable180: 0000000000000000
-  adjacencieNoAlcanzable270: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -7145,14 +6250,8 @@ MonoBehaviour:
   - {fileID: 1890605509}
   - {fileID: 1798686516}
   - {fileID: 1406844278}
-  adjacencies90: []
-  adjacencies180: []
-  adjacencies270: []
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0000000000000000
-  adjacencieNoAlcanzable90: 0000000000000000
-  adjacencieNoAlcanzable180: 0000000000000000
-  adjacencieNoAlcanzable270: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -7354,14 +6453,8 @@ MonoBehaviour:
   - {fileID: 1234646482}
   - {fileID: 1984126393}
   - {fileID: 1531088088}
-  adjacencies90: []
-  adjacencies180: []
-  adjacencies270: []
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0101010000000000
-  adjacencieNoAlcanzable90: 0000000000000000
-  adjacencieNoAlcanzable180: 0000000000000000
-  adjacencieNoAlcanzable270: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -7558,14 +6651,8 @@ MonoBehaviour:
   - {fileID: 453761642}
   - {fileID: 698898685}
   - {fileID: 114931607}
-  adjacencies90: []
-  adjacencies180: []
-  adjacencies270: []
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0000000000010101
-  adjacencieNoAlcanzable90: 0000000000000000
-  adjacencieNoAlcanzable180: 0000000000000000
-  adjacencieNoAlcanzable270: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -7673,14 +6760,8 @@ MonoBehaviour:
   - {fileID: 89188031}
   - {fileID: 73180688}
   - {fileID: 1935873503}
-  adjacencies90: []
-  adjacencies180: []
-  adjacencies270: []
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0000000000000000
-  adjacencieNoAlcanzable90: 0000000000000000
-  adjacencieNoAlcanzable180: 0000000000000000
-  adjacencieNoAlcanzable270: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -7745,121 +6826,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1612768157}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1635767451
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1635767452}
-  - component: {fileID: 1635767455}
-  - component: {fileID: 1635767454}
-  - component: {fileID: 1635767453}
-  m_Layer: 0
-  m_Name: Node11
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1635767452
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1635767451}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.99999994, y: -0.00000038146973, z: 0.00000005960464}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
-  m_Children: []
-  m_Father: {fileID: 644449629}
-  m_RootOrder: 12
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &1635767453
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1635767451}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 616bc9a3b2994da459afdd56ca8b218d, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
---- !u!33 &1635767454
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1635767451}
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1635767455
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1635767451}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93cc9d9609f104b42b3ed5c6216d3c73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  orientation: {x: 0, y: 0, z: 1}
-  nodeForward: {x: 0, y: 0, z: 0}
-  isGoal: 0
-  adjacencies:
-  - {fileID: 220507153}
-  - {fileID: 1335402796}
-  - {fileID: 926665529}
-  - {fileID: 3218957}
-  - {fileID: 809097531}
-  - {fileID: 764516120}
-  - {fileID: 46237246}
-  - {fileID: 1890605509}
-  adjacencies90: []
-  adjacencies180: []
-  adjacencies270: []
-  adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000001
-  adjacencieNoAlcanzable90: 0000000000000000
-  adjacencieNoAlcanzable180: 0000000000000000
-  adjacencieNoAlcanzable270: 0000000000000000
-  adjacencieNoAlcanzableOrientada: 0000000000000000
-  seleccionables: []
-  seleccionable: 0
-  pieza: {fileID: 0}
 --- !u!1 &1648036666
 GameObject:
   m_ObjectHideFlags: 0
@@ -7903,14 +6869,8 @@ MonoBehaviour:
   - {fileID: 1835838005}
   - {fileID: 644779085}
   - {fileID: 36538139}
-  adjacencies90: []
-  adjacencies180: []
-  adjacencies270: []
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0000000000000000
-  adjacencieNoAlcanzable90: 0000000000000000
-  adjacencieNoAlcanzable180: 0000000000000000
-  adjacencieNoAlcanzable270: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -8018,14 +6978,8 @@ MonoBehaviour:
   - {fileID: 1608114731}
   - {fileID: 866818574}
   - {fileID: 583148327}
-  adjacencies90: []
-  adjacencies180: []
-  adjacencies270: []
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0000010001000001
-  adjacencieNoAlcanzable90: 0000000000000000
-  adjacencieNoAlcanzable180: 0000000000000000
-  adjacencieNoAlcanzable270: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -8360,14 +7314,8 @@ MonoBehaviour:
   - {fileID: 527955738}
   - {fileID: 1579174796}
   - {fileID: 343618972}
-  adjacencies90: []
-  adjacencies180: []
-  adjacencies270: []
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0000000000000000
-  adjacencieNoAlcanzable90: 0000000000000000
-  adjacencieNoAlcanzable180: 0000000000000000
-  adjacencieNoAlcanzable270: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -8475,14 +7423,8 @@ MonoBehaviour:
   - {fileID: 1612768158}
   - {fileID: 1882930360}
   - {fileID: 2140914198}
-  adjacencies90: []
-  adjacencies180: []
-  adjacencies270: []
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0000010001000001
-  adjacencieNoAlcanzable90: 0000000000000000
-  adjacencieNoAlcanzable180: 0000000000000000
-  adjacencieNoAlcanzable270: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -8596,14 +7538,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 966044936}
   - {fileID: 2031163530}
-  adjacencies90: []
-  adjacencies180: []
-  adjacencies270: []
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0000000000010101
-  adjacencieNoAlcanzable90: 0000000000000000
-  adjacencieNoAlcanzable180: 0000000000000000
-  adjacencieNoAlcanzable270: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -8979,14 +7915,8 @@ MonoBehaviour:
   - {fileID: 1363736252}
   - {fileID: 1608114731}
   - {fileID: 866818574}
-  adjacencies90: []
-  adjacencies180: []
-  adjacencies270: []
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0000000000000000
-  adjacencieNoAlcanzable90: 0000000000000000
-  adjacencieNoAlcanzable180: 0000000000000000
-  adjacencieNoAlcanzable270: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -9094,14 +8024,8 @@ MonoBehaviour:
   - {fileID: 130468479}
   - {fileID: 1863031886}
   - {fileID: 1677798317}
-  adjacencies90: []
-  adjacencies180: []
-  adjacencies270: []
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0000000000000000
-  adjacencieNoAlcanzable90: 0000000000000000
-  adjacencieNoAlcanzable180: 0000000000000000
-  adjacencieNoAlcanzable270: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -9209,14 +8133,8 @@ MonoBehaviour:
   - {fileID: 73180688}
   - {fileID: 1935873503}
   - {fileID: 1206409369}
-  adjacencies90: []
-  adjacencies180: []
-  adjacencies270: []
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0000010001000001
-  adjacencieNoAlcanzable90: 0000000000000000
-  adjacencieNoAlcanzable180: 0000000000000000
-  adjacencieNoAlcanzable270: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -9322,22 +8240,16 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: 0}
   isGoal: 0
   adjacencies:
-  - {fileID: 1635767455}
-  - {fileID: 809097531}
+  - {fileID: 1984126393}
+  - {fileID: 1531088088}
+  - {fileID: 894251126}
+  - {fileID: 1798686516}
+  - {fileID: 2102045512}
+  - {fileID: 1579174796}
+  - {fileID: 343618972}
   - {fileID: 0}
-  - {fileID: 46237246}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  adjacencies90: []
-  adjacencies180: []
-  adjacencies270: []
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0000000000000001
-  adjacencieNoAlcanzable90: 0000000000000000
-  adjacencieNoAlcanzable180: 0000000000000000
-  adjacencieNoAlcanzable270: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -9484,14 +8396,8 @@ MonoBehaviour:
   - {fileID: 1591035969}
   - {fileID: 2030051753}
   - {fileID: 0}
-  adjacencies90: []
-  adjacencies180: []
-  adjacencies270: []
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0000010001010101
-  adjacencieNoAlcanzable90: 0000000000000000
-  adjacencieNoAlcanzable180: 0000000000000000
-  adjacencieNoAlcanzable270: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -9599,14 +8505,8 @@ MonoBehaviour:
   - {fileID: 1406844278}
   - {fileID: 1798686516}
   - {fileID: 1890605509}
-  adjacencies90: []
-  adjacencies180: []
-  adjacencies270: []
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0000000000000000
-  adjacencieNoAlcanzable90: 0000000000000000
-  adjacencieNoAlcanzable180: 0000000000000000
-  adjacencieNoAlcanzable270: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -9824,14 +8724,8 @@ MonoBehaviour:
   - {fileID: 1984126393}
   - {fileID: 1531088088}
   - {fileID: 894251126}
-  adjacencies90: []
-  adjacencies180: []
-  adjacencies270: []
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0101010000000000
-  adjacencieNoAlcanzable90: 0000000000000000
-  adjacencieNoAlcanzable180: 0000000000000000
-  adjacencieNoAlcanzable270: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -9939,14 +8833,8 @@ MonoBehaviour:
   - {fileID: 36538139}
   - {fileID: 644779085}
   - {fileID: 1835838005}
-  adjacencies90: []
-  adjacencies180: []
-  adjacencies270: []
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0000000000010101
-  adjacencieNoAlcanzable90: 0000000000000000
-  adjacencieNoAlcanzable180: 0000000000000000
-  adjacencieNoAlcanzable270: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -10649,14 +9537,8 @@ MonoBehaviour:
   - {fileID: 1459646502}
   - {fileID: 1129958113}
   - {fileID: 1648036667}
-  adjacencies90: []
-  adjacencies180: []
-  adjacencies270: []
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0100000000000000
-  adjacencieNoAlcanzable90: 0000000000000000
-  adjacencieNoAlcanzable180: 0000000000000000
-  adjacencieNoAlcanzable270: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -10848,14 +9730,8 @@ MonoBehaviour:
   - {fileID: 1579174796}
   - {fileID: 527955738}
   - {fileID: 853512199}
-  adjacencies90: []
-  adjacencies180: []
-  adjacencies270: []
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0000010001000001
-  adjacencieNoAlcanzable90: 0000000000000000
-  adjacencieNoAlcanzable180: 0000000000000000
-  adjacencieNoAlcanzable270: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -10963,14 +9839,8 @@ MonoBehaviour:
   - {fileID: 1129958113}
   - {fileID: 1459646502}
   - {fileID: 574635046}
-  adjacencies90: []
-  adjacencies180: []
-  adjacencies270: []
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0101010000000000
-  adjacencieNoAlcanzable90: 0000000000000000
-  adjacencieNoAlcanzable180: 0000000000000000
-  adjacencieNoAlcanzable270: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -11084,14 +9954,8 @@ MonoBehaviour:
   - {fileID: 644779085}
   - {fileID: 36538139}
   - {fileID: 1822848349}
-  adjacencies90: []
-  adjacencies180: []
-  adjacencies270: []
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0000010001000001
-  adjacencieNoAlcanzable90: 0000000000000000
-  adjacencieNoAlcanzable180: 0000000000000000
-  adjacencieNoAlcanzable270: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0

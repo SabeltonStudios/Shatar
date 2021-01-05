@@ -21,19 +21,18 @@ public class Node : MonoBehaviour
     public bool isGoal;
     // The list of adjacent nodes/squares
     public Node[] adjacencies;
-    public Node[] adjacencies90;
-    public Node[] adjacencies180;
-    public Node[] adjacencies270;
+    Node[] adjacencies90;
+    Node[] adjacencies180;
+    Node[] adjacencies270;
     public Node[] adjacenciesOrientadas;
     public bool[] adjacencieNoAlcanzable = new bool[8];
-    public bool[] adjacencieNoAlcanzable90 = new bool[8];
-    public bool[] adjacencieNoAlcanzable180 = new bool[8];
-    public bool[] adjacencieNoAlcanzable270 = new bool[8];
+    bool[] adjacencieNoAlcanzable90 = new bool[8];
+    bool[] adjacencieNoAlcanzable180 = new bool[8];
+    bool[] adjacencieNoAlcanzable270 = new bool[8];
     public bool[] adjacencieNoAlcanzableOrientada = new bool[8];
     public List<Node> seleccionables;
     public bool seleccionable = false;
     public GameObject pieza;
-    
     /*
     The adjacencies will be represented like shown:
     ^ [0][1][2] ^
@@ -63,7 +62,7 @@ public class Node : MonoBehaviour
         //Gizmos.DrawLine(transform.position, adjacencies[1].transform.position);
     }
     */
-    public void Start()
+    public void Awake()
     {
         nodeForward = GetComponentInParent<FaceGridCreator>().forward;
         adjacencies90 = new Node[8];
@@ -127,8 +126,8 @@ public class Node : MonoBehaviour
         adjacencieNoAlcanzable270[6] = adjacencieNoAlcanzable[4];
         adjacencieNoAlcanzable270[7] = adjacencieNoAlcanzable[2];
 
-
     }
+
     public void DrawAdjacencies(TipoPieza pieza, bool apertura, Color color)
     {
         seleccionables = new List<Node>();
@@ -136,7 +135,7 @@ public class Node : MonoBehaviour
         {
             case TipoPieza.PEON:
                 //Busca la casilla de delante
-                if(adjacencies[1] != null && !adjacencieNoAlcanzable[1])
+                if (adjacencies[1] != null && !adjacencieNoAlcanzable[1])
                 {
                     seleccionables.Add(adjacencies[1]);
                 }
@@ -149,7 +148,7 @@ public class Node : MonoBehaviour
                 {
                     seleccionables.Add(adjacencies[0]);
                 }
-                if(adjacencies[2].pieza != null && adjacencies[2] != null && !adjacencieNoAlcanzable[2])
+                if (adjacencies[2].pieza != null && adjacencies[2] != null && !adjacencieNoAlcanzable[2])
                 {
                     seleccionables.Add(adjacencies[2]);
                 }
@@ -167,7 +166,6 @@ public class Node : MonoBehaviour
             case TipoPieza.CABALLO:
                 moverL();
                 break;
-
             case TipoPieza.REINA:
                 //Busca adyacencias rectas y en diagonal
                 moverDiagonal(5);
@@ -187,306 +185,455 @@ public class Node : MonoBehaviour
 
     private void moverDiagonal(int casillas)
     {
-        
         Node izqSuperior = this;
+        Node izqSuperiorAnterior = this;
         Node izqInferior = this;
+        Node izqInferiorAnterior = this;
         Node derInferior = this;
+        Node derInferiorAnterior = this;
         Node derSuperior = this;
+        Node derSuperiorAnterior = this;
+        float anguloizqSuperior = 0;
+        float anguloizqInferior = 0;
+        float anguloderSuperior = 0;
+        float anguloderInferior = 0;
+
         for (int i = 0; i < casillas; i++)
         {
 
             //Si hay adyacencia, si es alcanzable y si tiene una casilla anterior 
-            orientarAdjacencies(izqSuperior);
-            if (adjacencies[0] != null && !adjacencieNoAlcanzableOrientada[0] && izqSuperior != null)
+            if (izqSuperior != null)
             {
-                izqSuperior = izqSuperior.adjacencies[0];
-                seleccionables.Add(izqSuperior);
-            }
-            else
-            {
-                izqSuperior = null;
-            }
-
-            orientarAdjacencies(derSuperior);
-            //Si hay adyacencia, si es alcanzable y si tiene una casilla anterior 
-            if (adjacencies[2] != null && !adjacencieNoAlcanzableOrientada[2] && derSuperior != null)
-            {
-                derSuperior = derSuperior.adjacencies[2];
-                seleccionables.Add(derSuperior);
-            }
-            else
-            {
-                derSuperior = null;
+                if (izqSuperior.adjacenciesOrientadas[0] != null && !izqSuperior.adjacencieNoAlcanzableOrientada[0])
+                {
+                    izqSuperiorAnterior = izqSuperior;
+                    izqSuperior = izqSuperior.adjacenciesOrientadas[0];
+                    seleccionables.Add(izqSuperior);
+                    //Orientamos las caras calculada entre el nodo actual y el anterior, guardando los angulos acumulativos
+                    anguloizqSuperior = orientarAdjacencies(izqSuperiorAnterior, izqSuperior, anguloizqSuperior);
+                }
+                else
+                {
+                    izqSuperior = null;
+                }
             }
 
-            orientarAdjacencies(izqInferior);
-            //Si hay adyacencia, si es alcanzable y si tiene una casilla anterior 
-            if (adjacencies[5] != null && !adjacencieNoAlcanzableOrientada[5] && izqInferior != null)
+            if (derSuperior != null)
             {
-                izqInferior = izqInferior.adjacencies[5];
-                seleccionables.Add(izqInferior);
-            }
-            else
-            {
-                izqInferior = null;
+                //Si hay adyacencia, si es alcanzable y si tiene una casilla anterior 
+                if (derSuperior.adjacenciesOrientadas[2] != null && !derSuperior.adjacencieNoAlcanzableOrientada[2])
+                {
+                    derSuperiorAnterior = derSuperior;
+                    derSuperior = derSuperior.adjacenciesOrientadas[2];
+                    seleccionables.Add(derSuperior);
+                    //Orientamos las caras calculada entre el nodo actual y el anterior, guardando los angulos acumulativos
+                    anguloderSuperior = orientarAdjacencies(derSuperiorAnterior, derSuperior, anguloderSuperior);
+                }
+                else
+                {
+                    derSuperior = null;
+                }
             }
 
-            orientarAdjacencies(derInferior);
-            //Si hay adyacencia, si es alcanzable y si tiene una casilla anterior 
-            if (adjacencies[7] != null && !adjacencieNoAlcanzableOrientada[7] && derInferior != null)
+            if (izqInferior != null)
             {
-                derInferior = derInferior.adjacencies[7];
-                seleccionables.Add(derInferior);
+                //Si hay adyacencia, si es alcanzable y si tiene una casilla anterior 
+                if (izqInferior.adjacenciesOrientadas[5] != null && !izqInferior.adjacencieNoAlcanzableOrientada[5])
+                {
+                    izqInferiorAnterior = izqInferior;
+                    izqInferior = izqInferior.adjacenciesOrientadas[5];
+                    seleccionables.Add(izqInferior);
+                    //Orientamos las caras calculada entre el nodo actual y el anterior, guardando los angulos acumulativos
+                    anguloizqInferior = orientarAdjacencies(izqInferiorAnterior, izqInferior, anguloizqInferior);
+                }
+                else
+                {
+                    izqInferior = null;
+                }
             }
-            else
+
+            if (derInferior != null)
             {
-                derInferior = null;
+                //Si hay adyacencia, si es alcanzable y si tiene una casilla anterior 
+                if (derInferior.adjacenciesOrientadas[7] != null && !derInferior.adjacencieNoAlcanzableOrientada[7])
+                {
+                    derInferiorAnterior = derInferior;
+                    derInferior = derInferior.adjacenciesOrientadas[7];
+                    seleccionables.Add(derInferior);
+                    //Orientamos las caras calculada entre el nodo actual y el anterior, guardando los angulos acumulativos
+                    anguloderInferior = orientarAdjacencies(derInferiorAnterior, derInferior, anguloderInferior);
+                }
+                else
+                {
+                    derInferior = null;
+                }
             }
+
         }
     }
 
     private void moverRecto(int casillas)
     {
         Node superior = this;
+        Node superiorAnterior = this;
         Node inferior = this;
+        Node inferiorAnterior = this;
         Node derecha = this;
+        Node derechaAnterior = this;
         Node izquierda = this;
-        for(int i = 0; i < casillas; i++)
+        Node izquierdaAnterior = this;
+        float anguloSuperior = 0;
+        float anguloInferior = 0;
+        float anguloDerecha = 0;
+        float anguloIzquierda = 0;
+        for (int i = 0; i < casillas; i++)
         {
-            orientarAdjacencies(superior);
-            //Si hay adyacencia, si es alcanzable y si tiene una casilla anterior 
-            if (adjacencies[1] != null && !adjacencieNoAlcanzableOrientada[1] && superior != null)
+            if (superior != null)
             {
-                superior = superior.adjacencies[1];
-                seleccionables.Add(superior);
-            }
-            else
-            {
-                superior = null;
-            }
-
-            orientarAdjacencies(derecha);
-            //Si hay adyacencia, si es alcanzable y si tiene una casilla anterior 
-            if (adjacencies[4] != null && !adjacencieNoAlcanzableOrientada[4] && derecha != null)
-            {
-                derecha = derecha.adjacencies[4];
-                seleccionables.Add(derecha);
-            }
-            else
-            {
-                derecha = null;
+                //Si hay adyacencia, si es alcanzable y si tiene una casilla anterior 
+                if (superior.adjacenciesOrientadas[1] != null && !superior.adjacencieNoAlcanzableOrientada[1])
+                {
+                    superiorAnterior = superior;
+                    superior = superior.adjacenciesOrientadas[1];
+                    seleccionables.Add(superior);
+                    //Orientamos las caras calculada entre el nodo actual y el anterior, guardando los angulos acumulativos
+                    anguloSuperior = orientarAdjacencies(superiorAnterior, superior, anguloSuperior);
+                }
+                else
+                {
+                    superior = null;
+                }
             }
 
-            orientarAdjacencies(inferior);
-            //Si hay adyacencia, si es alcanzable y si tiene una casilla anterior 
-            if (adjacencies[6] != null && !adjacencieNoAlcanzableOrientada[6] && inferior != null)
+            if (derecha != null)
             {
-                inferior = inferior.adjacencies[6];
-                seleccionables.Add(inferior);
+                //Si hay adyacencia, si es alcanzable y si tiene una casilla anterior 
+                if (derecha.adjacenciesOrientadas[4] != null && !derecha.adjacencieNoAlcanzableOrientada[4])
+                {
+                    derechaAnterior = derecha;
+                    derecha = derecha.adjacenciesOrientadas[4];
+                    seleccionables.Add(derecha);
+                    //Orientamos las caras calculada entre el nodo actual y el anterior, guardando los angulos acumulativos
+                    anguloDerecha = orientarAdjacencies(derechaAnterior, derecha, anguloDerecha);
+                }
+                else
+                {
+                    derecha = null;
+                }
+            }
 
-            }
-            else
+            if (inferior != null)
             {
-                inferior = null;
+                //Si hay adyacencia, si es alcanzable y si tiene una casilla anterior 
+                if (inferior.adjacenciesOrientadas[6] != null && !inferior.adjacencieNoAlcanzableOrientada[6])
+                {
+                    inferiorAnterior = inferior;
+                    inferior = inferior.adjacenciesOrientadas[6];
+                    seleccionables.Add(inferior);
+                    //Orientamos las caras calculada entre el nodo actual y el anterior, guardando los angulos acumulativos
+                    anguloInferior = orientarAdjacencies(inferiorAnterior, inferior, anguloInferior);
+                }
+                else
+                {
+                    inferior = null;
+                }
             }
 
-            orientarAdjacencies(izquierda);
-            if (adjacencies[3] != null && !adjacencieNoAlcanzableOrientada[3] && izquierda != null)
+            if (izquierda != null)
             {
-                izquierda = izquierda.adjacencies[3];
-                seleccionables.Add(izquierda);
+                if (izquierda.adjacenciesOrientadas[3] != null && !izquierda.adjacencieNoAlcanzableOrientada[3])
+                {
+                    izquierdaAnterior = izquierda;
+                    izquierda = izquierda.adjacenciesOrientadas[3];
+                    seleccionables.Add(izquierda);
+                    anguloIzquierda = orientarAdjacencies(izquierdaAnterior, izquierda, anguloIzquierda);
+                }
+                else
+                {
+                    izquierda = null;
+                }
             }
-            else
-            {
-                izquierda = null;
-            }
+
         }
     }
 
     private void moverL()
     {
         Node superior = this;
+        Node superiorAnterior = this;
         Node inferior = this;
+        Node inferiorAnterior = this;
         Node derecha = this;
+        Node derechaAnterior = this;
         Node izquierda = this;
+        Node izquierdaAnterior = this;
+        float anguloSuperior = 0;
+        float anguloInferior = 0;
+        float anguloDerecha = 0;
+        float anguloIzquierda = 0;
         //Hacia delante
-        for (int i = 0; i < 3; i++)
+        
+        for (int i = 0; i < 2; i++)
         {
-            orientarAdjacencies(superior);
-            if (superior.adjacenciesOrientadas[1] != null && superior != null)
+            if (superior!= null)
             {
-                superior = superior.adjacenciesOrientadas[1];
-            }
-            else
-            {
-                superior = null;
-                break;
+                if (superior.adjacenciesOrientadas[1] != null)
+                {
+                    superiorAnterior = superior;
+                    superior = superior.adjacenciesOrientadas[1];
+                    //Orientamos las caras calculada entre el nodo actual y el anterior, guardando los angulos acumulativos
+                    anguloSuperior = orientarAdjacencies(superiorAnterior, superior, anguloSuperior);
+                }
+                else
+                {
+                    //Si no hay adyacencia, se pone a null para dejar de comprobar por ese lado
+                    superior = null;
+                    break;
+                }
             }
         }
-        orientarAdjacencies(superior);
+        //Si el nodo no es null, almacenamos las casillas seleccionables de la izquierda y derecha
         if (superior != null)
         {
             if (superior.adjacenciesOrientadas[3] != null) { seleccionables.Add(superior.adjacenciesOrientadas[3]); }
             if (superior.adjacenciesOrientadas[4] != null) { seleccionables.Add(superior.adjacenciesOrientadas[4]); }
         }
 
-
+        
         //Hacia detras
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 2; i++)
         {
-            orientarAdjacencies(inferior);
-            if (inferior.adjacenciesOrientadas[6] != null && inferior != null)
+            if (inferior != null)
             {
-                inferior = inferior.adjacenciesOrientadas[6];
-            }
-            else
-            {
-                inferior = null;
-                break;
+                if (inferior.adjacenciesOrientadas[6] != null)
+                {
+                    inferiorAnterior = inferior;
+                    inferior = inferior.adjacenciesOrientadas[6];
+                    //Orientamos las caras calculada entre el nodo actual y el anterior, guardando los angulos acumulativos
+                    anguloInferior = orientarAdjacencies(inferiorAnterior, inferior, anguloInferior);
+                }
+                else
+                {
+                    //Si no hay adyacencia, se pone a null para dejar de comprobar por ese lado
+                    inferior = null;
+                    break;
+                }
             }
         }
-        orientarAdjacencies(inferior);
+        //Si el nodo no es null, almacenamos las casillas seleccionables de la izquierda y derecha
         if (inferior != null)
         {
             if (inferior.adjacenciesOrientadas[3] != null){seleccionables.Add(inferior.adjacenciesOrientadas[3]);}
             if (inferior.adjacenciesOrientadas[4] != null){seleccionables.Add(inferior.adjacenciesOrientadas[4]);}
         }
+
         
-
         //Hacia derecha
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 2; i++)
         {
-            orientarAdjacencies(derecha);
-            if (derecha.adjacenciesOrientadas[4] != null && derecha != null)
+            if(derecha!= null)
             {
-                derecha = derecha.adjacenciesOrientadas[4];
-            }
-            else
-            {
-                derecha = null;
-                break;
+                if (derecha.adjacenciesOrientadas[4] != null)
+                {
+                    derechaAnterior = derecha;
+                    derecha = derecha.adjacenciesOrientadas[4];
+                    //Orientamos las caras calculada entre el nodo actual y el anterior, guardando los angulos acumulativos
+                    anguloDerecha = orientarAdjacencies(derechaAnterior, derecha, anguloDerecha);
+                }
+                else
+                {
+                    //Si no hay adyacencia, se pone a null para dejar de comprobar por ese lado
+                    derecha = null;
+                    break;
+                }
             }
         }
-        orientarAdjacencies(derecha);
-        if (derecha.adjacenciesOrientadas[3] != null) { seleccionables.Add(derecha.adjacenciesOrientadas[3]); }
-        if (derecha.adjacenciesOrientadas[4] != null) { seleccionables.Add(derecha.adjacenciesOrientadas[4]); }
-
+        //Si el nodo no es null, almacenamos las casillas seleccionables de arriba y abajo
+        if (derecha!= null)
+        {
+            if (derecha.adjacenciesOrientadas[1] != null) { seleccionables.Add(derecha.adjacenciesOrientadas[1]); }
+            if (derecha.adjacenciesOrientadas[6] != null) { seleccionables.Add(derecha.adjacenciesOrientadas[6]); }
+        }
+        
         //Hacia izquierda
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 2; i++)
         {
-            orientarAdjacencies(izquierda);
-            if (derecha.adjacenciesOrientadas[4] != null && derecha != null)
+            if(izquierda!= null)
             {
-                izquierda = izquierda.adjacenciesOrientadas[3];
-            }
-            else
-            {
-                izquierda = null;
-                break;
+                if (izquierda.adjacenciesOrientadas[4] != null)
+                {
+                    izquierdaAnterior = izquierda;
+                    izquierda = izquierda.adjacenciesOrientadas[3];
+                    //Orientamos las caras calculada entre el nodo actual y el anterior, guardando los angulos acumulativos
+                    anguloIzquierda = orientarAdjacencies(izquierdaAnterior, izquierda, anguloIzquierda);
+                }
+                else
+                {
+                    //Si no hay adyacencia, se pone a null para dejar de comprobar por ese lado
+                    izquierda = null;
+                    break;
+                }
             }
         }
-        orientarAdjacencies(izquierda);
-        if (izquierda.adjacenciesOrientadas[3] != null){ seleccionables.Add(izquierda.adjacenciesOrientadas[3]); }
-        if (izquierda.adjacenciesOrientadas[4] != null) { seleccionables.Add(izquierda.adjacenciesOrientadas[4]); }
+        //Si el nodo no es null, almacenamos las casillas seleccionables de arriba y abajo
+        if (izquierda != null)
+        {
+            if (izquierda.adjacenciesOrientadas[1] != null) { seleccionables.Add(izquierda.adjacenciesOrientadas[1]); }
+            if (izquierda.adjacenciesOrientadas[6] != null) { seleccionables.Add(izquierda.adjacenciesOrientadas[6]); }
+        }
 
+        
         //Recorriendo una casilla hacia delante y dos a los lados
         //Hacia delante
+        
         superior = this;
         if (superior.adjacenciesOrientadas[1] != null)
         {
+            anguloSuperior = 0;
             superior = superior.adjacenciesOrientadas[1];
             //Hacia la derecha
-            orientarAdjacencies(superior);
+            //Orientamos las caras calculada entre el nodo actual y el anterior, guardando los angulos acumulativos
+            anguloSuperior = orientarAdjacencies(this, superior, anguloSuperior);
+            //Almacenamos el nodo derecha
             Node superiorDerecha = superior.adjacenciesOrientadas[4];
-            orientarAdjacencies(superiorDerecha);
-            if(superiorDerecha!= null && superiorDerecha.adjacenciesOrientadas[4] != null)
+            //Orientamos las caras calculada entre el nodo actual y el anterior, guardando los angulos acumulativos
+            anguloSuperior = orientarAdjacencies(superior, superiorDerecha, anguloSuperior);
+            //Si el nodo derecha no es null, lo añadimos como seleccionable
+            if (superiorDerecha != null && superiorDerecha.adjacenciesOrientadas[4] != null)
             {
                 seleccionables.Add(superiorDerecha.adjacenciesOrientadas[4]);
             }
 
+            anguloSuperior = 0;
             //Hacia la izquierda
-            orientarAdjacencies(superior);
+            //Orientamos las caras calculada entre el nodo actual y el anterior, guardando los angulos acumulativos
+            anguloSuperior = orientarAdjacencies(this, superior, anguloSuperior);
+            //Almacenamos el nodo izquierda
             Node superiorIzquierda = superior.adjacenciesOrientadas[3];
-            orientarAdjacencies(superiorIzquierda);
+            //Orientamos las caras calculada entre el nodo actual y el anterior, guardando los angulos acumulativos
+            anguloSuperior = orientarAdjacencies(superior, superiorIzquierda, anguloSuperior);
+            //Si el nodo izquierda no es null, lo añadimos como seleccionable
             if (superiorIzquierda != null && superiorIzquierda.adjacenciesOrientadas[3] != null)
             {
                 seleccionables.Add(superiorIzquierda.adjacenciesOrientadas[3]);
             }
         }
 
+        
         inferior = this;
         //Hacia detrás
         if (inferior.adjacenciesOrientadas[6] != null)
         {
+            
+            anguloInferior = 0;
             inferior = inferior.adjacenciesOrientadas[6];
+
             //Hacia la derecha
-            orientarAdjacencies(inferior);
+            //Orientamos las caras calculada entre el nodo actual y el anterior, guardando los angulos acumulativos
+            anguloInferior = orientarAdjacencies(this,inferior,anguloInferior);
+            //Almacenamos el nodo derecha
             Node inferiorDerecha = inferior.adjacenciesOrientadas[4];
-            orientarAdjacencies(inferior);
+            //Orientamos las caras calculada entre el nodo actual y el anterior, guardando los angulos acumulativos
+            anguloInferior = orientarAdjacencies(inferior,inferiorDerecha,anguloInferior);
+            //Si el nodo derecha no es null, lo añadimos como seleccionable
             if (inferiorDerecha != null && inferiorDerecha.adjacenciesOrientadas[4] != null)
             {
                 seleccionables.Add(inferiorDerecha.adjacenciesOrientadas[4]);
             }
+            
 
+            
             //Hacia la izquierda
-            orientarAdjacencies(inferior);
-            Node inferiorIzquierda = superior.adjacenciesOrientadas[3];
-            orientarAdjacencies(inferiorIzquierda);
+            anguloInferior = 0;
+            //Orientamos las caras calculada entre el nodo actual y el anterior, guardando los angulos acumulativos
+            anguloInferior = orientarAdjacencies(this,inferior, anguloInferior);
+            //Almacenamos el nodo izquierda
+            Node inferiorIzquierda = inferior.adjacenciesOrientadas[3];
+            //Orientamos las caras calculada entre el nodo actual y el anterior, guardando los angulos acumulativos
+            anguloInferior = orientarAdjacencies(inferior, inferiorIzquierda, anguloInferior);
+            //Si el nodo izquierda no es null, lo añadimos como seleccionable
             if (inferiorIzquierda != null && inferiorIzquierda.adjacenciesOrientadas[3] != null)
             {
                 seleccionables.Add(inferiorIzquierda.adjacenciesOrientadas[3]);
             }
+            
         }
 
+        
         derecha = this;
         //Hacia la derecha
-        if (derecha.adjacencies[4] != null)
+        if (derecha.adjacenciesOrientadas[4] != null)
         {
-            derecha = derecha.adjacencies[4];
+            anguloDerecha = 0;
+            derecha = derecha.adjacenciesOrientadas[4];
+
             //Hacia arriba
-            orientarAdjacencies(derecha);
-            Node derechaSuperior = derecha.adjacencies[1];
-            orientarAdjacencies(derechaSuperior);
-            if (derechaSuperior != null && derechaSuperior.adjacencies[1] != null)
+            //Orientamos las caras calculada entre el nodo actual y el anterior, guardando los angulos acumulativos
+            anguloDerecha = orientarAdjacencies(this, derecha, anguloDerecha);
+            //Almacenamos el nodo superior
+            Node derechaSuperior = derecha.adjacenciesOrientadas[1];
+            //Orientamos las caras calculada entre el nodo actual y el anterior, guardando los angulos acumulativos
+            anguloDerecha = orientarAdjacencies(derecha, derechaSuperior, anguloDerecha);
+            //Si el nodo superior no es null, lo añadimos como seleccionable
+            if (derechaSuperior != null && derechaSuperior.adjacenciesOrientadas[1] != null)
             {
-                seleccionables.Add(derechaSuperior.adjacencies[1]);
+                seleccionables.Add(derechaSuperior.adjacenciesOrientadas[1]);
             }
 
+
+            anguloDerecha = 0;
             //Hacia la izquierda
-            orientarAdjacencies(derecha);
-            Node derechaInferior = derecha.adjacencies[6];
-            orientarAdjacencies(derechaInferior);
-            if (derechaInferior != null && derechaInferior.adjacencies[6] != null)
+            //Orientamos las caras calculada entre el nodo actual y el anterior, guardando los angulos acumulativos
+            anguloDerecha = orientarAdjacencies(this, derecha, anguloDerecha);
+            //Almacenamos el nodo inferior
+            Node derechaInferior = derecha.adjacenciesOrientadas[6];
+            //Orientamos las caras calculada entre el nodo actual y el anterior, guardando los angulos acumulativos
+            anguloDerecha = orientarAdjacencies(derecha, derechaInferior, anguloDerecha);
+            //Si el nodo inferior no es null, lo añadimos como seleccionable
+            if (derechaInferior != null && derechaInferior.adjacenciesOrientadas[6] != null)
             {
-                seleccionables.Add(derechaInferior.adjacencies[6]);
+                seleccionables.Add(derechaInferior.adjacenciesOrientadas[6]);
             }
-        }
 
+        }
+        
         izquierda = this;
-        //Hacia la izquierda
-        if (izquierda.adjacencies[3] != null)
-        {
-            izquierda = izquierda.adjacencies[3];
-            //Hacia arriba
-            orientarAdjacencies(izquierda);
-            Node izquierdaSuperior = izquierda.adjacencies[1];
-            orientarAdjacencies(izquierdaSuperior);
-            if (izquierdaSuperior != null && izquierdaSuperior.adjacencies[1] != null)
-            {
-                seleccionables.Add(izquierdaSuperior.adjacencies[1]);
-            }
+         //Hacia la izquierda, comprueba si no es null
+         if (izquierda.adjacenciesOrientadas[3] != null)
+         {
+             anguloIzquierda = 0;
+             izquierda = izquierda.adjacenciesOrientadas[3];
 
-            //Hacia la izquierda
-            orientarAdjacencies(izquierda);
-            Node izquierdaInferior = izquierda.adjacencies[6];
-            orientarAdjacencies(izquierdaInferior);
-            if (izquierdaInferior != null && izquierdaInferior.adjacencies[6] != null)
-            {
-                seleccionables.Add(izquierdaInferior.adjacencies[6]);
-            }
-        }
+             //Hacia arriba
+             //Orientamos las caras calculada entre el nodo actual y el anterior, guardando los angulos acumulativos
+             anguloIzquierda = orientarAdjacencies(this, izquierda, anguloIzquierda);
+             //Almacenamos el nodo superior
+             Node izquierdaSuperior = izquierda.adjacenciesOrientadas[1];
+             //Orientamos las caras calculada entre el nodo actual y el anterior, guardando los angulos acumulativos
+             anguloIzquierda = orientarAdjacencies(izquierda, izquierdaSuperior, anguloIzquierda);
+             //Si el nodo superior no es null, lo añadimos como seleccionable
+             if (izquierdaSuperior != null && izquierdaSuperior.adjacenciesOrientadas[1] != null)
+             {
+                 seleccionables.Add(izquierdaSuperior.adjacenciesOrientadas[1]);
+             }
+
+             anguloIzquierda = 0;
+             //Hacia abajo
+             //Orientamos las caras calculada entre el nodo actual y el anterior, guardando los angulos acumulativos
+             anguloIzquierda = orientarAdjacencies(this, izquierda, anguloIzquierda);
+             //Almacena el nodo inferior
+             Node izquierdaInferior = izquierda.adjacenciesOrientadas[6];
+             //Orientamos las caras calculada entre el nodo actual y el anterior, guardando los angulos acumulativos
+             anguloIzquierda = orientarAdjacencies(izquierda, izquierdaInferior, anguloIzquierda);
+             //Si el nodo inferior no es null, lo añadimos como seleccionable
+             if (izquierdaInferior != null && izquierdaInferior.adjacenciesOrientadas[6] != null)
+             {
+                 seleccionables.Add(izquierdaInferior.adjacenciesOrientadas[6]);
+             }
+         }
+        
     }
-    private void setColor(Color color)
+        private void setColor(Color color)
     {
         foreach (Node n in seleccionables)
         {
@@ -499,66 +646,59 @@ public class Node : MonoBehaviour
     }
     public void UndrawAdjacencies()
     {
-        foreach(Node nodo in seleccionables)
+        foreach (Node nodo in seleccionables)
         {
-           nodo.GetComponent<MeshRenderer>().material.DisableKeyword("_EMISSION");
+            nodo.GetComponent<MeshRenderer>().material.DisableKeyword("_EMISSION");
             nodo.GetComponent<MeshRenderer>().material.color = Color.white;
         }
     }
 
-    private void orientarAdjacencies(Node adyacencia)
+
+    private float orientarAdjacencies(Node primero, Node adyacencia, float anguloInferior)
     {
         //Calcular ángulo
         if (adyacencia != null)
         {
             //Pruebas de Anto
-            float diferenciaNormales = Vector3.SignedAngle(orientation, adyacencia.orientation, transform.forward);
+            float diferenciaNormales = Vector3.SignedAngle(primero.orientation, adyacencia.orientation, Vector3.Cross(adyacencia.orientation, primero.orientation));
             Vector3 otherdirection = adyacencia.nodeForward;
             Vector3 fixedforward = adyacencia.nodeForward;
-            
-            fixedforward = Quaternion.AngleAxis(diferenciaNormales, Vector3.Cross(adyacencia.orientation, fixedforward)) * fixedforward;
-            
-            float angulo = Vector3.SignedAngle(nodeForward, fixedforward, orientation);
-            if (pieza.name == "Enemy0" && adyacencia.orientation == new Vector3(0, 1, 0))
-            {
-                Debug.Log(angulo);
-            }
-            
-            //Método de Ro
-            /*
-            Vector3 ady = adyacencia.orientation;
-            Vector3 diferenciaNormal = this.transform.up - adyacencia.transform.up;
-            
-            diferenciaNormal = diferenciaNormal * 90;
-            ady = Quaternion.Euler(diferenciaNormal) * ady;
-            
-            float angle = Vector3.Angle(this.orientation, ady);
-            float sign = Mathf.Sign(Vector3.Dot(this.transform.up, Vector3.Cross(this.orientation, ady)));
-            float signed_angle = angle * sign;
-            float angle360 = (signed_angle + 180) % 360;
-            int angulo= (int) angle360;*/
+            fixedforward = Quaternion.AngleAxis(diferenciaNormales, Vector3.Cross(primero.orientation, adyacencia.orientation)) * fixedforward;
+
+            float angulo = Vector3.SignedAngle(fixedforward, primero.nodeForward, primero.orientation);
+            Debug.Log(angulo);
+            angulo = angulo + anguloInferior;
+           
+            anguloInferior = angulo;
+
             //Orienta las caras
-            if (angulo < 5)
+            if (angulo < 5 && angulo > -5)
             {
-                adjacenciesOrientadas = adjacencies;
-                adjacencieNoAlcanzableOrientada = adjacencieNoAlcanzable;
+                adyacencia.adjacenciesOrientadas = adyacencia.adjacencies;
+                adyacencia.adjacencieNoAlcanzableOrientada = adyacencia.adjacencieNoAlcanzable;
             }
             else if (angulo > 85 && angulo < 95)
             {
-                adjacenciesOrientadas = adjacencies90;
-                adjacencieNoAlcanzableOrientada = adjacencieNoAlcanzable90;
+                adyacencia.adjacenciesOrientadas = adyacencia.adjacencies90;
+                adyacencia.adjacencieNoAlcanzableOrientada = adyacencia.adjacencieNoAlcanzable90;
             }
-            else if (angulo > 175 && angulo < 185)
+            else if (angulo > 175 && angulo < 185 || (angulo > -185 && angulo < -175))
             {
-                adjacenciesOrientadas = adjacencies180;
-                adjacencieNoAlcanzableOrientada = adjacencieNoAlcanzable180;
+                adyacencia.adjacenciesOrientadas = adyacencia.adjacencies180;
+                adyacencia.adjacencieNoAlcanzableOrientada = adyacencia.adjacencieNoAlcanzable180;
+
             }
-            else if (angulo > 265 && angulo < 275)
+            else if ((angulo > -95 && angulo < -85) || (angulo > 265 && angulo < 275))
             {
-                adjacenciesOrientadas = adjacencies270;
-                adjacencieNoAlcanzableOrientada = adjacencieNoAlcanzable270;
+                adyacencia.adjacenciesOrientadas = adyacencia.adjacencies270;
+                adyacencia.adjacencieNoAlcanzableOrientada = adyacencia.adjacencieNoAlcanzable270;
             }
             
+
         }
+        return anguloInferior;
     }
+    
+
+    
 }

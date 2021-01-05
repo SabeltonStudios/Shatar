@@ -17,6 +17,7 @@ public class Node : MonoBehaviour
 {
     // The normal vector to the node/square
     public Vector3 orientation;
+    public Vector3 nodeForward;
     public bool isGoal;
     // The list of adjacent nodes/squares
     public Node[] adjacencies;
@@ -64,6 +65,7 @@ public class Node : MonoBehaviour
     */
     public void Start()
     {
+        nodeForward = GetComponentInParent<FaceGridCreator>().forward;
         adjacencies90 = new Node[8];
         adjacencies180 = new Node[8];
         adjacencies270 = new Node[8];
@@ -499,7 +501,7 @@ public class Node : MonoBehaviour
     {
         foreach(Node nodo in seleccionables)
         {
-            nodo.GetComponent<MeshRenderer>().material.DisableKeyword("_EMISSION");
+           nodo.GetComponent<MeshRenderer>().material.DisableKeyword("_EMISSION");
             nodo.GetComponent<MeshRenderer>().material.color = Color.white;
         }
     }
@@ -509,16 +511,32 @@ public class Node : MonoBehaviour
         //Calcular ángulo
         if (adyacencia != null)
         {
+            //Pruebas de Anto
+            float diferenciaNormales = Vector3.SignedAngle(orientation, adyacencia.orientation, transform.forward);
+            Vector3 otherdirection = adyacencia.nodeForward;
+            Vector3 fixedforward = adyacencia.nodeForward;
+            
+            fixedforward = Quaternion.AngleAxis(diferenciaNormales, Vector3.Cross(adyacencia.orientation, fixedforward)) * fixedforward;
+            
+            float angulo = Vector3.SignedAngle(nodeForward, fixedforward, orientation);
+            if (pieza.name == "Enemy0" && adyacencia.orientation == new Vector3(0, 1, 0))
+            {
+                Debug.Log(angulo);
+            }
+            
+            //Método de Ro
+            /*
             Vector3 ady = adyacencia.orientation;
             Vector3 diferenciaNormal = this.transform.up - adyacencia.transform.up;
+            
             diferenciaNormal = diferenciaNormal * 90;
             ady = Quaternion.Euler(diferenciaNormal) * ady;
+            
             float angle = Vector3.Angle(this.orientation, ady);
             float sign = Mathf.Sign(Vector3.Dot(this.transform.up, Vector3.Cross(this.orientation, ady)));
             float signed_angle = angle * sign;
             float angle360 = (signed_angle + 180) % 360;
-            int angulo = (int)angle360;
-
+            int angulo= (int) angle360;*/
             //Orienta las caras
             if (angulo < 5)
             {
@@ -540,7 +558,7 @@ public class Node : MonoBehaviour
                 adjacenciesOrientadas = adjacencies270;
                 adjacencieNoAlcanzableOrientada = adjacencieNoAlcanzable270;
             }
-
+            
         }
     }
 }

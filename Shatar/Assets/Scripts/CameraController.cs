@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    bool enabledMov = true;
+    public bool enabledMov = true;
 
 
     // Start is called before the first frame update
@@ -16,8 +16,6 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (enabledMov)
-        {
             if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
                 turnLeft();
@@ -32,7 +30,6 @@ public class CameraController : MonoBehaviour
             {
                 turnRight();
             }
-        }
     }
     public void turnRight()
     {
@@ -50,14 +47,14 @@ public class CameraController : MonoBehaviour
     }
     public void turnUp()
     {
-        if (transform.rotation.eulerAngles.x == 290 && enabledMov)
+        if ((transform.rotation.eulerAngles.x >= 285 && transform.rotation.eulerAngles.x < 295) && enabledMov)
         {
             StartCoroutine(rotateSmooth(new Vector3(70, 0, 0), 1));
         }
     }
     public void turnDown()
     {
-        if (transform.rotation.eulerAngles.x == 0&& enabledMov)
+        if ((transform.rotation.eulerAngles.x >= -5 && transform.rotation.eulerAngles.x<5)&& enabledMov)
         {
             StartCoroutine(rotateSmooth(new Vector3(-70, 0, 0), 1));
         }

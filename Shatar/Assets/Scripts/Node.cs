@@ -60,8 +60,8 @@ public class Node : MonoBehaviour
             }
         }
         //Gizmos.DrawLine(transform.position, adjacencies[1].transform.position);
-    }
-    */
+    }*/
+    
     public void Awake()
     {
         nodeForward = GetComponentInParent<FaceGridCreator>().forward;

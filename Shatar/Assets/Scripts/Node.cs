@@ -18,6 +18,7 @@ public class Node : MonoBehaviour
     // The normal vector to the node/square
     public Vector3 orientation;
     public Vector3 nodeForward;
+    public bool teletransport;
     public bool isGoal;
     public bool showAdjacencies;
     // The list of adjacent nodes/squares
@@ -48,7 +49,8 @@ public class Node : MonoBehaviour
     }
     
     private void OnDrawGizmos()
-    {/*
+    {
+        /*
         Gizmos.color = Color.yellow;
         Gizmos.DrawSphere(transform.position, 1);
         Handles.color = Color.red;
@@ -57,7 +59,7 @@ public class Node : MonoBehaviour
         {
             if(adjacencies[i] == null)
             {
-                return;
+                break; ;
             }
         }*/
         //Gizmos.DrawLine(transform.position, adjacencies[1].transform.position);
@@ -175,39 +177,55 @@ public class Node : MonoBehaviour
                 //Si es apertura, también selecciona la siguiente
                 if (apertura)
                 {
+                    if(adjacencies[1].adjacencies[1] != null)
                     seleccionables.Add(adjacencies[1].adjacencies[1]);
                 }
-                if (adjacencies[0].pieza != null && adjacencies[0] != null && !adjacencieNoAlcanzable[0])
+                if(adjacencies[0] != null)
                 {
-                    seleccionables.Add(adjacencies[0]);
+                    if (adjacencies[0].pieza != null && !adjacencieNoAlcanzable[0])
+                    {
+                        seleccionables.Add(adjacencies[0]);
+                    }
                 }
-                if (adjacencies[2].pieza != null && adjacencies[2] != null && !adjacencieNoAlcanzable[2])
+                if(adjacencies[2] != null)
                 {
-                    seleccionables.Add(adjacencies[2]);
+                    if (adjacencies[2].pieza != null && !adjacencieNoAlcanzable[2])
+                    {
+                        seleccionables.Add(adjacencies[2]);
+                    }
                 }
                 break;
 
             case TipoPieza.ALFIL:
                 //Busca las adyacencias en diagonal
                 moverDiagonal(2);
+                //Se elimina la casilla meta de las seleccionables, ya que solo se puede acceder con el peon
+                removeSeleccionableMeta();
                 break;
-
             case TipoPieza.TORRE:
                 //Busca las adyacencias rectas
                 moverRecto(2);
+                //Se elimina la casilla meta de las seleccionables, ya que solo se puede acceder con el peon
+                removeSeleccionableMeta();
                 break;
             case TipoPieza.CABALLO:
                 moverL();
+                //Se elimina la casilla meta de las seleccionables, ya que solo se puede acceder con el peon
+                removeSeleccionableMeta();
                 break;
             case TipoPieza.REINA:
                 //Busca adyacencias rectas y en diagonal
                 moverDiagonal(5);
                 moverRecto(5);
+                //Se elimina la casilla meta de las seleccionables, ya que solo se puede acceder con el peon
+                removeSeleccionableMeta();
                 break;
             case TipoPieza.REY:
                 //Busca adyacencias rectas y en diagonal
                 moverDiagonal(1);
                 moverRecto(1);
+                //Se elimina la casilla meta de las seleccionables, ya que solo se puede acceder con el peon
+                removeSeleccionableMeta();
                 break;
             default:
                 break;
@@ -306,6 +324,7 @@ public class Node : MonoBehaviour
 
     private void moverRecto(int casillas)
     {
+        
         Node superior = this;
         Node superiorAnterior = this;
         Node inferior = this;
@@ -320,6 +339,7 @@ public class Node : MonoBehaviour
         float anguloIzquierda = 0;
         for (int i = 0; i < casillas; i++)
         {
+            adjacenciesOrientadas = adjacencies;
             if (superior != null)
             {
                 //Si hay adyacencia, si es alcanzable y si tiene una casilla anterior 
@@ -337,6 +357,7 @@ public class Node : MonoBehaviour
                 }
             }
 
+            adjacenciesOrientadas = adjacencies;
             if (derecha != null)
             {
                 //Si hay adyacencia, si es alcanzable y si tiene una casilla anterior 
@@ -354,6 +375,7 @@ public class Node : MonoBehaviour
                 }
             }
 
+            adjacenciesOrientadas = adjacencies;
             if (inferior != null)
             {
                 //Si hay adyacencia, si es alcanzable y si tiene una casilla anterior 
@@ -371,6 +393,7 @@ public class Node : MonoBehaviour
                 }
             }
 
+            adjacenciesOrientadas = adjacencies;
             if (izquierda != null)
             {
                 if (izquierda.adjacenciesOrientadas[3] != null && !izquierda.adjacencieNoAlcanzableOrientada[3])
@@ -404,7 +427,7 @@ public class Node : MonoBehaviour
         float anguloDerecha = 0;
         float anguloIzquierda = 0;
         //Hacia delante
-        
+        adjacenciesOrientadas = adjacencies;
         for (int i = 0; i < 2; i++)
         {
             if (superior!= null)
@@ -431,8 +454,9 @@ public class Node : MonoBehaviour
             if (superior.adjacenciesOrientadas[4] != null) { seleccionables.Add(superior.adjacenciesOrientadas[4]); }
         }
 
-        
+
         //Hacia detras
+        adjacenciesOrientadas = adjacencies;
         for (int i = 0; i < 2; i++)
         {
             if (inferior != null)
@@ -459,8 +483,9 @@ public class Node : MonoBehaviour
             if (inferior.adjacenciesOrientadas[4] != null){seleccionables.Add(inferior.adjacenciesOrientadas[4]);}
         }
 
-        
+
         //Hacia derecha
+        adjacenciesOrientadas = adjacencies;
         for (int i = 0; i < 2; i++)
         {
             if(derecha!= null)
@@ -486,8 +511,9 @@ public class Node : MonoBehaviour
             if (derecha.adjacenciesOrientadas[1] != null) { seleccionables.Add(derecha.adjacenciesOrientadas[1]); }
             if (derecha.adjacenciesOrientadas[6] != null) { seleccionables.Add(derecha.adjacenciesOrientadas[6]); }
         }
-        
+
         //Hacia izquierda
+        adjacenciesOrientadas = adjacencies;
         for (int i = 0; i < 2; i++)
         {
             if(izquierda!= null)
@@ -519,6 +545,7 @@ public class Node : MonoBehaviour
         //Hacia delante
         
         superior = this;
+        adjacenciesOrientadas = adjacencies;
         if (superior.adjacenciesOrientadas[1] != null)
         {
             anguloSuperior = 0;
@@ -554,6 +581,7 @@ public class Node : MonoBehaviour
         
         inferior = this;
         //Hacia detrás
+        adjacenciesOrientadas = adjacencies;
         if (inferior.adjacenciesOrientadas[6] != null)
         {
             
@@ -594,6 +622,7 @@ public class Node : MonoBehaviour
         
         derecha = this;
         //Hacia la derecha
+        adjacenciesOrientadas = adjacencies;
         if (derecha.adjacenciesOrientadas[4] != null)
         {
             anguloDerecha = 0;
@@ -630,8 +659,9 @@ public class Node : MonoBehaviour
         }
         
         izquierda = this;
-         //Hacia la izquierda, comprueba si no es null
-         if (izquierda.adjacenciesOrientadas[3] != null)
+        //Hacia la izquierda, comprueba si no es null
+        adjacenciesOrientadas = adjacencies;
+        if (izquierda.adjacenciesOrientadas[3] != null)
          {
              anguloIzquierda = 0;
              izquierda = izquierda.adjacenciesOrientadas[3];
@@ -685,6 +715,28 @@ public class Node : MonoBehaviour
         }
     }
 
+    private void removeSeleccionableMeta()
+    {
+        //Lista de nodos repetidos meta a eliminar
+        List<Node> eliminar = new List<Node>();
+        if (seleccionables.Count > 0)
+        {
+            foreach (Node n in seleccionables)
+            {
+                if (n.isGoal)
+                {
+                    eliminar.Add(n);
+                }
+            }
+        }
+        if (eliminar.Count > 0)
+        {
+            for(int i=0;i<eliminar.Count;i++)
+            {
+                seleccionables.Remove(eliminar[0]);
+            }
+        }
+    }
 
     private float orientarAdjacencies(Node primero, Node adyacencia, float anguloInferior)
     {

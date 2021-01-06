@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour
 {
     List<Enemie> enemigos= new List<Enemie>();
+    [SerializeField]
+    List<Node> teletransporte = new List<Node>();
     Player player;
     [SerializeField]
     int maxMovs;
@@ -38,6 +40,21 @@ public class GameController : MonoBehaviour
             player.turno = true;
 
             player.node.DrawAdjacencies(player.tipoPieza, player.apertura, player.colorSeleccionable);
+        }
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            if(player.tipoPieza == TipoPieza.PEON)
+            {
+                cambiaPieza(TipoPieza.CABALLO);
+            }else if(player.tipoPieza == TipoPieza.CABALLO)
+            {
+                cambiaPieza(TipoPieza.TORRE);
+            }
+            else if (player.tipoPieza == TipoPieza.TORRE)
+            {
+                cambiaPieza(TipoPieza.PEON);
+            }
+           
         }
     }
 
@@ -82,6 +99,20 @@ public class GameController : MonoBehaviour
             {
                 destruirEnemigo(end.pieza);
             }
+            //Si cae en una casilla de teletransporte
+            if (end.teletransport)
+            {
+                foreach(Node n in teletransporte)
+                {
+                    if(n!= end)
+                    {
+                        player.node = n;
+                        objectToMove.transform.position = n.transform.position;
+                        objectToMove.transform.up = n.orientation;
+                        break;
+                    }
+                }
+            }
             if (end.isGoal)
             {
                 Victoria();
@@ -97,6 +128,7 @@ public class GameController : MonoBehaviour
             objectToMove.GetComponent<Enemie>().turno = false;
         }
         end.pieza = objectToMove;
+
     }
     private void Victoria()
     {
@@ -119,10 +151,10 @@ public class GameController : MonoBehaviour
 
     public void cambiaPieza(TipoPieza tipoPieza)
     {
-        
         player.tipoPieza = tipoPieza;
         player.transform.GetChild(0).gameObject.SetActive(false);
         player.transform.GetChild(1).gameObject.SetActive(false);
+        player.transform.GetChild(2).gameObject.SetActive(false);
         switch (player.tipoPieza)
         {
             case TipoPieza.PEON:
@@ -131,8 +163,13 @@ public class GameController : MonoBehaviour
             case TipoPieza.CABALLO:
                 player.transform.GetChild(1).gameObject.SetActive(true);
                 break;
+            case TipoPieza.TORRE:
+                player.transform.GetChild(2).gameObject.SetActive(true);
+                break;
             default:
                 break;
         }
+        player.node.UndrawAdjacencies();
+        player.node.DrawAdjacencies(player.tipoPieza, player.apertura, player.colorSeleccionable);
     }
 }

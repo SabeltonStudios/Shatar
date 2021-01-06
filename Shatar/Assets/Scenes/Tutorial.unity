@@ -192,7 +192,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 1, z: 0}
   nodeForward: {x: 0, y: 0, z: 0}
+  teletransport: 0
   isGoal: 0
+  showAdjacencies: 0
   adjacencies:
   - {fileID: 0}
   - {fileID: 453761642}
@@ -301,7 +303,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: -1, y: 0, z: 0}
   nodeForward: {x: 0, y: 0, z: 0}
+  teletransport: 0
   isGoal: 0
+  showAdjacencies: 0
   adjacencies:
   - {fileID: 1648036667}
   - {fileID: 2140914198}
@@ -377,6 +381,95 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 36538138}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &65473572
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1501000197}
+    m_Modifications:
+    - target: {fileID: -4216859302048453862, guid: 9c27b2a80347c6242b73e46893679403,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.3730766
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 9c27b2a80347c6242b73e46893679403,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 9c27b2a80347c6242b73e46893679403,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 9c27b2a80347c6242b73e46893679403,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.000000021855694
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 9c27b2a80347c6242b73e46893679403,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.00000004371139
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 9c27b2a80347c6242b73e46893679403,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 1.0165751e-15
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 9c27b2a80347c6242b73e46893679403,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 9c27b2a80347c6242b73e46893679403,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 9c27b2a80347c6242b73e46893679403,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 9c27b2a80347c6242b73e46893679403,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 9c27b2a80347c6242b73e46893679403,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 9c27b2a80347c6242b73e46893679403,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 9c27b2a80347c6242b73e46893679403,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 9c27b2a80347c6242b73e46893679403,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 9c27b2a80347c6242b73e46893679403,
+        type: 3}
+      propertyPath: m_Name
+      value: Castle
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 9c27b2a80347c6242b73e46893679403,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9c27b2a80347c6242b73e46893679403, type: 3}
 --- !u!1 &73180687
 GameObject:
   m_ObjectHideFlags: 0
@@ -410,7 +503,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 1, z: 0}
   nodeForward: {x: 0, y: 0, z: 0}
+  teletransport: 0
   isGoal: 0
+  showAdjacencies: 0
   adjacencies:
   - {fileID: 1494025565}
   - {fileID: 1612768158}
@@ -519,7 +614,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 1, z: 0}
   nodeForward: {x: 0, y: 0, z: 0}
+  teletransport: 0
   isGoal: 0
+  showAdjacencies: 0
   adjacencies:
   - {fileID: 130468479}
   - {fileID: 1494025565}
@@ -712,7 +809,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: -1}
   nodeForward: {x: 0, y: 0, z: 0}
+  teletransport: 0
   isGoal: 0
+  showAdjacencies: 0
   adjacencies:
   - {fileID: 1608114731}
   - {fileID: 866818574}
@@ -821,7 +920,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: -1, z: 0}
   nodeForward: {x: 0, y: 0, z: 0}
+  teletransport: 0
   isGoal: 0
+  showAdjacencies: 0
   adjacencies:
   - {fileID: 966044936}
   - {fileID: 1361471617}
@@ -936,7 +1037,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 1, y: 0, z: 0}
   nodeForward: {x: 0, y: 0, z: 0}
+  teletransport: 0
   isGoal: 0
+  showAdjacencies: 0
   adjacencies:
   - {fileID: 89188031}
   - {fileID: 1011071948}
@@ -1173,7 +1276,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: 1}
   nodeForward: {x: 0, y: 0, z: 0}
+  teletransport: 0
   isGoal: 0
+  showAdjacencies: 0
   adjacencies:
   - {fileID: 0}
   - {fileID: 89188031}
@@ -1570,6 +1675,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Goal (1)
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 92ad0b367024a1a43adf0e4f494b439b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92ad0b367024a1a43adf0e4f494b439b, type: 3}
 --- !u!1 &343618971
@@ -1605,7 +1715,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: -1, z: 0}
   nodeForward: {x: 0, y: 0, z: 0}
+  teletransport: 0
   isGoal: 0
+  showAdjacencies: 0
   adjacencies:
   - {fileID: 1129958113}
   - {fileID: 1459646502}
@@ -1921,7 +2033,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: -1}
   nodeForward: {x: 0, y: 0, z: 0}
+  teletransport: 0
   isGoal: 0
+  showAdjacencies: 0
   adjacencies:
   - {fileID: 0}
   - {fileID: 1363736252}
@@ -2030,7 +2144,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: -1, z: 0}
   nodeForward: {x: 0, y: 0, z: 0}
+  teletransport: 0
   isGoal: 0
+  showAdjacencies: 0
   adjacencies:
   - {fileID: 574635046}
   - {fileID: 2108450924}
@@ -2391,7 +2507,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: -1, z: 0}
   nodeForward: {x: 0, y: 0, z: 0}
+  teletransport: 0
   isGoal: 0
+  showAdjacencies: 0
   adjacencies:
   - {fileID: 2110284989}
   - {fileID: 121549898}
@@ -2500,7 +2618,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: -1, z: 0}
   nodeForward: {x: 0, y: 0, z: 0}
+  teletransport: 0
   isGoal: 0
+  showAdjacencies: 0
   adjacencies:
   - {fileID: 1361471617}
   - {fileID: 114931607}
@@ -2674,7 +2794,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: -1, y: 0, z: 0}
   nodeForward: {x: 0, y: 0, z: 0}
+  teletransport: 0
   isGoal: 0
+  showAdjacencies: 0
   adjacencies:
   - {fileID: 1129958113}
   - {fileID: 1648036667}
@@ -2874,7 +2996,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: -1}
   nodeForward: {x: 0, y: 0, z: 0}
+  teletransport: 0
   isGoal: 0
+  showAdjacencies: 0
   adjacencies:
   - {fileID: 1363736252}
   - {fileID: 1608114731}
@@ -3133,7 +3257,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 1, y: 0, z: 0}
   nodeForward: {x: 0, y: 0, z: 0}
+  teletransport: 0
   isGoal: 0
+  showAdjacencies: 0
   adjacencies:
   - {fileID: 1234646482}
   - {fileID: 1406844278}
@@ -3242,7 +3368,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 1, y: 0, z: 0}
   nodeForward: {x: 0, y: 0, z: 0}
+  teletransport: 0
   isGoal: 0
+  showAdjacencies: 0
   adjacencies:
   - {fileID: 1863031886}
   - {fileID: 1677798317}
@@ -3416,7 +3544,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: -1, y: 0, z: 0}
   nodeForward: {x: 0, y: 0, z: 0}
+  teletransport: 0
   isGoal: 0
+  showAdjacencies: 0
   adjacencies:
   - {fileID: 1890605509}
   - {fileID: 1531088088}
@@ -3525,7 +3655,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: -1}
   nodeForward: {x: 0, y: 0, z: 0}
+  teletransport: 0
   isGoal: 0
+  showAdjacencies: 0
   adjacencies:
   - {fileID: 34053414}
   - {fileID: 453761642}
@@ -3717,7 +3849,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: -1}
   nodeForward: {x: 0, y: 0, z: 0}
+  teletransport: 0
   isGoal: 0
+  showAdjacencies: 0
   adjacencies:
   - {fileID: 1318246716}
   - {fileID: 1361471617}
@@ -3832,7 +3966,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 1, y: 0, z: 0}
   nodeForward: {x: 0, y: 0, z: 0}
+  teletransport: 0
   isGoal: 0
+  showAdjacencies: 0
   adjacencies:
   - {fileID: 0}
   - {fileID: 220507153}
@@ -4037,7 +4173,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: -1, y: 0, z: 0}
   nodeForward: {x: 0, y: 0, z: 0}
+  teletransport: 0
   isGoal: 0
+  showAdjacencies: 0
   adjacencies:
   - {fileID: 343618972}
   - {fileID: 2102045512}
@@ -4152,7 +4290,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: -1}
   nodeForward: {x: 0, y: 0, z: 0}
+  teletransport: 0
   isGoal: 0
+  showAdjacencies: 0
   adjacencies:
   - {fileID: 1248980939}
   - {fileID: 925780369}
@@ -4267,7 +4407,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: -1, y: 0, z: 0}
   nodeForward: {x: 0, y: 0, z: 0}
+  teletransport: 0
   isGoal: 0
+  showAdjacencies: 0
   adjacencies:
   - {fileID: 1531088088}
   - {fileID: 2030051753}
@@ -4376,7 +4518,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: 1}
   nodeForward: {x: 0, y: 0, z: 0}
+  teletransport: 0
   isGoal: 0
+  showAdjacencies: 0
   adjacencies:
   - {fileID: 1011071948}
   - {fileID: 220507153}
@@ -4485,7 +4629,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 1, z: 0}
   nodeForward: {x: 0, y: 0, z: 0}
+  teletransport: 0
   isGoal: 0
+  showAdjacencies: 0
   adjacencies:
   - {fileID: 453761642}
   - {fileID: 925780369}
@@ -4641,6 +4787,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9887c1fa8b787d34393b720c579816a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enabledMov: 1
 --- !u!1 &1285279630
 GameObject:
   m_ObjectHideFlags: 0
@@ -4778,7 +4925,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: -1}
   nodeForward: {x: 0, y: 0, z: 0}
+  teletransport: 0
   isGoal: 0
+  showAdjacencies: 0
   adjacencies:
   - {fileID: 453761642}
   - {fileID: 698898685}
@@ -5010,7 +5159,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: -1}
   nodeForward: {x: 0, y: 0, z: 0}
+  teletransport: 0
   isGoal: 0
+  showAdjacencies: 0
   adjacencies:
   - {fileID: 698898685}
   - {fileID: 114931607}
@@ -5119,7 +5270,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 1, y: 0, z: 0}
   nodeForward: {x: 0, y: 0, z: 0}
+  teletransport: 0
   isGoal: 0
+  showAdjacencies: 0
   adjacencies:
   - {fileID: 1494025565}
   - {fileID: 130468479}
@@ -5373,7 +5526,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: 1}
   nodeForward: {x: 0, y: 0, z: 0}
+  teletransport: 0
   isGoal: 0
+  showAdjacencies: 0
   adjacencies:
   - {fileID: 1880425321}
   - {fileID: 1234646482}
@@ -5824,7 +5979,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: -1, z: 0}
   nodeForward: {x: 0, y: 0, z: 0}
+  teletransport: 0
   isGoal: 0
+  showAdjacencies: 0
   adjacencies:
   - {fileID: 1835838005}
   - {fileID: 2110284989}
@@ -5970,7 +6127,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 1, z: 0}
   nodeForward: {x: 0, y: 0, z: 0}
+  teletransport: 0
   isGoal: 0
+  showAdjacencies: 0
   adjacencies:
   - {fileID: 1363736252}
   - {fileID: 34053414}
@@ -6095,6 +6254,7 @@ Transform:
   m_Children:
   - {fileID: 1830624340}
   - {fileID: 875177306}
+  - {fileID: 1563706071}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6131,7 +6291,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: 1}
   nodeForward: {x: 0, y: 0, z: 0}
+  teletransport: 0
   isGoal: 0
+  showAdjacencies: 0
   adjacencies:
   - {fileID: 1591035969}
   - {fileID: 2030051753}
@@ -6207,6 +6369,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1531088087}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1563706071 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 9c27b2a80347c6242b73e46893679403,
+    type: 3}
+  m_PrefabInstance: {fileID: 65473572}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1579174795
 GameObject:
   m_ObjectHideFlags: 0
@@ -6240,7 +6408,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: -1, z: 0}
   nodeForward: {x: 0, y: 0, z: 0}
+  teletransport: 0
   isGoal: 0
+  showAdjacencies: 0
   adjacencies:
   - {fileID: 1459646502}
   - {fileID: 574635046}
@@ -6443,7 +6613,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: 1}
   nodeForward: {x: 0, y: 0, z: 0}
+  teletransport: 0
   isGoal: 1
+  showAdjacencies: 0
   adjacencies:
   - {fileID: 89188031}
   - {fileID: 73180688}
@@ -6641,7 +6813,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 1, y: 0, z: 0}
   nodeForward: {x: 0, y: 0, z: 0}
+  teletransport: 0
   isGoal: 0
+  showAdjacencies: 0
   adjacencies:
   - {fileID: 130468479}
   - {fileID: 1863031886}
@@ -6750,7 +6924,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 1, z: 0}
   nodeForward: {x: 0, y: 0, z: 0}
+  teletransport: 0
   isGoal: 0
+  showAdjacencies: 0
   adjacencies:
   - {fileID: 34053414}
   - {fileID: 1248980939}
@@ -6859,7 +7035,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: -1, y: 0, z: 0}
   nodeForward: {x: 0, y: 0, z: 0}
+  teletransport: 0
   isGoal: 0
+  showAdjacencies: 0
   adjacencies:
   - {fileID: 2102045512}
   - {fileID: 894251126}
@@ -6968,7 +7146,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 1, y: 0, z: 0}
   nodeForward: {x: 0, y: 0, z: 0}
+  teletransport: 0
   isGoal: 0
+  showAdjacencies: 0
   adjacencies:
   - {fileID: 1880425321}
   - {fileID: 853512199}
@@ -7304,7 +7484,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: 1}
   nodeForward: {x: 0, y: 0, z: 0}
+  teletransport: 0
   isGoal: 0
+  showAdjacencies: 0
   adjacencies:
   - {fileID: 1234646482}
   - {fileID: 1984126393}
@@ -7413,7 +7595,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 1, z: 0}
   nodeForward: {x: 0, y: 0, z: 0}
+  teletransport: 0
   isGoal: 0
+  showAdjacencies: 0
   adjacencies:
   - {fileID: 925780369}
   - {fileID: 1152957722}
@@ -7528,7 +7712,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: -1, y: 0, z: 0}
   nodeForward: {x: 0, y: 0, z: 0}
+  teletransport: 0
   isGoal: 0
+  showAdjacencies: 0
   adjacencies:
   - {fileID: 1459646502}
   - {fileID: 1129958113}
@@ -7905,7 +8091,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 1, y: 0, z: 0}
   nodeForward: {x: 0, y: 0, z: 0}
+  teletransport: 0
   isGoal: 0
+  showAdjacencies: 0
   adjacencies:
   - {fileID: 1011071948}
   - {fileID: 1880425321}
@@ -8014,7 +8202,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 1, y: 0, z: 0}
   nodeForward: {x: 0, y: 0, z: 0}
+  teletransport: 0
   isGoal: 0
+  showAdjacencies: 0
   adjacencies:
   - {fileID: 220507153}
   - {fileID: 1234646482}
@@ -8123,7 +8313,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 1, z: 0}
   nodeForward: {x: 0, y: 0, z: 0}
+  teletransport: 0
   isGoal: 0
+  showAdjacencies: 0
   adjacencies:
   - {fileID: 1248980939}
   - {fileID: 1822848349}
@@ -8238,7 +8430,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: 1}
   nodeForward: {x: 0, y: 0, z: 0}
+  teletransport: 0
   isGoal: 0
+  showAdjacencies: 0
   adjacencies:
   - {fileID: 1984126393}
   - {fileID: 1531088088}
@@ -8386,7 +8580,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 1, z: 0}
   nodeForward: {x: 0, y: 0, z: 0}
+  teletransport: 0
   isGoal: 0
+  showAdjacencies: 0
   adjacencies:
   - {fileID: 1612768158}
   - {fileID: 1882930360}
@@ -8495,7 +8691,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: 1}
   nodeForward: {x: 0, y: 0, z: 0}
+  teletransport: 0
   isGoal: 0
+  showAdjacencies: 0
   adjacencies:
   - {fileID: 220507153}
   - {fileID: 1591035969}
@@ -8714,7 +8912,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: 1}
   nodeForward: {x: 0, y: 0, z: 0}
+  teletransport: 0
   isGoal: 0
+  showAdjacencies: 0
   adjacencies:
   - {fileID: 73180688}
   - {fileID: 1935873503}
@@ -8823,7 +9023,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: -1}
   nodeForward: {x: 0, y: 0, z: 0}
+  teletransport: 0
   isGoal: 0
+  showAdjacencies: 0
   adjacencies:
   - {fileID: 925780369}
   - {fileID: 1318246716}
@@ -9527,7 +9729,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: -1, y: 0, z: 0}
   nodeForward: {x: 0, y: 0, z: 0}
+  teletransport: 0
   isGoal: 0
+  showAdjacencies: 0
   adjacencies:
   - {fileID: 0}
   - {fileID: 1890605509}
@@ -9720,7 +9924,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: -1, z: 0}
   nodeForward: {x: 0, y: 0, z: 0}
+  teletransport: 0
   isGoal: 0
+  showAdjacencies: 0
   adjacencies:
   - {fileID: 121549898}
   - {fileID: 583148327}
@@ -9829,7 +10035,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: -1, z: 0}
   nodeForward: {x: 0, y: 0, z: 0}
+  teletransport: 0
   isGoal: 0
+  showAdjacencies: 0
   adjacencies:
   - {fileID: 0}
   - {fileID: 966044936}
@@ -9944,7 +10152,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: -1, y: 0, z: 0}
   nodeForward: {x: 0, y: 0, z: 0}
+  teletransport: 0
   isGoal: 0
+  showAdjacencies: 0
   adjacencies:
   - {fileID: 894251126}
   - {fileID: 1206409369}

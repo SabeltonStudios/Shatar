@@ -153,6 +153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: -1}
   nodeForward: {x: 0, y: 1, z: 0}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -161,11 +162,11 @@ MonoBehaviour:
   - {fileID: 617882408}
   - {fileID: 845641050}
   - {fileID: 70265265}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1052277119}
+  - {fileID: 479497238}
+  - {fileID: 2042319629}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000100010000
+  adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -262,7 +263,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: -1}
-  nodeForward: {x: 0, y: 0, z: 0}
+  nodeForward: {x: -1, y: 0, z: 0}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -373,6 +375,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: -1}
   nodeForward: {x: 0, y: 1, z: 0}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -381,11 +384,11 @@ MonoBehaviour:
   - {fileID: 427685722}
   - {fileID: 4211992}
   - {fileID: 1925310439}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 479497238}
+  - {fileID: 2042319629}
+  - {fileID: 1929980744}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000100010000
+  adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -482,7 +485,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 1, z: 0}
-  nodeForward: {x: 0, y: 0, z: 0}
+  nodeForward: {x: 0, y: 0, z: -1}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -592,7 +596,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: -1, y: 0, z: 0}
-  nodeForward: {x: 0, y: 0, z: 0}
+  nodeForward: {x: 0, y: 0, z: 1}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -605,7 +610,7 @@ MonoBehaviour:
   - {fileID: 2001091188}
   - {fileID: 399081719}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0100000100010000
+  adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -702,7 +707,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: -1, z: 0}
-  nodeForward: {x: 0, y: 0, z: 0}
+  nodeForward: {x: 0, y: 0, z: 1}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -812,7 +818,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 1, z: 0}
-  nodeForward: {x: 0, y: 0, z: 0}
+  nodeForward: {x: 0, y: 0, z: -1}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -922,7 +929,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 1, y: 0, z: 0}
-  nodeForward: {x: 0, y: 0, z: 0}
+  nodeForward: {x: 0, y: 0, z: -1}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -935,7 +943,7 @@ MonoBehaviour:
   - {fileID: 1661703993}
   - {fileID: 837057484}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0100000100010000
+  adjacencieNoAlcanzable: 0000000000000001
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -1032,7 +1040,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 1, z: 0}
-  nodeForward: {x: 0, y: 0, z: 0}
+  nodeForward: {x: 0, y: 0, z: -1}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -1142,7 +1151,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: -1, z: 0}
-  nodeForward: {x: 0, y: 0, z: 0}
+  nodeForward: {x: 0, y: 0, z: 1}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -1253,19 +1263,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: 1}
   nodeForward: {x: 0, y: 1, z: 0}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 946382604}
   - {fileID: 1661589914}
-  - {fileID: 0}
+  - {fileID: 1026102427}
   - {fileID: 872852904}
-  - {fileID: 0}
+  - {fileID: 1961857102}
   - {fileID: 1594308464}
   - {fileID: 1177831148}
-  - {fileID: 0}
+  - {fileID: 1537898022}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000100010000
+  adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -1423,19 +1434,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 1, z: 0}
   nodeForward: {x: -1, y: 0, z: 0}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 565790724}
+  - {fileID: 671529822}
+  - {fileID: 799346967}
+  - {fileID: 869177292}
+  - {fileID: 1266221011}
+  - {fileID: 1190634110}
+  - {fileID: 1973495943}
+  - {fileID: 324679765}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0100000100010101
+  adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -1495,6 +1507,95 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 90.00001, y: 0, z: 180}
+--- !u!1001 &216825640
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -4216859302048453862, guid: 92ad0b367024a1a43adf0e4f494b439b,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 92ad0b367024a1a43adf0e4f494b439b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 92ad0b367024a1a43adf0e4f494b439b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 92ad0b367024a1a43adf0e4f494b439b,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 92ad0b367024a1a43adf0e4f494b439b,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 92ad0b367024a1a43adf0e4f494b439b,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 92ad0b367024a1a43adf0e4f494b439b,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 92ad0b367024a1a43adf0e4f494b439b,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 92ad0b367024a1a43adf0e4f494b439b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 92ad0b367024a1a43adf0e4f494b439b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 92ad0b367024a1a43adf0e4f494b439b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 92ad0b367024a1a43adf0e4f494b439b,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2513.6736
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 92ad0b367024a1a43adf0e4f494b439b,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2513.6736
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 92ad0b367024a1a43adf0e4f494b439b,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2513.6736
+      objectReference: {fileID: 0}
+    - target: {fileID: -1504981713932161579, guid: 92ad0b367024a1a43adf0e4f494b439b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2bbb7348b70e38246828c70788c0bf31, type: 2}
+    - target: {fileID: -927199367670048503, guid: 92ad0b367024a1a43adf0e4f494b439b,
+        type: 3}
+      propertyPath: m_Name
+      value: Goal (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 92ad0b367024a1a43adf0e4f494b439b, type: 3}
 --- !u!1 &227999227
 GameObject:
   m_ObjectHideFlags: 0
@@ -1528,19 +1629,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: -1}
   nodeForward: {x: 0, y: 1, z: 0}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
+  - {fileID: 1026102427}
   - {fileID: 831875812}
   - {fileID: 1390412926}
-  - {fileID: 0}
+  - {fileID: 1961857102}
   - {fileID: 1529436160}
-  - {fileID: 0}
+  - {fileID: 1537898022}
   - {fileID: 845641050}
   - {fileID: 4211992}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000100010000
+  adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -1834,6 +1936,7 @@ Transform:
   m_Children:
   - {fileID: 540720334}
   - {fileID: 1594854951}
+  - {fileID: 1105723812}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1869,7 +1972,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: -1, z: 0}
-  nodeForward: {x: 0, y: 0, z: 0}
+  nodeForward: {x: 0, y: 0, z: 1}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -1980,19 +2084,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: 1}
   nodeForward: {x: 0, y: 1, z: 0}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1710775893}
+  - {fileID: 1973495943}
+  - {fileID: 198995718}
   - {fileID: 396666952}
   - {fileID: 1266221011}
   - {fileID: 380817186}
   - {fileID: 1448758134}
   - {fileID: 1910480179}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000100010000
+  adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -2150,19 +2255,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 1, y: 0, z: 0}
   nodeForward: {x: 0, y: -1, z: 0}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1962004797}
+  - {fileID: 1813610791}
+  - {fileID: 1598167750}
+  - {fileID: 957996269}
+  - {fileID: 1511122369}
+  - {fileID: 1558425652}
+  - {fileID: 1961759142}
+  - {fileID: 1511532075}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0100000100010101
+  adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -2200,6 +2306,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: 1}
   nodeForward: {x: 0, y: 1, z: 0}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -2212,7 +2319,7 @@ MonoBehaviour:
   - {fileID: 1302541986}
   - {fileID: 754109235}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000100010000
+  adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -2310,19 +2417,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: 1}
   nodeForward: {x: 0, y: 1, z: 0}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1814964710}
+  - {fileID: 1710775893}
+  - {fileID: 1973495943}
   - {fileID: 611738751}
   - {fileID: 324679765}
   - {fileID: 2014995841}
   - {fileID: 380817186}
   - {fileID: 1448758134}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000100010000
+  adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -2419,7 +2527,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 1, z: 0}
-  nodeForward: {x: 0, y: 0, z: 0}
+  nodeForward: {x: 0, y: 0, z: -1}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -2432,7 +2541,7 @@ MonoBehaviour:
   - {fileID: 1514628201}
   - {fileID: 86040393}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000000
+  adjacencieNoAlcanzable: 0000010000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -2530,6 +2639,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: -1}
   nodeForward: {x: 0, y: 1, z: 0}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -2542,7 +2652,7 @@ MonoBehaviour:
   - {fileID: 1925310439}
   - {fileID: 1598167750}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000100010000
+  adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -2639,7 +2749,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: -1, z: 0}
-  nodeForward: {x: 0, y: 0, z: 0}
+  nodeForward: {x: 0, y: 0, z: 1}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -2749,7 +2860,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: -1, z: 0}
-  nodeForward: {x: 0, y: 0, z: 0}
+  nodeForward: {x: 0, y: 0, z: 1}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -2762,7 +2874,7 @@ MonoBehaviour:
   - {fileID: 442055110}
   - {fileID: 1492224181}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000000
+  adjacencieNoAlcanzable: 0100000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -2859,7 +2971,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: 1}
-  nodeForward: {x: 0, y: 0, z: 0}
+  nodeForward: {x: 1, y: 0, z: 0}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -2872,7 +2985,7 @@ MonoBehaviour:
   - {fileID: 1903972260}
   - {fileID: 1594245800}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000010101
+  adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -3113,19 +3226,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: -1, z: 0}
   nodeForward: {x: 0, y: 0, z: 1}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 619081843}
+  - {fileID: 1594308464}
+  - {fileID: 1177831148}
+  - {fileID: 2042319629}
+  - {fileID: 1052277119}
+  - {fileID: 70265265}
+  - {fileID: 4211992}
+  - {fileID: 845641050}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0100000100010101
+  adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -3162,7 +3276,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 1, z: 0}
-  nodeForward: {x: 0, y: 0, z: 0}
+  nodeForward: {x: 0, y: 0, z: -1}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -3388,19 +3503,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: -1}
   nodeForward: {x: 0, y: 1, z: 0}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 671529822}
+  - {fileID: 198995718}
+  - {fileID: 1161483842}
   - {fileID: 869177292}
-  - {fileID: 0}
+  - {fileID: 867572559}
   - {fileID: 683975472}
   - {fileID: 1457099492}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000100010000
+  adjacencieNoAlcanzable: 0100000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -3497,7 +3613,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 1, z: 0}
-  nodeForward: {x: 0, y: 0, z: 0}
+  nodeForward: {x: 0, y: 0, z: -1}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -3510,7 +3627,7 @@ MonoBehaviour:
   - {fileID: 634257336}
   - {fileID: 1599255283}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000000
+  adjacencieNoAlcanzable: 0100000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -3608,19 +3725,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: 1}
   nodeForward: {x: 0, y: 1, z: 0}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1814964710}
+  - {fileID: 1710775893}
+  - {fileID: 1605696487}
   - {fileID: 396666952}
-  - {fileID: 0}
+  - {fileID: 1371636183}
   - {fileID: 2014995841}
   - {fileID: 380817186}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000100010000
+  adjacencieNoAlcanzable: 0100000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -3718,6 +3836,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: -1}
   nodeForward: {x: 0, y: 1, z: 0}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -3730,7 +3849,7 @@ MonoBehaviour:
   - {fileID: 70265265}
   - {fileID: 1925310439}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000100010000
+  adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -3828,6 +3947,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: 1}
   nodeForward: {x: 0, y: 1, z: 0}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -3836,11 +3956,11 @@ MonoBehaviour:
   - {fileID: 872852904}
   - {fileID: 1815012799}
   - {fileID: 1594308464}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1929980744}
+  - {fileID: 2042319629}
+  - {fileID: 479497238}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000100010000
+  adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -4028,7 +4148,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: -1, y: 0, z: 0}
-  nodeForward: {x: 0, y: 0, z: 0}
+  nodeForward: {x: 0, y: 0, z: 1}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -4041,7 +4162,7 @@ MonoBehaviour:
   - {fileID: 86040393}
   - {fileID: 1514628201}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0100000100010000
+  adjacencieNoAlcanzable: 0000010000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -4138,7 +4259,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 1, z: 0}
-  nodeForward: {x: 0, y: 0, z: 0}
+  nodeForward: {x: 0, y: 0, z: -1}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -4249,19 +4371,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 1, z: 0}
   nodeForward: {x: -1, y: 0, z: 0}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 0}
+  - {fileID: 1161483842}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 565790724}
+  - {fileID: 799346967}
+  - {fileID: 869177292}
+  - {fileID: 198995718}
+  - {fileID: 1266221011}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0100000100010101
+  adjacencieNoAlcanzable: 0100010000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -4359,19 +4482,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: -1}
   nodeForward: {x: 0, y: 1, z: 0}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
+  - {fileID: 1161483842}
   - {fileID: 565790724}
   - {fileID: 869177292}
-  - {fileID: 0}
+  - {fileID: 867572559}
   - {fileID: 1457099492}
-  - {fileID: 0}
+  - {fileID: 1026102427}
   - {fileID: 831875812}
   - {fileID: 1390412926}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000100010000
+  adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -4468,7 +4592,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 1, y: 0, z: 0}
-  nodeForward: {x: 0, y: 0, z: 0}
+  nodeForward: {x: 0, y: 0, z: -1}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -4481,7 +4606,7 @@ MonoBehaviour:
   - {fileID: 1943656704}
   - {fileID: 634257336}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0100000100010101
+  adjacencieNoAlcanzable: 0100010000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -4578,7 +4703,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 1, z: 0}
-  nodeForward: {x: 0, y: 0, z: 0}
+  nodeForward: {x: 0, y: 0, z: -1}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -4689,6 +4815,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: 1}
   nodeForward: {x: 0, y: 1, z: 0}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -4701,7 +4828,7 @@ MonoBehaviour:
   - {fileID: 1570649027}
   - {fileID: 872852904}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000100010000
+  adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -4798,7 +4925,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: -1, y: 0, z: 0}
-  nodeForward: {x: 0, y: 0, z: 0}
+  nodeForward: {x: 0, y: 0, z: 1}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -4811,7 +4939,7 @@ MonoBehaviour:
   - {fileID: 629472491}
   - {fileID: 1151890236}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0100000100010101
+  adjacencieNoAlcanzable: 0100010000010100
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -4908,7 +5036,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: -1, z: 0}
-  nodeForward: {x: 0, y: 0, z: 0}
+  nodeForward: {x: 0, y: 0, z: 1}
+  teletransport: 1
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -5018,7 +5147,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: -1, z: 0}
-  nodeForward: {x: 0, y: 0, z: 0}
+  nodeForward: {x: 0, y: 0, z: 1}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -5129,19 +5259,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: 1}
   nodeForward: {x: 0, y: 1, z: 0}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 198995718}
+  - {fileID: 671529822}
   - {fileID: 0}
   - {fileID: 1266221011}
-  - {fileID: 0}
+  - {fileID: 1161483842}
   - {fileID: 1910480179}
   - {fileID: 1521153032}
-  - {fileID: 0}
+  - {fileID: 867572559}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000100010000
+  adjacencieNoAlcanzable: 0000010000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -5239,19 +5370,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: -1}
   nodeForward: {x: 0, y: 1, z: 0}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
+  - {fileID: 867572559}
   - {fileID: 683975472}
   - {fileID: 1457099492}
-  - {fileID: 0}
+  - {fileID: 1026102427}
   - {fileID: 1390412926}
-  - {fileID: 0}
+  - {fileID: 1961857102}
   - {fileID: 227999228}
   - {fileID: 1529436160}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000100010000
+  adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -5348,7 +5480,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 1, z: 0}
-  nodeForward: {x: 0, y: 0, z: 0}
+  nodeForward: {x: 0, y: 0, z: -1}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -5361,7 +5494,7 @@ MonoBehaviour:
   - {fileID: 1196559175}
   - {fileID: 2108412407}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0001010000000000
+  adjacencieNoAlcanzable: 0001010000010000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -5459,19 +5592,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: -1}
   nodeForward: {x: 0, y: 1, z: 0}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
+  - {fileID: 1961857102}
   - {fileID: 227999228}
   - {fileID: 1529436160}
-  - {fileID: 0}
+  - {fileID: 1537898022}
   - {fileID: 4211992}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1052277119}
+  - {fileID: 479497238}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000100010000
+  adjacencieNoAlcanzable: 0000000000010000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -5589,7 +5723,7 @@ Transform:
   - {fileID: 1973495940}
   - {fileID: 1710775890}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &858522115
 PrefabInstance:
@@ -5774,19 +5908,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: -1, y: 0, z: 0}
   nodeForward: {x: 0, y: -1, z: 0}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 831875812}
+  - {fileID: 1026102427}
+  - {fileID: 1661589914}
+  - {fileID: 683975472}
+  - {fileID: 1521153032}
+  - {fileID: 565790724}
+  - {fileID: 1161483842}
+  - {fileID: 799346967}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0100000100010101
+  adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -5824,19 +5959,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: -1}
   nodeForward: {x: 0, y: 1, z: 0}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 671529822}
+  - {fileID: 198995718}
+  - {fileID: 1973495943}
   - {fileID: 565790724}
   - {fileID: 1190634110}
   - {fileID: 683975472}
   - {fileID: 1457099492}
   - {fileID: 1350165284}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000100010000
+  adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -5934,6 +6070,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: 1}
   nodeForward: {x: 0, y: 1, z: 0}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -5946,7 +6083,7 @@ MonoBehaviour:
   - {fileID: 1594308464}
   - {fileID: 1177831148}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000100010000
+  adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -6043,7 +6180,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 1, z: 0}
-  nodeForward: {x: 0, y: 0, z: 0}
+  nodeForward: {x: 0, y: 0, z: -1}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -6244,6 +6382,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: 1}
   nodeForward: {x: 0, y: 1, z: 0}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -6256,7 +6395,7 @@ MonoBehaviour:
   - {fileID: 872852904}
   - {fileID: 193257563}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000100010000
+  adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -6354,19 +6493,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: 1}
   nodeForward: {x: 0, y: 1, z: 0}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
+  - {fileID: 1961759142}
   - {fileID: 1558425652}
   - {fileID: 1302541986}
-  - {fileID: 0}
+  - {fileID: 371444620}
   - {fileID: 985638977}
-  - {fileID: 0}
+  - {fileID: 1813610791}
   - {fileID: 1962004797}
   - {fileID: 1815012799}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000100010000
+  adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -6464,6 +6604,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: 1}
   nodeForward: {x: 0, y: 1, z: 0}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -6476,7 +6617,7 @@ MonoBehaviour:
   - {fileID: 1815012799}
   - {fileID: 619081843}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000100010000
+  adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -6689,19 +6830,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: -1, y: 0, z: 0}
   nodeForward: {x: 0, y: -1, z: 0}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 227999228}
+  - {fileID: 1961857102}
+  - {fileID: 193257563}
+  - {fileID: 831875812}
+  - {fileID: 1661589914}
+  - {fileID: 683975472}
+  - {fileID: 867572559}
+  - {fileID: 1521153032}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0100000100010101
+  adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -6739,19 +6881,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: -1}
   nodeForward: {x: 0, y: 1, z: 0}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1304554658}
   - {fileID: 2015200587}
-  - {fileID: 0}
+  - {fileID: 1605696487}
   - {fileID: 1143405222}
-  - {fileID: 0}
+  - {fileID: 1371636183}
   - {fileID: 1054003087}
   - {fileID: 1511532075}
-  - {fileID: 0}
+  - {fileID: 1961759142}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000100010000
+  adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -6869,7 +7012,7 @@ Transform:
   - {fileID: 1026102424}
   - {fileID: 867572556}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!1 &1052277118
 GameObject:
@@ -6904,19 +7047,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: -1, z: 0}
   nodeForward: {x: 0, y: 0, z: 1}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
+  - {fileID: 1594308464}
+  - {fileID: 1177831148}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 479497238}
+  - {fileID: 1537898022}
+  - {fileID: 4211992}
+  - {fileID: 845641050}
   - {fileID: 0}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000010001000001
+  adjacencieNoAlcanzable: 0000000100000001
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -7013,7 +7157,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: -1, z: 0}
-  nodeForward: {x: 0, y: 0, z: 0}
+  nodeForward: {x: 0, y: 0, z: 1}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -7124,6 +7269,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: -1}
   nodeForward: {x: 0, y: 1, z: 0}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -7136,7 +7282,7 @@ MonoBehaviour:
   - {fileID: 427685722}
   - {fileID: 1511122369}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000100010000
+  adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -7201,6 +7347,101 @@ Transform:
   m_Father: {fileID: 1520938011}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
+--- !u!1001 &1105723811
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 277811411}
+    m_Modifications:
+    - target: {fileID: -4216859302048453862, guid: 9c27b2a80347c6242b73e46893679403,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 9c27b2a80347c6242b73e46893679403,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 9c27b2a80347c6242b73e46893679403,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 9c27b2a80347c6242b73e46893679403,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.000000021855694
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 9c27b2a80347c6242b73e46893679403,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.00000004371139
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 9c27b2a80347c6242b73e46893679403,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 8.881784e-16
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 9c27b2a80347c6242b73e46893679403,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 9c27b2a80347c6242b73e46893679403,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 9c27b2a80347c6242b73e46893679403,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 9c27b2a80347c6242b73e46893679403,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 9c27b2a80347c6242b73e46893679403,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 9c27b2a80347c6242b73e46893679403,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 9c27b2a80347c6242b73e46893679403,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 9c27b2a80347c6242b73e46893679403,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 9c27b2a80347c6242b73e46893679403,
+        type: 3}
+      propertyPath: m_Name
+      value: Castle
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 9c27b2a80347c6242b73e46893679403,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9c27b2a80347c6242b73e46893679403, type: 3}
+--- !u!4 &1105723812 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 9c27b2a80347c6242b73e46893679403,
+    type: 3}
+  m_PrefabInstance: {fileID: 1105723811}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1135200084
 GameObject:
   m_ObjectHideFlags: 0
@@ -7233,7 +7474,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 1, z: 0}
-  nodeForward: {x: 0, y: 0, z: 0}
+  nodeForward: {x: 0, y: 0, z: -1}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -7343,7 +7585,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: -1}
-  nodeForward: {x: 0, y: 0, z: 0}
+  nodeForward: {x: -1, y: 0, z: 0}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -7454,6 +7697,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: -1}
   nodeForward: {x: 0, y: 1, z: 0}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -7466,7 +7710,7 @@ MonoBehaviour:
   - {fileID: 1054003087}
   - {fileID: 1511532075}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000100010000
+  adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -7563,7 +7807,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 1, z: 0}
-  nodeForward: {x: 0, y: 0, z: 0}
+  nodeForward: {x: 0, y: 0, z: -1}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -7674,19 +7919,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: -1, y: 0, z: 0}
   nodeForward: {x: 0, y: -1, z: 0}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
+  - {fileID: 683975472}
+  - {fileID: 867572559}
+  - {fileID: 1521153032}
+  - {fileID: 565790724}
+  - {fileID: 799346967}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 671529822}
   - {fileID: 0}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000010001000001
+  adjacencieNoAlcanzable: 0000000000010001
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -7819,19 +8065,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: 1}
   nodeForward: {x: 0, y: 1, z: 0}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 872852904}
   - {fileID: 193257563}
-  - {fileID: 0}
+  - {fileID: 1961857102}
   - {fileID: 1594308464}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1537898022}
+  - {fileID: 479497238}
+  - {fileID: 1052277119}
   - {fileID: 0}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000100010000
+  adjacencieNoAlcanzable: 0000000000000001
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -7969,7 +8216,7 @@ Transform:
   - {fileID: 1558425655}
   - {fileID: 957996272}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1 &1190634109
 GameObject:
@@ -8004,19 +8251,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: -1}
   nodeForward: {x: 0, y: 1, z: 0}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 198995718}
+  - {fileID: 1973495943}
+  - {fileID: 1710775893}
   - {fileID: 869177292}
   - {fileID: 1304554658}
   - {fileID: 1457099492}
   - {fileID: 1350165284}
   - {fileID: 1143405222}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000100010000
+  adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -8113,7 +8361,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: 1}
-  nodeForward: {x: 0, y: 0, z: 0}
+  nodeForward: {x: 1, y: 0, z: 0}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -8126,7 +8375,7 @@ MonoBehaviour:
   - {fileID: 764822775}
   - {fileID: 0}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0101010001000001
+  adjacencieNoAlcanzable: 0000000000010001
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -8277,7 +8526,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: 1}
-  nodeForward: {x: 0, y: 0, z: 0}
+  nodeForward: {x: 1, y: 0, z: 0}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -8290,7 +8540,7 @@ MonoBehaviour:
   - {fileID: 2108412407}
   - {fileID: 79158510}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000010101
+  adjacencieNoAlcanzable: 0100010000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -8478,6 +8728,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: -1}
   nodeForward: {x: 0, y: 1, z: 0}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -8490,7 +8741,7 @@ MonoBehaviour:
   - {fileID: 617882408}
   - {fileID: 427685722}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000100010000
+  adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -8587,7 +8838,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: -1, z: 0}
-  nodeForward: {x: 0, y: 0, z: 0}
+  nodeForward: {x: 0, y: 0, z: 1}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -8880,19 +9132,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: 1}
   nodeForward: {x: 0, y: 1, z: 0}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1973495943}
+  - {fileID: 198995718}
+  - {fileID: 671529822}
   - {fileID: 324679765}
   - {fileID: 799346967}
   - {fileID: 1448758134}
   - {fileID: 1910480179}
   - {fileID: 1521153032}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000100010000
+  adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -9187,6 +9440,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: 1}
   nodeForward: {x: 0, y: 1, z: 0}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -9199,7 +9453,7 @@ MonoBehaviour:
   - {fileID: 985638977}
   - {fileID: 1570649027}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000100010000
+  adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -9296,7 +9550,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: -1}
-  nodeForward: {x: 0, y: 0, z: 0}
+  nodeForward: {x: -1, y: 0, z: 0}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -9309,7 +9564,7 @@ MonoBehaviour:
   - {fileID: 1142323130}
   - {fileID: 927063192}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000100010000
+  adjacencieNoAlcanzable: 0100010100010000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -9407,19 +9662,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: -1}
   nodeForward: {x: 0, y: 1, z: 0}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1973495943}
+  - {fileID: 1710775893}
+  - {fileID: 1814964710}
   - {fileID: 1190634110}
   - {fileID: 2015200587}
   - {fileID: 1350165284}
   - {fileID: 1143405222}
   - {fileID: 1038445527}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000100010000
+  adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -9516,7 +9772,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: -1, z: 0}
-  nodeForward: {x: 0, y: 0, z: 0}
+  nodeForward: {x: 0, y: 0, z: 1}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -9626,7 +9883,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: -1, z: 0}
-  nodeForward: {x: 0, y: 0, z: 0}
+  nodeForward: {x: 0, y: 0, z: 1}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -9737,6 +9995,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: -1}
   nodeForward: {x: 0, y: 1, z: 0}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -9749,7 +10008,7 @@ MonoBehaviour:
   - {fileID: 1215015950}
   - {fileID: 1054003087}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000100010000
+  adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -9999,19 +10258,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 1, y: 0, z: 0}
   nodeForward: {x: 0, y: -1, z: 0}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1558425652}
+  - {fileID: 1961759142}
+  - {fileID: 1511532075}
+  - {fileID: 2014995841}
+  - {fileID: 1038445527}
+  - {fileID: 611738751}
+  - {fileID: 1605696487}
+  - {fileID: 2015200587}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0100000100010101
+  adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -10034,7 +10294,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &1390398244
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10141,6 +10401,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: -1}
   nodeForward: {x: 0, y: 1, z: 0}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -10153,7 +10414,7 @@ MonoBehaviour:
   - {fileID: 1529436160}
   - {fileID: 617882408}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000100010000
+  adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -10361,7 +10622,7 @@ Transform:
   - {fileID: 1961759139}
   - {fileID: 371444617}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!1 &1406360401
 GameObject:
@@ -10396,19 +10657,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: -1, z: 0}
   nodeForward: {x: 0, y: 0, z: 1}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 0}
+  - {fileID: 1962004797}
+  - {fileID: 1815012799}
+  - {fileID: 1813610791}
+  - {fileID: 1929980744}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1598167750}
+  - {fileID: 1925310439}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0100000100010101
+  adjacencieNoAlcanzable: 0100000000010000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -10506,6 +10768,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: 1}
   nodeForward: {x: 0, y: 1, z: 0}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -10518,7 +10781,7 @@ MonoBehaviour:
   - {fileID: 754109235}
   - {fileID: 946382604}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000100010000
+  adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -10616,6 +10879,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: -1}
   nodeForward: {x: 0, y: 1, z: 0}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -10628,7 +10892,7 @@ MonoBehaviour:
   - {fileID: 1390412926}
   - {fileID: 1215015950}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000100010000
+  adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -10725,7 +10989,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 1, z: 0}
-  nodeForward: {x: 0, y: 0, z: 0}
+  nodeForward: {x: 0, y: 0, z: -1}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -10835,7 +11100,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: -1}
-  nodeForward: {x: 0, y: 0, z: 0}
+  nodeForward: {x: -1, y: 0, z: 0}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -10848,7 +11114,7 @@ MonoBehaviour:
   - {fileID: 732210484}
   - {fileID: 0}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0100000100000000
+  adjacencieNoAlcanzable: 0100000100010001
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -10945,7 +11211,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: -1, z: 0}
-  nodeForward: {x: 0, y: 0, z: 0}
+  nodeForward: {x: 0, y: 0, z: 1}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -10958,7 +11225,7 @@ MonoBehaviour:
   - {fileID: 1303819269}
   - {fileID: 0}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000010100
+  adjacencieNoAlcanzable: 0000000000010101
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -11055,7 +11322,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: -1, z: 0}
-  nodeForward: {x: 0, y: 0, z: 0}
+  nodeForward: {x: 0, y: 0, z: 1}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -11165,7 +11433,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: -1, z: 0}
-  nodeForward: {x: 0, y: 0, z: 0}
+  nodeForward: {x: 0, y: 0, z: 1}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -11276,19 +11545,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: -1}
   nodeForward: {x: 0, y: 1, z: 0}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1054003087}
   - {fileID: 1511532075}
-  - {fileID: 0}
+  - {fileID: 1961759142}
   - {fileID: 427685722}
-  - {fileID: 0}
+  - {fileID: 371444620}
   - {fileID: 1925310439}
   - {fileID: 1598167750}
-  - {fileID: 0}
+  - {fileID: 1813610791}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000100010000
+  adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -11386,19 +11656,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: -1}
   nodeForward: {x: 0, y: 1, z: 0}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1143405222}
   - {fileID: 1038445527}
-  - {fileID: 0}
+  - {fileID: 1371636183}
   - {fileID: 1054003087}
-  - {fileID: 0}
+  - {fileID: 1961759142}
   - {fileID: 427685722}
   - {fileID: 1511122369}
-  - {fileID: 0}
+  - {fileID: 371444620}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000100010000
+  adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -11495,7 +11766,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 1, z: 0}
-  nodeForward: {x: 0, y: 0, z: 0}
+  nodeForward: {x: 0, y: 0, z: -1}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -11681,19 +11953,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: 1}
   nodeForward: {x: 0, y: 1, z: 0}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1266221011}
   - {fileID: 799346967}
-  - {fileID: 0}
+  - {fileID: 1161483842}
   - {fileID: 1910480179}
-  - {fileID: 0}
+  - {fileID: 867572559}
   - {fileID: 946382604}
   - {fileID: 1661589914}
-  - {fileID: 0}
+  - {fileID: 1026102427}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000100010000
+  adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -11791,6 +12064,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: -1}
   nodeForward: {x: 0, y: 1, z: 0}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -11803,7 +12077,7 @@ MonoBehaviour:
   - {fileID: 4211992}
   - {fileID: 70265265}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000100010000
+  adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -11901,19 +12175,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: -1, y: 0, z: 0}
   nodeForward: {x: 0, y: -1, z: 0}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 0}
+  - {fileID: 1052277119}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 845641050}
+  - {fileID: 1177831148}
+  - {fileID: 227999228}
+  - {fileID: 1961857102}
+  - {fileID: 193257563}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0100000100010101
+  adjacencieNoAlcanzable: 0100010000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -12011,19 +12286,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: 1}
   nodeForward: {x: 0, y: 1, z: 0}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
+  - {fileID: 1371636183}
   - {fileID: 2014995841}
   - {fileID: 380817186}
-  - {fileID: 0}
+  - {fileID: 1961759142}
   - {fileID: 1302541986}
-  - {fileID: 0}
+  - {fileID: 371444620}
   - {fileID: 957996269}
   - {fileID: 985638977}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000100010000
+  adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -12121,6 +12397,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: 1}
   nodeForward: {x: 0, y: 1, z: 0}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -12133,7 +12410,7 @@ MonoBehaviour:
   - {fileID: 619081843}
   - {fileID: 1594308464}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000100010000
+  adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -12284,7 +12561,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 1, z: 0}
-  nodeForward: {x: 0, y: 0, z: 0}
+  nodeForward: {x: 0, y: 0, z: -1}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -12395,6 +12673,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: 1}
   nodeForward: {x: 0, y: 1, z: 0}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -12403,11 +12682,11 @@ MonoBehaviour:
   - {fileID: 193257563}
   - {fileID: 619081843}
   - {fileID: 1177831148}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 2042319629}
+  - {fileID: 479497238}
+  - {fileID: 1052277119}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000100010000
+  adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -12599,7 +12878,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 1, z: 0}
-  nodeForward: {x: 0, y: 0, z: 0}
+  nodeForward: {x: 0, y: 0, z: -1}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -12612,7 +12892,7 @@ MonoBehaviour:
   - {fileID: 1191096730}
   - {fileID: 0}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0101000000000000
+  adjacencieNoAlcanzable: 0101000000000001
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -12710,19 +12990,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: -1}
   nodeForward: {x: 0, y: 1, z: 0}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 427685722}
   - {fileID: 1511122369}
-  - {fileID: 0}
+  - {fileID: 371444620}
   - {fileID: 1925310439}
-  - {fileID: 0}
+  - {fileID: 1813610791}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000100010000
+  adjacencieNoAlcanzable: 0000000000000001
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -12819,7 +13100,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 1, z: 0}
-  nodeForward: {x: 0, y: 0, z: 0}
+  nodeForward: {x: 0, y: 0, z: -1}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -12930,19 +13212,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 1, y: 0, z: 0}
   nodeForward: {x: 0, y: -1, z: 0}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
+  - {fileID: 2014995841}
+  - {fileID: 1371636183}
+  - {fileID: 1038445527}
+  - {fileID: 611738751}
+  - {fileID: 2015200587}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1814964710}
   - {fileID: 0}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0100000100010101
+  adjacencieNoAlcanzable: 0000000000010001
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -13039,7 +13322,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: -1, z: 0}
-  nodeForward: {x: 0, y: 0, z: 0}
+  nodeForward: {x: 0, y: 0, z: 1}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -13052,7 +13336,7 @@ MonoBehaviour:
   - {fileID: 1053213650}
   - {fileID: 629472491}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000000
+  adjacencieNoAlcanzable: 0000010000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -13149,7 +13433,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 1, z: 0}
-  nodeForward: {x: 0, y: 0, z: 0}
+  nodeForward: {x: 0, y: 0, z: -1}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -13259,7 +13544,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: -1}
-  nodeForward: {x: 0, y: 0, z: 0}
+  nodeForward: {x: -1, y: 0, z: 0}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -13440,19 +13726,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: 1}
   nodeForward: {x: 0, y: 1, z: 0}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1910480179}
   - {fileID: 1521153032}
-  - {fileID: 0}
+  - {fileID: 867572559}
   - {fileID: 946382604}
-  - {fileID: 0}
+  - {fileID: 1026102427}
   - {fileID: 872852904}
   - {fileID: 193257563}
-  - {fileID: 0}
+  - {fileID: 1961857102}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000100010000
+  adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -13549,7 +13836,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 1, y: 0, z: 0}
-  nodeForward: {x: 0, y: 0, z: 0}
+  nodeForward: {x: 0, y: 0, z: -1}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -13562,7 +13850,7 @@ MonoBehaviour:
   - {fileID: 1196559175}
   - {fileID: 0}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000010001000001
+  adjacencieNoAlcanzable: 0000010000010001
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -13680,7 +13968,7 @@ Transform:
   - {fileID: 2042319626}
   - {fileID: 479497235}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!1001 &1698210459
 PrefabInstance:
@@ -13804,7 +14092,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 1, z: 0}
-  nodeForward: {x: 0, y: 0, z: 0}
+  nodeForward: {x: 0, y: 0, z: -1}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -13975,19 +14264,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 1, z: 0}
   nodeForward: {x: -1, y: 0, z: 0}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1190634110}
+  - {fileID: 1973495943}
+  - {fileID: 324679765}
+  - {fileID: 1304554658}
+  - {fileID: 396666952}
+  - {fileID: 2015200587}
+  - {fileID: 1814964710}
+  - {fileID: 611738751}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0100000100010101
+  adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -14024,7 +14314,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: -1, z: 0}
-  nodeForward: {x: 0, y: 0, z: 0}
+  nodeForward: {x: 0, y: 0, z: 1}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -14134,7 +14425,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: -1, z: 0}
-  nodeForward: {x: 0, y: 0, z: 0}
+  nodeForward: {x: 0, y: 0, z: 1}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -14244,7 +14536,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: -1, z: 0}
-  nodeForward: {x: 0, y: 0, z: 0}
+  nodeForward: {x: 0, y: 0, z: 1}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -14355,19 +14648,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 1, y: 0, z: 0}
   nodeForward: {x: 0, y: -1, z: 0}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 0}
+  - {fileID: 1406360402}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1962004797}
+  - {fileID: 1598167750}
+  - {fileID: 957996269}
+  - {fileID: 371444620}
+  - {fileID: 1511122369}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000010001000001
+  adjacencieNoAlcanzable: 0100010000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -14465,6 +14759,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 1, z: 0}
   nodeForward: {x: -1, y: 0, z: 0}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -14474,10 +14769,10 @@ MonoBehaviour:
   - {fileID: 2015200587}
   - {fileID: 611738751}
   - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1605696487}
   - {fileID: 0}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000010001000001
+  adjacencieNoAlcanzable: 0000000000010001
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -14575,6 +14870,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: 1}
   nodeForward: {x: 0, y: 1, z: 0}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -14583,11 +14879,11 @@ MonoBehaviour:
   - {fileID: 1570649027}
   - {fileID: 1962004797}
   - {fileID: 619081843}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1406360402}
+  - {fileID: 1929980744}
+  - {fileID: 2042319629}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000100010000
+  adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -14684,7 +14980,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: -1, z: 0}
-  nodeForward: {x: 0, y: 0, z: 0}
+  nodeForward: {x: 0, y: 0, z: 1}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -14697,7 +14994,7 @@ MonoBehaviour:
   - {fileID: 1478058130}
   - {fileID: 1641882466}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000101
+  adjacencieNoAlcanzable: 0000000000010101
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -14826,7 +15123,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 1, z: 0}
-  nodeForward: {x: 0, y: 0, z: 0}
+  nodeForward: {x: 0, y: 0, z: -1}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -15026,7 +15324,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: 1}
-  nodeForward: {x: 0, y: 0, z: 0}
+  nodeForward: {x: 1, y: 0, z: 0}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -15039,7 +15338,7 @@ MonoBehaviour:
   - {fileID: 1191096730}
   - {fileID: 1595582849}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000010101
+  adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -15137,6 +15436,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: 1}
   nodeForward: {x: 0, y: 1, z: 0}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -15149,7 +15449,7 @@ MonoBehaviour:
   - {fileID: 946382604}
   - {fileID: 1661589914}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000100010000
+  adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -15247,6 +15547,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: -1}
   nodeForward: {x: 0, y: 1, z: 0}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -15255,11 +15556,11 @@ MonoBehaviour:
   - {fileID: 1511122369}
   - {fileID: 70265265}
   - {fileID: 1598167750}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 2042319629}
+  - {fileID: 1929980744}
+  - {fileID: 1406360402}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000100010000
+  adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -15417,23 +15718,71 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: -1, z: 0}
   nodeForward: {x: 0, y: 0, z: 1}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1962004797}
+  - {fileID: 1815012799}
+  - {fileID: 619081843}
+  - {fileID: 1406360402}
+  - {fileID: 2042319629}
+  - {fileID: 1598167750}
+  - {fileID: 1925310439}
+  - {fileID: 70265265}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0100000100010101
+  adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+--- !u!1 &1940344067
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1940344069}
+  - component: {fileID: 1940344068}
+  m_Layer: 0
+  m_Name: Mundo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1940344068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1940344067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 990df5ec155b6074f927e038c35d06f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  teletransporte:
+  - {fileID: 780702965}
+  - {fileID: 2042319629}
+  maxMovs: 25
+--- !u!4 &1940344069
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1940344067}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -53.778305, y: -52.855812, z: 42.723766}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1943656703
 GameObject:
   m_ObjectHideFlags: 0
@@ -15466,7 +15815,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 1, y: 0, z: 0}
-  nodeForward: {x: 0, y: 0, z: 0}
+  nodeForward: {x: 0, y: 0, z: -1}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -15479,7 +15829,7 @@ MonoBehaviour:
   - {fileID: 143607843}
   - {fileID: 134485934}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0100000100010000
+  adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -15637,19 +15987,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 1, y: 0, z: 0}
   nodeForward: {x: 0, y: -1, z: 0}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 957996269}
+  - {fileID: 371444620}
+  - {fileID: 1511122369}
+  - {fileID: 1558425652}
+  - {fileID: 1511532075}
+  - {fileID: 2014995841}
+  - {fileID: 1371636183}
+  - {fileID: 1038445527}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0100000100010101
+  adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -15747,19 +16098,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: -1, y: 0, z: 0}
   nodeForward: {x: 0, y: -1, z: 0}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 845641050}
+  - {fileID: 1537898022}
+  - {fileID: 1177831148}
+  - {fileID: 227999228}
+  - {fileID: 193257563}
+  - {fileID: 831875812}
+  - {fileID: 1026102427}
+  - {fileID: 1661589914}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0100000100010101
+  adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -15797,19 +16149,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: 1}
   nodeForward: {x: 0, y: 1, z: 0}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
+  - {fileID: 371444620}
   - {fileID: 957996269}
   - {fileID: 985638977}
-  - {fileID: 0}
+  - {fileID: 1813610791}
   - {fileID: 1815012799}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1406360402}
+  - {fileID: 1929980744}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0100000100000000
+  adjacencieNoAlcanzable: 0000000000010000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -15967,19 +16320,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 1, z: 0}
   nodeForward: {x: -1, y: 0, z: 0}
+  teletransport: 0
   isGoal: 1
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 869177292}
+  - {fileID: 198995718}
+  - {fileID: 1266221011}
+  - {fileID: 1190634110}
+  - {fileID: 324679765}
+  - {fileID: 1304554658}
+  - {fileID: 1710775893}
+  - {fileID: 396666952}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0100000100010101
+  adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -16106,7 +16460,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: -1, y: 0, z: 0}
-  nodeForward: {x: 0, y: 0, z: 0}
+  nodeForward: {x: 0, y: 0, z: 1}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -16119,7 +16474,7 @@ MonoBehaviour:
   - {fileID: 1303819269}
   - {fileID: 0}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000010001000001
+  adjacencieNoAlcanzable: 0000000000010001
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -16217,19 +16572,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: 1}
   nodeForward: {x: 0, y: 1, z: 0}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
+  - {fileID: 1605696487}
   - {fileID: 611738751}
   - {fileID: 396666952}
-  - {fileID: 0}
+  - {fileID: 1371636183}
   - {fileID: 380817186}
-  - {fileID: 0}
+  - {fileID: 1961759142}
   - {fileID: 1558425652}
   - {fileID: 1302541986}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000100010000
+  adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -16327,19 +16683,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: -1}
   nodeForward: {x: 0, y: 1, z: 0}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1710775893}
+  - {fileID: 1814964710}
   - {fileID: 0}
   - {fileID: 1304554658}
-  - {fileID: 0}
+  - {fileID: 1605696487}
   - {fileID: 1143405222}
   - {fileID: 1038445527}
-  - {fileID: 0}
+  - {fileID: 1371636183}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0100000100000000
+  adjacencieNoAlcanzable: 0000010000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -16497,19 +16854,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: -1, z: 0}
   nodeForward: {x: 0, y: 0, z: 1}
+  teletransport: 1
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1815012799}
+  - {fileID: 619081843}
+  - {fileID: 1594308464}
+  - {fileID: 1929980744}
+  - {fileID: 479497238}
+  - {fileID: 1925310439}
+  - {fileID: 70265265}
+  - {fileID: 4211992}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0100000100010101
+  adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -16684,7 +17042,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: 0, z: 1}
-  nodeForward: {x: 0, y: 0, z: 0}
+  nodeForward: {x: 1, y: 0, z: 0}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:
@@ -16697,7 +17056,7 @@ MonoBehaviour:
   - {fileID: 459537293}
   - {fileID: 1707061553}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000010101
+  adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -16794,7 +17153,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {x: 0, y: -1, z: 0}
-  nodeForward: {x: 0, y: 0, z: 0}
+  nodeForward: {x: 0, y: 0, z: 1}
+  teletransport: 0
   isGoal: 0
   showAdjacencies: 0
   adjacencies:

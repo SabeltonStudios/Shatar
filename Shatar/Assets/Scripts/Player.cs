@@ -92,5 +92,6 @@ public class Player : MonoBehaviour
             //transform.position = node.transform.position;
             StartCoroutine(gameController.MoveOverSeconds(this.gameObject, node, 1, true, previousNode));
         }
+        
     }
 }

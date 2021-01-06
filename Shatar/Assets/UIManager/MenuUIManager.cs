@@ -10,6 +10,7 @@ public class MenuUIManager : MonoBehaviour
     [SerializeField] private GameObject mainMenu = null;
     [SerializeField] private Button b_play = null;
     [SerializeField] private Button b_settings = null;
+    [SerializeField] private GameObject i_settings = null;
     [SerializeField] private Button b_twitter = null;
     [SerializeField] private Button b_instagram = null;
     [SerializeField] private Button b_youtube = null;
@@ -187,7 +188,7 @@ public class MenuUIManager : MonoBehaviour
                 b_playLevel.onClick.AddListener(() => { PlaySoundEffect("click_button"); LoadScene("Tutorial"); });
                 break;
             case 1:
-                //b_playLevel.onClick.AddListener(() => { PlaySoundEffect("click_button"); LoadScene("Level1"); });
+                b_playLevel.onClick.AddListener(() => { PlaySoundEffect("click_button"); LoadScene("Level1"); });
                 break;
             case 2:
                 //b_playLevel.onClick.AddListener(() => { PlaySoundEffect("click_button"); LoadScene("Level2"); });
@@ -374,7 +375,7 @@ public class MenuUIManager : MonoBehaviour
     {
         //Main Menu Buttons
         b_play.onClick.AddListener(() => { PlaySoundEffect("click_button"); StartCoroutine(LoadMenuAfterWait(mainMenu, 0.23f)); });
-        b_settings.onClick.AddListener(() => { PlaySoundEffect("click_button"); goToSettings(mainMenu); });
+        b_settings.onClick.AddListener(() => { PlaySoundEffect("click_button"); i_settings.GetComponent<Animator>().SetBool("onClick", true); goToSettings(mainMenu); });
 
         //Settings Buttons
         b_muteSoundEffects.onClick.AddListener(() => { PlaySoundEffect("click_button"); updateSoundEffectsState(); });

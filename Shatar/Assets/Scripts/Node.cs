@@ -19,6 +19,7 @@ public class Node : MonoBehaviour
     public Vector3 orientation;
     public Vector3 nodeForward;
     public bool isGoal;
+    public bool showAdjacencies;
     // The list of adjacent nodes/squares
     public Node[] adjacencies;
     Node[] adjacencies90;
@@ -70,6 +71,18 @@ public class Node : MonoBehaviour
         Gizmos.color = Color.red;
         Vector3 forwardVector = nodeForward.normalized * scaleFactor;
         DrawArrow(transform.position, transform.position + forwardVector);
+
+        Gizmos.color = Color.green;
+        if (showAdjacencies)
+        {
+            foreach (Node adj in adjacencies)
+            {
+                if (adj)
+                {
+                    DrawArrow(transform.position, adj.transform.position);
+                }
+            }
+        }
     }
 
     void DrawArrow(Vector3 pointA, Vector3 pointB)

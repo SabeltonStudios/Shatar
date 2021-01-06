@@ -31,7 +31,6 @@ public class FaceGridCreator : MonoBehaviour
         
     }
 
-
     private void CreateGrid()
     {
         grid = new Node[xSquares][];
@@ -65,15 +64,14 @@ public class FaceGridCreator : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-
         if (execute)
         {
             execute = false;
             CreateGrid();
             SetAdjacencies();
         }
-        
     }
+
     private void SetAdjacencies()
     {
         if (forward.x > 0)// Forward vector is (1, 0, 0)

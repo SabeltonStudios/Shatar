@@ -45,9 +45,9 @@ public class Node : MonoBehaviour
     {
         adjacencies = new Node[8];
     }
-    /*
+    
     private void OnDrawGizmos()
-    {
+    {/*
         Gizmos.color = Color.yellow;
         Gizmos.DrawSphere(transform.position, 1);
         Handles.color = Color.red;
@@ -58,9 +58,29 @@ public class Node : MonoBehaviour
             {
                 return;
             }
-        }
+        }*/
         //Gizmos.DrawLine(transform.position, adjacencies[1].transform.position);
-    }*/
+
+        float scaleFactor = 4.0f;
+        Gizmos.color = Color.blue;
+        // Draw normal vector
+        Vector3 normalVector = orientation.normalized * scaleFactor;
+        DrawArrow(transform.position, transform.position + normalVector);
+        // Draw forward vector
+        Gizmos.color = Color.red;
+        Vector3 forwardVector = nodeForward.normalized * scaleFactor;
+        DrawArrow(transform.position, transform.position + forwardVector);
+    }
+
+    void DrawArrow(Vector3 pointA, Vector3 pointB)
+    {
+        Gizmos.DrawLine(pointA, pointB);
+        Vector3 pointC = transform.position + (pointB - pointA) * 0.75f;
+        Vector3 rotatingAxis = Vector3.Dot((pointB - pointA), transform.right) == 0 ? transform.right : Vector3.Dot((pointB - pointA), transform.up) == 0 ? transform.up : transform.forward;
+        Vector3 cross = Vector3.Cross(rotatingAxis.normalized * 0.25f, (pointB - pointA) * 0.75f);
+        Gizmos.DrawLine(pointB, pointC + cross);
+        Gizmos.DrawLine(pointB, pointC - cross);
+    }
     
     public void Awake()
     {
@@ -200,7 +220,6 @@ public class Node : MonoBehaviour
 
         for (int i = 0; i < casillas; i++)
         {
-
             //Si hay adyacencia, si es alcanzable y si tiene una casilla anterior 
             if (izqSuperior != null)
             {

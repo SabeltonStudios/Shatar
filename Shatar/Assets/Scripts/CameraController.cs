@@ -64,7 +64,7 @@ public class CameraController : MonoBehaviour
         enabledMov = false;
         float elapsedTime = 0;
         Vector3 startingRot = transform.rotation.eulerAngles;
-        Vector3 end = transform.rotation.eulerAngles+angle;
+        Vector3 end = transform.rotation.eulerAngles + angle;
         while (elapsedTime < seconds)
         {
             transform.rotation = Quaternion.Euler(Vector3.Lerp(startingRot, end, (elapsedTime / seconds)));

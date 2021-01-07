@@ -1,17 +1,14 @@
 fileFormatVersion: 2
-guid: 92ad0b367024a1a43adf0e4f494b439b
+guid: cb5604aca15de4c4bb9864b6b639aabf
 ModelImporter:
   serializedVersion: 26
-  internalIDToNameTable:
-  - first:
-      74: 4781951162920444690
-    second: Armature|ArmatureAction
+  internalIDToNameTable: []
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: BakedGoalMaterial
-    second: {fileID: 2100000, guid: 2bbb7348b70e38246828c70788c0bf31, type: 2}
+      name: Material
+    second: {fileID: 2100000, guid: 8560f3edd6e805c45b603e6be9c2c4c8, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -95,7 +92,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

@@ -49,4 +49,36 @@ public class SoundManager : MonoBehaviour
                 break;
         }
     }
+
+    public IEnumerator SoundFadeOut(string audioSourceName, float FadeTime)
+    {
+        AudioSource audioSource = null;
+        switch (audioSourceName)
+        {
+            case "song_menu":
+                audioSource = song_menu;
+                break;
+        }
+
+        float startVolume = audioSource.volume;
+
+        /*
+        for (float t = 0.1f; t < FadeTime; t += Time.deltaTime)
+        {
+            float porcentaje = t / FadeTime;
+            audioSource.volume = Mathf.Lerp(startVolume, 0f, porcentaje);
+            yield return null;
+        }
+        */
+        
+        while (audioSource.volume > 0)
+        {
+            audioSource.volume -= startVolume * Time.deltaTime / FadeTime;
+
+            yield return null;
+        }
+
+        audioSource.Stop();
+        audioSource.volume = startVolume;
+    }
 }

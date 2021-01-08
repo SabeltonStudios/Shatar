@@ -138,6 +138,34 @@ public class MenuUIManager : MonoBehaviour
                 }
             }
         }
+
+        if (isInStore)
+        {
+            if (confirmPurchasePanel.gameObject.activeSelf && confirmPurchasePanel.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("popUpStore_exit"))
+            {
+                if (confirmPurchasePanel.GetComponent<CanvasGroup>().alpha <= 0)
+                {
+                    confirmPurchasePanel.SetActive(false);
+                }
+            }
+            else
+            {
+                if (thankYouForPurchase.gameObject.activeSelf && thankYouForPurchase.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("popUpStore_exit"))
+                {
+                    if (thankYouForPurchase.GetComponent<CanvasGroup>().alpha <= 0)
+                    {
+                        thankYouForPurchase.SetActive(false);
+                    }
+                }
+            }
+            if (trasparentPanel_store.gameObject.activeSelf && trasparentPanel_store.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("transparentPanel_exit"))
+            {
+                if (trasparentPanel_store.GetComponent<CanvasGroup>().alpha <= 0)
+                {
+                    trasparentPanel_store.SetActive(false);
+                }
+            }
+        }
     }
 
     #region MainMenu Methods
@@ -186,7 +214,7 @@ public class MenuUIManager : MonoBehaviour
         switch (levelNumber)
         {
             case 0:
-                b_playLevel.onClick.AddListener(() => { PlaySoundEffect("click_button"); LoadScene("Level0"); });
+                b_playLevel.onClick.AddListener(() => { PlaySoundEffect("click_button"); StartCoroutine(m_soundManager.SoundFadeOut("song_menu", 1.2f)); StartCoroutine(LoadSceneAfterWait("Tutorial", 1.2f)); });
                 break;
             case 1:
                 //b_playLevel.onClick.AddListener(() => { PlaySoundEffect("click_button"); LoadScene("Level1"); });
@@ -205,6 +233,20 @@ public class MenuUIManager : MonoBehaviour
         }
         transparentPanel.SetActive(state);
         levelPanel.GetComponent<Animator>().SetBool("isActive", state);
+    }
+
+    private void ActivatePanel(GameObject panel, GameObject transparentPanel_Menu, bool state)
+    {
+        if (state)
+        {
+            panel.SetActive(state);
+        }
+        if (!transparentPanel_Menu.activeSelf)
+        {
+            transparentPanel_Menu.SetActive(state);
+        }
+        transparentPanel_Menu.GetComponent<Animator>().SetBool("isActive", state);
+        panel.GetComponent<Animator>().SetBool("isActive", state);
     }
 
     private void AddLevelButtonListeners()
@@ -296,8 +338,8 @@ public class MenuUIManager : MonoBehaviour
 
     private void OpenPurchasePanel(string purchaseType)
     {
-        trasparentPanel_store.SetActive(true);
-        confirmPurchasePanel.SetActive(true);
+        //trasparentPanel_store.SetActive(true);
+        //confirmPurchasePanel.SetActive(true);
         confirm_5gems.SetActive(false);
         confirm_10gems.SetActive(false);
         confirm_15gems.SetActive(false);
@@ -317,6 +359,7 @@ public class MenuUIManager : MonoBehaviour
                 gemsPurchased = 15;
                 break;
         }
+        ActivatePanel(confirmPurchasePanel, trasparentPanel_store, true);
         b_confirm.onClick.AddListener(() => { PlaySoundEffect("click_button"); confirmPurchasePanel.SetActive(false); OpenThankYouPanel(gemsPurchased); });
     }
 
@@ -400,15 +443,17 @@ public class MenuUIManager : MonoBehaviour
         {
             PlaySoundEffect("click_button");
             b_confirm.onClick.RemoveAllListeners();
-            confirmPurchasePanel.SetActive(false);
-            trasparentPanel_store.SetActive(false);
+            //confirmPurchasePanel.SetActive(false);
+            ActivatePanel(confirmPurchasePanel, trasparentPanel_store, false);
+            //trasparentPanel_store.SetActive(false);
         });
         b_back_store.onClick.AddListener(() =>
         {
             PlaySoundEffect("click_button");
             b_confirm.onClick.RemoveAllListeners();
-            thankYouForPurchase.SetActive(false);
-            trasparentPanel_store.SetActive(false);
+            //thankYouForPurchase.SetActive(false);
+            //trasparentPanel_store.SetActive(false);
+            ActivatePanel(thankYouForPurchase, trasparentPanel_store, false);
         });
         b_backToMenu_store.onClick.AddListener(() => { PlaySoundEffect("click_button"); goToLevelsMap(store); isInStore = false; });
     }

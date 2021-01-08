@@ -1948,6 +1948,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   node: {fileID: 1135200085}
+  undoCont: 0
+  maxUndos: 3
   numMovs: 0
   tipoPieza: 0
   apertura: 1
@@ -16160,6 +16162,7 @@ MonoBehaviour:
   arrowUp: {fileID: 1570893570}
   arrowDown: {fileID: 1936227102}
   t_movesLeft: {fileID: 2128780130}
+  t_undoCont: {fileID: 0}
   b_UndoMove: {fileID: 1316779899}
   changePieceMenu: {fileID: 1896832908}
   i_peon: {fileID: 1598955828}

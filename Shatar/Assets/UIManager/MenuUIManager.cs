@@ -217,10 +217,10 @@ public class MenuUIManager : MonoBehaviour
                 b_playLevel.onClick.AddListener(() => { PlaySoundEffect("click_button"); StartCoroutine(m_soundManager.SoundFadeOut("song_menu", 1.2f)); StartCoroutine(LoadSceneAfterWait("Tutorial", 1.2f)); });
                 break;
             case 1:
-                //b_playLevel.onClick.AddListener(() => { PlaySoundEffect("click_button"); LoadScene("Level1"); });
+                b_playLevel.onClick.AddListener(() => { PlaySoundEffect("click_button"); StartCoroutine(m_soundManager.SoundFadeOut("song_menu", 1.2f)); StartCoroutine(LoadSceneAfterWait("Level1", 1.2f)); });
                 break;
             case 2:
-                //b_playLevel.onClick.AddListener(() => { PlaySoundEffect("click_button"); LoadScene("Level2"); });
+                b_playLevel.onClick.AddListener(() => { PlaySoundEffect("click_button"); StartCoroutine(m_soundManager.SoundFadeOut("song_menu", 1.2f)); StartCoroutine(LoadSceneAfterWait("Level2", 1.2f)); });
                 break;
         }
     }

@@ -74,4 +74,14 @@ public class CameraController : MonoBehaviour
         transform.rotation = Quaternion.Euler(end);
         enabledMov = true;
     }
+
+    public bool checkIfCanTurnUp()
+    {
+        return (transform.rotation.eulerAngles.x >= 285 && transform.rotation.eulerAngles.x < 295);
+    }
+
+    public bool checkIfCanTurnDown()
+    {
+        return (transform.rotation.eulerAngles.x >= -5 && transform.rotation.eulerAngles.x < 5);
+    }
 }

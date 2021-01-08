@@ -10,7 +10,7 @@ public class GameController : MonoBehaviour
     List<Node> teletransporte = new List<Node>();
     Player player;
     [SerializeField]
-    int maxMovs;
+    public int maxMovs;
     int numStars;
 
     // Start is called before the first frame update
@@ -90,7 +90,7 @@ public class GameController : MonoBehaviour
         objectToMove.transform.up = end.orientation;
         if (playerBool)
         {
-            player.numMovs++;
+            //player.numMovs++;
             if(player.numMovs>= maxMovs)
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);

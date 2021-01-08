@@ -43,6 +43,7 @@ public class Player : MonoBehaviour
 
                 if (Physics.Raycast(ray, out hitInfo))
                 {
+                    numMovs++;
                     MoveTo(hitInfo.point);
                 }
             }
@@ -54,10 +55,10 @@ public class Player : MonoBehaviour
             }
         }
     }
-    private void UndoMovement()
+    public void UndoMovement()
     {
         Debug.Log("Deshacer movimiento");
-        numMovs++;
+        numMovs--;
         node.UndrawAdjacencies();
         node.pieza= null;
 

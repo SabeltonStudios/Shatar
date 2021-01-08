@@ -78,6 +78,8 @@
     <Compile Include="Assets\UIManager\UIRipple\Ripple.cs" />
     <Compile Include="Assets\UIManager\UIRipple\RippleTimer.cs" />
     <Compile Include="Assets\UIManager\UIRipple\UIRipple.cs" />
+    <Compile Include="Assets\UIManagerGame\GameSoundManager.cs" />
+    <Compile Include="Assets\UIManagerGame\GameUIManager.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/Laura/Documents/Universidad/6 Curso/1er Cuatrimestre/Juegos Para Web/Github/Shatar/Shatar/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

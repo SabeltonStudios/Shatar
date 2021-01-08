@@ -7,7 +7,10 @@ public class Player : MonoBehaviour
 {
     [SerializeField]
     public Node node;
-    Node previousNode;
+    Node[] previousNodes= new Node[3];
+    //int undoID;
+    public int undoCont;
+    public int maxUndos=3;
     public int numMovs = 0;
     [SerializeField]
     public TipoPieza tipoPieza;
@@ -24,7 +27,9 @@ public class Player : MonoBehaviour
     void Start()
     {
         gameController = FindObjectOfType<GameController>();
-        previousNode = node;
+        
+        //undoID = 0;
+        undoCont = 0;
         node.pieza = this.gameObject;
         node.DrawAdjacencies(tipoPieza,apertura, colorSeleccionable);
         apertura = false;
@@ -49,22 +54,50 @@ public class Player : MonoBehaviour
             }
 
             //Mirar por eventos
-            if (Input.GetKeyDown(KeyCode.Z))
-            {
-                UndoMovement();
-            }
+            
         }
+        /*if (Input.GetKeyDown(KeyCode.Z))
+        {
+            UndoMovement();
+        }*/
     }
     public void UndoMovement()
     {
-        Debug.Log("Deshacer movimiento");
-        numMovs--;
-        node.UndrawAdjacencies();
-        node.pieza= null;
+        undoCont++;
+        Debug.Log(previousNodes[0]);
+        if (undoCont <= maxUndos && previousNodes[0]!=null && turno)
+        {
+            numMovs--;
 
-        //Añadir el nuevo nodo, mover hacia él
-        node = previousNode;
-        StartCoroutine(gameController.MoveOverSeconds(this.gameObject, node, 1, true, previousNode));
+            node.UndrawAdjacencies();
+            node.pieza = null;
+
+            //Añadir el nuevo nodo, mover hacia él
+            node = previousNodes[0];
+            //se le pasa true para despachar a la izquierda, false para la derecha, como al moverse
+            shiftPreviousNodes(true);
+            //MIRAR SI EL SHIFT ES ANTERIOR O POSTERIOR A MOVER
+            StartCoroutine(gameController.MoveOverSeconds(this.gameObject, node, 1, true, previousNodes[0],true));
+        }
+    }
+    private void shiftPreviousNodes(bool left)
+    {
+        if (left)
+        {
+            for(int i= 0; i<(maxUndos-undoCont); i++)
+            {
+                previousNodes[i] = previousNodes[i + 1];
+            }
+        }
+        else
+        {
+            for(int i=maxUndos-1; i > 0; i--)
+            {
+                previousNodes[i] = previousNodes[i - 1];
+            }
+            previousNodes[0] = node;
+            
+        }
     }
     private void MoveTo(Vector3 point)
     {
@@ -86,12 +119,14 @@ public class Player : MonoBehaviour
             //Eliminar casillas seleccionables anteriores
             node.UndrawAdjacencies();
             node.pieza = null;
-            previousNode = node;
+            shiftPreviousNodes(false);
+            
+            
 
             //Añadir el nuevo nodo, mover hacia él
             node = aux;
             //transform.position = node.transform.position;
-            StartCoroutine(gameController.MoveOverSeconds(this.gameObject, node, 1, true, previousNode));
+            StartCoroutine(gameController.MoveOverSeconds(this.gameObject, node, 1, true, previousNodes[0], false));
         }
         
     }

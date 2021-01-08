@@ -12,6 +12,7 @@ public class GameUIManager : MonoBehaviour
 
     //Undo Move
     [SerializeField] private Text t_movesLeft = null;
+    [SerializeField] private Text t_undoCont = null;
     [SerializeField] private Button b_UndoMove = null;
 
     //Change Piece Menu
@@ -36,7 +37,7 @@ public class GameUIManager : MonoBehaviour
     {
         movesLeft = m_gameController.maxMovs;
         t_movesLeft.text = movesLeft.ToString();
-        b_UndoMove.onClick.AddListener(() => { m_player.UndoMovement(); });
+        b_UndoMove.onClick.AddListener(() => { m_player.UndoMovement(); t_undoCont.text = ""+(m_player.maxUndos-m_player.undoCont); });
 
         changePiece.onClick.AddListener(() => {
             showChangePieceMenu();
@@ -74,7 +75,7 @@ public class GameUIManager : MonoBehaviour
         }
         */
 
-        if (movesLeft == m_gameController.maxMovs)
+        if (movesLeft == m_gameController.maxMovs || m_player.undoCont > m_player.maxUndos)
         {
             b_UndoMove.enabled = false;
         }

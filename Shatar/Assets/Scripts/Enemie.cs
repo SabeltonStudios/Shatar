@@ -13,6 +13,7 @@ public class Enemie : MonoBehaviour
     public int ID = 0;
     public bool turno = false;
     public List<Node> nodesMovimiento;
+    public List<Node> nodesPath;
     GameController gameController;
 
     // Start is called before the first frame update
@@ -27,17 +28,35 @@ public class Enemie : MonoBehaviour
     {
     }
 
-    public void MoveTo()
+    public void MoveTo(bool undo)
     {
         //Debug.Log("Enemigo pintando adyacencias");
         turno = true;
-        node.DrawAdjacencies(tipoPieza, apertura, colorSeleccionable);
-        //Poner a null la pieza del nodo
-        previousNode = node;
-        node.pieza = null;
-        node = nodesMovimiento[ID % nodesMovimiento.Count];
-        StartCoroutine(gameController.MoveOverSeconds(this.gameObject, node, 1,false, previousNode));
-        ID++;  
+        if (!undo)
+        {
+            node.DrawAdjacencies(tipoPieza, apertura, colorSeleccionable);
+            //Poner a null la pieza del nodo
+            previousNode = node;
+            node.pieza = null;
+            if(nodesPath[ID % nodesPath.Count].pieza!=null && nodesPath[ID % nodesPath.Count].pieza.tag == "Player")
+            {
+                node = nodesPath[ID % nodesPath.Count];
+            }
+            else
+            {
+                node = nodesMovimiento[ID % nodesMovimiento.Count];
+            }
+            
+            StartCoroutine(gameController.MoveOverSeconds(this.gameObject, node, 1, false, previousNode, false));
+            ID++;
+        }
+        else
+        {
+            node.pieza = null;
+            ID--;
+            node = previousNode;
+            StartCoroutine(gameController.MoveOverSeconds(this.gameObject, node, 1, false, previousNode, false));
+        }
     }
 
 }

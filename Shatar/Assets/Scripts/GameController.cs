@@ -58,12 +58,12 @@ public class GameController : MonoBehaviour
         }
     }
 
-    public void EnemigosTurno()
+    public void EnemigosTurno(bool undo)
     {
         player.turno = false;
         foreach(Enemie e in enemigos)
         {
-            e.MoveTo();
+            e.MoveTo(undo);
         }
     }
     public void destruirEnemigo(GameObject pieza)
@@ -73,7 +73,9 @@ public class GameController : MonoBehaviour
         Destroy(pieza);
     }
     //Enumator empleado para mover las piezas suavemente
-    public IEnumerator MoveOverSeconds(GameObject objectToMove, Node end, float seconds, bool playerBool, Node previo)
+    //Recibe el objeto a mover, la posición final, el tiempo que tarda en moverse, el bool de que se trata del juegador o no, el nodo anterior para limpiar adyacencias en los enemigos
+    //y el bool de si se mueve por avance o por deshacer del jugador
+    public IEnumerator MoveOverSeconds(GameObject objectToMove, Node end, float seconds, bool playerBool, Node previo, bool undo)
     {
         
         float elapsedTime = 0;
@@ -93,9 +95,9 @@ public class GameController : MonoBehaviour
             //player.numMovs++;
             if(player.numMovs>= maxMovs)
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                DerrotaMovs();
             }
-            if (end.pieza != null)
+            if (end.pieza != null &&!undo)
             {
                 destruirEnemigo(end.pieza);
             }
@@ -117,20 +119,31 @@ public class GameController : MonoBehaviour
             {
                 Victoria();
             }
-            EnemigosTurno();
+            end.pieza = objectToMove;
+            //Hace falta ocupar la pieza antes de indicarles que se muevan para que puedan comprobar si estoy en su camino
+            EnemigosTurno(undo);
         }
         else{
             previo.UndrawAdjacencies();
             if (end.pieza != null && end.pieza.tag == "Player")
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                DerrotaComido();
             }
             objectToMove.GetComponent<Enemie>().turno = false;
+            end.pieza = objectToMove;
         }
-        end.pieza = objectToMove;
+        
 
     }
-    private void Victoria()
+    public void DerrotaMovs()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+    public void DerrotaComido()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+    public void Victoria()
     {
         if (player.numMovs <= 10)
         {

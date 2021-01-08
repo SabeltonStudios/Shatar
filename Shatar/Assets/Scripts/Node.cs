@@ -750,7 +750,7 @@ public class Node : MonoBehaviour
             fixedforward = Quaternion.AngleAxis(diferenciaNormales, Vector3.Cross(primero.orientation, adyacencia.orientation)) * fixedforward;
 
             float angulo = Vector3.SignedAngle(fixedforward, primero.nodeForward, primero.orientation);
-            Debug.Log(angulo);
+            //Debug.Log(angulo);
             angulo = angulo + anguloInferior;
            
             anguloInferior = angulo;

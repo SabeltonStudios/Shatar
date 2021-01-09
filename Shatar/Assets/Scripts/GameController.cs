@@ -13,7 +13,9 @@ public class GameController : MonoBehaviour
     public bool goalOpen;
     [SerializeField]
     public int maxMovs;
-    int numStars;
+    public bool victoria = false;
+    public int derrota = 0;
+    public int numStars;
 
     // Start is called before the first frame update
     void Start()
@@ -155,14 +157,17 @@ public class GameController : MonoBehaviour
     }
     public void DerrotaMovs()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        derrota = 1;
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     public void DerrotaComido()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        derrota = 2;
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     public void Victoria()
     {
+        victoria = true;
         if (player.numMovs <= 10)
         {
             numStars = 3;
@@ -177,7 +182,7 @@ public class GameController : MonoBehaviour
         {
             numStars = 0;
         }
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void cambiaPieza(TipoPieza tipoPieza)

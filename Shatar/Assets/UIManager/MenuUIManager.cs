@@ -18,6 +18,8 @@ public class MenuUIManager : MonoBehaviour
 
     [Header("LevelsMap")]
     [SerializeField] private GameObject levelsMap = null;
+    //[SerializeField] private ScrollRect scrollView = null;
+    //[SerializeField] private GameObject niveles = null;
     [SerializeField] private Button b_store = null;
     [SerializeField] private GameObject levelPanel = null;
     [SerializeField] private GameObject transparentPanel = null;
@@ -72,12 +74,16 @@ public class MenuUIManager : MonoBehaviour
 
     private Localization.Language currentLanguage;
 
-    private static int currentGems;
+    private static int currentGems = 0;
     public static bool soundEffectsMuted = false;
     public static bool musicMuted = false;
 
     private bool isInLevelsMap = false;
     private bool isInStore = false;
+
+    private float initialPosY;
+    private float initialPosZ;
+    private float initialDifference;
 
     [Header("Scripts")]
     [SerializeField] private SoundManager m_soundManager = null;
@@ -111,8 +117,18 @@ public class MenuUIManager : MonoBehaviour
         AddSocialMediaButtonListeners();
         AddLevelButtonListeners();
         goToMainMenu(null);
-
-        m_soundManager.Mute_Music("song_menu", musicMuted);
+        
+        if (!PlayerPrefs.HasKey("musicMuted"))
+        {
+            MuteMusic(false);
+        }
+        if (!PlayerPrefs.HasKey("soundEffectsMuted"))
+        {
+            MuteSoundEffects(false);
+        }
+        MuteMusic(PlayerData.MusicMuted);
+        MuteSoundEffects(PlayerData.SoundEffectsMuted);
+        m_soundManager.Mute_Music("song_menu", PlayerData.MusicMuted);
         m_soundManager.Play_Music("song_menu");
     }
 
@@ -135,6 +151,13 @@ public class MenuUIManager : MonoBehaviour
                 if (isInLevelsMap && levelPanel.GetComponent<CanvasGroup>().alpha <= 0)
                 {
                     levelPanel.SetActive(false);
+                }
+            }
+            if (transparentPanel.gameObject.activeSelf && transparentPanel.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("transparentPanel_exit"))
+            {
+                if (transparentPanel.GetComponent<CanvasGroup>().alpha <= 0)
+                {
+                    transparentPanel.SetActive(false);
                 }
             }
         }
@@ -194,7 +217,7 @@ public class MenuUIManager : MonoBehaviour
         DeactivateActivateMenu(lastMenu, levelsMap);
 
         isInLevelsMap = true;
-
+        
         if (currentGems < 100)
         {
             t_currentGems.GetComponent<Text>().text = currentGems.ToString("00");
@@ -231,7 +254,12 @@ public class MenuUIManager : MonoBehaviour
         {
             levelPanel.SetActive(state);
         }
-        transparentPanel.SetActive(state);
+        //transparentPanel.SetActive(state);
+        if (!transparentPanel.activeSelf)
+        {
+            transparentPanel.SetActive(state);
+        }
+        transparentPanel.GetComponent<Animator>().SetBool("isActive", state);
         levelPanel.GetComponent<Animator>().SetBool("isActive", state);
     }
 
@@ -266,15 +294,15 @@ public class MenuUIManager : MonoBehaviour
 
     private void updateSoundEffectsState()
     {
-        if (soundEffectsMuted)
+        if (PlayerData.SoundEffectsMuted)
         {
-            soundEffectsMuted = false;
+            PlayerData.SoundEffectsMuted = false;
             i_mutedSoundEffects.SetActive(false);
             i_unmutedSoundEffects.SetActive(true);
         }
         else
         {
-            soundEffectsMuted = true;
+            PlayerData.SoundEffectsMuted = true;
             i_mutedSoundEffects.SetActive(true);
             i_unmutedSoundEffects.SetActive(false);
         }
@@ -282,19 +310,33 @@ public class MenuUIManager : MonoBehaviour
 
     private void updateMusicState()
     {
-        if (musicMuted)
+        if (PlayerData.MusicMuted)
         {
-            musicMuted = false;
+            PlayerData.MusicMuted = false;
             i_mutedMusic.SetActive(false);
             i_unmutedMusic.SetActive(true);
         }
         else
         {
-            musicMuted = true;
+            PlayerData.MusicMuted = true;
             i_mutedMusic.SetActive(true);
             i_unmutedMusic.SetActive(false);
         }
-        m_soundManager.Mute_Music("song_menu", musicMuted);
+        m_soundManager.Mute_Music("song_menu", PlayerData.MusicMuted);
+    }
+
+    private void MuteMusic(bool state)
+    {
+        PlayerData.MusicMuted = state;
+        i_mutedMusic.SetActive(state);
+        i_unmutedMusic.SetActive(!state);
+    }
+
+    private void MuteSoundEffects(bool state)
+    {
+        PlayerData.SoundEffectsMuted = state;
+        i_mutedSoundEffects.SetActive(state);
+        i_unmutedSoundEffects.SetActive(!state);
     }
 
     private void UpdateLanguage()
@@ -366,6 +408,7 @@ public class MenuUIManager : MonoBehaviour
     private void OpenThankYouPanel(int gemsPurchased)
     {
         currentGems += gemsPurchased;
+        PlayerData.Gems = currentGems;
         thankYouForPurchase.SetActive(true);
     }
     #endregion 
@@ -460,7 +503,7 @@ public class MenuUIManager : MonoBehaviour
 
     private void PlaySoundEffect(string name)
     {
-        if (!soundEffectsMuted)
+        if (!PlayerData.SoundEffectsMuted)
         {
             m_soundManager.Play_SoundEffect(name);
         }

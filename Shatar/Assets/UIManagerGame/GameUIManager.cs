@@ -146,9 +146,9 @@ public class GameUIManager : MonoBehaviour
             changePieceMenu.SetActive(false);
         }
         */
-
-        if (movesLeft == m_gameController.maxMovs || m_player.undoCont > m_player.maxUndos)
+        if (movesLeft == m_gameController.maxMovs || m_player.undoCont >= m_player.maxUndos)
         {
+           // Debug.Log(movesLeft + " " + m_gameController.maxMovs + " " + m_player.undoCont + " " + m_player.maxUndos);
             b_UndoMove.enabled = false;
             b_UndoMove.GetComponent<Image>().color = new Color(255, 255, 255, 0.5f);
         }
@@ -186,7 +186,7 @@ public class GameUIManager : MonoBehaviour
         transparentPanel.SetActive(true);
         victoriaMenu.SetActive(true);
         ActualizarNumEstrellas();
-        t_numMov.text = m_player.numMovs.ToString() + "movimientos"; ///////////////////actualizar "movimientos" para que se traduzca
+        t_numMov.text = m_player.numMovs.ToString() + " movimientos"; ///////////////////actualizar "movimientos" para que se traduzca
         //////////////////////////////////////////////////////////////ActualizarPlayerData(); //Actualiza mejores movimientos y estrellas
         b_volverMenu_victoria.onClick.AddListener(() => LoadScene("Menus")); /////////////Hacer que aparezca en levelMapMenu
         b_siguienteNivel.onClick.AddListener(() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1));
@@ -278,19 +278,19 @@ public class GameUIManager : MonoBehaviour
         switch (tipoPieza)
         {
             case TipoPieza.PEON:
-                m_gameController.cambiaPieza(TipoPieza.PEON);
+                m_gameController.cambiaPieza(TipoPieza.PEON,false);
                 i_peon.SetActive(true);
                 changeToPeon.enabled = false;
                 changeToPeon.GetComponent<Image>().color = new Color(255, 255, 255, 0.5f);
                 break;
             case TipoPieza.CABALLO:
-                m_gameController.cambiaPieza(TipoPieza.CABALLO);
+                m_gameController.cambiaPieza(TipoPieza.CABALLO,false);
                 i_caballo.SetActive(true);
                 changeToCaballo.enabled = false;
                 changeToCaballo.GetComponent<Image>().color = new Color(255, 255, 255, 0.5f);
                 break;
             case TipoPieza.TORRE:
-                m_gameController.cambiaPieza(TipoPieza.TORRE);
+                m_gameController.cambiaPieza(TipoPieza.TORRE,false);
                 i_torre.SetActive(true);
                 changeToTorre.enabled = false;
                 changeToTorre.GetComponent<Image>().color = new Color(255, 255, 255, 0.5f);

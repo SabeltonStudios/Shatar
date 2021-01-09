@@ -707,7 +707,7 @@ public class Node : MonoBehaviour
          }
         
     }
-        private void setColor(Color color)
+    private void setColor(Color color)
     {
         foreach (Node n in seleccionables)
         {
@@ -716,6 +716,10 @@ public class Node : MonoBehaviour
             n.GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", color);
             n.GetComponent<MeshRenderer>().material.color = color;
             n.seleccionable = true;
+            if (n.buttonGoal)
+            {
+                n.GetComponentsInChildren<MeshRenderer>()[1].material.color = color;
+            }
         }
     }
     public void UndrawAdjacencies()
@@ -724,6 +728,10 @@ public class Node : MonoBehaviour
         {
             nodo.GetComponent<MeshRenderer>().material.DisableKeyword("_EMISSION");
             nodo.GetComponent<MeshRenderer>().material.color = Color.white;
+            if (nodo.buttonGoal)
+            {
+                nodo.GetComponentsInChildren<MeshRenderer>()[1].material.color = Color.white;
+            }
         }
     }
 

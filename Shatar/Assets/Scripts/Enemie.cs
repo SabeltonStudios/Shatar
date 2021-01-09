@@ -10,7 +10,7 @@ public class Enemie : MonoBehaviour
     public TipoPieza playerChange;
     public bool apertura = false;
     Color colorSeleccionable = new Color(237.0f/255.0f, 33.0f/255.0f, 115.0f/255.0f, 1);
-    public int ID = 0;
+    public int ID = -1;
     public bool turno = false;
     public List<Node> nodesMovimiento;
     public List<Node> nodesPath;
@@ -31,10 +31,14 @@ public class Enemie : MonoBehaviour
 
     public void MoveTo(bool undo)
     {
+
+        if(this.gameController.name=="Enemy0")
+            Debug.Log(ID % nodesMovimiento.Count);
         //Debug.Log("Enemigo pintando adyacencias");
         turno = true;
         if (!undo)
         {
+            ID++;
             node.DrawAdjacencies(tipoPieza, apertura, colorSeleccionable);
             //Poner a null la pieza del nodo
             previousNode = node;
@@ -63,12 +67,13 @@ public class Enemie : MonoBehaviour
                 }
             }
             StartCoroutine(gameController.MoveOverSeconds(this.gameObject, node, 1, false, previousNode, false));
-            ID++;
+
         }
         else
         {
             node.pieza = null;
             ID--;
+            //node = nodesMovimiento[Mathf.Abs(ID) % nodesMovimiento.Count];
             node = previousNode;
             StartCoroutine(gameController.MoveOverSeconds(this.gameObject, node, 1, false, previousNode, false));
         }

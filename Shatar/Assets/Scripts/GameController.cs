@@ -8,6 +8,8 @@ public class GameController : MonoBehaviour
     List<Enemie> enemigos= new List<Enemie>();
     [SerializeField]
     List<Node> teletransporte = new List<Node>();
+    [SerializeField]
+    int[] stars = new int[3];
     Player player;
     public Animator goal;
     public bool goalOpen;
@@ -104,6 +106,7 @@ public class GameController : MonoBehaviour
         }
         objectToMove.transform.position = end.transform.position;
         objectToMove.transform.up = end.orientation;
+
         if (playerBool)
         {
             //player.numMovs++;
@@ -168,13 +171,13 @@ public class GameController : MonoBehaviour
     public void Victoria()
     {
         victoria = true;
-        if (player.numMovs <= 10)
+        if (player.numMovs <= stars[0])
         {
             numStars = 3;
-        }else if (player.numMovs < 15)
+        }else if (player.numMovs <= stars[1])
         {
             numStars = 2;
-        }else if (player.numMovs < 20)
+        }else if (player.numMovs <= stars[2])
         {
             numStars = 1;
         }
@@ -185,11 +188,14 @@ public class GameController : MonoBehaviour
         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
-    public void cambiaPieza(TipoPieza tipoPieza)
+    public void cambiaPieza(TipoPieza tipoPieza, bool undo)
     {
         if (player.turno)
         {
+            //if (undo) { Debug.Log("cambio a la anterior"); } else { Debug.Log("cambio a la siguiente"); }
+            player.shiftPreviousNodes(undo, true);
             player.tipoPieza = tipoPieza;
+            
             player.transform.GetChild(0).gameObject.SetActive(false);
             player.transform.GetChild(1).gameObject.SetActive(false);
             player.transform.GetChild(2).gameObject.SetActive(false);
@@ -207,9 +213,14 @@ public class GameController : MonoBehaviour
                 default:
                     break;
             }
+            if (player.node != null) { 
             player.node.UndrawAdjacencies();
-            player.numMovs++;
-            EnemigosTurno(false);
+                }
+            if (!undo)
+            {
+                player.numMovs++;
+            }
+            EnemigosTurno(undo);
         }
     }
 }

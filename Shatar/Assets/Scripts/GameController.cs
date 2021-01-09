@@ -9,6 +9,8 @@ public class GameController : MonoBehaviour
     [SerializeField]
     List<Node> teletransporte = new List<Node>();
     Player player;
+    public Animator goal;
+    public bool goalOpen;
     [SerializeField]
     public int maxMovs;
     int numStars;
@@ -23,6 +25,7 @@ public class GameController : MonoBehaviour
             enemigos.Add(aux[i]);
         }
         player = FindObjectOfType<Player>();
+        goalOpen = false;
     }
 
     // Update is called once per frame
@@ -38,9 +41,13 @@ public class GameController : MonoBehaviour
                 }
             }
             player.turno = true;
-
             player.node.DrawAdjacencies(player.tipoPieza, player.apertura, player.colorSeleccionable);
+            if (player.numMovs == 0)
+            {
+                player.apertura = false;
+            }
         }
+        /*
         if (Input.GetKeyDown(KeyCode.C))
         {
             if(player.tipoPieza == TipoPieza.PEON)
@@ -55,6 +62,11 @@ public class GameController : MonoBehaviour
                 cambiaPieza(TipoPieza.PEON);
             }
            
+        }
+        */
+        if (Input.GetKeyDown(KeyCode.M)) {
+            goal.Play("Open");
+
         }
     }
 
@@ -115,6 +127,12 @@ public class GameController : MonoBehaviour
                     }
                 }
             }
+            if (end.buttonGoal && !goalOpen)
+            {
+                //Abre la meta
+                goal.Play("Open");
+                goalOpen = true;
+            }
             if (end.isGoal)
             {
                 Victoria();
@@ -164,25 +182,29 @@ public class GameController : MonoBehaviour
 
     public void cambiaPieza(TipoPieza tipoPieza)
     {
-        player.tipoPieza = tipoPieza;
-        player.transform.GetChild(0).gameObject.SetActive(false);
-        player.transform.GetChild(1).gameObject.SetActive(false);
-        player.transform.GetChild(2).gameObject.SetActive(false);
-        switch (player.tipoPieza)
+        if (player.turno)
         {
-            case TipoPieza.PEON:
-                player.transform.GetChild(0).gameObject.SetActive(true);
-                break;
-            case TipoPieza.CABALLO:
-                player.transform.GetChild(1).gameObject.SetActive(true);
-                break;
-            case TipoPieza.TORRE:
-                player.transform.GetChild(2).gameObject.SetActive(true);
-                break;
-            default:
-                break;
+            player.tipoPieza = tipoPieza;
+            player.transform.GetChild(0).gameObject.SetActive(false);
+            player.transform.GetChild(1).gameObject.SetActive(false);
+            player.transform.GetChild(2).gameObject.SetActive(false);
+            switch (player.tipoPieza)
+            {
+                case TipoPieza.PEON:
+                    player.transform.GetChild(0).gameObject.SetActive(true);
+                    break;
+                case TipoPieza.CABALLO:
+                    player.transform.GetChild(1).gameObject.SetActive(true);
+                    break;
+                case TipoPieza.TORRE:
+                    player.transform.GetChild(2).gameObject.SetActive(true);
+                    break;
+                default:
+                    break;
+            }
+            player.node.UndrawAdjacencies();
+            player.numMovs++;
+            EnemigosTurno(false);
         }
-        player.node.UndrawAdjacencies();
-        player.node.DrawAdjacencies(player.tipoPieza, player.apertura, player.colorSeleccionable);
     }
 }

@@ -20,6 +20,7 @@ public class Node : MonoBehaviour
     public Vector3 nodeForward;
     public bool teletransport;
     public bool isGoal;
+    public bool buttonGoal;
     public bool showAdjacencies;
     // The list of adjacent nodes/squares
     public Node[] adjacencies;
@@ -35,6 +36,7 @@ public class Node : MonoBehaviour
     public List<Node> seleccionables;
     public bool seleccionable = false;
     public GameObject pieza;
+    public GameController gameController;
     /*
     The adjacencies will be represented like shown:
     ^ [0][1][2] ^
@@ -99,6 +101,7 @@ public class Node : MonoBehaviour
     
     public void Awake()
     {
+        gameController = FindObjectOfType<GameController>();
         nodeForward = GetComponentInParent<FaceGridCreator>().forward;
         adjacencies90 = new Node[8];
         adjacencies180 = new Node[8];
@@ -172,7 +175,12 @@ public class Node : MonoBehaviour
                 //Busca la casilla de delante
                 if (adjacencies[1] != null && !adjacencieNoAlcanzable[1])
                 {
-                    seleccionables.Add(adjacencies[1]);
+                    //Añade la casilla si es la meta y está abierta, o si otra casilla
+                    if((adjacencies[1].isGoal && gameController.goalOpen) || !adjacencies[1].isGoal)
+                    {
+                        seleccionables.Add(adjacencies[1]);
+                    }
+                    
                 }
                 //Si es apertura, también selecciona la siguiente
                 if (apertura)
@@ -204,7 +212,7 @@ public class Node : MonoBehaviour
                 break;
             case TipoPieza.TORRE:
                 //Busca las adyacencias rectas
-                moverRecto(2);
+                moverRecto(5);
                 //Se elimina la casilla meta de las seleccionables, ya que solo se puede acceder con el peon
                 removeSeleccionableMeta();
                 break;
@@ -252,15 +260,17 @@ public class Node : MonoBehaviour
         for (int i = 0; i < casillas; i++)
         {
             //Si hay adyacencia, si es alcanzable y si tiene una casilla anterior 
+
             if (izqSuperior != null)
             {
+                //Orientamos las caras calculada entre el nodo actual y el anterior, guardando los angulos acumulativos
+                anguloizqSuperior = orientarAdjacencies(izqSuperiorAnterior, izqSuperior, anguloizqSuperior);
                 if (izqSuperior.adjacenciesOrientadas[0] != null && !izqSuperior.adjacencieNoAlcanzableOrientada[0])
                 {
                     izqSuperiorAnterior = izqSuperior;
                     izqSuperior = izqSuperior.adjacenciesOrientadas[0];
                     seleccionables.Add(izqSuperior);
-                    //Orientamos las caras calculada entre el nodo actual y el anterior, guardando los angulos acumulativos
-                    anguloizqSuperior = orientarAdjacencies(izqSuperiorAnterior, izqSuperior, anguloizqSuperior);
+                    
                 }
                 else
                 {
@@ -268,16 +278,18 @@ public class Node : MonoBehaviour
                 }
             }
 
+
             if (derSuperior != null)
             {
+                //Orientamos las caras calculada entre el nodo actual y el anterior, guardando los angulos acumulativos
+                anguloderSuperior = orientarAdjacencies(derSuperiorAnterior, derSuperior, anguloderSuperior);
                 //Si hay adyacencia, si es alcanzable y si tiene una casilla anterior 
                 if (derSuperior.adjacenciesOrientadas[2] != null && !derSuperior.adjacencieNoAlcanzableOrientada[2])
                 {
                     derSuperiorAnterior = derSuperior;
                     derSuperior = derSuperior.adjacenciesOrientadas[2];
                     seleccionables.Add(derSuperior);
-                    //Orientamos las caras calculada entre el nodo actual y el anterior, guardando los angulos acumulativos
-                    anguloderSuperior = orientarAdjacencies(derSuperiorAnterior, derSuperior, anguloderSuperior);
+                    
                 }
                 else
                 {
@@ -285,16 +297,18 @@ public class Node : MonoBehaviour
                 }
             }
 
+
             if (izqInferior != null)
             {
+                //Orientamos las caras calculada entre el nodo actual y el anterior, guardando los angulos acumulativos
+                anguloizqInferior = orientarAdjacencies(izqInferiorAnterior, izqInferior, anguloizqInferior);
                 //Si hay adyacencia, si es alcanzable y si tiene una casilla anterior 
                 if (izqInferior.adjacenciesOrientadas[5] != null && !izqInferior.adjacencieNoAlcanzableOrientada[5])
                 {
                     izqInferiorAnterior = izqInferior;
                     izqInferior = izqInferior.adjacenciesOrientadas[5];
                     seleccionables.Add(izqInferior);
-                    //Orientamos las caras calculada entre el nodo actual y el anterior, guardando los angulos acumulativos
-                    anguloizqInferior = orientarAdjacencies(izqInferiorAnterior, izqInferior, anguloizqInferior);
+                    
                 }
                 else
                 {
@@ -304,14 +318,15 @@ public class Node : MonoBehaviour
 
             if (derInferior != null)
             {
+                //Orientamos las caras calculada entre el nodo actual y el anterior, guardando los angulos acumulativos
+                anguloderInferior = orientarAdjacencies(derInferiorAnterior, derInferior, anguloderInferior);
                 //Si hay adyacencia, si es alcanzable y si tiene una casilla anterior 
                 if (derInferior.adjacenciesOrientadas[7] != null && !derInferior.adjacencieNoAlcanzableOrientada[7])
                 {
                     derInferiorAnterior = derInferior;
                     derInferior = derInferior.adjacenciesOrientadas[7];
                     seleccionables.Add(derInferior);
-                    //Orientamos las caras calculada entre el nodo actual y el anterior, guardando los angulos acumulativos
-                    anguloderInferior = orientarAdjacencies(derInferiorAnterior, derInferior, anguloderInferior);
+                    
                 }
                 else
                 {
@@ -339,35 +354,33 @@ public class Node : MonoBehaviour
         float anguloIzquierda = 0;
         for (int i = 0; i < casillas; i++)
         {
-            adjacenciesOrientadas = adjacencies;
             if (superior != null)
             {
+                //Orientamos las caras calculada entre el nodo actual y el anterior, guardando los angulos acumulativos
+                anguloSuperior = orientarAdjacencies(superiorAnterior, superior, anguloSuperior);
                 //Si hay adyacencia, si es alcanzable y si tiene una casilla anterior 
                 if (superior.adjacenciesOrientadas[1] != null && !superior.adjacencieNoAlcanzableOrientada[1])
                 {
                     superiorAnterior = superior;
                     superior = superior.adjacenciesOrientadas[1];
                     seleccionables.Add(superior);
-                    //Orientamos las caras calculada entre el nodo actual y el anterior, guardando los angulos acumulativos
-                    anguloSuperior = orientarAdjacencies(superiorAnterior, superior, anguloSuperior);
+                    
                 }
                 else
                 {
                     superior = null;
                 }
             }
-
-            adjacenciesOrientadas = adjacencies;
+            
             if (derecha != null)
             {
-                //Si hay adyacencia, si es alcanzable y si tiene una casilla anterior 
+                //Orientamos las caras calculada entre el nodo actual y el anterior, guardando los angulos acumulativos
+                anguloDerecha = orientarAdjacencies(derechaAnterior, derecha, anguloDerecha);
                 if (derecha.adjacenciesOrientadas[4] != null && !derecha.adjacencieNoAlcanzableOrientada[4])
                 {
                     derechaAnterior = derecha;
                     derecha = derecha.adjacenciesOrientadas[4];
                     seleccionables.Add(derecha);
-                    //Orientamos las caras calculada entre el nodo actual y el anterior, guardando los angulos acumulativos
-                    anguloDerecha = orientarAdjacencies(derechaAnterior, derecha, anguloDerecha);
                 }
                 else
                 {
@@ -375,17 +388,16 @@ public class Node : MonoBehaviour
                 }
             }
 
-            adjacenciesOrientadas = adjacencies;
             if (inferior != null)
             {
+                //Orientamos las caras calculada entre el nodo actual y el anterior, guardando los angulos acumulativos
+                anguloInferior = orientarAdjacencies(inferiorAnterior, inferior, anguloInferior);
                 //Si hay adyacencia, si es alcanzable y si tiene una casilla anterior 
                 if (inferior.adjacenciesOrientadas[6] != null && !inferior.adjacencieNoAlcanzableOrientada[6])
                 {
                     inferiorAnterior = inferior;
                     inferior = inferior.adjacenciesOrientadas[6];
                     seleccionables.Add(inferior);
-                    //Orientamos las caras calculada entre el nodo actual y el anterior, guardando los angulos acumulativos
-                    anguloInferior = orientarAdjacencies(inferiorAnterior, inferior, anguloInferior);
                 }
                 else
                 {
@@ -393,15 +405,15 @@ public class Node : MonoBehaviour
                 }
             }
 
-            adjacenciesOrientadas = adjacencies;
             if (izquierda != null)
             {
+                //Orientamos las caras calculada entre el nodo actual y el anterior, guardando los angulos acumulativos
+                anguloIzquierda = orientarAdjacencies(izquierdaAnterior, izquierda, anguloIzquierda);
                 if (izquierda.adjacenciesOrientadas[3] != null && !izquierda.adjacencieNoAlcanzableOrientada[3])
                 {
                     izquierdaAnterior = izquierda;
                     izquierda = izquierda.adjacenciesOrientadas[3];
                     seleccionables.Add(izquierda);
-                    anguloIzquierda = orientarAdjacencies(izquierdaAnterior, izquierda, anguloIzquierda);
                 }
                 else
                 {
@@ -723,7 +735,7 @@ public class Node : MonoBehaviour
         {
             foreach (Node n in seleccionables)
             {
-                if (n.isGoal)
+                if (n.isGoal || n.buttonGoal)
                 {
                     eliminar.Add(n);
                 }

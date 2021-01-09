@@ -155,11 +155,12 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: 1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 919566907}
+  - {fileID: 1948161145}
+  - {fileID: 412322164}
   - {fileID: 930319494}
   - {fileID: 953485372}
   - {fileID: 641547155}
@@ -171,6 +172,7 @@ MonoBehaviour:
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &10294121
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -266,22 +268,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: -1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 899736270}
+  - {fileID: 919566907}
+  - {fileID: 1170721927}
   - {fileID: 125165074}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1213144268}
+  - {fileID: 2015127710}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000000
+  adjacencieNoAlcanzable: 0100000000010000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &15052899
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -467,11 +471,12 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 1, z: 0}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1128940175}
+  - {fileID: 917484306}
+  - {fileID: 1963155910}
   - {fileID: 1550720239}
   - {fileID: 904416221}
   - {fileID: 0}
@@ -483,6 +488,7 @@ MonoBehaviour:
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &22380995
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -638,22 +644,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: -1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 1479497236}
-  - {fileID: 477299217}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 2086986654}
+  - {fileID: 958476523}
+  - {fileID: 2097753782}
+  - {fileID: 1241938255}
+  - {fileID: 1920614248}
+  - {fileID: 1997179832}
+  - {fileID: 212643828}
+  - {fileID: 1234643217}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000000
+  adjacencieNoAlcanzable: 0000000000000001
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!1 &42006219
 GameObject:
   m_ObjectHideFlags: 0
@@ -689,6 +697,7 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: 1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 953485372}
@@ -705,6 +714,7 @@ MonoBehaviour:
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &42006221
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -800,22 +810,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: -1, z: 0}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 733787545}
+  - {fileID: 424344283}
+  - {fileID: 1331823025}
   - {fileID: 933247843}
   - {fileID: 440074480}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1536776791}
+  - {fileID: 273330524}
+  - {fileID: 664810351}
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &50600983
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -911,22 +923,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 1, z: 0}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 344671439}
+  - {fileID: 1133283039}
+  - {fileID: 754929820}
   - {fileID: 1613368900}
   - {fileID: 1999395786}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1096825270}
+  - {fileID: 2094985846}
+  - {fileID: 634116039}
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &55392366
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1112,11 +1126,12 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 1, z: 0}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 679974740}
+  - {fileID: 991620193}
+  - {fileID: 1015221912}
   - {fileID: 241341676}
   - {fileID: 558478038}
   - {fileID: 538417025}
@@ -1128,6 +1143,7 @@ MonoBehaviour:
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &78851077
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1223,22 +1239,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: -1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 971822544}
+  - {fileID: 532301173}
+  - {fileID: 1126395650}
   - {fileID: 255549707}
   - {fileID: 2115488240}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1289392439}
+  - {fileID: 491074090}
+  - {fileID: 256308841}
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &90224274
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1334,6 +1352,7 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: -1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1576620150}
@@ -1341,15 +1360,16 @@ MonoBehaviour:
   - {fileID: 1241938255}
   - {fileID: 1331823025}
   - {fileID: 1997179832}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 440074480}
+  - {fileID: 812963567}
+  - {fileID: 265617520}
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &105292326
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1445,22 +1465,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: -1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 899736270}
+  - {fileID: 919566907}
+  - {fileID: 971822544}
   - {fileID: 15052898}
   - {fileID: 255549707}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1213144268}
+  - {fileID: 2015127710}
+  - {fileID: 1289392439}
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &125165075
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1556,6 +1578,7 @@ MonoBehaviour:
   nodeForward: {x: 0, y: -1, z: 0}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1895510271}
@@ -1563,15 +1586,16 @@ MonoBehaviour:
   - {fileID: 423038191}
   - {fileID: 580415843}
   - {fileID: 944564961}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1220604719}
+  - {fileID: 1763265757}
+  - {fileID: 2086986654}
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &126694024
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1667,6 +1691,7 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: -1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 609694124}
@@ -1683,6 +1708,7 @@ MonoBehaviour:
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &138589104
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2185,22 +2211,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: -1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
+  - {fileID: 1241938255}
+  - {fileID: 36517628}
+  - {fileID: 1920614248}
+  - {fileID: 1997179832}
+  - {fileID: 1234643217}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 1479497236}
-  - {fileID: 477299217}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 265617520}
   - {fileID: 0}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000000
+  adjacencieNoAlcanzable: 0000010000010001
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!1 &231894691
 GameObject:
   m_ObjectHideFlags: 0
@@ -2236,22 +2264,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 1, z: 0}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 642469347}
+  - {fileID: 344671439}
+  - {fileID: 1070734466}
   - {fileID: 1613368900}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 609694124}
+  - {fileID: 1096825270}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000000
+  adjacencieNoAlcanzable: 0100000000010000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &231894693
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2347,6 +2377,7 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: 1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 930319494}
@@ -2363,6 +2394,7 @@ MonoBehaviour:
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &232259605
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2458,6 +2490,7 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: 1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1536776791}
@@ -2469,11 +2502,12 @@ MonoBehaviour:
   - {fileID: 1706767055}
   - {fileID: 1226140598}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000000
+  adjacencieNoAlcanzable: 0101010000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &234022966
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2604,11 +2638,12 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 1, z: 0}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 566090487}
+  - {fileID: 679974740}
+  - {fileID: 991620193}
   - {fileID: 1861272295}
   - {fileID: 78851076}
   - {fileID: 1617680957}
@@ -2620,6 +2655,7 @@ MonoBehaviour:
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &241341677
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2715,6 +2751,7 @@ MonoBehaviour:
   nodeForward: {x: 0, y: -1, z: 0}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 0}
@@ -2722,15 +2759,16 @@ MonoBehaviour:
   - {fileID: 1270779655}
   - {fileID: 319764868}
   - {fileID: 1355517218}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1128940175}
+  - {fileID: 917484306}
+  - {fileID: 1963155910}
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &244162700
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2826,22 +2864,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: -1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 971822544}
   - {fileID: 0}
   - {fileID: 125165074}
   - {fileID: 90224273}
   - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1289392439}
   - {fileID: 0}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000000
+  adjacencieNoAlcanzable: 0100010000010001
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &255549708
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2937,22 +2977,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: -1, z: 0}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1115137949}
+  - {fileID: 698741958}
+  - {fileID: 2115488240}
   - {fileID: 1511943672}
-  - {fileID: 0}
+  - {fileID: 90224273}
   - {fileID: 491074090}
   - {fileID: 1829734978}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000000
+  adjacencieNoAlcanzable: 0100000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &256308842
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3108,22 +3150,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: -1, z: 0}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 105292325}
+  - {fileID: 1997179832}
   - {fileID: 0}
   - {fileID: 812963567}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 212643828}
+  - {fileID: 2124603676}
+  - {fileID: 1234643217}
   - {fileID: 0}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000000
+  adjacencieNoAlcanzable: 0000010000000001
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!1 &273330523
 GameObject:
   m_ObjectHideFlags: 0
@@ -3159,22 +3203,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: 1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 933247843}
+  - {fileID: 50600982}
+  - {fileID: 440074480}
   - {fileID: 1536776791}
   - {fileID: 664810351}
   - {fileID: 676824907}
   - {fileID: 234022965}
   - {fileID: 276303529}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000000
+  adjacencieNoAlcanzable: 0000000000010101
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &273330525
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3270,6 +3316,7 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: 1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 273330524}
@@ -3281,11 +3328,12 @@ MonoBehaviour:
   - {fileID: 1226140598}
   - {fileID: 668409254}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000000
+  adjacencieNoAlcanzable: 0101010000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &276303530
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3441,22 +3489,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: -1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 350371147}
+  - {fileID: 1807581283}
   - {fileID: 0}
   - {fileID: 1114371555}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 584465004}
+  - {fileID: 1807844669}
+  - {fileID: 423038191}
   - {fileID: 0}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000000
+  adjacencieNoAlcanzable: 0000010000000001
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!1001 &302067546
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3582,6 +3632,7 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: -1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1220604719}
@@ -3598,6 +3649,7 @@ MonoBehaviour:
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &306635178
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3693,6 +3745,7 @@ MonoBehaviour:
   nodeForward: {x: 0, y: -1, z: 0}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1847856626}
@@ -3700,15 +3753,16 @@ MonoBehaviour:
   - {fileID: 1858273581}
   - {fileID: 1239124981}
   - {fileID: 244162699}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 2028385190}
+  - {fileID: 1128940175}
+  - {fileID: 917484306}
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &319764869
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3804,6 +3858,7 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: 1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 641547155}
@@ -3811,15 +3866,16 @@ MonoBehaviour:
   - {fileID: 2123128658}
   - {fileID: 642469347}
   - {fileID: 1133283039}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 231894692}
+  - {fileID: 1613368900}
+  - {fileID: 55392365}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000000
+  adjacencieNoAlcanzable: 0101010000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &344671440
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3915,6 +3971,7 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 1, z: 0}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 241341676}
@@ -3922,15 +3979,16 @@ MonoBehaviour:
   - {fileID: 558478038}
   - {fileID: 538417025}
   - {fileID: 1807581283}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 586696637}
+  - {fileID: 1114371555}
+  - {fileID: 298280604}
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &350371148
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4026,22 +4084,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: 1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 867888993}
+  - {fileID: 1200514531}
   - {fileID: 0}
   - {fileID: 1266161229}
-  - {fileID: 0}
+  - {fileID: 836578843}
   - {fileID: 42006220}
   - {fileID: 1270541073}
-  - {fileID: 0}
+  - {fileID: 1373542055}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0001010000010000
+  adjacencieNoAlcanzable: 0000010001000001
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &357237034
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4236,6 +4296,7 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: 1}
   teletransport: 0
   isGoal: 1
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 0}
@@ -4252,6 +4313,7 @@ MonoBehaviour:
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!1 &423038190
 GameObject:
   m_ObjectHideFlags: 0
@@ -4287,22 +4349,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: -1, z: 0}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1114371555}
+  - {fileID: 298280604}
   - {fileID: 0}
   - {fileID: 1807844669}
-  - {fileID: 0}
+  - {fileID: 584465004}
   - {fileID: 126694023}
   - {fileID: 944564961}
-  - {fileID: 0}
+  - {fileID: 1479497236}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0001010000010000
+  adjacencieNoAlcanzable: 0000010000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &423038192
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4398,6 +4462,7 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: -1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1625285685}
@@ -4405,15 +4470,16 @@ MonoBehaviour:
   - {fileID: 1576620150}
   - {fileID: 733787545}
   - {fileID: 1331823025}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 933247843}
+  - {fileID: 50600982}
+  - {fileID: 440074480}
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &424344284
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4569,22 +4635,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: -1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 0}
+  - {fileID: 1082209786}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 1479497236}
-  - {fileID: 477299217}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1706377078}
+  - {fileID: 1271531030}
+  - {fileID: 922163701}
+  - {fileID: 1373542055}
+  - {fileID: 1270541073}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000000
+  adjacencieNoAlcanzable: 0100010000000001
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!1 &438394137
 GameObject:
   m_ObjectHideFlags: 0
@@ -4776,22 +4844,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: -1, z: 0}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 424344283}
+  - {fileID: 1331823025}
+  - {fileID: 105292325}
   - {fileID: 50600982}
   - {fileID: 812963567}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 273330524}
+  - {fileID: 664810351}
+  - {fileID: 2124603676}
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &440074481
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4887,14 +4957,15 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: -1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
+  - {fileID: 1070734466}
   - {fileID: 609694124}
   - {fileID: 1096825270}
-  - {fileID: 0}
+  - {fileID: 1892598398}
   - {fileID: 138589103}
-  - {fileID: 0}
+  - {fileID: 971822544}
   - {fileID: 1603839224}
   - {fileID: 566090487}
   adjacenciesOrientadas: []
@@ -4903,6 +4974,7 @@ MonoBehaviour:
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &441869462
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5088,22 +5160,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: -1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 836578843}
+  - {fileID: 1200514531}
+  - {fileID: 904416221}
   - {fileID: 781022068}
   - {fileID: 741041087}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 958476523}
+  - {fileID: 1270779655}
+  - {fileID: 1355517218}
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &477299218
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5199,22 +5273,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: -1, z: 0}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
+  - {fileID: 2115488240}
   - {fileID: 256308841}
   - {fileID: 1511943672}
-  - {fileID: 0}
+  - {fileID: 90224273}
   - {fileID: 1829734978}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1623654090}
+  - {fileID: 1790674829}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000000
+  adjacencieNoAlcanzable: 0000000000010000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &491074091
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5401,22 +5477,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 1, z: 0}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1603839224}
+  - {fileID: 566090487}
+  - {fileID: 90224273}
   - {fileID: 1861272295}
-  - {fileID: 0}
+  - {fileID: 2115488240}
   - {fileID: 1126395650}
   - {fileID: 1617680957}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000000
+  adjacencieNoAlcanzable: 0100000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &532301174
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5512,6 +5590,7 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 1, z: 0}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1861272295}
@@ -5519,15 +5598,16 @@ MonoBehaviour:
   - {fileID: 78851076}
   - {fileID: 1617680957}
   - {fileID: 350371147}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 698741958}
+  - {fileID: 586696637}
+  - {fileID: 1114371555}
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &538417026
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5670,6 +5750,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: HorseButton
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: f2da4a08ee3cb5e429f6c445c17cad6d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2da4a08ee3cb5e429f6c445c17cad6d, type: 3}
 --- !u!1 &558478037
@@ -5707,22 +5792,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 1, z: 0}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 991620193}
+  - {fileID: 1015221912}
   - {fileID: 0}
   - {fileID: 78851076}
-  - {fileID: 0}
+  - {fileID: 1479497236}
   - {fileID: 350371147}
   - {fileID: 1807581283}
-  - {fileID: 0}
+  - {fileID: 584465004}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0001010000010000
+  adjacencieNoAlcanzable: 0000010000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &558478039
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5818,6 +5905,7 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: -1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 441869461}
@@ -5825,15 +5913,16 @@ MonoBehaviour:
   - {fileID: 1555785910}
   - {fileID: 1603839224}
   - {fileID: 679974740}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 532301173}
+  - {fileID: 1861272295}
+  - {fileID: 241341676}
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &566090488
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5929,6 +6018,7 @@ MonoBehaviour:
   nodeForward: {x: 0, y: -1, z: 0}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1511943672}
@@ -5936,15 +6026,16 @@ MonoBehaviour:
   - {fileID: 1807844669}
   - {fileID: 1829734978}
   - {fileID: 126694023}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1790674829}
+  - {fileID: 1220604719}
+  - {fileID: 1763265757}
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &580415844
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6040,22 +6131,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: -1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1807581283}
+  - {fileID: 558478038}
+  - {fileID: 298280604}
   - {fileID: 1479497236}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 423038191}
+  - {fileID: 944564961}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000000
+  adjacencieNoAlcanzable: 0100000000010000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &584465005
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6151,22 +6244,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: -1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1617680957}
+  - {fileID: 538417025}
+  - {fileID: 350371147}
   - {fileID: 698741958}
   - {fileID: 1114371555}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1511943672}
+  - {fileID: 1895510271}
+  - {fileID: 1807844669}
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &586696638
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6262,6 +6357,7 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: -1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1623654090}
@@ -6278,6 +6374,7 @@ MonoBehaviour:
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &605241443
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6373,22 +6470,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: -1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 231894692}
+  - {fileID: 1613368900}
+  - {fileID: 1070734466}
   - {fileID: 1096825270}
-  - {fileID: 0}
+  - {fileID: 1892598398}
   - {fileID: 441869461}
   - {fileID: 138589103}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000000
+  adjacencieNoAlcanzable: 0100000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &609694125
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6484,11 +6583,12 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: -1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 55392365}
+  - {fileID: 1999395786}
+  - {fileID: 1082209786}
   - {fileID: 2094985846}
   - {fileID: 1706377078}
   - {fileID: 1555785910}
@@ -6500,6 +6600,7 @@ MonoBehaviour:
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &634116040
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6595,22 +6696,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: 1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
+  - {fileID: 971822544}
   - {fileID: 930319494}
   - {fileID: 10294120}
-  - {fileID: 0}
+  - {fileID: 1892598398}
   - {fileID: 232259604}
-  - {fileID: 0}
+  - {fileID: 1070734466}
   - {fileID: 642469347}
   - {fileID: 344671439}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000000
+  adjacencieNoAlcanzable: 0000000100000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &641547156
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6767,22 +6870,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: 1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
+  - {fileID: 1892598398}
   - {fileID: 641547155}
   - {fileID: 232259604}
-  - {fileID: 0}
+  - {fileID: 1070734466}
   - {fileID: 344671439}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 231894692}
+  - {fileID: 1613368900}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000000
+  adjacencieNoAlcanzable: 0001010000010000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &642469348
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6878,22 +6983,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: 1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 50600982}
+  - {fileID: 440074480}
+  - {fileID: 812963567}
   - {fileID: 273330524}
   - {fileID: 2124603676}
   - {fileID: 234022965}
   - {fileID: 276303529}
   - {fileID: 1148769618}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000000
+  adjacencieNoAlcanzable: 0000000000010101
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &664810352
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6989,6 +7096,7 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: 1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 276303529}
@@ -6997,14 +7105,15 @@ MonoBehaviour:
   - {fileID: 1226140598}
   - {fileID: 2097753782}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1858273581}
+  - {fileID: 1270779655}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000000
+  adjacencieNoAlcanzable: 0000000000010000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &668409255
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7100,22 +7209,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: 1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
+  - {fileID: 749974666}
   - {fileID: 1536776791}
   - {fileID: 273330524}
-  - {fileID: 0}
+  - {fileID: 1807426782}
   - {fileID: 234022965}
-  - {fileID: 0}
+  - {fileID: 1289392439}
   - {fileID: 2129453963}
   - {fileID: 1706767055}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000000
+  adjacencieNoAlcanzable: 0001010000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &676824908
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7211,6 +7322,7 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: -1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 138589103}
@@ -7218,15 +7330,16 @@ MonoBehaviour:
   - {fileID: 1807678611}
   - {fileID: 566090487}
   - {fileID: 991620193}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1861272295}
+  - {fileID: 241341676}
+  - {fileID: 78851076}
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &679974741
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7377,22 +7490,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: -1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1126395650}
+  - {fileID: 1617680957}
+  - {fileID: 538417025}
   - {fileID: 1115137949}
   - {fileID: 586696637}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 256308841}
+  - {fileID: 1511943672}
+  - {fileID: 1895510271}
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &698741959
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7555,22 +7670,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: -1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
+  - {fileID: 1807426782}
   - {fileID: 1625285685}
   - {fileID: 605241442}
-  - {fileID: 0}
+  - {fileID: 749974666}
   - {fileID: 424344283}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 933247843}
+  - {fileID: 50600982}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000000
+  adjacencieNoAlcanzable: 0000000000010000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &733787546
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7666,22 +7783,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: -1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1200514531}
+  - {fileID: 904416221}
   - {fileID: 0}
   - {fileID: 477299217}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1963155910}
+  - {fileID: 1270779655}
+  - {fileID: 1355517218}
   - {fileID: 0}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000000
+  adjacencieNoAlcanzable: 0000010000000001
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &741041088
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7837,22 +7956,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: -1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
+  - {fileID: 676824907}
+  - {fileID: 1807426782}
+  - {fileID: 1625285685}
+  - {fileID: 1536776791}
+  - {fileID: 733787545}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 125165074}
-  - {fileID: 90224273}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 933247843}
   - {fileID: 0}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000000
+  adjacencieNoAlcanzable: 0100000000010001
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!1 &754929819
 GameObject:
   m_ObjectHideFlags: 0
@@ -7888,6 +8009,7 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: 1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 2123128658}
@@ -7895,15 +8017,16 @@ MonoBehaviour:
   - {fileID: 1270541073}
   - {fileID: 1133283039}
   - {fileID: 1271531030}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 55392365}
+  - {fileID: 1999395786}
+  - {fileID: 1082209786}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000000
+  adjacencieNoAlcanzable: 0101010000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &754929821
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8148,22 +8271,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: -1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 836578843}
   - {fileID: 0}
   - {fileID: 1479497236}
   - {fileID: 477299217}
   - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 958476523}
   - {fileID: 0}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000000
+  adjacencieNoAlcanzable: 0100010000010001
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &781022069
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8350,22 +8475,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: -1, z: 0}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1331823025}
+  - {fileID: 105292325}
+  - {fileID: 1997179832}
   - {fileID: 440074480}
   - {fileID: 265617520}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 664810351}
+  - {fileID: 2124603676}
+  - {fileID: 1234643217}
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &812963568
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8576,22 +8703,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: -1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 922163701}
+  - {fileID: 1373542055}
+  - {fileID: 1270541073}
+  - {fileID: 1015221912}
+  - {fileID: 357237033}
   - {fileID: 1479497236}
+  - {fileID: 781022068}
   - {fileID: 477299217}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000000
+  adjacencieNoAlcanzable: 0000010001000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!1 &867888992
 GameObject:
   m_ObjectHideFlags: 0
@@ -8627,6 +8756,7 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 1, z: 0}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1550720239}
@@ -8634,15 +8764,16 @@ MonoBehaviour:
   - {fileID: 904416221}
   - {fileID: 0}
   - {fileID: 1200514531}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 953485372}
+  - {fileID: 1266161229}
+  - {fileID: 357237033}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000000
+  adjacencieNoAlcanzable: 0000000100000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &867888994
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8799,22 +8930,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 1, z: 0}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1170721927}
+  - {fileID: 2028385190}
+  - {fileID: 15052898}
   - {fileID: 1435993259}
-  - {fileID: 0}
+  - {fileID: 125165074}
   - {fileID: 919566907}
   - {fileID: 1948161145}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000000
+  adjacencieNoAlcanzable: 0100000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &899736271
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8910,22 +9043,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 1, z: 0}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 917484306}
+  - {fileID: 1963155910}
   - {fileID: 0}
   - {fileID: 22380994}
-  - {fileID: 0}
+  - {fileID: 741041087}
   - {fileID: 867888993}
   - {fileID: 1200514531}
-  - {fileID: 0}
+  - {fileID: 477299217}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0001010000010000
+  adjacencieNoAlcanzable: 0000010000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &904416222
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9111,22 +9246,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: 1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 319764868}
+  - {fileID: 244162699}
+  - {fileID: 1355517218}
   - {fileID: 1128940175}
   - {fileID: 1963155910}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1550720239}
+  - {fileID: 22380994}
+  - {fileID: 904416221}
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &917484307
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9222,22 +9359,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 1, z: 0}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
+  - {fileID: 15052898}
   - {fileID: 899736270}
   - {fileID: 1435993259}
-  - {fileID: 0}
+  - {fileID: 125165074}
   - {fileID: 1948161145}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 930319494}
+  - {fileID: 10294120}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000000
+  adjacencieNoAlcanzable: 0000000000010000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &919566908
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9333,22 +9472,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: -1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 634116039}
   - {fileID: 1706377078}
-  - {fileID: 0}
+  - {fileID: 431883061}
   - {fileID: 1807678611}
-  - {fileID: 0}
+  - {fileID: 1373542055}
   - {fileID: 991620193}
   - {fileID: 1015221912}
-  - {fileID: 0}
+  - {fileID: 431883061}
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &922163702
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9499,22 +9640,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: 1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 919566907}
+  - {fileID: 1948161145}
+  - {fileID: 971822544}
   - {fileID: 10294120}
-  - {fileID: 0}
+  - {fileID: 1892598398}
   - {fileID: 641547155}
   - {fileID: 232259604}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000000
+  adjacencieNoAlcanzable: 0100000100000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &930319495
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9610,22 +9753,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: -1, z: 0}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 733787545}
+  - {fileID: 424344283}
+  - {fileID: 749974666}
   - {fileID: 50600982}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1536776791}
+  - {fileID: 273330524}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000000
+  adjacencieNoAlcanzable: 0100000000010000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &933247844
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9721,22 +9866,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: -1, z: 0}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1807844669}
   - {fileID: 423038191}
-  - {fileID: 0}
+  - {fileID: 584465004}
   - {fileID: 126694023}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1479497236}
+  - {fileID: 1763265757}
+  - {fileID: 2086986654}
   - {fileID: 0}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000000
+  adjacencieNoAlcanzable: 0000000000000001
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &944564962
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9832,11 +9979,12 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: 1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
+  - {fileID: 1948161145}
   - {fileID: 412322164}
-  - {fileID: 0}
+  - {fileID: 867888993}
   - {fileID: 10294120}
   - {fileID: 1266161229}
   - {fileID: 232259604}
@@ -9848,6 +9996,7 @@ MonoBehaviour:
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &953485373
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10003,22 +10152,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: -1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 1479497236}
+  - {fileID: 781022068}
   - {fileID: 477299217}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 2086986654}
+  - {fileID: 2097753782}
+  - {fileID: 1241938255}
+  - {fileID: 36517628}
+  - {fileID: 741041087}
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!1 &971822540
 GameObject:
   m_ObjectHideFlags: 0
@@ -10114,22 +10265,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: -1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1625285685}
+  - {fileID: 1892598398}
+  - {fileID: 441869461}
+  - {fileID: 1623654090}
+  - {fileID: 1603839224}
   - {fileID: 125165074}
+  - {fileID: 255549707}
   - {fileID: 90224273}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000000
+  adjacencieNoAlcanzable: 0100000100000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!1 &991620192
 GameObject:
   m_ObjectHideFlags: 0
@@ -10165,6 +10318,7 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: -1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1555785910}
@@ -10172,15 +10326,16 @@ MonoBehaviour:
   - {fileID: 922163701}
   - {fileID: 679974740}
   - {fileID: 1015221912}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 241341676}
+  - {fileID: 78851076}
+  - {fileID: 558478038}
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &991620194
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10276,22 +10431,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: -1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1807678611}
   - {fileID: 922163701}
-  - {fileID: 0}
+  - {fileID: 1373542055}
   - {fileID: 991620193}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 836578843}
+  - {fileID: 78851076}
+  - {fileID: 558478038}
   - {fileID: 0}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000000
+  adjacencieNoAlcanzable: 0000000000000001
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &1015221913
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10447,22 +10604,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: -1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 0}
+  - {fileID: 231894692}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 125165074}
-  - {fileID: 90224273}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 733787545}
+  - {fileID: 609694124}
+  - {fileID: 1625285685}
+  - {fileID: 1892598398}
+  - {fileID: 441869461}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000000
+  adjacencieNoAlcanzable: 0100010000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!1 &1082209782
 GameObject:
   m_ObjectHideFlags: 0
@@ -10558,22 +10717,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 1, z: 0}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 754929820}
+  - {fileID: 1271531030}
   - {fileID: 0}
   - {fileID: 1999395786}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 431883061}
+  - {fileID: 634116039}
+  - {fileID: 1706377078}
   - {fileID: 0}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000000
+  adjacencieNoAlcanzable: 0000010000000001
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!1 &1096825269
 GameObject:
   m_ObjectHideFlags: 0
@@ -10609,11 +10770,12 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: -1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 231894692}
+  - {fileID: 1613368900}
+  - {fileID: 55392365}
   - {fileID: 609694124}
   - {fileID: 2094985846}
   - {fileID: 441869461}
@@ -10625,6 +10787,7 @@ MonoBehaviour:
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &1096825271
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10720,22 +10883,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: -1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 538417025}
+  - {fileID: 350371147}
+  - {fileID: 1807581283}
   - {fileID: 586696637}
   - {fileID: 298280604}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1895510271}
+  - {fileID: 1807844669}
+  - {fileID: 423038191}
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &1114371556
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10831,22 +10996,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: -1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1126395650}
+  - {fileID: 1617680957}
+  - {fileID: 2115488240}
   - {fileID: 698741958}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 256308841}
+  - {fileID: 1511943672}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000000
+  adjacencieNoAlcanzable: 0100000000010000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &1115137950
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10942,22 +11109,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 1, z: 0}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
+  - {fileID: 90224273}
   - {fileID: 532301173}
   - {fileID: 1861272295}
-  - {fileID: 0}
+  - {fileID: 2115488240}
   - {fileID: 1617680957}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1115137949}
+  - {fileID: 698741958}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000000
+  adjacencieNoAlcanzable: 0000000000010000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &1126395651
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11053,22 +11222,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: 1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1239124981}
+  - {fileID: 319764868}
+  - {fileID: 244162699}
   - {fileID: 2028385190}
   - {fileID: 917484306}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1435993259}
+  - {fileID: 1550720239}
+  - {fileID: 22380994}
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &1128940176
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11164,6 +11335,7 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: 1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 232259604}
@@ -11171,15 +11343,16 @@ MonoBehaviour:
   - {fileID: 42006220}
   - {fileID: 344671439}
   - {fileID: 754929820}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1613368900}
+  - {fileID: 55392365}
+  - {fileID: 1999395786}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000000
+  adjacencieNoAlcanzable: 0101010000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &1133283040
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11275,6 +11448,7 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: 1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 664810351}
@@ -11286,11 +11460,12 @@ MonoBehaviour:
   - {fileID: 668409254}
   - {fileID: 2097753782}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000000
+  adjacencieNoAlcanzable: 0101010000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &1148769619
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11386,22 +11561,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: 1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1213144268}
+  - {fileID: 1239124981}
+  - {fileID: 15052898}
   - {fileID: 2028385190}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 899736270}
+  - {fileID: 1435993259}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000000
+  adjacencieNoAlcanzable: 0100000000010000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &1170721928
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11497,22 +11674,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 1, z: 0}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 22380994}
   - {fileID: 904416221}
-  - {fileID: 0}
+  - {fileID: 741041087}
   - {fileID: 867888993}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 477299217}
+  - {fileID: 1266161229}
+  - {fileID: 357237033}
   - {fileID: 0}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000000
+  adjacencieNoAlcanzable: 0000000000000001
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &1200514532
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11608,22 +11787,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: -1, z: 0}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
+  - {fileID: 1847856626}
   - {fileID: 2015127710}
   - {fileID: 1847856626}
-  - {fileID: 0}
+  - {fileID: 2015127710}
   - {fileID: 1239124981}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1170721927}
+  - {fileID: 2028385190}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000000
+  adjacencieNoAlcanzable: 0000000000010000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &1213144269
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11719,11 +11900,12 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: -1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1829734978}
+  - {fileID: 580415843}
+  - {fileID: 126694023}
   - {fileID: 1790674829}
   - {fileID: 1763265757}
   - {fileID: 605241442}
@@ -11735,6 +11917,7 @@ MonoBehaviour:
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &1220604720
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11830,6 +12013,7 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: 1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 234022965}
@@ -11837,15 +12021,16 @@ MonoBehaviour:
   - {fileID: 1148769618}
   - {fileID: 1706767055}
   - {fileID: 668409254}
+  - {fileID: 232259604}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 42006220}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000000
+  adjacencieNoAlcanzable: 0000000000000100
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &1226140599
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11941,22 +12126,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: 1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 812963567}
+  - {fileID: 265617520}
   - {fileID: 0}
   - {fileID: 2124603676}
-  - {fileID: 0}
+  - {fileID: 212643828}
   - {fileID: 1148769618}
   - {fileID: 1920614248}
-  - {fileID: 0}
+  - {fileID: 36517628}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0001010000010000
+  adjacencieNoAlcanzable: 0000010000010100
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &1234643218
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12052,6 +12239,7 @@ MonoBehaviour:
   nodeForward: {x: 0, y: -1, z: 0}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 2015127710}
@@ -12059,15 +12247,16 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 1213144268}
   - {fileID: 319764868}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1170721927}
+  - {fileID: 2028385190}
+  - {fileID: 1128940175}
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &1239124982
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12163,22 +12352,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: -1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1763265757}
   - {fileID: 2086986654}
-  - {fileID: 0}
+  - {fileID: 958476523}
   - {fileID: 306635177}
-  - {fileID: 0}
+  - {fileID: 36517628}
   - {fileID: 105292325}
   - {fileID: 1997179832}
-  - {fileID: 0}
+  - {fileID: 212643828}
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &1241938256
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12423,11 +12614,12 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: 1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 412322164}
+  - {fileID: 867888993}
+  - {fileID: 1200514531}
   - {fileID: 953485372}
   - {fileID: 357237033}
   - {fileID: 2123128658}
@@ -12439,6 +12631,7 @@ MonoBehaviour:
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &1266161230
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12534,22 +12727,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: 1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1266161229}
   - {fileID: 357237033}
-  - {fileID: 0}
+  - {fileID: 836578843}
   - {fileID: 42006220}
-  - {fileID: 0}
+  - {fileID: 1373542055}
   - {fileID: 754929820}
   - {fileID: 1271531030}
-  - {fileID: 0}
+  - {fileID: 431883061}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000000
+  adjacencieNoAlcanzable: 0000000001000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &1270541074
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12645,22 +12840,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: -1, z: 0}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 668409254}
+  - {fileID: 2097753782}
   - {fileID: 0}
   - {fileID: 1858273581}
-  - {fileID: 0}
+  - {fileID: 477299217}
   - {fileID: 244162699}
   - {fileID: 1355517218}
-  - {fileID: 0}
+  - {fileID: 741041087}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0001010000010000
+  adjacencieNoAlcanzable: 0000010000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &1270779656
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12756,22 +12953,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: 1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 42006220}
   - {fileID: 1270541073}
-  - {fileID: 0}
+  - {fileID: 1373542055}
   - {fileID: 754929820}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 431883061}
+  - {fileID: 1999395786}
+  - {fileID: 1082209786}
   - {fileID: 0}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000000
+  adjacencieNoAlcanzable: 0101000000000001
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &1271531031
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12927,22 +13126,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: -1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 125165074}
+  - {fileID: 255549707}
   - {fileID: 90224273}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 125165074}
+  - {fileID: 1623654090}
+  - {fileID: 676824907}
+  - {fileID: 1807426782}
+  - {fileID: 1625285685}
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!1 &1331823024
 GameObject:
   m_ObjectHideFlags: 0
@@ -12978,6 +13179,7 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: -1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 605241442}
@@ -12985,15 +13187,16 @@ MonoBehaviour:
   - {fileID: 306635177}
   - {fileID: 424344283}
   - {fileID: 105292325}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 50600982}
+  - {fileID: 440074480}
+  - {fileID: 812963567}
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &1331823026
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13089,22 +13292,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: -1, z: 0}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1858273581}
   - {fileID: 1270779655}
-  - {fileID: 0}
+  - {fileID: 477299217}
   - {fileID: 244162699}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 741041087}
+  - {fileID: 917484306}
+  - {fileID: 1963155910}
   - {fileID: 0}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000000
+  adjacencieNoAlcanzable: 0000000000000001
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &1355517219
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13260,22 +13465,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: -1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 1479497236}
-  - {fileID: 477299217}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1706377078}
+  - {fileID: 431883061}
+  - {fileID: 1271531030}
+  - {fileID: 922163701}
+  - {fileID: 1270541073}
+  - {fileID: 1015221912}
+  - {fileID: 836578843}
+  - {fileID: 357237033}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000000
+  adjacencieNoAlcanzable: 0000000001000001
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!1 &1435993258
 GameObject:
   m_ObjectHideFlags: 0
@@ -13311,22 +13518,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 1, z: 0}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1170721927}
+  - {fileID: 2028385190}
+  - {fileID: 1128940175}
   - {fileID: 899736270}
   - {fileID: 1550720239}
   - {fileID: 919566907}
   - {fileID: 1948161145}
   - {fileID: 0}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000000
+  adjacencieNoAlcanzable: 0000000000000001
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &1435993260
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13422,22 +13631,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: -1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1807581283}
+  - {fileID: 558478038}
+  - {fileID: 836578843}
   - {fileID: 584465004}
   - {fileID: 781022068}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 423038191}
+  - {fileID: 944564961}
+  - {fileID: 958476523}
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &1479497237
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13533,11 +13744,12 @@ MonoBehaviour:
   nodeForward: {x: 0, y: -1, z: 0}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1115137949}
+  - {fileID: 698741958}
+  - {fileID: 586696637}
   - {fileID: 256308841}
   - {fileID: 1895510271}
   - {fileID: 491074090}
@@ -13549,6 +13761,7 @@ MonoBehaviour:
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &1511943673
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13824,22 +14037,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: 1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 933247843}
+  - {fileID: 50600982}
+  - {fileID: 749974666}
   - {fileID: 273330524}
-  - {fileID: 0}
+  - {fileID: 1807426782}
   - {fileID: 676824907}
   - {fileID: 234022965}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000000
+  adjacencieNoAlcanzable: 0100000000000101
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &1536776792
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13982,6 +14197,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Goal
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 92ad0b367024a1a43adf0e4f494b439b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92ad0b367024a1a43adf0e4f494b439b, type: 3}
 --- !u!1 &1550720238
@@ -14019,22 +14239,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 1, z: 0}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 2028385190}
+  - {fileID: 1128940175}
+  - {fileID: 917484306}
   - {fileID: 1435993259}
   - {fileID: 22380994}
   - {fileID: 1948161145}
   - {fileID: 0}
   - {fileID: 867888993}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000000
+  adjacencieNoAlcanzable: 0000000000000100
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &1550720240
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -14130,6 +14352,7 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: -1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 1
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1096825270}
@@ -14146,6 +14369,7 @@ MonoBehaviour:
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &1555785911
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -14301,6 +14525,7 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: -1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1790674829}
@@ -14317,6 +14542,7 @@ MonoBehaviour:
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &1576620151
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -14412,22 +14638,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: -1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
+  - {fileID: 1892598398}
   - {fileID: 441869461}
   - {fileID: 138589103}
-  - {fileID: 0}
+  - {fileID: 971822544}
   - {fileID: 566090487}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 532301173}
+  - {fileID: 1861272295}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000000
+  adjacencieNoAlcanzable: 0000000000010000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &1603839225
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -14523,22 +14751,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 1, z: 0}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 642469347}
+  - {fileID: 344671439}
+  - {fileID: 1133283039}
   - {fileID: 231894692}
   - {fileID: 55392365}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 609694124}
+  - {fileID: 1096825270}
+  - {fileID: 2094985846}
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &1613368901
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -14634,6 +14864,7 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 1, z: 0}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 532301173}
@@ -14641,15 +14872,16 @@ MonoBehaviour:
   - {fileID: 241341676}
   - {fileID: 1126395650}
   - {fileID: 538417025}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1115137949}
+  - {fileID: 698741958}
+  - {fileID: 586696637}
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &1617680958
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -14745,22 +14977,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: -1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 491074090}
+  - {fileID: 1829734978}
+  - {fileID: 1289392439}
   - {fileID: 1790674829}
-  - {fileID: 0}
+  - {fileID: 1807426782}
   - {fileID: 1625285685}
   - {fileID: 605241442}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000000
+  adjacencieNoAlcanzable: 0100000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &1623654091
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -14856,14 +15090,15 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: -1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
+  - {fileID: 1289392439}
   - {fileID: 1623654090}
   - {fileID: 1790674829}
-  - {fileID: 0}
+  - {fileID: 1807426782}
   - {fileID: 605241442}
-  - {fileID: 0}
+  - {fileID: 749974666}
   - {fileID: 733787545}
   - {fileID: 424344283}
   adjacenciesOrientadas: []
@@ -14872,6 +15107,7 @@ MonoBehaviour:
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &1625285686
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15105,22 +15341,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: -1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1999395786}
+  - {fileID: 1082209786}
   - {fileID: 0}
   - {fileID: 634116039}
-  - {fileID: 0}
+  - {fileID: 431883061}
   - {fileID: 1807678611}
   - {fileID: 922163701}
-  - {fileID: 0}
+  - {fileID: 1373542055}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0001010000010000
+  adjacencieNoAlcanzable: 0000010000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &1706377079
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15216,6 +15454,7 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: 1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 676824907}
@@ -15227,11 +15466,12 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000000
+  adjacencieNoAlcanzable: 0000000000000001
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &1706767056
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15374,6 +15614,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GoalButton
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: cb5604aca15de4c4bb9864b6b639aabf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb5604aca15de4c4bb9864b6b639aabf, type: 3}
 --- !u!1 &1763265756
@@ -15411,11 +15656,12 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: -1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 580415843}
+  - {fileID: 126694023}
+  - {fileID: 944564961}
   - {fileID: 1220604719}
   - {fileID: 2086986654}
   - {fileID: 1576620150}
@@ -15427,6 +15673,7 @@ MonoBehaviour:
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &1763265758
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15522,11 +15769,12 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: -1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 491074090}
+  - {fileID: 1829734978}
+  - {fileID: 580415843}
   - {fileID: 1623654090}
   - {fileID: 1220604719}
   - {fileID: 1625285685}
@@ -15538,6 +15786,7 @@ MonoBehaviour:
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &1790674830
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15693,22 +15942,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: -1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 125165074}
-  - {fileID: 90224273}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 2129453963}
+  - {fileID: 1289392439}
+  - {fileID: 1623654090}
+  - {fileID: 676824907}
+  - {fileID: 1625285685}
+  - {fileID: 1536776791}
+  - {fileID: 749974666}
+  - {fileID: 733787545}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000000
+  adjacencieNoAlcanzable: 0000000000010000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!1 &1807581282
 GameObject:
   m_ObjectHideFlags: 0
@@ -15744,22 +15995,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 1, z: 0}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 78851076}
   - {fileID: 558478038}
-  - {fileID: 0}
+  - {fileID: 1479497236}
   - {fileID: 350371147}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 584465004}
+  - {fileID: 1114371555}
+  - {fileID: 298280604}
   - {fileID: 0}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000000
+  adjacencieNoAlcanzable: 0000000000000001
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &1807581284
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15855,6 +16108,7 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: -1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 2094985846}
@@ -15871,6 +16125,7 @@ MonoBehaviour:
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &1807678612
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15966,11 +16221,12 @@ MonoBehaviour:
   nodeForward: {x: 0, y: -1, z: 0}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 586696637}
+  - {fileID: 1114371555}
+  - {fileID: 298280604}
   - {fileID: 1895510271}
   - {fileID: 423038191}
   - {fileID: 580415843}
@@ -15982,6 +16238,7 @@ MonoBehaviour:
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &1807844670
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16132,6 +16389,7 @@ MonoBehaviour:
   nodeForward: {x: 0, y: -1, z: 0}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 256308841}
@@ -16139,15 +16397,16 @@ MonoBehaviour:
   - {fileID: 1895510271}
   - {fileID: 491074090}
   - {fileID: 580415843}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1623654090}
+  - {fileID: 1790674829}
+  - {fileID: 1220604719}
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &1829734979
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16243,11 +16502,12 @@ MonoBehaviour:
   nodeForward: {x: 0, y: -1, z: 0}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 2129453963}
+  - {fileID: 1706767055}
+  - {fileID: 1226140598}
   - {fileID: 2015127710}
   - {fileID: 0}
   - {fileID: 1213144268}
@@ -16259,6 +16519,7 @@ MonoBehaviour:
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &1847856627
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16354,11 +16615,12 @@ MonoBehaviour:
   nodeForward: {x: 0, y: -1, z: 0}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1226140598}
+  - {fileID: 668409254}
+  - {fileID: 2097753782}
   - {fileID: 0}
   - {fileID: 1270779655}
   - {fileID: 319764868}
@@ -16370,6 +16632,7 @@ MonoBehaviour:
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &1858273582
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16465,11 +16728,12 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 1, z: 0}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1603839224}
+  - {fileID: 566090487}
+  - {fileID: 679974740}
   - {fileID: 532301173}
   - {fileID: 241341676}
   - {fileID: 1126395650}
@@ -16481,6 +16745,7 @@ MonoBehaviour:
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &1861272296
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16636,22 +16901,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: -1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 125165074}
-  - {fileID: 90224273}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 733787545}
+  - {fileID: 1070734466}
+  - {fileID: 609694124}
+  - {fileID: 1625285685}
+  - {fileID: 441869461}
+  - {fileID: 1623654090}
+  - {fileID: 971822544}
+  - {fileID: 1603839224}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000000
+  adjacencieNoAlcanzable: 0000000100010000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!1 &1895510270
 GameObject:
   m_ObjectHideFlags: 0
@@ -16687,11 +16954,12 @@ MonoBehaviour:
   nodeForward: {x: 0, y: -1, z: 0}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 698741958}
+  - {fileID: 586696637}
+  - {fileID: 1114371555}
   - {fileID: 1511943672}
   - {fileID: 1807844669}
   - {fileID: 1829734978}
@@ -16703,6 +16971,7 @@ MonoBehaviour:
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &1895510272
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16864,22 +17133,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: 1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 2124603676}
   - {fileID: 1234643217}
-  - {fileID: 0}
+  - {fileID: 212643828}
   - {fileID: 1148769618}
-  - {fileID: 0}
+  - {fileID: 36517628}
   - {fileID: 668409254}
   - {fileID: 2097753782}
-  - {fileID: 0}
+  - {fileID: 958476523}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000000
+  adjacencieNoAlcanzable: 0101000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &1920614249
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16975,6 +17246,7 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 1, z: 0}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 899736270}
@@ -16982,15 +17254,16 @@ MonoBehaviour:
   - {fileID: 1550720239}
   - {fileID: 919566907}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 930319494}
+  - {fileID: 10294120}
+  - {fileID: 953485372}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000000
+  adjacencieNoAlcanzable: 0000000001000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &1948161146
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -17236,22 +17509,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: 1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 244162699}
+  - {fileID: 1355517218}
   - {fileID: 0}
   - {fileID: 917484306}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 741041087}
+  - {fileID: 22380994}
+  - {fileID: 904416221}
   - {fileID: 0}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000000
+  adjacencieNoAlcanzable: 0000010000000001
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!1 &1997179831
 GameObject:
   m_ObjectHideFlags: 0
@@ -17287,22 +17562,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: -1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 306635177}
   - {fileID: 1241938255}
-  - {fileID: 0}
+  - {fileID: 36517628}
   - {fileID: 105292325}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 212643828}
+  - {fileID: 812963567}
+  - {fileID: 265617520}
   - {fileID: 0}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000000
+  adjacencieNoAlcanzable: 0000000000000001
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &1997179833
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -17398,22 +17675,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 1, z: 0}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1133283039}
+  - {fileID: 754929820}
+  - {fileID: 1271531030}
   - {fileID: 55392365}
   - {fileID: 1082209786}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 2094985846}
+  - {fileID: 634116039}
+  - {fileID: 1706377078}
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &1999395787
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -17599,22 +17878,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: -1, z: 0}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 2129453963}
+  - {fileID: 1706767055}
+  - {fileID: 125165074}
   - {fileID: 1847856626}
-  - {fileID: 0}
+  - {fileID: 15052898}
   - {fileID: 1213144268}
   - {fileID: 1239124981}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000000
+  adjacencieNoAlcanzable: 0100000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &2015127711
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -17770,22 +18051,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: 1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1213144268}
+  - {fileID: 1239124981}
+  - {fileID: 319764868}
   - {fileID: 1170721927}
   - {fileID: 1128940175}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 899736270}
+  - {fileID: 1435993259}
+  - {fileID: 1550720239}
   adjacenciesOrientadas: []
   adjacencieNoAlcanzable: 0000000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &2028385191
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -17946,22 +18229,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: -1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 126694023}
+  - {fileID: 944564961}
   - {fileID: 0}
   - {fileID: 1763265757}
-  - {fileID: 0}
+  - {fileID: 958476523}
   - {fileID: 306635177}
   - {fileID: 1241938255}
-  - {fileID: 0}
+  - {fileID: 36517628}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0001010000010000
+  adjacencieNoAlcanzable: 0000010000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &2086986655
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -18057,11 +18342,12 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: -1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1613368900}
+  - {fileID: 55392365}
+  - {fileID: 1999395786}
   - {fileID: 1096825270}
   - {fileID: 634116039}
   - {fileID: 138589103}
@@ -18073,6 +18359,7 @@ MonoBehaviour:
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &2094985847
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -18168,22 +18455,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: 1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1148769618}
   - {fileID: 1920614248}
-  - {fileID: 0}
+  - {fileID: 36517628}
   - {fileID: 668409254}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 958476523}
+  - {fileID: 1858273581}
+  - {fileID: 1270779655}
   - {fileID: 0}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000000
+  adjacencieNoAlcanzable: 0000000000000001
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &2097753783
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -18279,22 +18568,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: -1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 532301173}
+  - {fileID: 1126395650}
   - {fileID: 0}
   - {fileID: 90224273}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1115137949}
+  - {fileID: 491074090}
+  - {fileID: 256308841}
   - {fileID: 0}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000000
+  adjacencieNoAlcanzable: 0000010000000001
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &2115488241
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -18390,6 +18681,7 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: 1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 10294120}
@@ -18406,6 +18698,7 @@ MonoBehaviour:
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &2123128659
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -18501,22 +18794,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: 1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 440074480}
+  - {fileID: 812963567}
+  - {fileID: 265617520}
   - {fileID: 664810351}
   - {fileID: 1234643217}
   - {fileID: 276303529}
   - {fileID: 1148769618}
   - {fileID: 1920614248}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000000
+  adjacencieNoAlcanzable: 0000000000010101
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &2124603677
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -18612,22 +18907,24 @@ MonoBehaviour:
   nodeForward: {x: 0, y: 0, z: 1}
   teletransport: 0
   isGoal: 0
+  buttonGoal: 0
   showAdjacencies: 0
   adjacencies:
-  - {fileID: 0}
+  - {fileID: 1807426782}
   - {fileID: 676824907}
   - {fileID: 234022965}
-  - {fileID: 0}
+  - {fileID: 1289392439}
   - {fileID: 1706767055}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 2015127710}
+  - {fileID: 1847856626}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000000
+  adjacencieNoAlcanzable: 0000000000010000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
   pieza: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!23 &2129453964
 MeshRenderer:
   m_ObjectHideFlags: 0

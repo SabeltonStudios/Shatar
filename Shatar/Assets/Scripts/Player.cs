@@ -68,7 +68,10 @@ public class Player : MonoBehaviour
         if (undoCont <= maxUndos && previousNodes[0]!=null && turno)
         {
             numMovs--;
-
+            if(numMovs == 0)
+            {
+                apertura = true;
+            }
             node.UndrawAdjacencies();
             node.pieza = null;
 

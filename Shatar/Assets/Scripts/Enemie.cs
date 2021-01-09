@@ -14,6 +14,7 @@ public class Enemie : MonoBehaviour
     public bool turno = false;
     public List<Node> nodesMovimiento;
     public List<Node> nodesPath;
+    public int nodesIntermedios;
     GameController gameController;
 
     // Start is called before the first frame update
@@ -38,15 +39,29 @@ public class Enemie : MonoBehaviour
             //Poner a null la pieza del nodo
             previousNode = node;
             node.pieza = null;
-            if(nodesPath[ID % nodesPath.Count].pieza!=null && nodesPath[ID % nodesPath.Count].pieza.tag == "Player")
+
+            node = nodesMovimiento[ID % nodesMovimiento.Count];
+            foreach (Node n in previousNode.seleccionables)
             {
-                node = nodesPath[ID % nodesPath.Count];
+                if (n.pieza != null && n.pieza.tag == "Player")
+                {
+                    TipoPieza tipoPieza = n.pieza.GetComponent<Player>().tipoPieza;
+                    if (tipoPieza != TipoPieza.PEON)
+                    {
+                        node = n;
+                    }
+                }
             }
-            else
+            if (nodesPath.Count > 0)
             {
-                node = nodesMovimiento[ID % nodesMovimiento.Count];
+                for(int i = 0; i < nodesIntermedios; i++)
+                {
+                    if (nodesPath[(ID * nodesIntermedios + i) % nodesPath.Count].pieza != null && nodesPath[(ID*nodesIntermedios+i) % nodesPath.Count].pieza.tag == "Player")
+                    {
+                        node = nodesPath[(ID * nodesIntermedios + i) % nodesPath.Count];
+                    }
+                }
             }
-            
             StartCoroutine(gameController.MoveOverSeconds(this.gameObject, node, 1, false, previousNode, false));
             ID++;
         }

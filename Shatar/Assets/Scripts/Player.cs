@@ -48,9 +48,8 @@ public class Player : MonoBehaviour
                 RaycastHit hitInfo;
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-                if (Physics.Raycast(ray, out hitInfo))
+                if (Physics.Raycast(ray, out hitInfo) && !GameUIManager.menuOpened)
                 {
-                    
                     MoveTo(hitInfo.point);
                 }
             }

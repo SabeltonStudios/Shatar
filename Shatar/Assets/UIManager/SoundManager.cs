@@ -6,16 +6,69 @@ public class SoundManager : MonoBehaviour
 {
     [Header("Sound Effects")]
     [SerializeField] private AudioSource click_button = null;
+    [SerializeField] private AudioSource fichaArrastrandose = null;
+    [SerializeField] private AudioSource ficha_comida1 = null;
+    [SerializeField] private AudioSource ficha_comida2 = null;
+    [SerializeField] private AudioSource fichas1 = null;
+    [SerializeField] private AudioSource fichas2 = null;
+    [SerializeField] private AudioSource fichas3 = null;
+    [SerializeField] private AudioSource derrota = null;
+    [SerializeField] private AudioSource victoria = null;
 
     [Header("Music")]
     [SerializeField] private AudioSource song_menu = null;
 
     public void Play_SoundEffect(string name)
     {
-        switch (name)
+        if (!PlayerData.SoundEffectsMuted)
         {
-            case "click_button":
-                click_button.Play();
+            switch (name)
+            {
+                case "click_button":
+                    click_button.Play();
+                    break;
+                case "fichaArrastrandose":
+                    fichaArrastrandose.Play();
+                    break;
+                case "ficha_comida1":
+                    ficha_comida1.Play();
+                    break;
+                case "ficha_comida2":
+                    ficha_comida2.Play();
+                    break;
+                case "fichas1":
+                    fichas1.Play();
+                    break;
+                case "fichas2":
+                    fichas2.Play();
+                    break;
+                case "fichas3":
+                    fichas3.Play();
+                    break;
+                case "derrota":
+                    derrota.Play();
+                    break;
+                case "victoria":
+                    victoria.Play();
+                    break;
+            }
+        }
+    }
+
+    public void RandomChessPiecePlaceSound()
+    {
+        int eleccionAleatoria = Random.Range(1, 3);
+        Debug.Log("eleccionAleatoria = " + eleccionAleatoria);
+        switch (eleccionAleatoria)
+        {
+            case 1:
+                fichas1.Play();
+                break;
+            case 2:
+                fichas2.Play();
+                break;
+            case 3:
+                fichas3.Play();
                 break;
         }
     }
@@ -61,15 +114,6 @@ public class SoundManager : MonoBehaviour
         }
 
         float startVolume = audioSource.volume;
-
-        /*
-        for (float t = 0.1f; t < FadeTime; t += Time.deltaTime)
-        {
-            float porcentaje = t / FadeTime;
-            audioSource.volume = Mathf.Lerp(startVolume, 0f, porcentaje);
-            yield return null;
-        }
-        */
         
         while (audioSource.volume > 0)
         {

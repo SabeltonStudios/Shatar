@@ -6,11 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class GameUIManager : MonoBehaviour
 {
-    //Camera Controller Arrows
+    [Header("Camera Controller Arrows")]
     [SerializeField] private GameObject arrowUp = null;
     [SerializeField] private GameObject arrowDown = null;
 
-    //Menu Pausa
+    [Header("Menu Pausa")]
     [SerializeField] private Button b_pausa = null;
     [SerializeField] private GameObject menuPausa = null;
     [SerializeField] private Button b_reanudar = null;
@@ -20,18 +20,19 @@ public class GameUIManager : MonoBehaviour
     [SerializeField] private Button b_si = null;
     [SerializeField] private Button b_no = null;
 
-    //Undo Move
+    [Header("Undo Moves")]
     [SerializeField] private Text t_movesLeft = null;
     [SerializeField] private Text t_undoCont = null;
+    [SerializeField] private Text t_gemsNum = null;
     [SerializeField] private Button b_UndoMove = null;
 
-    //Undo Menu
+    [Header("Undo Menu")]
     [SerializeField] private GameObject menuUndo = null;
     [SerializeField] private Text t_movesLeft_menuUndo = null;
     [SerializeField] private Button b_siDeshacer = null;
     [SerializeField] private Button b_noDeshacer = null;
 
-    //Change Piece Menu
+    [Header("Chance Piece Menu")]
     [SerializeField] private GameObject changePieceMenu = null;
     [SerializeField] private GameObject i_peon = null;
     [SerializeField] private GameObject i_caballo = null;
@@ -42,7 +43,7 @@ public class GameUIManager : MonoBehaviour
     [SerializeField] private Button changeToTorre = null;
     private bool isClickingOnChangePieceButton = false;
 
-    //Victoria Menu
+    [Header("Victoria Menu")]
     [SerializeField] private GameObject victoriaMenu = null;
     [SerializeField] private GameObject transparentPanel = null;
     [SerializeField] private List<GameObject> estrellas = new List<GameObject>();
@@ -51,71 +52,150 @@ public class GameUIManager : MonoBehaviour
     [SerializeField] private Button b_volverMenu_victoria = null;
     [SerializeField] private Button b_siguienteNivel = null;
 
-    //Derrota Menu
+    [Header("Derrota Menu")]
     [SerializeField] private GameObject derrotaMenu = null;
     [SerializeField] private GameObject t_sinMov = null;
     [SerializeField] private GameObject t_alcanzEnemigo = null;
     [SerializeField] private Button b_volverMenu_derrota = null;
     [SerializeField] private Button b_reintentarNivel = null;
 
-    //Scripts
+    [Header("Scripts")]
     [SerializeField] private SoundManager m_soundManager = null;
     [SerializeField] private CameraController m_cameraController = null;
     [SerializeField] private GameController m_gameController = null;
     [SerializeField] private Player m_player = null;
 
+    [Header("Other")]
+    [SerializeField] private GameObject sceneFadePanel = null;
+
     private int movesLeft;
+    private int undoCont;
+
+    public static bool menuOpened = false;
+
+    private float fadeOutTime = 1f;
+    private bool isFadeOutFinished = false;
+    private bool isFadeInFinished = false;
+
+    private bool abrirPanelVictoria = true;
+    private bool abrirPanelDerrota = true;
 
     private void LoadScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
     }
 
+    IEnumerator LoadSceneAfterWait(string sceneName, float time)
+    {
+        yield return new WaitForSeconds(time);
+
+        SceneManager.LoadScene(sceneName);
+    }
+
+    IEnumerator LoadSceneAfterWait(int sceneIndex, float time)
+    {
+        yield return new WaitForSeconds(time);
+
+        SceneManager.LoadScene(sceneIndex);
+    }
+
     void Start()
     {
+        menuOpened = false;
+
+        PlayerData.backFromLevel = true;
+        PlayerData.Gems = 0;
+        undoCont = 3;
+
+        StartCoroutine(FadeOutRoutine(sceneFadePanel));
+
         movesLeft = m_gameController.maxMovs;
         t_movesLeft.text = movesLeft.ToString();
 
         //Undo Buttons
-        b_UndoMove.onClick.AddListener(() => { AbrirMenuUndoMov(true); });
-        b_noDeshacer.onClick.AddListener(() => { AbrirMenuUndoMov(false); });
+        b_UndoMove.onClick.AddListener(() => { m_soundManager.Play_SoundEffect("click_button"); AbrirMenuUndoMov(true); menuOpened = true; });
+        b_noDeshacer.onClick.AddListener(() => { m_soundManager.Play_SoundEffect("click_button"); AbrirMenuUndoMov(false); menuOpened = false; });
         b_siDeshacer.onClick.AddListener(() => 
         {
+            m_soundManager.Play_SoundEffect("click_button");
             m_player.UndoMovement();
-            t_undoCont.text = "" + (m_player.maxUndos - m_player.undoCont);
+            undoCont = (m_player.maxUndos - m_player.undoCont);
+            //t_undoCont.text = "" + (m_player.maxUndos - m_player.undoCont);
+            t_undoCont.text = undoCont.ToString();
             AbrirMenuUndoMov(false);
             t_movesLeft_menuUndo.text = t_undoCont.text + " movimientos"; ////////////////TRADUCIR 
-            ///////////////////////////RESTAR GEMAS
+            PlayerData.Gems--;
+            menuOpened = false;
         });
 
         //Change Piece Buttons
         changePiece.onClick.AddListener(() => {
+            m_soundManager.Play_SoundEffect("click_button");
             showChangePieceMenu();
         });
         changeToPeon.onClick.AddListener(() => {
+            m_soundManager.Play_SoundEffect("click_button");
             changePieceTo(TipoPieza.PEON);
             showChangePieceMenu();
         });
         changeToCaballo.onClick.AddListener(() => {
+            m_soundManager.Play_SoundEffect("click_button");
             changePieceTo(TipoPieza.CABALLO);
             showChangePieceMenu();
         });
         changeToTorre.onClick.AddListener(() => {
+            m_soundManager.Play_SoundEffect("click_button");
             changePieceTo(TipoPieza.TORRE);
             showChangePieceMenu();
         });
 
         //Menu Pausa Buttons
-        b_pausa.onClick.AddListener(() => AbrirMenuPausa(true));
-        b_reanudar.onClick.AddListener(() => AbrirMenuPausa(false));
-        b_volverMenu_pausa.onClick.AddListener(() => AbrirMenuConfirmacion(true));
+        b_pausa.onClick.AddListener(() => { m_soundManager.Play_SoundEffect("click_button"); AbrirMenuPausa(true); menuOpened = true; });
+        b_reanudar.onClick.AddListener(() => { m_soundManager.Play_SoundEffect("click_button"); AbrirMenuPausa(false); menuOpened = false; });
+        b_volverMenu_pausa.onClick.AddListener(() => { m_soundManager.Play_SoundEffect("click_button"); AbrirMenuConfirmacion(true); });
 
         //Panel Confirmacion Buttons
-        b_si.onClick.AddListener(() => LoadScene("Menus"));
-        b_no.onClick.AddListener(() => AbrirMenuConfirmacion(false));
+        b_si.onClick.AddListener(() => {
+            m_soundManager.Play_SoundEffect("click_button");
+            Time.timeScale = 1.0f;
+            StartCoroutine(FadeInRoutine(sceneFadePanel));
+            StartCoroutine(m_soundManager.SoundFadeOut("song_menu", 1.2f));
+            StartCoroutine(LoadSceneAfterWait("Menus", 1.2f));
+        });
+        b_no.onClick.AddListener(() => { m_soundManager.Play_SoundEffect("click_button"); AbrirMenuConfirmacion(false); });
 
         m_soundManager.Mute_Music("song_menu", PlayerData.MusicMuted);
         m_soundManager.Play_Music("song_menu");
+
+        //Victoria
+        b_volverMenu_victoria.onClick.AddListener(() => {
+            m_soundManager.Play_SoundEffect("click_button");
+            PlayerData.NivelActual++;
+            StartCoroutine(FadeInRoutine(sceneFadePanel));
+            StartCoroutine(m_soundManager.SoundFadeOut("song_menu", 1.2f));
+            StartCoroutine(LoadSceneAfterWait("Menus", 1.2f));
+        });
+        b_siguienteNivel.onClick.AddListener(() => {
+            m_soundManager.Play_SoundEffect("click_button");
+            PlayerData.NivelActual++;
+            StartCoroutine(FadeInRoutine(sceneFadePanel));
+            StartCoroutine(m_soundManager.SoundFadeOut("song_menu", 1.2f));
+            StartCoroutine(LoadSceneAfterWait(SceneManager.GetActiveScene().buildIndex + 1, 1.2f));
+        });
+
+        //Derrota
+        b_volverMenu_derrota.onClick.AddListener(() => {
+            m_soundManager.Play_SoundEffect("click_button");
+            StartCoroutine(FadeOutRoutine(sceneFadePanel));
+            StartCoroutine(m_soundManager.SoundFadeOut("song_menu", 1.2f));
+            StartCoroutine(LoadSceneAfterWait("Menus", 1.2f));
+        });
+        b_reintentarNivel.onClick.AddListener(() => {
+            m_soundManager.Play_SoundEffect("click_button");
+            StartCoroutine(FadeOutRoutine(sceneFadePanel));
+            StartCoroutine(m_soundManager.SoundFadeOut("song_menu", 1.2f));
+            StartCoroutine(LoadSceneAfterWait(SceneManager.GetActiveScene().name, 1.2f));
+        });
     }
 
     private void Update()
@@ -128,37 +208,45 @@ public class GameUIManager : MonoBehaviour
             movesLeft = m_gameController.maxMovs - m_player.numMovs;
             //Debug.Log("movesLeft [" + movesLeft + "] = " + "m_gameController.maxMovs [" + m_gameController.maxMovs + "] - m_player.numMovs [ " + m_player.numMovs + " ]");
             t_movesLeft.text = movesLeft.ToString();
-        }
 
-        if (m_gameController.victoria)
-        {
-            AbrirPanelVictoria();
-        }
-
-        if (m_gameController.derrota > 0)
-        {
-            AbrirPanelDerrota(m_gameController.derrota);
-        }
-
-        /*
-        if (Input.GetMouseButtonDown(0) && changePieceMenu.activeSelf) //salir del menú de elegir pieza haciendo click en cualquier parte de la pantalla
-        {
-            changePieceMenu.SetActive(false);
-        }
-        */
-        if (movesLeft == m_gameController.maxMovs || m_player.undoCont >= m_player.maxUndos)
-        {
-           // Debug.Log(movesLeft + " " + m_gameController.maxMovs + " " + m_player.undoCont + " " + m_player.maxUndos);
-            b_UndoMove.enabled = false;
-            b_UndoMove.GetComponent<Image>().color = new Color(255, 255, 255, 0.5f);
+            UnableDisableChangePiece(false); //botones deshabilitados cuando no es el turno del jugador
+            UnableDisableUndoButton(false);
         }
         else
         {
-            if (movesLeft == m_gameController.maxMovs - 1)
+            if (!m_gameController.isPlayerMoving)
             {
-                b_UndoMove.enabled = true;
-                b_UndoMove.GetComponent<Image>().color = new Color(255, 255, 255, 1f);
+                movesLeft = m_gameController.maxMovs - m_player.numMovs;
+                t_movesLeft.text = movesLeft.ToString();
+
+                UnableDisableChangePiece(true);
+                //if (movesLeft == m_gameController.maxMovs || m_player.undoCont > m_player.maxUndos)
+                if (movesLeft == m_gameController.maxMovs || undoCont <= 0)
+                {;
+                    UnableDisableUndoButton(false);
+                }
+                else
+                {
+                    UnableDisableUndoButton(true);
+                }
             }
+            else
+            {
+                UnableDisableChangePiece(false); //botones deshabilitados cuando no es el turno del jugador
+                UnableDisableUndoButton(false);
+            }
+        }
+
+        if (m_gameController.victoria && abrirPanelVictoria)
+        {
+            abrirPanelVictoria = false;
+            AbrirPanelVictoria();
+        }
+
+        if (m_gameController.derrota > 0 && abrirPanelDerrota)
+        {
+            abrirPanelDerrota = false;
+            AbrirPanelDerrota(m_gameController.derrota);
         }
     }
 
@@ -166,6 +254,14 @@ public class GameUIManager : MonoBehaviour
     {
         transparentPanel.SetActive(state);
         menuPausa.SetActive(state);
+        if (state)
+        {
+            Time.timeScale = 0f;
+        }
+        else
+        {
+            Time.timeScale = 1f;
+        }
     }
 
     private void AbrirMenuConfirmacion(bool state)
@@ -177,23 +273,62 @@ public class GameUIManager : MonoBehaviour
 
     private void AbrirMenuUndoMov(bool state)
     {
+        t_gemsNum.text = PlayerData.Gems.ToString();
         transparentPanel.SetActive(state);
         menuUndo.SetActive(state);
+        if (PlayerData.Gems <= 0)
+        {
+            b_siDeshacer.enabled = false;
+            b_siDeshacer.GetComponent<CanvasGroup>().alpha = 0.5f;
+        }
     }
 
     private void AbrirPanelVictoria()
     {
+        m_soundManager.Play_SoundEffect("victoria");
+        menuOpened = true;
         transparentPanel.SetActive(true);
         victoriaMenu.SetActive(true);
+        if (PlayerData.playingLevel == 0) //Si está en el tutorial, por completarlo se consiguen directamente 3 estrellas
+            m_gameController.numStars = 3;
         ActualizarNumEstrellas();
-        t_numMov.text = m_player.numMovs.ToString() + " movimientos"; ///////////////////actualizar "movimientos" para que se traduzca
-        //////////////////////////////////////////////////////////////ActualizarPlayerData(); //Actualiza mejores movimientos y estrellas
-        b_volverMenu_victoria.onClick.AddListener(() => LoadScene("Menus")); /////////////Hacer que aparezca en levelMapMenu
-        b_siguienteNivel.onClick.AddListener(() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1));
+        t_numMov.text = m_player.numMovs.ToString() + "movimientos"; ///////////////////actualizar "movimientos" para que se traduzca
+        ActualizarPlayerData(); //Actualiza si se ha logrado mejor puntuacion (movimientos y estrellas)
+    }
+
+    private void UpdateBestScore(int mejorPuntuacion, int mejorCantidadEstrellas)
+    {
+        t_mejorNumMov.text = "Mejor : " + mejorPuntuacion + " movimientos"; ///////////////////actualizar "Mejor" y "movimientos" para que se traduzca
+        if (m_player.numMovs > mejorPuntuacion)
+        {
+            mejorPuntuacion = m_player.numMovs;
+        }
+        if (m_gameController.numStars > mejorCantidadEstrellas)
+        {
+            mejorCantidadEstrellas = m_gameController.numStars;
+        }
+    }
+
+    private void ActualizarPlayerData()
+    {
+        switch (PlayerData.playingLevel)
+        {
+            case 0:
+                UpdateBestScore(PlayerData.Level0MejorPuntuacion, PlayerData.Level0Estrellas);
+                break;
+            case 1:
+                UpdateBestScore(PlayerData.Level1MejorPuntuacion, PlayerData.Level1Estrellas);
+                break;
+            case 2:
+                UpdateBestScore(PlayerData.Level2MejorPuntuacion, PlayerData.Level2Estrellas);
+                break;
+        }
     }
 
     private void AbrirPanelDerrota(int tipoDerrota)
     {
+        m_soundManager.Play_SoundEffect("derrota");
+        menuOpened = true;
         transparentPanel.SetActive(true);
         derrotaMenu.SetActive(true);
 
@@ -209,8 +344,6 @@ public class GameUIManager : MonoBehaviour
                 t_alcanzEnemigo.SetActive(true);
                 break;
         }
-        b_volverMenu_victoria.onClick.AddListener(() => LoadScene("Menus")); /////////////Hacer que aparezca en levelMapMenu
-        b_reintentarNivel.onClick.AddListener(() => SceneManager.LoadScene(SceneManager.GetActiveScene().name));
     }
 
     private void ActualizarNumEstrellas()
@@ -297,4 +430,58 @@ public class GameUIManager : MonoBehaviour
                 break;
         }
     }
+
+    private void UnableDisableUndoButton(bool state)
+    {
+        b_UndoMove.enabled = state;
+        if (state)
+            b_UndoMove.GetComponent<Image>().color = new Color(255, 255, 255, 1f);
+        else
+            b_UndoMove.GetComponent<Image>().color = new Color(255, 255, 255, 0.5f);
+    }
+
+    private void UnableDisableChangePiece(bool state)
+    {
+        changePiece.enabled = state;
+        if (state)
+            changePiece.GetComponent<CanvasGroup>().alpha = 1f;
+        else
+            changePiece.GetComponent<CanvasGroup>().alpha = 0.5f;
+    }
+
+    private IEnumerator FadeOutRoutine(GameObject menu)
+    {
+        float startAlpha;
+        isFadeOutFinished = false;
+        startAlpha = menu.GetComponent<CanvasGroup>().alpha;
+        for (float t = 0.1f; t < fadeOutTime; t += Time.deltaTime)
+        {
+            float porcentaje = t / fadeOutTime;
+            menu.GetComponent<CanvasGroup>().alpha = Mathf.Lerp(startAlpha, 0f, porcentaje);
+            yield return null;
+        }
+        menu.GetComponent<CanvasGroup>().alpha = 0f;
+        menu.SetActive(false);
+        isFadeOutFinished = true;
+    }
+
+    private IEnumerator FadeInRoutine(GameObject menu)
+    {
+        float startAlpha;
+        isFadeInFinished = false;
+        menu.SetActive(true);
+        startAlpha = menu.GetComponent<CanvasGroup>().alpha;
+        for (float t = 0.1f; t < fadeOutTime; t += Time.deltaTime)
+        {
+            float porcentaje = t / fadeOutTime;
+            menu.GetComponent<CanvasGroup>().alpha = Mathf.Lerp(startAlpha, 1f, porcentaje);
+            yield return null;
+        }
+        menu.GetComponent<CanvasGroup>().alpha = 1f;
+        isFadeInFinished = true;
+    }
+    
+
+    public delegate void OnVariableChangeDelegate();
+    public event OnVariableChangeDelegate OnVariableChangeEvent;
 }

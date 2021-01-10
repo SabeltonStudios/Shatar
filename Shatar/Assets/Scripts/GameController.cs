@@ -26,6 +26,11 @@ public class GameController : MonoBehaviour
     public Texture[] horseButtonTextures;
     int movCastleButton = -1;
     int movHorseButton = -1;
+
+    public bool isPlayerMoving = false;
+
+    [SerializeField] private SoundManager m_soundManager = null;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -101,12 +106,24 @@ public class GameController : MonoBehaviour
     //y el bool de si se mueve por avance o por deshacer del jugador
     public IEnumerator MoveOverSeconds(GameObject objectToMove, Node end, float seconds, bool playerBool, Node previo, bool undo)
     {
-        
+        if (playerBool)
+        {
+            m_soundManager.Play_SoundEffect("fichas1");
+        }
+        else
+        {
+            m_soundManager.Play_SoundEffect("fichas2");
+        }
+
         float elapsedTime = 0;
         Vector3 startingPos = objectToMove.transform.position;
         Vector3 startingRot = objectToMove.transform.up;
         while (elapsedTime < seconds)
         {
+            if (playerBool)
+            {
+                isPlayerMoving = true;
+            }
             objectToMove.transform.position = Vector3.Lerp(startingPos, end.transform.position, (elapsedTime / seconds));
             objectToMove.transform.up = Vector3.Lerp(startingRot, end.orientation, (elapsedTime / seconds));
             elapsedTime += Time.deltaTime;
@@ -135,6 +152,8 @@ public class GameController : MonoBehaviour
         
         if (playerBool)
         {
+            isPlayerMoving = false;
+
             //player.numMovs++;
             updateButtonCastle();
             updateButtonHorse();
@@ -185,8 +204,15 @@ public class GameController : MonoBehaviour
             objectToMove.GetComponent<Enemie>().turno = false;
             end.pieza = objectToMove;
         }
-        
 
+        if (playerBool)
+        {
+            m_soundManager.Play_SoundEffect("fichas1");
+        }
+        else
+        {
+            m_soundManager.Play_SoundEffect("fichas2");
+        }
     }
 
     private void updateButtonHorse()
@@ -252,6 +278,8 @@ public class GameController : MonoBehaviour
     {
         if (player.turno)
         {
+            m_soundManager.Play_SoundEffect("fichas3");
+
             //if (undo) { Debug.Log("cambio a la anterior"); } else { Debug.Log("cambio a la siguiente"); }
             player.shiftPreviousNodes(undo, true);
             player.tipoPieza = tipoPieza;

@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 
 public class MenuUIManager : MonoBehaviour
 {
@@ -19,15 +20,28 @@ public class MenuUIManager : MonoBehaviour
     [Header("LevelsMap")]
     [SerializeField] private GameObject levelsMap = null;
     //[SerializeField] private ScrollRect scrollView = null;
-    //[SerializeField] private GameObject niveles = null;
+    //[SerializeField] private List<GameObject> niveles = new List<GameObject>();
+    [SerializeField] private List<GameObject> selectedLevel_stars = new List<GameObject>();
     [SerializeField] private Button b_store = null;
     [SerializeField] private GameObject levelPanel = null;
+    [SerializeField] private List<GameObject> levelsEstrellasNecesarias = new List<GameObject>();
+    [SerializeField] private GameObject t_noTienesEstrellasNecesarias;
+    [SerializeField] private Text t_levelMejorMov = null;
     [SerializeField] private GameObject transparentPanel = null;
     [SerializeField] private Text t_levelNumberTitle = null;
     [SerializeField] private Text t_currentGems = null;
+    [SerializeField] private Text t_currentStars = null;
     [SerializeField] private Button b_playLevel = null;
     [SerializeField] private Button b_backToLevelMap = null;
     [SerializeField] private Button b_backToMenu_levelsMap = null;
+
+    //Coming soon
+    [SerializeField] private GameObject levelPanelComingSoon = null;
+    [SerializeField] private Button b_twitterComingSoon = null;
+    [SerializeField] private Button b_instagramComingSoon = null;
+    [SerializeField] private Button b_youtubeComingSoon = null;
+    [SerializeField] private Button b_tiktokComingSoon = null;
+    [SerializeField] private Button b_backToLevelMapComingSoon = null;
 
     [Header("Settings")]
     [SerializeField] private GameObject settings = null;
@@ -60,11 +74,17 @@ public class MenuUIManager : MonoBehaviour
 
     [Header("Other")]
     [SerializeField] private GameObject disablePanel = null;
+    [SerializeField] private GameObject sceneFadePanel = null;
 
     [Header("LevelsButtons")]
-    [SerializeField] private Button b_level0 = null;
-    [SerializeField] private Button b_level1 = null;
-    [SerializeField] private Button b_level2 = null;
+    [SerializeField] private List<Button> b_levels = new List<Button>();
+    [SerializeField] private List<GameObject> level0_stars = new List<GameObject>();
+    [SerializeField] private List<GameObject> level1_stars = new List<GameObject>();
+    [SerializeField] private List<GameObject> level2_stars = new List<GameObject>();
+    [SerializeField] private Sprite starComplete = null;
+    [SerializeField] private Sprite starIncomplete = null;
+    [SerializeField] private Sprite lockedLevelSprite = null;
+    [SerializeField] private Sprite unlockedLevelSprite = null;
 
     private float fadeOutTime = 1f;
     private bool isFadeOutFinished = false;
@@ -74,7 +94,7 @@ public class MenuUIManager : MonoBehaviour
 
     private Localization.Language currentLanguage;
 
-    private static int currentGems = 0;
+    //private static int currentGems = 0;
     public static bool soundEffectsMuted = false;
     public static bool musicMuted = false;
 
@@ -84,6 +104,8 @@ public class MenuUIManager : MonoBehaviour
     private float initialPosY;
     private float initialPosZ;
     private float initialDifference;
+
+    private int numLevels = 3;
 
     [Header("Scripts")]
     [SerializeField] private SoundManager m_soundManager = null;
@@ -113,11 +135,38 @@ public class MenuUIManager : MonoBehaviour
 
     void Start()
     {
+        StartCoroutine(FadeOutRoutine(sceneFadePanel));
+
         AddListeners();
-        AddSocialMediaButtonListeners();
+        AddSocialMediaButtonListeners(b_twitter, b_instagram, b_youtube, b_tiktok);
         AddLevelButtonListeners();
-        goToMainMenu(null);
         
+        /* Para hacer pruebas
+        PlayerData.NivelActual = 0;
+        PlayerData.Level0Estrellas = 0;
+        PlayerData.Level1Estrellas = 0;
+        PlayerData.Level2Estrellas = 0;
+        PlayerData.Level0MejorPuntuacion = 0;
+        PlayerData.Level1MejorPuntuacion = 0;
+        PlayerData.Level2MejorPuntuacion = 0;
+        */
+
+        UpdateAvailableLevelsSprites();
+        UpdateCurrentStars();
+
+        if (!PlayerData.backFromLevel)
+        {
+            goToMainMenu(null);
+        }
+        else
+        {
+            PlayerData.backFromLevel = false;
+            //scrollView.verticalNormalizedPosition = (niveles[0].GetComponent<RectTransform>().anchoredPosition.y) / 217;
+            goToLevelsMap(null);
+        }
+
+        //REVISAR ESTO
+        ///VVVV Creo que esto no hace falta
         if (!PlayerPrefs.HasKey("musicMuted"))
         {
             MuteMusic(false);
@@ -130,6 +179,7 @@ public class MenuUIManager : MonoBehaviour
         MuteSoundEffects(PlayerData.SoundEffectsMuted);
         m_soundManager.Mute_Music("song_menu", PlayerData.MusicMuted);
         m_soundManager.Play_Music("song_menu");
+        
     }
 
     private void Update()
@@ -151,6 +201,13 @@ public class MenuUIManager : MonoBehaviour
                 if (isInLevelsMap && levelPanel.GetComponent<CanvasGroup>().alpha <= 0)
                 {
                     levelPanel.SetActive(false);
+                }
+            }
+            if (levelPanelComingSoon.gameObject.activeSelf && levelPanelComingSoon.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("exitPanel"))
+            {
+                if (isInLevelsMap && levelPanelComingSoon.GetComponent<CanvasGroup>().alpha <= 0)
+                {
+                    levelPanelComingSoon.SetActive(false);
                 }
             }
             if (transparentPanel.gameObject.activeSelf && transparentPanel.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("transparentPanel_exit"))
@@ -202,12 +259,12 @@ public class MenuUIManager : MonoBehaviour
         Application.OpenURL(socialMediaUrl);
     }
 
-    private void AddSocialMediaButtonListeners()
+    private void AddSocialMediaButtonListeners(Button twitter, Button instagram, Button youtube, Button tiktok)
     {
-        b_twitter.onClick.AddListener(() => { PlaySoundEffect("click_button");  OpenSocialMedia("https://twitter.com/SabeltonStudios"); });
-        b_instagram.onClick.AddListener(() => { PlaySoundEffect("click_button"); OpenSocialMedia("https://www.instagram.com/sabeltonstudios"); });
-        b_youtube.onClick.AddListener(() => { PlaySoundEffect("click_button"); OpenSocialMedia("https://www.youtube.com/channel/UCaw0EJIphiofJF5lcD1SEJg"); });
-        b_tiktok.onClick.AddListener(() => { PlaySoundEffect("click_button"); OpenSocialMedia("https://vm.tiktok.com/ZSnu8T8B/"); });
+        twitter.onClick.AddListener(() => { PlaySoundEffect("click_button");  OpenSocialMedia("https://twitter.com/SabeltonStudios"); });
+        instagram.onClick.AddListener(() => { PlaySoundEffect("click_button"); OpenSocialMedia("https://www.instagram.com/sabeltonstudios"); });
+        youtube.onClick.AddListener(() => { PlaySoundEffect("click_button"); OpenSocialMedia("https://www.youtube.com/channel/UCaw0EJIphiofJF5lcD1SEJg"); });
+        tiktok.onClick.AddListener(() => { PlaySoundEffect("click_button"); OpenSocialMedia("https://vm.tiktok.com/ZSnu8T8B/"); });
     }
     #endregion  
 
@@ -218,13 +275,13 @@ public class MenuUIManager : MonoBehaviour
 
         isInLevelsMap = true;
         
-        if (currentGems < 100)
+        if (PlayerData.Gems < 100)
         {
-            t_currentGems.GetComponent<Text>().text = currentGems.ToString("00");
+            t_currentGems.GetComponent<Text>().text = PlayerData.Gems.ToString("00");
         }
         else
         {
-            t_currentGems.GetComponent<Text>().text = currentGems.ToString();
+            t_currentGems.GetComponent<Text>().text = PlayerData.Gems.ToString();
         }
 
         b_backToMenu_levelsMap.gameObject.SetActive(true);
@@ -232,18 +289,60 @@ public class MenuUIManager : MonoBehaviour
 
     private void OpenLevelPanel(int levelNumber)
     {
-        t_levelNumberTitle.GetComponent<Text>().text = Localization.GetLocalizedValue("t_level") + " " + levelNumber;
         ActivateLevelPanel(true);
+        t_levelNumberTitle.GetComponent<Text>().text = Localization.GetLocalizedValue("t_level") + " " + levelNumber;
+
+        t_noTienesEstrellasNecesarias.SetActive(false);
+        b_playLevel.enabled = true;
+        b_playLevel.GetComponent<CanvasGroup>().alpha = 1f;
+        b_playLevel.onClick.RemoveAllListeners();
+
         switch (levelNumber)
         {
             case 0:
-                b_playLevel.onClick.AddListener(() => { PlaySoundEffect("click_button"); StartCoroutine(m_soundManager.SoundFadeOut("song_menu", 1.2f)); StartCoroutine(LoadSceneAfterWait("Tutorial", 1.2f)); });
+                PlayerData.playingLevel = 0;
+                UpdatePopUpLevelStars(PlayerData.Level0Estrellas, selectedLevel_stars);
+                t_levelMejorMov.text = "Mejor : " + PlayerData.Level0MejorPuntuacion.ToString() + " movimientos"; ///////////////////actualizar "movimientos" para que se traduzca
+                b_playLevel.onClick.AddListener(() => {
+                    PlaySoundEffect("click_button");
+                    StartCoroutine(m_soundManager.SoundFadeOut("song_menu", 1.2f));
+                    StartCoroutine(FadeInRoutine(sceneFadePanel));
+                    StartCoroutine(LoadSceneAfterWait("Tutorial", 1.2f));
+                });
                 break;
             case 1:
-                b_playLevel.onClick.AddListener(() => { PlaySoundEffect("click_button"); StartCoroutine(m_soundManager.SoundFadeOut("song_menu", 1.2f)); StartCoroutine(LoadSceneAfterWait("Level1", 1.2f)); });
+                PlayerData.playingLevel = 1;
+                UpdatePopUpLevelStars(PlayerData.Level1Estrellas, selectedLevel_stars);
+                t_levelMejorMov.text = "Mejor : " + PlayerData.Level1MejorPuntuacion.ToString() + " movimientos"; ///////////////////actualizar "movimientos" para que se traduzca
+                if (PlayerData.Stars < 3) //Si jugador no tiene estrellas suficientes, deshabilitar botón y poner texto
+                {
+                    t_noTienesEstrellasNecesarias.SetActive(true);
+                    b_playLevel.enabled = false;
+                    b_playLevel.GetComponent<CanvasGroup>().alpha = 0.5f;
+                }
+                b_playLevel.onClick.AddListener(() => {
+                    PlaySoundEffect("click_button");
+                    StartCoroutine(m_soundManager.SoundFadeOut("song_menu", 1.2f));
+                    StartCoroutine(FadeInRoutine(sceneFadePanel));
+                    StartCoroutine(LoadSceneAfterWait("Level1", 1.2f));
+                });
                 break;
             case 2:
-                b_playLevel.onClick.AddListener(() => { PlaySoundEffect("click_button"); StartCoroutine(m_soundManager.SoundFadeOut("song_menu", 1.2f)); StartCoroutine(LoadSceneAfterWait("Level2", 1.2f)); });
+                PlayerData.playingLevel = 2;
+                UpdatePopUpLevelStars(PlayerData.Level2Estrellas, selectedLevel_stars);
+                t_levelMejorMov.text = "Mejor : " + PlayerData.Level2MejorPuntuacion.ToString() + " movimientos"; ///////////////////actualizar "movimientos" para que se traduzca
+                if (PlayerData.Stars < 5)
+                {
+                    t_noTienesEstrellasNecesarias.SetActive(true);
+                    b_playLevel.enabled = false;
+                    b_playLevel.GetComponent<CanvasGroup>().alpha = 0.5f;
+                }
+                b_playLevel.onClick.AddListener(() => {
+                    PlaySoundEffect("click_button");
+                    StartCoroutine(m_soundManager.SoundFadeOut("song_menu", 1.2f));
+                    StartCoroutine(FadeInRoutine(sceneFadePanel));
+                    StartCoroutine(LoadSceneAfterWait("Level2", 1.2f));
+                });
                 break;
         }
     }
@@ -279,9 +378,116 @@ public class MenuUIManager : MonoBehaviour
 
     private void AddLevelButtonListeners()
     {
-        b_level0.onClick.AddListener(() => { PlaySoundEffect("click_button"); OpenLevelPanel(0); });
-        b_level1.onClick.AddListener(() => { PlaySoundEffect("click_button"); OpenLevelPanel(1); });
-        b_level2.onClick.AddListener(() => { PlaySoundEffect("click_button"); OpenLevelPanel(2); });
+        b_levels[0].onClick.AddListener(() => { PlaySoundEffect("click_button"); OpenLevelPanel(0); });
+        b_levels[1].onClick.AddListener(() => { PlaySoundEffect("click_button"); OpenLevelPanel(1); });
+        b_levels[2].onClick.AddListener(() => { PlaySoundEffect("click_button"); OpenLevelPanel(2); });
+        b_levels[3].onClick.AddListener(() => { PlaySoundEffect("click_button"); ActivatePanel(levelPanelComingSoon, transparentPanel, true);});
+    }
+
+    private void UpdateAvailableLevelsSprites()
+    {
+        for (int i = 0; i <= PlayerData.NivelActual; i++)
+        {
+            b_levels[i].GetComponent<Image>().sprite = unlockedLevelSprite;
+            b_levels[i].enabled = true;
+            if (i > 0) { levelsEstrellasNecesarias[i - 1].SetActive(true); }
+            UpdateAllLevelStars(i);
+        }
+        for (int i = (PlayerData.NivelActual + 1); i < b_levels.Count; i++)
+        {
+            b_levels[i].GetComponent<Image>().sprite = lockedLevelSprite;
+            b_levels[i].enabled = false;
+        }
+
+        if (PlayerData.NivelActual < numLevels && haCompletadoUltimoNivelDisponible()) //permitir comprar con estrellas siguiente nivel
+        {
+            b_levels[PlayerData.NivelActual + 1].enabled = true;
+            levelsEstrellasNecesarias[PlayerData.NivelActual + 1].SetActive(true);
+        }
+    }
+
+    private void UpdateCurrentStars()
+    {
+        int currentStars = PlayerData.Level0Estrellas + PlayerData.Level1Estrellas + PlayerData.Level2Estrellas;
+        PlayerData.Stars = currentStars;
+        if (PlayerData.Stars < 100)
+        {
+            t_currentStars.GetComponent<Text>().text = PlayerData.Stars.ToString("00");
+        }
+        else
+        {
+            t_currentStars.GetComponent<Text>().text = PlayerData.Stars.ToString();
+        }
+    }
+
+    private bool haCompletadoUltimoNivelDisponible()
+    {
+        switch (PlayerData.NivelActual)
+        {
+            case 0:
+                if (PlayerData.Level0MejorPuntuacion > 0)
+                    return true;
+                else
+                    return false;
+            case 1:
+                if (PlayerData.Level1MejorPuntuacion > 0)
+                    return true;
+                else
+                    return false;
+            case 2:
+                if (PlayerData.Level2MejorPuntuacion > 0)
+                    return true;
+                else
+                    return false;
+                break;
+        }
+        return false;
+    }
+
+    private void UpdateAllLevelStars(int numLevel)
+    {
+        switch (numLevel)
+        {
+            case 0:
+                UpdateLevelStars(PlayerData.Level0Estrellas, level0_stars, PlayerData.Level0MejorPuntuacion);
+                break;
+            case 1:
+                UpdateLevelStars(PlayerData.Level1Estrellas, level1_stars, PlayerData.Level1MejorPuntuacion);
+                break;
+            case 2:
+                UpdateLevelStars(PlayerData.Level2Estrellas, level2_stars, PlayerData.Level2MejorPuntuacion);
+                break;
+        }
+    }
+
+    private void UpdateLevelStars(int numStars, List<GameObject> level_stars, int numMov)
+    {
+        if (numMov > 0) //Se actualizan las estrellas una vez haya completado el nivel
+        {
+            for (int i = 0; i < numStars; i++)
+            {
+                level_stars[i].SetActive(true);
+            }
+            for (int i = numStars; i < 3; i++)
+            {
+                level_stars[i].SetActive(true);
+                level_stars[i].GetComponent<Image>().sprite = starIncomplete;
+            }
+        }
+    }
+
+    private void UpdatePopUpLevelStars(int numStars, List<GameObject> level_stars)
+    {
+        for (int i = 0; i < numStars; i++)
+        {
+            level_stars[i].SetActive(true);
+            level_stars[i].GetComponent<Image>().sprite = starComplete;
+        }
+        for (int i = numStars; i < 3; i++)
+        {
+            level_stars[i].SetActive(false);
+            //level_stars[i].GetComponent<Image>().sprite = starIncomplete;
+        }
     }
     #endregion 
 
@@ -407,8 +613,8 @@ public class MenuUIManager : MonoBehaviour
 
     private void OpenThankYouPanel(int gemsPurchased)
     {
-        currentGems += gemsPurchased;
-        PlayerData.Gems = currentGems;
+        PlayerData.Gems += gemsPurchased;
+        //PlayerData.Gems = currentGems;
         thankYouForPurchase.SetActive(true);
     }
     #endregion 
@@ -477,6 +683,10 @@ public class MenuUIManager : MonoBehaviour
         b_store.onClick.AddListener(() => { PlaySoundEffect("click_button"); goToStore(levelsMap); isInLevelsMap = false; });
         b_backToMenu_levelsMap.onClick.AddListener(() => { PlaySoundEffect("click_button"); goToMainMenu(levelsMap); isInLevelsMap = false; });
         b_backToLevelMap.onClick.AddListener(() => { PlaySoundEffect("click_button"); ActivateLevelPanel(false); });
+
+        //Coming Soon
+        AddSocialMediaButtonListeners(b_twitterComingSoon, b_instagramComingSoon, b_youtubeComingSoon, b_tiktokComingSoon);
+        b_backToLevelMapComingSoon.onClick.AddListener(() => { PlaySoundEffect("click_button"); ActivatePanel(levelPanelComingSoon, transparentPanel, false); });
 
         //Store Buttons
         b_purchase_5gems.onClick.AddListener(() => { PlaySoundEffect("click_button"); OpenPurchasePanel("5_Gems"); });

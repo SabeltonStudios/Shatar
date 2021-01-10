@@ -10,13 +10,17 @@ public static class PlayerData
     private static int gems = 0;
     private static int stars = 0;
 
-    private static int nivelActual = 0;
-    private static int tutorialMejorPuntuacion;
-    private static int tutorialEstrellas;
-    private static int level1MejorPuntuacion;
-    private static int level1Estrellas;
-    private static int level2MejorPuntuacion;
-    private static int level2Estrellas;
+    public static int playingLevel = 0;
+
+    public static bool backFromLevel = false;
+
+    private static int nivelActual = 0; //nivel desbloqueado
+    private static int level0MejorPuntuacion = 0;
+    private static int level0Estrellas = 0;
+    private static int level1MejorPuntuacion = 0;
+    private static int level1Estrellas = 0;
+    private static int level2MejorPuntuacion = 0;
+    private static int level2Estrellas = 0;
 
     #region Sound Related
     public static bool MusicMuted
@@ -108,31 +112,31 @@ public static class PlayerData
     /// <summary>
     /// Tutorial
     /// </summary>
-    public static int TutorialMejorPuntuacion
+    public static int Level0MejorPuntuacion
     {
         get
         {
-            tutorialMejorPuntuacion = PlayerPrefs.GetInt("tutorialMejorPuntuacion", 0);
-            return tutorialMejorPuntuacion;
+            level0MejorPuntuacion = PlayerPrefs.GetInt("level0MejorPuntuacion", 0);
+            return level0MejorPuntuacion;
         }
         set
         {
-            tutorialMejorPuntuacion = value;
-            PlayerPrefs.SetInt("tutorialMejorPuntuacion", tutorialMejorPuntuacion);
+            level0MejorPuntuacion = value;
+            PlayerPrefs.SetInt("level0MejorPuntuacion", level0MejorPuntuacion);
         }
     }
 
-    public static int TutorialEstrellas
+    public static int Level0Estrellas
     {
         get
         {
-            tutorialEstrellas = PlayerPrefs.GetInt("tutorialEstrellas", 0);
-            return tutorialEstrellas;
+            level0Estrellas = PlayerPrefs.GetInt("level0Estrellas", 0);
+            return level0Estrellas;
         }
         set
         {
-            tutorialEstrellas = value;
-            PlayerPrefs.SetInt("tutorialEstrellas", tutorialEstrellas);
+            level0Estrellas = value;
+            PlayerPrefs.SetInt("level0Estrellas", level0Estrellas);
         }
     }
 

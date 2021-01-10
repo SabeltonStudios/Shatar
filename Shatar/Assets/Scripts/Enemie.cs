@@ -12,8 +12,12 @@ public class Enemie : MonoBehaviour
     Color colorSeleccionable = new Color(237.0f/255.0f, 33.0f/255.0f, 115.0f/255.0f, 1);
     public int ID = -1;
     public bool turno = false;
+    public bool meAfectaVallaHorse;
+    public bool meAfectaVallaCastle;
     public List<Node> nodesMovimiento;
     public List<Node> nodesPath;
+    public List<Node> nodesVallas;
+    public bool move;
     public int nodesIntermedios;
     GameController gameController;
 
@@ -22,6 +26,7 @@ public class Enemie : MonoBehaviour
     {
         node.pieza = this.gameObject;
         gameController = FindObjectOfType<GameController>();
+        move = true;
     }
 
     // Update is called once per frame
@@ -43,8 +48,24 @@ public class Enemie : MonoBehaviour
             //Poner a null la pieza del nodo
             previousNode = node;
             node.pieza = null;
-
-            node = nodesMovimiento[ID % nodesMovimiento.Count];
+            if (gameController.vallaSubidaHorse && meAfectaVallaHorse)
+            {
+                if (move)
+                {
+                    node = nodesVallas[ID % nodesVallas.Count];
+                    move = false;
+                }
+            }
+            else
+            {
+                if (nodesMovimiento.Count > 0)
+                {
+                    node = nodesMovimiento[ID % nodesMovimiento.Count];
+                    move = true;
+                }
+                
+            }
+            
             foreach (Node n in previousNode.seleccionables)
             {
                 if (n.pieza != null && n.pieza.tag == "Player")

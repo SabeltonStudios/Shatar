@@ -21,6 +21,8 @@ public class Node : MonoBehaviour
     public bool teletransport;
     public bool isGoal;
     public bool buttonGoal;
+    public bool buttonCastle;
+    public bool buttonHorse;
     public bool showAdjacencies;
     // The list of adjacent nodes/squares
     public Node[] adjacencies;
@@ -33,6 +35,7 @@ public class Node : MonoBehaviour
     bool[] adjacencieNoAlcanzable180 = new bool[8];
     bool[] adjacencieNoAlcanzable270 = new bool[8];
     public bool[] adjacencieNoAlcanzableOrientada = new bool[8];
+    bool[] adjacencieAllAlcanzable = new bool[8];
     public List<Node> seleccionables;
     public bool seleccionable = false;
     public GameObject pieza;
@@ -185,7 +188,7 @@ public class Node : MonoBehaviour
                 //Si es apertura, también selecciona la siguiente
                 if (apertura)
                 {
-                    if(adjacencies[1].adjacencies[1] != null)
+                    if(adjacencies[1].adjacencies[1] != null && !adjacencies[1].adjacencieNoAlcanzable[1])
                     seleccionables.Add(adjacencies[1].adjacencies[1]);
                 }
                 if(adjacencies[0] != null)
@@ -202,6 +205,8 @@ public class Node : MonoBehaviour
                         seleccionables.Add(adjacencies[2]);
                     }
                 }
+                removeNodeButtonCastle();
+                removeNodeButtonHorse();
                 break;
 
             case TipoPieza.ALFIL:
@@ -209,17 +214,21 @@ public class Node : MonoBehaviour
                 moverDiagonal(2);
                 //Se elimina la casilla meta de las seleccionables, ya que solo se puede acceder con el peon
                 removeSeleccionableMeta();
+                removeNodeButtonCastle();
+                removeNodeButtonHorse();
                 break;
             case TipoPieza.TORRE:
                 //Busca las adyacencias rectas
                 moverRecto(5);
                 //Se elimina la casilla meta de las seleccionables, ya que solo se puede acceder con el peon
                 removeSeleccionableMeta();
+                removeNodeButtonHorse();
                 break;
             case TipoPieza.CABALLO:
                 moverL();
                 //Se elimina la casilla meta de las seleccionables, ya que solo se puede acceder con el peon
                 removeSeleccionableMeta();
+                removeNodeButtonCastle();
                 break;
             case TipoPieza.REINA:
                 //Busca adyacencias rectas y en diagonal
@@ -227,6 +236,8 @@ public class Node : MonoBehaviour
                 moverRecto(5);
                 //Se elimina la casilla meta de las seleccionables, ya que solo se puede acceder con el peon
                 removeSeleccionableMeta();
+                removeNodeButtonCastle();
+                removeNodeButtonHorse();
                 break;
             case TipoPieza.REY:
                 //Busca adyacencias rectas y en diagonal
@@ -234,6 +245,8 @@ public class Node : MonoBehaviour
                 moverRecto(1);
                 //Se elimina la casilla meta de las seleccionables, ya que solo se puede acceder con el peon
                 removeSeleccionableMeta();
+                removeNodeButtonCastle();
+                removeNodeButtonHorse();
                 break;
             default:
                 break;
@@ -758,6 +771,52 @@ public class Node : MonoBehaviour
         }
     }
 
+    private void removeNodeButtonCastle()
+    {
+        //Lista de nodos repetidos meta a eliminar
+        List<Node> eliminar = new List<Node>();
+        if (seleccionables.Count > 0)
+        {
+            foreach (Node n in seleccionables)
+            {
+                if (n.buttonCastle)
+                {
+                    eliminar.Add(n);
+                }
+            }
+        }
+        if (eliminar.Count > 0)
+        {
+            for (int i = 0; i < eliminar.Count; i++)
+            {
+                seleccionables.Remove(eliminar[0]);
+            }
+        }
+    }
+
+    private void removeNodeButtonHorse()
+    {
+        //Lista de nodos repetidos meta a eliminar
+        List<Node> eliminar = new List<Node>();
+        if (seleccionables.Count > 0)
+        {
+            foreach (Node n in seleccionables)
+            {
+                if (n.buttonHorse)
+                {
+                    eliminar.Add(n);
+                }
+            }
+        }
+        if (eliminar.Count > 0)
+        {
+            for (int i = 0; i < eliminar.Count; i++)
+            {
+                seleccionables.Remove(eliminar[0]);
+            }
+        }
+    }
+
     private float orientarAdjacencies(Node primero, Node adyacencia, float anguloInferior)
     {
         //Calcular ángulo
@@ -790,7 +849,6 @@ public class Node : MonoBehaviour
             {
                 adyacencia.adjacenciesOrientadas = adyacencia.adjacencies180;
                 adyacencia.adjacencieNoAlcanzableOrientada = adyacencia.adjacencieNoAlcanzable180;
-
             }
             else if ((angulo > -95 && angulo < -85) || (angulo > 265 && angulo < 275))
             {

@@ -12,13 +12,20 @@ public class GameController : MonoBehaviour
     int[] stars = new int[3];
     Player player;
     public Animator goal;
+    public GameObject buttonHorse;
+    public GameObject buttonCastle;
     public bool goalOpen;
     [SerializeField]
     public int maxMovs;
     public bool victoria = false;
     public int derrota = 0;
     public int numStars;
-
+    public bool vallaSubidaHorse;
+    public bool vallaSubidaCastle;
+    public Texture[] castleButtonTextures;
+    public Texture[] horseButtonTextures;
+    int movCastleButton = -1;
+    int movHorseButton = -1;
     // Start is called before the first frame update
     void Start()
     {
@@ -44,6 +51,7 @@ public class GameController : MonoBehaviour
                     return;
                 }
             }
+
             player.turno = true;
             player.node.DrawAdjacencies(player.tipoPieza, player.apertura, player.colorSeleccionable);
             if (player.numMovs == 0)
@@ -70,12 +78,12 @@ public class GameController : MonoBehaviour
         */
         if (Input.GetKeyDown(KeyCode.M)) {
             goal.Play("Open");
-
         }
     }
 
     public void EnemigosTurno(bool undo)
     {
+        
         player.turno = false;
         foreach(Enemie e in enemigos)
         {
@@ -106,11 +114,31 @@ public class GameController : MonoBehaviour
         }
         objectToMove.transform.position = end.transform.position;
         objectToMove.transform.up = end.orientation;
-
+        if (end.buttonCastle)
+        {
+            movCastleButton = 4;
+            vallaSubidaCastle = true;
+            if (!playerBool)
+            {
+                updateButtonCastle();
+            }
+        }
+        if (end.buttonHorse)
+        {
+            movHorseButton = 5;
+            vallaSubidaHorse = true;
+            if (!playerBool)
+            {
+                updateButtonHorse();
+            }
+        }
+        
         if (playerBool)
         {
             //player.numMovs++;
-            if(player.numMovs>= maxMovs)
+            updateButtonCastle();
+            updateButtonHorse();
+            if (player.numMovs>= maxMovs)
             {
                 DerrotaMovs();
             }
@@ -138,11 +166,13 @@ public class GameController : MonoBehaviour
                 goal.Play("Open");
                 goalOpen = true;
             }
+            
             if (end.isGoal)
             {
                 Victoria();
             }
             end.pieza = objectToMove;
+            
             //Hace falta ocupar la pieza antes de indicarles que se muevan para que puedan comprobar si estoy en su camino
             EnemigosTurno(undo);
         }
@@ -157,6 +187,36 @@ public class GameController : MonoBehaviour
         }
         
 
+    }
+
+    private void updateButtonHorse()
+    {
+        if (movHorseButton > 0 && vallaSubidaHorse)
+        {
+            movHorseButton--;
+            //Cambiar la textura
+            buttonHorse.GetComponent<MeshRenderer>().material.SetTexture("_EmissionMap", horseButtonTextures[movHorseButton]);
+            //Bajar las vallas
+            if (movHorseButton == 0)
+            {
+                vallaSubidaHorse = false;
+            }
+        }
+    }
+
+    private void updateButtonCastle()
+    {
+        if (movCastleButton > 0 && vallaSubidaCastle)
+        {
+            movCastleButton--;
+            //Cambiar la textura
+            buttonCastle.GetComponent<MeshRenderer>().material.SetTexture("_EmissionMap", castleButtonTextures[movCastleButton]);
+            //Bajar las vallas
+            if (movCastleButton == 0)
+            {
+                vallaSubidaCastle = false;
+            }
+        }
     }
     public void DerrotaMovs()
     {

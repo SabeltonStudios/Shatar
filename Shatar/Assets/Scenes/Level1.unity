@@ -156,6 +156,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 227999228}
@@ -269,6 +271,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 87073236}
@@ -563,6 +567,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1529436160}
@@ -753,6 +759,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 134485934}
@@ -866,6 +874,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1053213650}
@@ -979,6 +989,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1221619463}
@@ -1222,6 +1234,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1943656704}
@@ -1335,6 +1349,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1500073475}
@@ -1448,6 +1464,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1472340434}
@@ -1561,6 +1579,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 2125740976}
@@ -1784,6 +1804,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 946382604}
@@ -1957,6 +1979,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 565790724}
@@ -1968,7 +1992,7 @@ MonoBehaviour:
   - {fileID: 1973495943}
   - {fileID: 324679765}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000000
+  adjacencieNoAlcanzable: 0000000000000100
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -2174,6 +2198,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1026102427}
@@ -2469,7 +2495,7 @@ MonoBehaviour:
   - {fileID: 1350165284}
   - {fileID: 1215015950}
   - {fileID: 617882408}
-  nodesIntermedios: 0
+  nodesIntermedios: 3
 --- !u!4 &266609563
 Transform:
   m_ObjectHideFlags: 0
@@ -2838,6 +2864,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 459537293}
@@ -2951,6 +2979,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1710775893}
@@ -2962,7 +2992,7 @@ MonoBehaviour:
   - {fileID: 1448758134}
   - {fileID: 1910480179}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000000
+  adjacencieNoAlcanzable: 0001000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -3393,6 +3423,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1962004797}
@@ -3564,6 +3596,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 611738751}
@@ -3743,6 +3777,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1814964710}
@@ -3754,7 +3790,7 @@ MonoBehaviour:
   - {fileID: 380817186}
   - {fileID: 1448758134}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000000
+  adjacencieNoAlcanzable: 0000010000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -3856,6 +3892,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1142323130}
@@ -4042,6 +4080,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1215015950}
@@ -4155,6 +4195,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1661703993}
@@ -4299,6 +4341,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 0}
@@ -4412,6 +4456,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1735544878}
@@ -4785,6 +4831,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 619081843}
@@ -4838,6 +4886,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 634257336}
@@ -5339,6 +5389,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 0}
@@ -5525,6 +5577,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 0}
@@ -5788,6 +5842,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 0}
@@ -5901,6 +5957,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1390412926}
@@ -6014,6 +6072,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 985638977}
@@ -6291,6 +6351,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1322955103}
@@ -6404,6 +6466,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 732210484}
@@ -6594,6 +6658,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 0}
@@ -6707,6 +6773,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1161483842}
@@ -7098,6 +7166,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 0}
@@ -7211,6 +7281,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 150254808}
@@ -7403,6 +7475,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 380817186}
@@ -7516,6 +7590,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 0}
@@ -7702,6 +7778,8 @@ MonoBehaviour:
   teletransport: 1
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 2108412407}
@@ -7815,6 +7893,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1500073475}
@@ -7928,6 +8008,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 198995718}
@@ -8119,6 +8201,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 867572559}
@@ -8232,6 +8316,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 143607843}
@@ -8345,6 +8431,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1961857102}
@@ -8663,6 +8751,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 831875812}
@@ -8716,6 +8806,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 671529822}
@@ -8829,6 +8921,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 754109235}
@@ -9015,6 +9109,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 9802101}
@@ -9291,6 +9387,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1448758134}
@@ -9404,6 +9502,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1961759142}
@@ -9517,6 +9617,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1558425652}
@@ -9745,6 +9847,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 227999228}
@@ -9798,6 +9902,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1304554658}
@@ -10084,6 +10190,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1594308464}
@@ -10197,6 +10305,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 318827460}
@@ -10310,6 +10420,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1350165284}
@@ -10668,6 +10780,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1641882466}
@@ -10858,6 +10972,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1479835626}
@@ -10971,6 +11087,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 1
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1190634110}
@@ -11084,6 +11202,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1883826410}
@@ -11197,6 +11317,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 683975472}
@@ -11422,6 +11544,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 872852904}
@@ -11728,6 +11852,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 198995718}
@@ -11841,6 +11967,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 318827460}
@@ -12198,6 +12326,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 0}
@@ -12401,6 +12531,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1457099492}
@@ -12631,6 +12763,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1492224181}
@@ -13010,6 +13144,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1973495943}
@@ -13021,7 +13157,7 @@ MonoBehaviour:
   - {fileID: 1910480179}
   - {fileID: 1521153032}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000000
+  adjacencieNoAlcanzable: 0100000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -13320,6 +13456,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 2014995841}
@@ -13433,6 +13571,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 0}
@@ -13546,6 +13686,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1973495943}
@@ -13776,6 +13918,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1735544878}
@@ -13889,6 +14033,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 780702965}
@@ -14196,6 +14342,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 869177292}
@@ -14461,6 +14609,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1558425652}
@@ -14606,6 +14756,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 683975472}
@@ -14982,6 +15134,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 0}
@@ -15289,6 +15443,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 396666952}
@@ -15402,6 +15558,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 565790724}
@@ -15515,6 +15673,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1478058130}
@@ -15628,6 +15788,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 787337118}
@@ -15741,6 +15903,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1785448173}
@@ -16006,6 +16170,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 453902126}
@@ -16119,6 +16285,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 143607843}
@@ -16232,6 +16400,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1054003087}
@@ -16345,6 +16515,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1143405222}
@@ -16458,6 +16630,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 927063192}
@@ -16739,6 +16913,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1266221011}
@@ -16970,6 +17146,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 831875812}
@@ -17158,6 +17336,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 0}
@@ -17271,6 +17451,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1371636183}
@@ -17384,6 +17566,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1302541986}
@@ -17679,6 +17863,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1619246054}
@@ -17792,6 +17978,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1570649027}
@@ -18000,6 +18188,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 747702584}
@@ -18113,6 +18303,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 427685722}
@@ -18299,6 +18491,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 587074272}
@@ -18412,6 +18606,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 2014995841}
@@ -18525,6 +18721,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1903972260}
@@ -18638,6 +18836,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1599255283}
@@ -18828,6 +19028,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 156021691}
@@ -19011,6 +19213,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1910480179}
@@ -19124,6 +19328,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 442055110}
@@ -19796,6 +20002,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 489245429}
@@ -19969,6 +20177,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1190634110}
@@ -19980,7 +20190,7 @@ MonoBehaviour:
   - {fileID: 1814964710}
   - {fileID: 611738751}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000000000000
+  adjacencieNoAlcanzable: 0001000000000000
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
@@ -20175,6 +20385,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1196559175}
@@ -20580,6 +20792,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1322955103}
@@ -20693,6 +20907,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1323121270}
@@ -20924,6 +21140,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 0}
@@ -21037,6 +21255,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1304554658}
@@ -21150,6 +21370,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 957996269}
@@ -21263,6 +21485,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1943656704}
@@ -21594,6 +21818,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1135200085}
@@ -21911,6 +22137,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 780702965}
@@ -22024,6 +22252,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 324679765}
@@ -22137,6 +22367,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 617882408}
@@ -22310,6 +22542,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1962004797}
@@ -22562,11 +22796,17 @@ MonoBehaviour:
   - {fileID: 2042319629}
   stars: 0f0000001a00000028000000
   goal: {fileID: 258107102}
+  buttonHorse: {fileID: 0}
+  buttonCastle: {fileID: 0}
   goalOpen: 0
   maxMovs: 25
   victoria: 0
   derrota: 0
   numStars: 0
+  vallaSubidaHorse: 0
+  vallaSubidaCastle: 0
+  castleButtonTextures: []
+  horseButtonTextures: []
 --- !u!4 &1940344069
 Transform:
   m_ObjectHideFlags: 0
@@ -22617,6 +22857,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1818816684}
@@ -22917,6 +23159,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 957996269}
@@ -23030,6 +23274,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 845641050}
@@ -23083,6 +23329,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 371444620}
@@ -23333,6 +23581,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 1
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 869177292}
@@ -23594,6 +23844,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1797847877}
@@ -23707,6 +23959,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1605696487}
@@ -23820,6 +24074,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1710775893}
@@ -24111,6 +24367,8 @@ MonoBehaviour:
   teletransport: 1
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 1815012799}
@@ -24718,6 +24976,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 453902126}
@@ -24831,6 +25091,8 @@ MonoBehaviour:
   teletransport: 0
   isGoal: 0
   buttonGoal: 0
+  buttonCastle: 0
+  buttonHorse: 0
   showAdjacencies: 0
   adjacencies:
   - {fileID: 442055110}

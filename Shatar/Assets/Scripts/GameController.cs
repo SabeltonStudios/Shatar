@@ -24,10 +24,14 @@ public class GameController : MonoBehaviour
     public bool vallaSubidaCastle;
     public Texture[] castleButtonTextures;
     public Texture[] horseButtonTextures;
-    int movCastleButton = -1;
-    int movHorseButton = -1;
-
+    public List<Node> nodesVallaHorse;
+    public List<Node> nodesVallaCastle;
+    public int movCastleButton = -1;
+    public int movHorseButton = -1;
+    public GameUIManager gameUIManager;
     public bool isPlayerMoving = false;
+    public bool horseUnlock;
+    public bool castleUnlock;
 
     [SerializeField] private SoundManager m_soundManager = null;
 
@@ -41,6 +45,7 @@ public class GameController : MonoBehaviour
             enemigos.Add(aux[i]);
         }
         player = FindObjectOfType<Player>();
+        gameUIManager = FindObjectOfType<GameUIManager>();
         goalOpen = false;
     }
 
@@ -88,7 +93,8 @@ public class GameController : MonoBehaviour
 
     public void EnemigosTurno(bool undo)
     {
-        
+        updateButtonCastle(undo);
+        updateButtonHorse(undo);
         player.turno = false;
         foreach(Enemie e in enemigos)
         {
@@ -133,20 +139,26 @@ public class GameController : MonoBehaviour
         objectToMove.transform.up = end.orientation;
         if (end.buttonCastle)
         {
+            nodesVallaCastle[0].adjacencieNoAlcanzable[4] = true;
+            nodesVallaCastle[1].adjacencieNoAlcanzable[4] = true;
+            nodesVallaCastle[1].adjacencieNoAlcanzable[3] = true;
+            nodesVallaCastle[2].adjacencieNoAlcanzable[3] = true;
             movCastleButton = 4;
             vallaSubidaCastle = true;
             if (!playerBool)
             {
-                updateButtonCastle();
+                updateButtonCastle(false);
             }
         }
         if (end.buttonHorse)
         {
+            nodesVallaHorse[0].adjacencieNoAlcanzable[4] = true;
+            nodesVallaHorse[1].adjacencieNoAlcanzable[3] = true;
             movHorseButton = 5;
             vallaSubidaHorse = true;
             if (!playerBool)
             {
-                updateButtonHorse();
+                updateButtonHorse(false);
             }
         }
         
@@ -155,8 +167,6 @@ public class GameController : MonoBehaviour
             isPlayerMoving = false;
 
             //player.numMovs++;
-            updateButtonCastle();
-            updateButtonHorse();
             if (player.numMovs>= maxMovs)
             {
                 DerrotaMovs();
@@ -215,32 +225,77 @@ public class GameController : MonoBehaviour
         }
     }
 
-    private void updateButtonHorse()
+    private void updateButtonHorse(bool undo)
     {
         if (movHorseButton > 0 && vallaSubidaHorse)
         {
-            movHorseButton--;
-            //Cambiar la textura
-            buttonHorse.GetComponent<MeshRenderer>().material.SetTexture("_EmissionMap", horseButtonTextures[movHorseButton]);
-            //Bajar las vallas
-            if (movHorseButton == 0)
+            if (undo)
             {
-                vallaSubidaHorse = false;
+                movHorseButton++;
+                //Subir las vallas
+                //Cambiar la textura
+                buttonHorse.GetComponent<MeshRenderer>().material.SetTexture("_EmissionMap", horseButtonTextures[movHorseButton%horseButtonTextures.Length]);
+                if (movHorseButton == 5)
+                {
+                    vallaSubidaHorse = false;
+                    nodesVallaHorse[0].adjacencieNoAlcanzable[4] = false;
+                    nodesVallaHorse[1].adjacencieNoAlcanzable[3] = false;
+                    movHorseButton = -1;
+                }
             }
+            else
+            {
+                movHorseButton--;
+                //Cambiar la textura
+                buttonHorse.GetComponent<MeshRenderer>().material.SetTexture("_EmissionMap", horseButtonTextures[movHorseButton]);
+                //Bajar las vallas
+                if (movHorseButton == 0)
+                {
+                    vallaSubidaHorse = false;
+                    nodesVallaHorse[0].adjacencieNoAlcanzable[4] = false;
+                    nodesVallaHorse[1].adjacencieNoAlcanzable[3] = false;
+                    movHorseButton = -1;
+                }
+            }
+            
         }
     }
 
-    private void updateButtonCastle()
+    private void updateButtonCastle(bool undo)
     {
         if (movCastleButton > 0 && vallaSubidaCastle)
         {
-            movCastleButton--;
-            //Cambiar la textura
-            buttonCastle.GetComponent<MeshRenderer>().material.SetTexture("_EmissionMap", castleButtonTextures[movCastleButton]);
-            //Bajar las vallas
-            if (movCastleButton == 0)
+            if (undo)
             {
-                vallaSubidaCastle = false;
+                movCastleButton++;
+                //Subir las vallas
+                //Cambiar la textura
+                buttonCastle.GetComponent<MeshRenderer>().material.SetTexture("_EmissionMap", castleButtonTextures[movCastleButton%castleButtonTextures.Length]);
+                if (movCastleButton == 4)
+                {
+                    nodesVallaCastle[0].adjacencieNoAlcanzable[4] = false;
+                    nodesVallaCastle[1].adjacencieNoAlcanzable[4] = false;
+                    nodesVallaCastle[1].adjacencieNoAlcanzable[3] = false;
+                    nodesVallaCastle[2].adjacencieNoAlcanzable[3] = false;
+                    vallaSubidaCastle = false;
+                    movCastleButton = -1;
+                }
+            }
+            else
+            {
+                movCastleButton--;
+                //Cambiar la textura
+                buttonCastle.GetComponent<MeshRenderer>().material.SetTexture("_EmissionMap", castleButtonTextures[movCastleButton]);
+                //Bajar las vallas
+                if (movCastleButton == 0)
+                {
+                    nodesVallaCastle[0].adjacencieNoAlcanzable[4] = false;
+                    nodesVallaCastle[1].adjacencieNoAlcanzable[4] = false;
+                    nodesVallaCastle[1].adjacencieNoAlcanzable[3] = false;
+                    nodesVallaCastle[2].adjacencieNoAlcanzable[3] = false;
+                    vallaSubidaCastle = false;
+                    movCastleButton = -1;
+                }
             }
         }
     }
@@ -307,6 +362,10 @@ public class GameController : MonoBehaviour
             if (!undo)
             {
                 player.numMovs++;
+            }
+            else
+            {
+                gameUIManager.changePieceTo(player.tipoPieza);
             }
             EnemigosTurno(undo);
         }

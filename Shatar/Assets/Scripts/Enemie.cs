@@ -9,7 +9,7 @@ public class Enemie : MonoBehaviour
     public TipoPieza tipoPieza;
     public TipoPieza playerChange;
     public bool apertura = false;
-    Color colorSeleccionable = new Color(237.0f/255.0f, 33.0f/255.0f, 115.0f/255.0f, 1);
+    Color colorSeleccionable = new Color(237.0f / 255.0f, 33.0f / 255.0f, 115.0f / 255.0f, 1);
     public int ID = -1;
     public bool turno = false;
     public bool meAfectaVallaHorse;
@@ -36,8 +36,7 @@ public class Enemie : MonoBehaviour
 
     public void MoveTo(bool undo)
     {
-
-        if(this.gameController.name=="Enemy0")
+        if (this.gameController.name == "Enemy0")
             Debug.Log(ID % nodesMovimiento.Count);
         //Debug.Log("Enemigo pintando adyacencias");
         turno = true;
@@ -56,6 +55,13 @@ public class Enemie : MonoBehaviour
                     move = false;
                 }
             }
+            else if (gameController.vallaSubidaCastle && meAfectaVallaCastle)
+            {
+                if (move)
+                {
+                    move = false;
+                }
+            }
             else
             {
                 if (nodesMovimiento.Count > 0)
@@ -63,9 +69,7 @@ public class Enemie : MonoBehaviour
                     node = nodesMovimiento[ID % nodesMovimiento.Count];
                     move = true;
                 }
-                
             }
-            
             foreach (Node n in previousNode.seleccionables)
             {
                 if (n.pieza != null && n.pieza.tag == "Player")
@@ -74,19 +78,45 @@ public class Enemie : MonoBehaviour
                     if (tipoPieza != TipoPieza.PEON)
                     {
                         node = n;
+                        if (!previousNode.seleccionables.Contains(node))
+                        {
+                            node = previousNode;
+                        }
                     }
                 }
             }
             if (nodesPath.Count > 0)
             {
-                for(int i = 0; i < nodesIntermedios; i++)
+                for (int i = 0; i < nodesIntermedios; i++)
                 {
-                    if (nodesPath[(ID * nodesIntermedios + i) % nodesPath.Count].pieza != null && nodesPath[(ID*nodesIntermedios+i) % nodesPath.Count].pieza.tag == "Player")
+                    if (nodesPath[(ID * nodesIntermedios + i) % nodesPath.Count].pieza != null && nodesPath[(ID * nodesIntermedios + i) % nodesPath.Count].pieza.tag == "Player")
                     {
-                        node = nodesPath[(ID * nodesIntermedios + i) % nodesPath.Count];
+                        if (!meAfectaVallaCastle
+                                || !meAfectaVallaHorse
+                                || (meAfectaVallaCastle && !gameController.vallaSubidaCastle)
+                                || (meAfectaVallaHorse && !gameController.vallaSubidaHorse))
+                        {
+                            node = nodesPath[(ID * nodesIntermedios + i) % nodesPath.Count];
+                            if (!previousNode.seleccionables.Contains(node))
+                            {
+                                node = previousNode;
+                            }
+
+                        }
                     }
                 }
             }
+            else
+            {
+                if(!gameController.vallaSubidaCastle && meAfectaVallaCastle)
+                {
+                    move = true;
+                }else if(!gameController.vallaSubidaHorse && meAfectaVallaHorse)
+                {
+                    move = true;
+                }
+            }
+            
             StartCoroutine(gameController.MoveOverSeconds(this.gameObject, node, 1, false, previousNode, false));
 
         }

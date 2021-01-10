@@ -1517,7 +1517,14 @@ MonoBehaviour:
   vallaSubidaCastle: 0
   castleButtonTextures: []
   horseButtonTextures: []
+  nodesVallaHorse: []
+  nodesVallaCastle: []
+  movCastleButton: -1
+  movHorseButton: -1
+  gameUIManager: {fileID: 0}
   isPlayerMoving: 0
+  horseUnlock: 0
+  castleUnlock: 0
   m_soundManager: {fileID: 2099569917}
 --- !u!1 &220507152
 GameObject:

@@ -104,7 +104,7 @@ public class GameUIManager : MonoBehaviour
         menuOpened = false;
 
         PlayerData.backFromLevel = true;
-        PlayerData.Gems = 0;
+        PlayerData.Gems = 30;
         undoCont = 3;
 
         StartCoroutine(FadeOutRoutine(sceneFadePanel));
@@ -396,14 +396,14 @@ public class GameUIManager : MonoBehaviour
         }
     }
 
-    private void changePieceTo(TipoPieza tipoPieza)
+    public void changePieceTo(TipoPieza tipoPieza)
     {
         i_peon.SetActive(false);
         i_caballo.SetActive(false);
         i_torre.SetActive(false);
         changeToPeon.enabled = true;
-        changeToCaballo.enabled = true;
-        changeToTorre.enabled = true;
+        changeToCaballo.enabled = m_gameController.horseUnlock;
+        changeToTorre.enabled = m_gameController.castleUnlock;
         changeToPeon.GetComponent<Image>().color = new Color(255, 255, 255, 1f);
         changeToCaballo.GetComponent<Image>().color = new Color(255, 255, 255, 1f);
         changeToTorre.GetComponent<Image>().color = new Color(255, 255, 255, 1f);

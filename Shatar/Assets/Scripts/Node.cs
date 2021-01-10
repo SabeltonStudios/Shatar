@@ -184,6 +184,10 @@ public class Node : MonoBehaviour
                         seleccionables.Add(adjacencies[1]);
                     }
                     
+                }else if (adjacencieNoAlcanzable[1] && !gameController.horseUnlock)
+                {
+                    //Habilitar el caballo
+                    gameController.horseUnlock = true;
                 }
                 //Si es apertura, también selecciona la siguiente
                 if (apertura)
@@ -729,7 +733,7 @@ public class Node : MonoBehaviour
             n.GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", color);
             n.GetComponent<MeshRenderer>().material.color = color;
             n.seleccionable = true;
-            if (n.buttonGoal)
+            if (n.buttonGoal || n.buttonCastle || n.buttonHorse)
             {
                 n.GetComponentsInChildren<MeshRenderer>()[1].material.color = color;
             }
@@ -741,7 +745,7 @@ public class Node : MonoBehaviour
         {
             nodo.GetComponent<MeshRenderer>().material.DisableKeyword("_EMISSION");
             nodo.GetComponent<MeshRenderer>().material.color = Color.white;
-            if (nodo.buttonGoal)
+            if (nodo.buttonGoal || nodo.buttonCastle || nodo.buttonHorse)
             {
                 nodo.GetComponentsInChildren<MeshRenderer>()[1].material.color = Color.white;
             }

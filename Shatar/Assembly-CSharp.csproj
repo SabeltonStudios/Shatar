@@ -70,7 +70,6 @@
     <Compile Include="Assets\Scripts\Grid.cs" />
     <Compile Include="Assets\Scripts\Node.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
-    <Compile Include="Assets\Scripts\Reflection.cs" />
     <Compile Include="Assets\UIManager\BgScroll.cs" />
     <Compile Include="Assets\UIManager\CSVLoader.cs" />
     <Compile Include="Assets\UIManager\Localization.cs" />

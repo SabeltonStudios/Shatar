@@ -21,8 +21,9 @@ public class Player : MonoBehaviour
     public bool apertura;
     public float distancia;
     public bool turno;
+    public bool move;
 
-    public Color colorSeleccionable = new Color(0, 1, 0, 1);
+    public Color colorSeleccionable;
     GameController gameController;
 
     // Start is called before the first frame update
@@ -35,7 +36,7 @@ public class Player : MonoBehaviour
         node.pieza = this.gameObject;
         node.DrawAdjacencies(tipoPieza,apertura, colorSeleccionable);
         apertura = false;
-        turno = true;
+        //turno = true;
     }
 
     // Update is called once per frame
@@ -53,11 +54,9 @@ public class Player : MonoBehaviour
                     MoveTo(hitInfo.point);
                 }
             }
-            
-            
         }
-
     }
+
     public void UndoMovement()
     {
         undoCont++;
@@ -151,7 +150,7 @@ public class Player : MonoBehaviour
             }
         }
 
-        if(nearD <= distancia)
+        if(nearD <= distancia && move)
         {
             numMovs++;
             //Eliminar casillas seleccionables anteriores
@@ -159,13 +158,14 @@ public class Player : MonoBehaviour
             node.pieza = null;
             shiftPreviousNodes(false, false);
             
-            
-
             //Añadir el nuevo nodo, mover hacia él
             node = aux;
             //transform.position = node.transform.position;
             StartCoroutine(gameController.MoveOverSeconds(this.gameObject, node, 1, true, previousNodes[0], false));
+            if (node.GetComponent<MessageTrigger>())
+            {
+                node.GetComponent<MessageTrigger>().showMessages();
+            }
         }
-        
     }
 }

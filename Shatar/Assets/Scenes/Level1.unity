@@ -2538,6 +2538,7 @@ MonoBehaviour:
   apertura: 1
   distancia: 4
   turno: 1
+  move: 1
   colorSeleccionable: {r: 0, g: 1, b: 0.18253279, a: 1}
 --- !u!4 &277811411
 Transform:

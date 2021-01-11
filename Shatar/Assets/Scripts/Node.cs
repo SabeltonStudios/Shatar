@@ -166,7 +166,6 @@ public class Node : MonoBehaviour
         adjacencieNoAlcanzable270[5] = adjacencieNoAlcanzable[7];
         adjacencieNoAlcanzable270[6] = adjacencieNoAlcanzable[4];
         adjacencieNoAlcanzable270[7] = adjacencieNoAlcanzable[2];
-
     }
 
     public void DrawAdjacencies(TipoPieza pieza, bool apertura, Color color)

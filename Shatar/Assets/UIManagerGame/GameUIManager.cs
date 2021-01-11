@@ -34,6 +34,7 @@ public class GameUIManager : MonoBehaviour
 
     [Header("Chance Piece Menu")]
     [SerializeField] private GameObject changePieceMenu = null;
+    [SerializeField] private GameObject menuChangeBg = null;
     [SerializeField] private GameObject i_peon = null;
     [SerializeField] private GameObject i_caballo = null;
     [SerializeField] private GameObject i_torre = null;
@@ -41,7 +42,6 @@ public class GameUIManager : MonoBehaviour
     [SerializeField] private Button changeToPeon = null;
     [SerializeField] private Button changeToCaballo = null;
     [SerializeField] private Button changeToTorre = null;
-    private bool isClickingOnChangePieceButton = false;
 
     [Header("Victoria Menu")]
     [SerializeField] private GameObject victoriaMenu = null;
@@ -67,6 +67,11 @@ public class GameUIManager : MonoBehaviour
 
     [Header("Other")]
     [SerializeField] private GameObject sceneFadePanel = null;
+    [SerializeField] private GameObject disableChangePieceButton = null;
+    [SerializeField] private GameObject disableChangePieceButton2 = null;
+
+    private bool isClickingButton = false;
+    private float changePieceMenuBgStartPosRight;
 
     private int movesLeft;
     private int undoCont;
@@ -79,6 +84,9 @@ public class GameUIManager : MonoBehaviour
 
     private bool abrirPanelVictoria = true;
     private bool abrirPanelDerrota = true;
+
+    private bool fadeAnimationOn = false;
+    private bool bgMoveAnimationOn = false;
 
     private void LoadScene(string sceneName)
     {
@@ -104,7 +112,7 @@ public class GameUIManager : MonoBehaviour
         menuOpened = false;
 
         PlayerData.backFromLevel = true;
-        PlayerData.Gems = 30;
+        //PlayerData.Gems = 30;
         undoCont = 3;
 
         StartCoroutine(FadeOutRoutine(sceneFadePanel));
@@ -120,13 +128,32 @@ public class GameUIManager : MonoBehaviour
             m_soundManager.Play_SoundEffect("click_button");
             m_player.UndoMovement();
             undoCont = (m_player.maxUndos - m_player.undoCont);
-            //t_undoCont.text = "" + (m_player.maxUndos - m_player.undoCont);
             t_undoCont.text = undoCont.ToString();
             AbrirMenuUndoMov(false);
-            t_movesLeft_menuUndo.text = t_undoCont.text + " movimientos"; ////////////////TRADUCIR 
+            t_movesLeft_menuUndo.text = t_undoCont.text + " " + Localization.GetLocalizedValue("t_moves");
             PlayerData.Gems--;
             menuOpened = false;
         });
+
+        changeToPeon.enabled = false;
+        changeToCaballo.enabled = m_gameController.horseUnlock;
+        changeToTorre.enabled = m_gameController.castleUnlock;
+
+        changeToPeon.GetComponent<CanvasGroup>().alpha = 0f;
+        changeToCaballo.GetComponent<CanvasGroup>().alpha = 0f;
+        changeToTorre.GetComponent<CanvasGroup>().alpha = 0f;
+
+        string levelName = SceneManager.GetActiveScene().name;
+        if (levelName == "Level2")
+        {
+            changePieceMenuBgStartPosRight = 0f;
+            changeToTorre.GetComponent<CanvasGroup>().alpha = 0f;
+        }
+        else
+        {
+            changePieceMenuBgStartPosRight = -113.77f;
+            changeToTorre.gameObject.SetActive(false);
+        }
 
         //Change Piece Buttons
         changePiece.onClick.AddListener(() => {
@@ -196,12 +223,40 @@ public class GameUIManager : MonoBehaviour
             StartCoroutine(m_soundManager.SoundFadeOut("song_menu", 1.2f));
             StartCoroutine(LoadSceneAfterWait(SceneManager.GetActiveScene().name, 1.2f));
         });
+
+        UpdateChangePieceButtonsEnabled();
     }
 
     private void Update()
     {
         UpdateArrowUp();
         UpdateArrowDown();
+
+        if (menuUndo.gameObject.activeSelf && menuUndo.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("popUpStore_exit"))
+        {
+            if (menuUndo.GetComponent<CanvasGroup>().alpha <= 0)
+            {
+                menuUndo.SetActive(false);
+            }
+        }
+        if (!fadeAnimationOn && !bgMoveAnimationOn && AnimatorAnimationsHasFinished()) //Para prevenir que spawnee el botón del menú y funcionen mal las animaciones
+        {
+            disableChangePieceButton.SetActive(false);
+            disableChangePieceButton2.SetActive(false);
+        }
+        else
+        {
+            disableChangePieceButton.SetActive(true);
+            if (changeToPeon.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("peonOutside") ||
+            changeToCaballo.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("caballoOutside"))
+            {
+                disableChangePieceButton2.SetActive(false);
+            }
+            else
+            {
+                disableChangePieceButton2.SetActive(true);
+            }
+        }
 
         if (!m_player.turno) //Después de cada turno se actualiza el num de movimientos
         {
@@ -234,6 +289,11 @@ public class GameUIManager : MonoBehaviour
             {
                 UnableDisableChangePiece(false); //botones deshabilitados cuando no es el turno del jugador
                 UnableDisableUndoButton(false);
+                if (changeToPeon.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("peonInside") ||
+                changeToCaballo.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("caballoInside"))
+                {
+                    changePieceMenuAnimationExit();
+                }
             }
         }
 
@@ -275,12 +335,14 @@ public class GameUIManager : MonoBehaviour
     {
         t_gemsNum.text = PlayerData.Gems.ToString();
         transparentPanel.SetActive(state);
-        menuUndo.SetActive(state);
+        if (state)
+            menuUndo.SetActive(state);
         if (PlayerData.Gems <= 0)
         {
             b_siDeshacer.enabled = false;
             b_siDeshacer.GetComponent<CanvasGroup>().alpha = 0.5f;
         }
+        menuUndo.GetComponent<Animator>().SetBool("isActive", state);
     }
 
     private void AbrirPanelVictoria()
@@ -292,13 +354,13 @@ public class GameUIManager : MonoBehaviour
         if (PlayerData.playingLevel == 0) //Si está en el tutorial, por completarlo se consiguen directamente 3 estrellas
             m_gameController.numStars = 3;
         ActualizarNumEstrellas();
-        t_numMov.text = m_player.numMovs.ToString() + "movimientos"; ///////////////////actualizar "movimientos" para que se traduzca
+        t_numMov.text = m_player.numMovs.ToString() + " " + Localization.GetLocalizedValue("t_moves");
         ActualizarPlayerData(); //Actualiza si se ha logrado mejor puntuacion (movimientos y estrellas)
     }
 
     private void UpdateBestScore(int mejorPuntuacion, int mejorCantidadEstrellas)
     {
-        t_mejorNumMov.text = "Mejor : " + mejorPuntuacion + " movimientos"; ///////////////////actualizar "Mejor" y "movimientos" para que se traduzca
+        t_mejorNumMov.text = Localization.GetLocalizedValue("t_bestMov") + " " + mejorPuntuacion + " " + Localization.GetLocalizedValue("t_moves");
         if (m_player.numMovs > mejorPuntuacion)
         {
             mejorPuntuacion = m_player.numMovs;
@@ -384,15 +446,55 @@ public class GameUIManager : MonoBehaviour
         }
     }
 
+    private IEnumerator BgMoveAnimation(float endPos, float time)
+    {
+        bgMoveAnimationOn = true;
+        Vector2 startPosition;
+        RectTransform rt = menuChangeBg.GetComponent<RectTransform>();
+        startPosition = rt.offsetMax;
+        for (float t = 0.1f; t < time; t += Time.deltaTime)
+        {
+            float porcentaje = t / time;
+            rt.offsetMax = Vector2.Lerp(rt.offsetMax, new Vector2(endPos, rt.offsetMax.y), porcentaje);
+            yield return null;
+        }
+        bgMoveAnimationOn = false;
+    }
+
+    private void changePieceMenuAnimationEnter()
+    {
+        StartCoroutine(BgMoveAnimation(changePieceMenuBgStartPosRight, 1f));
+        changeToPeon.GetComponent<Animator>().SetBool("isActive", true);
+        StartCoroutine(Fade(changeToPeon.gameObject, 1f, 0.2f));
+        changeToCaballo.GetComponent<Animator>().SetBool("isActive", true);
+        StartCoroutine(Fade(changeToCaballo.gameObject, 1f, 0.2f));
+        changeToTorre.GetComponent<Animator>().SetBool("isActive", true);
+        StartCoroutine(Fade(changeToTorre.gameObject, 1f, 0.3f));
+    }
+
+    private void changePieceMenuAnimationExit()
+    {
+        StartCoroutine(BgMoveAnimation(-330, 1f));
+        changeToTorre.GetComponent<Animator>().SetBool("isActive", false);
+        StartCoroutine(Fade(changeToTorre.gameObject, 0f, 0.1f));
+        changeToCaballo.GetComponent<Animator>().SetBool("isActive", false);
+        StartCoroutine(Fade(changeToCaballo.gameObject, 0f, 0.2f));
+        changeToPeon.GetComponent<Animator>().SetBool("isActive", false);
+        StartCoroutine(Fade(changeToPeon.gameObject, 0f, 0.2f));
+    }
+
     private void showChangePieceMenu()
     {
-        if (changePieceMenu.activeSelf)
+        changePieceMenu.SetActive(true);
+        if (changeToPeon.GetComponent<Animator>().GetBool("isActive"))
         {
-            changePieceMenu.SetActive(false);
+            //EXIT
+            changePieceMenuAnimationExit();
         }
         else
         {
-            changePieceMenu.SetActive(true);
+            //ENTER  
+            changePieceMenuAnimationEnter();
         }
     }
 
@@ -401,43 +503,62 @@ public class GameUIManager : MonoBehaviour
         i_peon.SetActive(false);
         i_caballo.SetActive(false);
         i_torre.SetActive(false);
-        changeToPeon.enabled = true;
-        changeToCaballo.enabled = m_gameController.horseUnlock;
-        changeToTorre.enabled = m_gameController.castleUnlock;
-        changeToPeon.GetComponent<Image>().color = new Color(255, 255, 255, 1f);
-        changeToCaballo.GetComponent<Image>().color = new Color(255, 255, 255, 1f);
-        changeToTorre.GetComponent<Image>().color = new Color(255, 255, 255, 1f);
-
         switch (tipoPieza)
         {
             case TipoPieza.PEON:
-                m_gameController.cambiaPieza(TipoPieza.PEON,false);
+                m_gameController.cambiaPieza(TipoPieza.PEON, false);
                 i_peon.SetActive(true);
-                changeToPeon.enabled = false;
-                changeToPeon.GetComponent<Image>().color = new Color(255, 255, 255, 0.5f);
                 break;
             case TipoPieza.CABALLO:
-                m_gameController.cambiaPieza(TipoPieza.CABALLO,false);
+                m_gameController.cambiaPieza(TipoPieza.CABALLO, false);
                 i_caballo.SetActive(true);
-                changeToCaballo.enabled = false;
-                changeToCaballo.GetComponent<Image>().color = new Color(255, 255, 255, 0.5f);
                 break;
             case TipoPieza.TORRE:
-                m_gameController.cambiaPieza(TipoPieza.TORRE,false);
+                m_gameController.cambiaPieza(TipoPieza.TORRE, false);
                 i_torre.SetActive(true);
-                changeToTorre.enabled = false;
-                changeToTorre.GetComponent<Image>().color = new Color(255, 255, 255, 0.5f);
                 break;
         }
+        UpdateChangePieceButtonsEnabled();
+    }
+
+    public void UpdateChangePieceButtonsEnabled()
+    {
+        changeToPeon.enabled = true;
+        changeToCaballo.enabled = m_gameController.horseUnlock;
+        changeToTorre.enabled = m_gameController.castleUnlock;
+        switch (m_player.tipoPieza)
+        {
+            case TipoPieza.PEON:
+                changeToPeon.enabled = false;
+                break;
+            case TipoPieza.CABALLO:
+                changeToCaballo.enabled = false;
+                break;
+            case TipoPieza.TORRE:
+                changeToTorre.enabled = false;
+                break;
+        }
+        if (changeToPeon.enabled)
+            changeToPeon.GetComponent<Image>().color = new Color(255, 255, 255, 1f);
+        else
+            changeToPeon.GetComponent<Image>().color = new Color(255, 255, 255, 0.5f);
+        if (changeToCaballo.enabled)
+            changeToCaballo.GetComponent<Image>().color = new Color(255, 255, 255, 1f);
+        else
+            changeToCaballo.GetComponent<Image>().color = new Color(255, 255, 255, 0.5f);
+        if (changeToTorre.enabled)
+            changeToTorre.GetComponent<Image>().color = new Color(255, 255, 255, 1f);
+        else
+            changeToTorre.GetComponent<Image>().color = new Color(255, 255, 255, 0.5f);
     }
 
     private void UnableDisableUndoButton(bool state)
     {
         b_UndoMove.enabled = state;
         if (state)
-            b_UndoMove.GetComponent<Image>().color = new Color(255, 255, 255, 1f);
+            b_UndoMove.GetComponent<CanvasGroup>().alpha = 1f;
         else
-            b_UndoMove.GetComponent<Image>().color = new Color(255, 255, 255, 0.5f);
+            b_UndoMove.GetComponent<CanvasGroup>().alpha = 0.5f;
     }
 
     private void UnableDisableChangePiece(bool state)
@@ -480,8 +601,36 @@ public class GameUIManager : MonoBehaviour
         menu.GetComponent<CanvasGroup>().alpha = 1f;
         isFadeInFinished = true;
     }
-    
 
-    public delegate void OnVariableChangeDelegate();
-    public event OnVariableChangeDelegate OnVariableChangeEvent;
+    private IEnumerator Fade(GameObject gameObject, float amount, float time)
+    {
+        fadeAnimationOn = true;
+        float startAlpha;
+        startAlpha = gameObject.GetComponent<CanvasGroup>().alpha;
+        for (float t = 0.1f; t < time; t += Time.deltaTime)
+        {
+            float porcentaje = t / time;
+            gameObject.GetComponent<CanvasGroup>().alpha = Mathf.Lerp(startAlpha, amount, porcentaje);
+            yield return null;
+        }
+        gameObject.GetComponent<CanvasGroup>().alpha = amount;
+        fadeAnimationOn = false;
+    }
+
+    private bool AnimatorAnimationsHasFinished()
+    {
+        if (changeToPeon.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("peonExit") || changeToPeon.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("peonEnter") || changeToPeon.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("peonOutside"))
+        {
+            return false;
+        }
+        if (changeToCaballo.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("caballoExit") || changeToCaballo.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("caballoEnter") || changeToCaballo.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("caballoOutside"))
+        {
+            return false;
+        }
+        if (changeToTorre.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("torreExit") || changeToTorre.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("torreEnter") || changeToTorre.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("torreOutside"))
+        {
+            return false;
+        }
+        return true;
+    }
 }

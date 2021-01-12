@@ -18711,7 +18711,7 @@ MonoBehaviour:
   - {fileID: 1710775893}
   - {fileID: 396666952}
   adjacenciesOrientadas: []
-  adjacencieNoAlcanzable: 0000000001000000
+  adjacencieNoAlcanzable: 0001000001000100
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0

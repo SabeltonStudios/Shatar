@@ -269,16 +269,9 @@ public class MenuUIManager : MonoBehaviour
         DeactivateActivateMenu(lastMenu, levelsMap);
 
         isInLevelsMap = true;
-        
-        if (PlayerData.Gems < 100)
-        {
-            t_currentGems.GetComponent<Text>().text = PlayerData.Gems.ToString("00");
-        }
-        else
-        {
-            t_currentGems.GetComponent<Text>().text = PlayerData.Gems.ToString();
-        }
 
+        t_currentGems.text = PlayerData.Gems.ToString("00");
+        
         b_backToMenu_levelsMap.gameObject.SetActive(true);
     }
 
@@ -405,14 +398,7 @@ public class MenuUIManager : MonoBehaviour
     {
         int currentStars = PlayerData.Level0Estrellas + PlayerData.Level1Estrellas + PlayerData.Level2Estrellas;
         PlayerData.Stars = currentStars;
-        if (PlayerData.Stars < 100)
-        {
-            t_currentStars.GetComponent<Text>().text = PlayerData.Stars.ToString("00");
-        }
-        else
-        {
-            t_currentStars.GetComponent<Text>().text = PlayerData.Stars.ToString();
-        }
+        t_currentStars.text = PlayerData.Stars.ToString("00");
     }
 
     private bool haCompletadoUltimoNivelDisponible()

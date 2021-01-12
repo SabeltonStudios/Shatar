@@ -60,16 +60,16 @@ public class SoundManager : MonoBehaviour
                     victoria.Play();
                     break;
                 case "teleport":
-                    fichas2.Play();
+                    teleport.Play();
                     break;
                 case "vallas1":
-                    fichas3.Play();
+                    vallas1.Play();
                     break;
                 case "vallas2":
-                    derrota.Play();
+                    vallas2.Play();
                     break;
                 case "camaraRotation":
-                    victoria.Play();
+                    camaraRotation.Play();
                     break;
             }
         }

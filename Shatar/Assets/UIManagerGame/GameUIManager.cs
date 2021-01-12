@@ -192,6 +192,7 @@ public class GameUIManager : MonoBehaviour
 
         //Panel Confirmacion Buttons
         b_si.onClick.AddListener(() => {
+            gamePaused = false;
             m_soundManager.Play_SoundEffect("click_button");
             Time.timeScale = 1.0f;
             StartCoroutine(FadeInRoutine(sceneFadePanel));
@@ -414,18 +415,20 @@ public class GameUIManager : MonoBehaviour
         }
     }
 
-    private void UpdateBestScore(int mejorPuntuacion, int mejorCantidadEstrellas)
+    private void UpdateBestScore(int mejorPuntuacion)
     {
-        t_mejorNumMov.text = Localization.GetLocalizedValue("t_bestMov") + " " + mejorPuntuacion + " " + Localization.GetLocalizedValue("t_moves");
-        if (m_player.numMovs > mejorPuntuacion)
+        if (m_player.numMovs < mejorPuntuacion)
         {
             mejorPuntuacion = m_player.numMovs;
         }
-        if (m_gameController.numStars > mejorCantidadEstrellas)
+        else
         {
-            PlayerData.Stars = m_gameController.numStars - mejorCantidadEstrellas; //Si no funciona, simplemente hacer un recuento de todas las estrellas de los niveles y ya está
-            mejorCantidadEstrellas = m_gameController.numStars;
+            if (mejorPuntuacion == 0)
+            {
+                mejorPuntuacion = m_player.numMovs;
+            }
         }
+        t_mejorNumMov.text = Localization.GetLocalizedValue("t_bestMov") + " " + mejorPuntuacion + " " + Localization.GetLocalizedValue("t_moves");
     }
 
     private void ActualizarPlayerData()
@@ -433,13 +436,25 @@ public class GameUIManager : MonoBehaviour
         switch (PlayerData.playingLevel)
         {
             case 0:
-                UpdateBestScore(PlayerData.Level0MejorPuntuacion, PlayerData.Level0Estrellas);
+                UpdateBestScore(PlayerData.Level0MejorPuntuacion);
+                if (m_gameController.numStars > PlayerData.Level0Estrellas)
+                {
+                    PlayerData.Level0Estrellas = m_gameController.numStars;
+                }
                 break;
             case 1:
-                UpdateBestScore(PlayerData.Level1MejorPuntuacion, PlayerData.Level1Estrellas);
+                UpdateBestScore(PlayerData.Level1MejorPuntuacion);
+                if (m_gameController.numStars > PlayerData.Level1Estrellas)
+                {
+                    PlayerData.Level1Estrellas = m_gameController.numStars;
+                }
                 break;
             case 2:
-                UpdateBestScore(PlayerData.Level2MejorPuntuacion, PlayerData.Level2Estrellas);
+                UpdateBestScore(PlayerData.Level2MejorPuntuacion);
+                if (m_gameController.numStars > PlayerData.Level2Estrellas)
+                {
+                    PlayerData.Level2Estrellas = m_gameController.numStars;
+                }
                 break;
         }
     }

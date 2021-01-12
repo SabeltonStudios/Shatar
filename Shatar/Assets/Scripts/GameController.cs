@@ -178,7 +178,7 @@ public class GameController : MonoBehaviour
             isPlayerMoving = false;
 
             //player.numMovs++;
-            if (player.numMovs>= maxMovs)
+            if (player.numMovs>= maxMovs && !end.isGoal)
             {
                 DerrotaMovs();
             }

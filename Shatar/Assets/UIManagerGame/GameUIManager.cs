@@ -32,7 +32,7 @@ public class GameUIManager : MonoBehaviour
     [SerializeField] private Button b_siDeshacer = null;
     [SerializeField] private Button b_noDeshacer = null;
 
-    [Header("Chance Piece Menu")]
+    [Header("Change Piece Menu")]
     [SerializeField] private GameObject changePieceMenu = null;
     [SerializeField] private GameObject menuChangeBg = null;
     [SerializeField] private GameObject i_peon = null;
@@ -171,6 +171,11 @@ public class GameUIManager : MonoBehaviour
         });
         changeToCaballo.onClick.AddListener(() => {
             m_soundManager.Play_SoundEffect("click_button");
+            if (TutorialMessages.instance)
+            {
+                int[] messages = { 10, 11, 12 };
+                TutorialMessages.instance.ShowMessages(messages);
+            }
             changePieceTo(TipoPieza.CABALLO,false);
             showChangePieceMenu();
         });

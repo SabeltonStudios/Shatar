@@ -13,6 +13,8 @@ public class TutorialMessages : MonoBehaviour
     public GameObject knightGif;
     public GameController gameController;
     public GameUIManager gameUIManager;
+    public GameObject blueSquare1;
+    public GameObject cameraControllerButtons;
 
     public GameObject messagesPanel;
     public GameObject transparentPanel;
@@ -23,29 +25,43 @@ public class TutorialMessages : MonoBehaviour
     public GameObject messagesPanelInicial;
     public Text textInicial;
 
-    private string messagesString = "¡Bienvenido a Shatar! Vamos a aprender los controles básicos\n" +
-        "El peón es tu pieza inicial\n" +
-        "Toca la casilla a la que quieres ir para mover tu ficha\n" +
-        "Las casillas verdes son las opciones que tienes para moverte.\n" +
-        "¿Ves esa torre de ahí? Pues ya sabes lo que tienes que hacer...\n" +
-        "¡Vaya! Pues no lo sabías...\n" +
-        "¡Bien! Sigamos avanzando.\n" +
-        "Parece que no puedes saltar la valla, ¡vaya!\n" +
-        "No pasa nada. ¡Te presentamos al caballo, experto en salto de vallas!\n" +
-        "¡Mira! ¡Tienes otra torre en bandeja!\n" +
-        "¡Cuidado! Si entras en el rango de movimiento de un enemigo, te comerá. No pasa nada, puedes darle a este botón para deshacer un movimiento.\n" +
-        "Será mejor dejar a las torres en paz, quitaremos una para ponértelo más fácil, pero tenemos que seguir avanzando. Ve a la casilla azul.\n" +
-        "Genial, ahora, para avanzar pasando entre las torres, cambia a peón, ya que el peón es tan pequeño que pasará desapercibido. ¡Es la única pieza con este poder!\n" +
-        "Ahora nos acercamos a la parte oculta del cubo. ¡No te preocupes! Prueba girar el tablero hacia la izquierda con este botón.\n¡Bien hecho! Ahora puedes seguir avanzando.\n" +
-        "¡Mira! ¡Eso de ahí es la casilla meta! El objetivo de cada nivel es llegar allí, pero parece que está cerrada. Debe de haber algún botón por ahí que la abra.\n" +
-        "¿Por cierto, has probado a girar hacia arriba y abajo?\n¡Ahí está! Fíjate en la forma que tiene el botón. Tendrás que llegar a él con la pieza que encaje.\n" +
-        "¡Muy bien! La puerta se ha abierto, ya puedes ir a la casilla meta, pero ten cuenta que solo el peón, que es el más pequeño, cabe por ella ";
+    private string messagesString = "¡Bienvenido a Shatar! Vamos a aprender los controles básicos\n" + //0
+        "El peón es tu pieza inicial, que solo puede avanzar en una dirección\n" +//1
+        "Toca la casilla a la que quieres ir para mover tu ficha\n" +//2
+        "Las casillas verdes son las opciones que tienes para moverte\n" +//3
+        "¿Ves esa torre que tienes al lado? Pues ya sabes lo que tienes que hacer...\n" +//4
+        "¿Ves esa torre que tienes al lado? Pues ya sabes lo que tienes que hacer...\n" +//5
+        "¡Bien! Las casillas en rosa son el alcance de los enemigos\n" +//6
+        "¡Vaya! Parece que no puedes saltar la valla\n" +//7
+        "No pasa nada. ¡Te presentamos al caballo, experto en salto de vallas!\n" +//8
+        "Pulsa el botón redondo azul de arriba y elige el caballo\n" + //9
+        "¿Ves que te puedes comer una torre? Pues no siempre es buena idea comértela\n" +//10
+        "Si entras en el rango de movimiento de un enemigo, te comerá\n" +//11
+        "Ve a la casilla azul\n" +//12
+        "Genial, ahora, para avanzar sin que te vean las torres, cambia a peón\n" +//13
+        "El peón es tan pequeño que pasa desapercibido. ¡Es la única pieza con este poder!\n" +//14
+        "Siendo peón puedes comerte la torre de arriba sin que te vea la de abajo\n" + //15
+        "¡Genial! Ahora nos acercamos a la parte oculta del cubo. ¡No te preocupes!\n" +//16
+        "Puedes girar el tablero con los botones de abajo\n" +//17
+        "¡Mira! Lo que tienes justo delante es la casilla meta\n" +//18
+        "El objetivo de cada nivel es llegar ahí, pero parece que está cerrada\n" +//19
+        "Sigue avanzando y ahora pensamos algo\n"+//20
+        "Perfecto, debes saber que si la meta está cerrada, hay siempre un botón que la abre\n" +//21
+        "En este caso el botón está en la cara de abajo, ve a pulsarlo para terminar el nivel\n" +//22
+        "Te recuerdo que puedes cambiar al caballo cuando quieras\n" + //23
+        "Si te fijas en el botón verás que tiene una forma concreta\n" +//24
+        "Cada tipo de pieza tiene una forma diferente en su base\n" + //25
+        "En este caso, solo el peón, de base redonda, puede activar el botón\n"+//26
+        "¡Muy bien! La puerta se ha abierto, ya puedes ir a la casilla meta\n" +//27
+        "Ten cuenta que solo el peón cabe por ella (y así ocurrirá en todos los niveles)\n";//28
 
     private string[] messages;
 
     // Start is called before the first frame update
     void Start()
     {
+        messageShownRightNow = -1;
+        cameraControllerButtons.SetActive(false);
         StartCoroutine(Fade(messagesPanelInicial, 1f, 0.7f));
         gameUIManager = FindObjectOfType<GameUIManager>();
         instance = this;
@@ -102,12 +118,24 @@ public class TutorialMessages : MonoBehaviour
             text.text = textContent;
         }
 
-        if (index == 8)
+        if (messageShownRightNow == 8)
         {
             FadeInTransparentPanel();
             knightGif.SetActive(true);
             StartCoroutine(Fade(knightGif, 1f, 0.5f));
             UnlockKnight();
+        }
+        if (messageShownRightNow == 12)
+        {
+            blueSquare1.SetActive(true);
+        }
+        if (messageShownRightNow > 12)
+        {
+            blueSquare1.SetActive(false);
+        }
+        if (messageShownRightNow == 17)
+        {
+            cameraControllerButtons.SetActive(true);
         }
     }
 
@@ -115,8 +143,11 @@ public class TutorialMessages : MonoBehaviour
     {
         for (int i = 0; i < mes.Length; i++)
         {
-            ShowMessages(mes[i]);
-            yield return new WaitForSeconds(4);
+            if (mes[i] > messageShownRightNow)
+            {
+                ShowMessages(mes[i]);
+                yield return new WaitForSeconds(7);
+            }
         }
     }
 
@@ -137,7 +168,7 @@ public class TutorialMessages : MonoBehaviour
         StartCoroutine(Fade(pawnGif, 0f, 0.5f));
         FadeOutTransparentPanel();
         ShowMessages(2);
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(7);
         if (messageShownRightNow != 4) ShowMessages(3);
     }
 
@@ -184,5 +215,15 @@ public class TutorialMessages : MonoBehaviour
             yield return null;
         }
         gameObject.GetComponent<CanvasGroup>().alpha = amount;
+    }
+
+    public void ShowNextMessage()
+    {
+        ShowMessages(messageShownRightNow+1);
+    }
+
+    public void ShowPreviousMessage()
+    {
+        ShowMessages(messageShownRightNow - 1);
     }
 }

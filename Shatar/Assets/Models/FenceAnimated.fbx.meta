@@ -5,31 +5,34 @@ ModelImporter:
   internalIDToNameTable:
   - first:
       74: 2264077025236624520
-    second: FenceLift
+    second: VallaSube
   - first:
       74: -960898424075949690
-    second: Fence3GoesDownI
+    second: Valla3Baja1
   - first:
-      74: -2026799042658199995
-    second: Fence3GoesDown-II
+      74: -6507068297778245160
+    second: Armature.001|Armature.001Action (1)
   - first:
       74: 43869008991569255
-    second: Fence3GoesDown-I
+    second: Valla3Baja1
   - first:
-      74: 5351336720498776769
-    second: Fence3GoesDown-III
+      74: 43869008991569255
+    second: Valla3Baja2
   - first:
-      74: -119376988307318809
-    second: Fence4GoesDown-I
+      74: 5723039002418448038
+    second: Valla3Baja3
   - first:
-      74: -7644925660809673251
-    second: Fence4GoesDown-II
+      74: 5201224500044645754
+    second: Valla4Baja1
   - first:
-      74: 7565659977019615739
-    second: Fence4GoesDown-III
+      74: 7825137583138807346
+    second: Valla4Baja2
   - first:
-      74: 1534761431554836842
-    second: Fence4GoesDown-IV
+      74: 2772413044327583999
+    second: Valla4Baja3
+  - first:
+      74: -8888745684837664904
+    second: Valla4Baja4
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -64,7 +67,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: FenceLift
+      name: VallaSube
       takeName: Armature.001|Armature.001Action
       internalID: 0
       firstFrame: 0
@@ -93,40 +96,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Fence3GoesDown-II
-      takeName: Armature.001|Armature.001Action
-      internalID: 0
-      firstFrame: 54
-      lastFrame: 78
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: Fence3GoesDown-I
+      name: Valla3Baja1
       takeName: Armature.001|Armature.001Action
       internalID: 0
       firstFrame: 29
-      lastFrame: 53
+      lastFrame: 52
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -151,11 +125,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Fence3GoesDown-III
+      name: Valla3Baja2
       takeName: Armature.001|Armature.001Action
       internalID: 0
-      firstFrame: 79
-      lastFrame: 103
+      firstFrame: 52
+      lastFrame: 77
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -180,11 +154,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Fence4GoesDown-I
+      name: Valla3Baja3
       takeName: Armature.001|Armature.001Action
       internalID: 0
-      firstFrame: 109
-      lastFrame: 133
+      firstFrame: 76
+      lastFrame: 99
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -209,11 +183,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Fence4GoesDown-II
+      name: Valla4Baja1
       takeName: Armature.001|Armature.001Action
       internalID: 0
-      firstFrame: 134
-      lastFrame: 158
+      firstFrame: 119
+      lastFrame: 144
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -238,11 +212,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Fence4GoesDown-III
+      name: Valla4Baja2
       takeName: Armature.001|Armature.001Action
       internalID: 0
-      firstFrame: 159
-      lastFrame: 183
+      firstFrame: 144
+      lastFrame: 169
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -267,11 +241,40 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Fence4GoesDown-IV
+      name: Valla4Baja3
       takeName: Armature.001|Armature.001Action
       internalID: 0
-      firstFrame: 184
-      lastFrame: 208
+      firstFrame: 169
+      lastFrame: 194
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Valla4Baja4
+      takeName: Armature.001|Armature.001Action
+      internalID: 0
+      firstFrame: 194
+      lastFrame: 219
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

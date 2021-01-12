@@ -16,7 +16,7 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-            if (Input.GetKeyDown(KeyCode.LeftArrow))
+            /*if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
                 turnLeft();
             }
@@ -29,7 +29,7 @@ public class CameraController : MonoBehaviour
             }else if (Input.GetKeyDown(KeyCode.RightArrow))
             {
                 turnRight();
-            }
+            }*/
     }
     public void turnRight()
     {

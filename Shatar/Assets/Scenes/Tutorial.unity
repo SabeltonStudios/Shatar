@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.9143757, g: 0.6008042, b: 0.40838876, a: 1}
+  m_IndirectSpecularColor: {r: 0.9143753, g: 0.60080457, b: 0.40838858, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1608,7 +1608,7 @@ MonoBehaviour:
   buttonHorse: {fileID: 0}
   buttonCastle: {fileID: 0}
   goalOpen: 0
-  maxMovs: 25
+  maxMovs: 50
   victoria: 0
   derrota: 0
   numStars: 0
@@ -3793,7 +3793,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "\xBFQuieres volver al men\xFA?\n Peder\xE1s el progreso de este nivel."
+  m_Text: "\xBFQuieres volver al men\xFA?\n Perder\xE1s el progreso de este nivel."
 --- !u!222 &427021068
 CanvasRenderer:
   m_ObjectHideFlags: 0

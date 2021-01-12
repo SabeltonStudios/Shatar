@@ -285,8 +285,10 @@ public class GameUIManager : MonoBehaviour
             {
                 movesLeft = m_gameController.maxMovs - m_player.numMovs;
                 t_movesLeft.text = movesLeft.ToString();
-
-                UnableDisableChangePiece(true);
+                if (!m_player.node.buttonGoal && !m_player.node.buttonCastle && !m_player.node.buttonHorse)
+                {
+                    UnableDisableChangePiece(true);
+                }
                 //if (movesLeft == m_gameController.maxMovs || m_player.undoCont > m_player.maxUndos)
                 if (movesLeft == m_gameController.maxMovs || undoCont <= 0)
                 {;
@@ -551,17 +553,20 @@ public class GameUIManager : MonoBehaviour
 
     private void showChangePieceMenu()
     {
-        changePieceMenu.SetActive(true);
-        if (changeToPeon.GetComponent<Animator>().GetBool("isActive"))
-        {
-            //EXIT
-            changePieceMenuAnimationExit();
-        }
-        else
-        {
-            //ENTER  
-            changePieceMenuAnimationEnter();
-        }
+        
+        
+            changePieceMenu.SetActive(true);
+            if (changeToPeon.GetComponent<Animator>().GetBool("isActive"))
+            {
+                //EXIT
+                changePieceMenuAnimationExit();
+            }
+            else
+            {
+                //ENTER  
+                changePieceMenuAnimationEnter();
+            }
+        
     }
 
     public void changePieceTo(TipoPieza tipoPieza, bool undo)

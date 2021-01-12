@@ -97,7 +97,7 @@ public class GameController : MonoBehaviour
         updateButtonCastle(undo);
         updateButtonHorse(undo);
         player.turno = false;
-        Debug.Log(undo);
+        //Debug.Log(undo);
         foreach (Enemie e in enemigos)
         {
             e.MoveTo(undo);

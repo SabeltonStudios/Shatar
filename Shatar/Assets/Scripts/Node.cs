@@ -736,6 +736,11 @@ public class Node : MonoBehaviour
             {
                 n.GetComponentsInChildren<MeshRenderer>()[1].material.color = color;
             }
+            if (n.teletransport)
+            {
+                n.GetComponentInChildren<SkinnedMeshRenderer>().materials[0].SetColor("_EmissionColor", color);
+                n.GetComponentInChildren<SkinnedMeshRenderer>().materials[0].color = color;
+            }
         }
     }
     public void UndrawAdjacencies()
@@ -747,6 +752,11 @@ public class Node : MonoBehaviour
             if (nodo.buttonGoal || nodo.buttonCastle || nodo.buttonHorse)
             {
                 nodo.GetComponentsInChildren<MeshRenderer>()[1].material.color = Color.white;
+            }
+            if (nodo.teletransport)
+            {
+                nodo.GetComponentInChildren<SkinnedMeshRenderer>().materials[0].SetColor("_EmissionColor", Color.white);
+                nodo.GetComponentInChildren<SkinnedMeshRenderer>().materials[0].color = Color.white;
             }
         }
     }

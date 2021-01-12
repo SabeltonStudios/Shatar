@@ -195,6 +195,7 @@ public class GameController : MonoBehaviour
                     if(n!= end)
                     {
                         player.node = n;
+                        player.node.pieza = player.gameObject;
                         objectToMove.transform.position = n.transform.position;
                         objectToMove.transform.up = n.orientation;
                         break;

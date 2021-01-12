@@ -614,12 +614,27 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Juan Pruebas\FaceGridCreator.cs" />
-    <Compile Include="Assets\Juan Pruebas\Node.cs" />
-    <Compile Include="Assets\Scripts\CubePlacer.cs" />
+    <Compile Include="Assets\Scripts\CameraController.cs" />
+    <Compile Include="Assets\Scripts\Enemie.cs" />
+    <Compile Include="Assets\Scripts\FaceGridCreator.cs" />
+    <Compile Include="Assets\Scripts\GameController.cs" />
     <Compile Include="Assets\Scripts\Grid.cs" />
-    <Compile Include="Assets\Scripts\GridNode.cs" />
+    <Compile Include="Assets\Scripts\MessageTrigger.cs" />
+    <Compile Include="Assets\Scripts\Node.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
+    <Compile Include="Assets\Scripts\TutorialMessages.cs" />
+    <Compile Include="Assets\UIManager\BgScroll.cs" />
+    <Compile Include="Assets\UIManager\CSVLoader.cs" />
+    <Compile Include="Assets\UIManager\Localization.cs" />
+    <Compile Include="Assets\UIManager\MenuUIManager.cs" />
+    <Compile Include="Assets\UIManager\PlayerData.cs" />
+    <Compile Include="Assets\UIManager\SoundManager.cs" />
+    <Compile Include="Assets\UIManager\TextLocalizerUI.cs" />
+    <Compile Include="Assets\UIManager\UIRipple\Ripple.cs" />
+    <Compile Include="Assets\UIManager\UIRipple\RippleTimer.cs" />
+    <Compile Include="Assets\UIManager\UIRipple\UIRipple.cs" />
+    <Compile Include="Assets\UIManagerGame\GameUIManager.cs" />
+    <Compile Include="Assets\UIManagerGame\TextLocalizerGameUI.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Packages\com.unity.collab-proxy\Editor\Resources\Styles\CollabHistoryCommon.uss" />

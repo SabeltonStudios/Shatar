@@ -10029,7 +10029,7 @@ MonoBehaviour:
   distancia: 4
   turno: 1
   move: 1
-  colorSeleccionable: {r: 0, g: 1, b: 0.18253279, a: 1}
+  colorSeleccionable: {r: 0.20784314, g: 0.40392157, b: 0.24705882, a: 1}
 --- !u!4 &805518056
 Transform:
   m_ObjectHideFlags: 0
@@ -12139,8 +12139,8 @@ MonoBehaviour:
   adjacencies:
   - {fileID: 1625285685}
   - {fileID: 1892598398}
-  - {fileID: 441869461}
-  - {fileID: 1623654090}
+  - {fileID: 930319494}
+  - {fileID: 930319494}
   - {fileID: 1603839224}
   - {fileID: 125165074}
   - {fileID: 255549707}
@@ -20023,7 +20023,7 @@ MonoBehaviour:
   - {fileID: 733787545}
   - {fileID: 1070734466}
   - {fileID: 609694124}
-  - {fileID: 1625285685}
+  - {fileID: 641547155}
   - {fileID: 441869461}
   - {fileID: 1623654090}
   - {fileID: 971822544}

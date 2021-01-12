@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 621106901}
-  m_IndirectSpecularColor: {r: 0.9143753, g: 0.60080457, b: 0.40838858, a: 1}
+  m_IndirectSpecularColor: {r: 0.9143757, g: 0.6008042, b: 0.40838876, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1954,7 +1954,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b741419a9c1c8df4580c5bef67aa8652, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  node: {fileID: 1135200085}
+  node: {fileID: 150254808}
   previousNodes:
   - {fileID: 0}
   - {fileID: 0}
@@ -1980,7 +1980,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 277811409}
   m_LocalRotation: {x: -0, y: -0, z: -0.0000000074505797, w: 1}
-  m_LocalPosition: {x: 5, y: 15, z: -25}
+  m_LocalPosition: {x: 5, y: 15, z: -15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 540720334}
@@ -4425,7 +4425,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &612423230
 Transform:
   m_ObjectHideFlags: 0
@@ -9121,7 +9121,7 @@ MonoBehaviour:
   adjacencieNoAlcanzableOrientada: 0000000000000000
   seleccionables: []
   seleccionable: 0
-  pieza: {fileID: 277811409}
+  pieza: {fileID: 0}
   gameController: {fileID: 0}
 --- !u!23 &1135200086
 MeshRenderer:

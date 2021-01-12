@@ -207,14 +207,12 @@ public class GameUIManager : MonoBehaviour
         //Victoria
         b_volverMenu_victoria.onClick.AddListener(() => {
             m_soundManager.Play_SoundEffect("click_button");
-            PlayerData.NivelActual++;
             StartCoroutine(FadeInRoutine(sceneFadePanel));
             //StartCoroutine(m_soundManager.SoundFadeOut("song_menu", 1.2f));
             StartCoroutine(LoadSceneAfterWait("Menus", 1.2f));
         });
         b_siguienteNivel.onClick.AddListener(() => {
             m_soundManager.Play_SoundEffect("click_button");
-            PlayerData.NivelActual++;
             StartCoroutine(FadeInRoutine(sceneFadePanel));
             //StartCoroutine(m_soundManager.SoundFadeOut("song_menu", 1.2f));
             if (puedePasarDeNivel)
@@ -378,6 +376,10 @@ public class GameUIManager : MonoBehaviour
 
     private void AbrirPanelVictoria()
     {
+        if (AvanzaAlSiguienteNivel())
+        {
+            PlayerData.NivelActual++;
+        }
         transparentPanel.SetActive(true);
         StartCoroutine(Fade(transparentPanel, 1f, 0.5f));
         StartCoroutine(m_soundManager.SoundFadeOut("song_menu", 1.2f));
@@ -715,5 +717,29 @@ public class GameUIManager : MonoBehaviour
             return false;
         }
         return true;
+    }
+
+    private bool AvanzaAlSiguienteNivel()
+    {
+        switch (PlayerData.playingLevel)
+        {
+            case 0:
+                if (PlayerData.Level0MejorPuntuacion <= 0)
+                    return true;
+                else
+                    return false;
+            case 1:
+                if (PlayerData.Level1MejorPuntuacion <= 0)
+                    return true;
+                else
+                    return false;
+            case 2:
+                if (PlayerData.Level2MejorPuntuacion <= 0)
+                    return true;
+                else
+                    return false;
+                break;
+        }
+        return false;
     }
 }

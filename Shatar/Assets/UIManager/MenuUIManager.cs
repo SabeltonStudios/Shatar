@@ -140,9 +140,11 @@ public class MenuUIManager : MonoBehaviour
         AddListeners();
         AddSocialMediaButtonListeners(b_twitter, b_instagram, b_youtube, b_tiktok);
         AddLevelButtonListeners();
-        
-        /* Para hacer pruebas
+
+        /*
         PlayerData.NivelActual = 0;
+        PlayerData.Gems = 0;
+        PlayerData.Stars = 0;
         PlayerData.Level0Estrellas = 0;
         PlayerData.Level1Estrellas = 0;
         PlayerData.Level2Estrellas = 0;
@@ -390,7 +392,7 @@ public class MenuUIManager : MonoBehaviour
         if (PlayerData.NivelActual < numLevels && haCompletadoUltimoNivelDisponible()) //permitir comprar con estrellas siguiente nivel
         {
             b_levels[PlayerData.NivelActual + 1].enabled = true;
-            levelsEstrellasNecesarias[PlayerData.NivelActual + 1].SetActive(true);
+            levelsEstrellasNecesarias[PlayerData.NivelActual].SetActive(true);
         }
     }
 

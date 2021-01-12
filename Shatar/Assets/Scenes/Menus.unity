@@ -541,6 +541,10 @@ MonoBehaviour:
   fichas3: {fileID: 0}
   derrota: {fileID: 0}
   victoria: {fileID: 0}
+  teleport: {fileID: 0}
+  vallas1: {fileID: 0}
+  vallas2: {fileID: 0}
+  camaraRotation: {fileID: 0}
   song_menu: {fileID: 417740601}
 --- !u!4 &626411066
 Transform:
@@ -10757,7 +10761,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!222 &3716162243664742790
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class TutorialMessages : MonoBehaviour
 {
-    public enum Language { ESP, ENG}
+    public enum Language { ESP, ENG }
     public Language language;
     public Player player;
     public int messageShownRightNow;
@@ -14,8 +14,14 @@ public class TutorialMessages : MonoBehaviour
     public GameController gameController;
     public GameUIManager gameUIManager;
 
+    public GameObject messagesPanel;
+    public GameObject transparentPanel;
+
     public static TutorialMessages instance;
     public Text text;
+
+    public GameObject messagesPanelInicial;
+    public Text textInicial;
 
     private string messagesString = "¡Bienvenido a Shatar! Vamos a aprender los controles básicos\n" +
         "El peón es tu pieza inicial\n" +
@@ -40,12 +46,33 @@ public class TutorialMessages : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        StartCoroutine(Fade(messagesPanelInicial, 1f, 0.7f));
         gameUIManager = FindObjectOfType<GameUIManager>();
         instance = this;
         string[] stringSeparators = new string[] { "\n" };
         messages = messagesString.Split(stringSeparators, System.StringSplitOptions.None);
         ShowMessages(0);
         StartCoroutine(WaitAndShowMessage1());
+    }
+
+    private void Update()
+    {
+        if (pawnGif.GetComponent<CanvasGroup>().alpha == 0)
+        {
+            pawnGif.SetActive(false);
+        }
+        if (knightGif.GetComponent<CanvasGroup>().alpha == 0)
+        {
+            knightGif.SetActive(false);
+        }
+        if (transparentPanel.GetComponent<CanvasGroup>().alpha == 0)
+        {
+            transparentPanel.SetActive(false);
+        }
+        if (messagesPanelInicial.GetComponent<CanvasGroup>().alpha == 0)
+        {
+            messagesPanelInicial.SetActive(false);
+        }
     }
 
     public void ShowMessages(int[] indexes)
@@ -66,11 +93,20 @@ public class TutorialMessages : MonoBehaviour
                 textContent = messages[index];
                 break;
         }
-        text.text = textContent;
+        if (index == 0)
+        {
+            textInicial.text = textContent;
+        }
+        else
+        {
+            text.text = textContent;
+        }
 
         if (index == 8)
         {
+            FadeInTransparentPanel();
             knightGif.SetActive(true);
+            StartCoroutine(Fade(knightGif, 1f, 0.5f));
             UnlockKnight();
         }
     }
@@ -86,13 +122,20 @@ public class TutorialMessages : MonoBehaviour
 
     IEnumerator WaitAndShowMessage1()
     {
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(3);
         ShowMessages(1);
+        StartCoroutine(Fade(messagesPanelInicial, 0f, 1f));
+        StartCoroutine(Fade(messagesPanel, 1f, 1f));
+        yield return new WaitForSeconds(1);
+        FadeInTransparentPanel();
         pawnGif.SetActive(true);
+        StartCoroutine(Fade(pawnGif, 1f, 0.5f));
     }
 
     IEnumerator WaitMessages2And3()
     {
+        StartCoroutine(Fade(pawnGif, 0f, 0.5f));
+        FadeOutTransparentPanel();
         ShowMessages(2);
         yield return new WaitForSeconds(4);
         if (messageShownRightNow != 4) ShowMessages(3);
@@ -112,5 +155,34 @@ public class TutorialMessages : MonoBehaviour
     {
         gameController.horseUnlock = true;
         gameUIManager.UpdateChangePieceButtonsEnabled();
+    }
+
+    public void FadeInTransparentPanel()
+    {
+        transparentPanel.SetActive(true);
+        StartCoroutine(Fade(transparentPanel, 1f, 0.5f));
+    }
+
+    public void FadeOutTransparentPanel()
+    {
+        StartCoroutine(Fade(transparentPanel, 0f, 0.5f));
+    }
+
+    public void FadeOutHorse()
+    {
+        StartCoroutine(Fade(knightGif, 0f, 0.5f));
+    }
+
+    private IEnumerator Fade(GameObject gameObject, float amount, float time)
+    {
+        float startAlpha;
+        startAlpha = gameObject.GetComponent<CanvasGroup>().alpha;
+        for (float t = 0.1f; t < time; t += Time.deltaTime)
+        {
+            float porcentaje = t / time;
+            gameObject.GetComponent<CanvasGroup>().alpha = Mathf.Lerp(startAlpha, amount, porcentaje);
+            yield return null;
+        }
+        gameObject.GetComponent<CanvasGroup>().alpha = amount;
     }
 }

@@ -253,18 +253,13 @@ public class MenuUIManager : MonoBehaviour
     {
         DeactivateActivateMenu(lastMenu, mainMenu);
     }
-    
-    private void OpenSocialMedia(string socialMediaUrl)
-    {
-        Application.OpenURL(socialMediaUrl);
-    }
 
     private void AddSocialMediaButtonListeners(Button twitter, Button instagram, Button youtube, Button tiktok)
     {
-        twitter.onClick.AddListener(() => { PlaySoundEffect("click_button");  OpenSocialMedia("https://twitter.com/SabeltonStudios"); });
-        instagram.onClick.AddListener(() => { PlaySoundEffect("click_button"); OpenSocialMedia("https://www.instagram.com/sabeltonstudios"); });
-        youtube.onClick.AddListener(() => { PlaySoundEffect("click_button"); OpenSocialMedia("https://www.youtube.com/channel/UCaw0EJIphiofJF5lcD1SEJg"); });
-        tiktok.onClick.AddListener(() => { PlaySoundEffect("click_button"); OpenSocialMedia("https://vm.tiktok.com/ZSnu8T8B/"); });
+        twitter.onClick.AddListener(() => { PlaySoundEffect("click_button"); Application.ExternalEval("window.open('https://twitter.com/SabeltonStudios','Sabelton Twitter')"); });
+        instagram.onClick.AddListener(() => { PlaySoundEffect("click_button"); Application.ExternalEval("window.open('https://www.instagram.com/sabeltonstudios','Sabelton Instagram')"); });
+        youtube.onClick.AddListener(() => { PlaySoundEffect("click_button"); Application.ExternalEval("window.open('https://www.youtube.com/channel/UCaw0EJIphiofJF5lcD1SEJg','Sabelton Youtube')"); });
+        tiktok.onClick.AddListener(() => { PlaySoundEffect("click_button"); Application.ExternalEval("window.open('https://vm.tiktok.com/ZSnu8T8B/','Sabelton TikTok')"); });
     }
     #endregion  
 
@@ -302,7 +297,7 @@ public class MenuUIManager : MonoBehaviour
             case 0:
                 PlayerData.playingLevel = 0;
                 UpdatePopUpLevelStars(PlayerData.Level0Estrellas, selectedLevel_stars);
-                t_levelMejorMov.text = "Mejor : " + PlayerData.Level0MejorPuntuacion.ToString() + " movimientos"; ///////////////////actualizar "movimientos" para que se traduzca
+                t_levelMejorMov.text = "Mejor : " + PlayerData.Level0MejorPuntuacion.ToString() + " " + Localization.GetLocalizedValue("t_moves");
                 b_playLevel.onClick.AddListener(() => {
                     PlaySoundEffect("click_button");
                     StartCoroutine(m_soundManager.SoundFadeOut("song_menu", 1.2f));
@@ -313,7 +308,7 @@ public class MenuUIManager : MonoBehaviour
             case 1:
                 PlayerData.playingLevel = 1;
                 UpdatePopUpLevelStars(PlayerData.Level1Estrellas, selectedLevel_stars);
-                t_levelMejorMov.text = "Mejor : " + PlayerData.Level1MejorPuntuacion.ToString() + " movimientos"; ///////////////////actualizar "movimientos" para que se traduzca
+                t_levelMejorMov.text = "Mejor : " + PlayerData.Level1MejorPuntuacion.ToString() + " " + Localization.GetLocalizedValue("t_moves");
                 if (PlayerData.Stars < 3) //Si jugador no tiene estrellas suficientes, deshabilitar botón y poner texto
                 {
                     t_noTienesEstrellasNecesarias.SetActive(true);
@@ -330,7 +325,7 @@ public class MenuUIManager : MonoBehaviour
             case 2:
                 PlayerData.playingLevel = 2;
                 UpdatePopUpLevelStars(PlayerData.Level2Estrellas, selectedLevel_stars);
-                t_levelMejorMov.text = "Mejor : " + PlayerData.Level2MejorPuntuacion.ToString() + " movimientos"; ///////////////////actualizar "movimientos" para que se traduzca
+                t_levelMejorMov.text = "Mejor : " + PlayerData.Level2MejorPuntuacion.ToString() + " " + Localization.GetLocalizedValue("t_moves");
                 if (PlayerData.Stars < 5)
                 {
                     t_noTienesEstrellasNecesarias.SetActive(true);
@@ -608,7 +603,12 @@ public class MenuUIManager : MonoBehaviour
                 break;
         }
         ActivatePanel(confirmPurchasePanel, trasparentPanel_store, true);
-        b_confirm.onClick.AddListener(() => { PlaySoundEffect("click_button"); confirmPurchasePanel.SetActive(false); OpenThankYouPanel(gemsPurchased); });
+        b_confirm.onClick.AddListener(() => {
+            PlaySoundEffect("click_button");
+            confirmPurchasePanel.SetActive(false);
+            PlaySoundEffect("comprar");
+            OpenThankYouPanel(gemsPurchased);
+        });
     }
 
     private void OpenThankYouPanel(int gemsPurchased)

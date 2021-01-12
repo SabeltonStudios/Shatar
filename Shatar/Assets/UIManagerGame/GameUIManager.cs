@@ -51,6 +51,7 @@ public class GameUIManager : MonoBehaviour
     [SerializeField] private Text t_mejorNumMov = null;
     [SerializeField] private Button b_volverMenu_victoria = null;
     [SerializeField] private Button b_siguienteNivel = null;
+    [SerializeField] private GameObject estrellasNecesarias = null;
 
     [Header("Derrota Menu")]
     [SerializeField] private GameObject derrotaMenu = null;
@@ -70,7 +71,13 @@ public class GameUIManager : MonoBehaviour
     [SerializeField] private GameObject disableChangePieceButton = null;
     [SerializeField] private GameObject disableChangePieceButton2 = null;
 
-    private bool isClickingButton = false;
+    private string levelName;
+
+    private bool gamePaused = false;
+
+    private int numEstrellasNecesarias;
+    private bool puedePasarDeNivel = true;
+    
     private float changePieceMenuBgStartPosRight;
 
     private int movesLeft;
@@ -79,8 +86,6 @@ public class GameUIManager : MonoBehaviour
     public static bool menuOpened = false;
 
     private float fadeOutTime = 1f;
-    private bool isFadeOutFinished = false;
-    private bool isFadeInFinished = false;
 
     private bool abrirPanelVictoria = true;
     private bool abrirPanelDerrota = true;
@@ -112,7 +117,6 @@ public class GameUIManager : MonoBehaviour
         menuOpened = false;
 
         PlayerData.backFromLevel = true;
-        //PlayerData.Gems = 30;
         undoCont = 3;
 
         StartCoroutine(FadeOutRoutine(sceneFadePanel));
@@ -143,8 +147,8 @@ public class GameUIManager : MonoBehaviour
         changeToCaballo.GetComponent<CanvasGroup>().alpha = 0f;
         changeToTorre.GetComponent<CanvasGroup>().alpha = 0f;
 
-        string levelName = SceneManager.GetActiveScene().name;
-        if (levelName == "Level2")
+        levelName = SceneManager.GetActiveScene().name;
+        if (levelName == "Level2") //En este nivel se muestra la torre en el menú de cambiar pieza
         {
             changePieceMenuBgStartPosRight = 0f;
             changeToTorre.GetComponent<CanvasGroup>().alpha = 0f;
@@ -177,8 +181,8 @@ public class GameUIManager : MonoBehaviour
         });
 
         //Menu Pausa Buttons
-        b_pausa.onClick.AddListener(() => { m_soundManager.Play_SoundEffect("click_button"); AbrirMenuPausa(true); menuOpened = true; });
-        b_reanudar.onClick.AddListener(() => { m_soundManager.Play_SoundEffect("click_button"); AbrirMenuPausa(false); menuOpened = false; });
+        b_pausa.onClick.AddListener(() => { m_soundManager.Play_SoundEffect("click_button"); AbrirMenuPausa(true); gamePaused = true; menuOpened = true; });
+        b_reanudar.onClick.AddListener(() => { m_soundManager.Play_SoundEffect("click_button"); AbrirMenuPausa(false); gamePaused = false; menuOpened = false; });
         b_volverMenu_pausa.onClick.AddListener(() => { m_soundManager.Play_SoundEffect("click_button"); AbrirMenuConfirmacion(true); });
 
         //Panel Confirmacion Buttons
@@ -199,28 +203,31 @@ public class GameUIManager : MonoBehaviour
             m_soundManager.Play_SoundEffect("click_button");
             PlayerData.NivelActual++;
             StartCoroutine(FadeInRoutine(sceneFadePanel));
-            StartCoroutine(m_soundManager.SoundFadeOut("song_menu", 1.2f));
+            //StartCoroutine(m_soundManager.SoundFadeOut("song_menu", 1.2f));
             StartCoroutine(LoadSceneAfterWait("Menus", 1.2f));
         });
         b_siguienteNivel.onClick.AddListener(() => {
             m_soundManager.Play_SoundEffect("click_button");
             PlayerData.NivelActual++;
             StartCoroutine(FadeInRoutine(sceneFadePanel));
-            StartCoroutine(m_soundManager.SoundFadeOut("song_menu", 1.2f));
-            StartCoroutine(LoadSceneAfterWait(SceneManager.GetActiveScene().buildIndex + 1, 1.2f));
+            //StartCoroutine(m_soundManager.SoundFadeOut("song_menu", 1.2f));
+            if (puedePasarDeNivel)
+            {
+                StartCoroutine(LoadSceneAfterWait(SceneManager.GetActiveScene().buildIndex + 1, 1.2f));
+            }
         });
 
         //Derrota
         b_volverMenu_derrota.onClick.AddListener(() => {
             m_soundManager.Play_SoundEffect("click_button");
             StartCoroutine(FadeOutRoutine(sceneFadePanel));
-            StartCoroutine(m_soundManager.SoundFadeOut("song_menu", 1.2f));
+            //StartCoroutine(m_soundManager.SoundFadeOut("song_menu", 1.2f));
             StartCoroutine(LoadSceneAfterWait("Menus", 1.2f));
         });
         b_reintentarNivel.onClick.AddListener(() => {
             m_soundManager.Play_SoundEffect("click_button");
             StartCoroutine(FadeOutRoutine(sceneFadePanel));
-            StartCoroutine(m_soundManager.SoundFadeOut("song_menu", 1.2f));
+            //StartCoroutine(m_soundManager.SoundFadeOut("song_menu", 1.2f));
             StartCoroutine(LoadSceneAfterWait(SceneManager.GetActiveScene().name, 1.2f));
         });
 
@@ -230,7 +237,7 @@ public class GameUIManager : MonoBehaviour
     private void Update()
     {
         UpdateArrowUp();
-        UpdateArrowDown();
+        //UpdateArrowDown();
 
         if (menuUndo.gameObject.activeSelf && menuUndo.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("popUpStore_exit"))
         {
@@ -308,20 +315,36 @@ public class GameUIManager : MonoBehaviour
             abrirPanelDerrota = false;
             AbrirPanelDerrota(m_gameController.derrota);
         }
+
+        if (gamePaused && menuPausa.activeSelf && menuPausa.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("pausaInside"))
+        {
+            Time.timeScale = 0f;
+        }
+        if (!gamePaused && menuPausa.activeSelf && menuPausa.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("pausaOutside"))
+        {
+            menuPausa.SetActive(false);
+        }
+
+        if (transparentPanel.GetComponent<CanvasGroup>().alpha == 0)
+        {
+            transparentPanel.SetActive(false);
+        }
     }
 
     private void AbrirMenuPausa(bool state)
     {
-        transparentPanel.SetActive(state);
-        menuPausa.SetActive(state);
         if (state)
         {
-            Time.timeScale = 0f;
+            transparentPanel.SetActive(true);
+            StartCoroutine(Fade(transparentPanel, 1f, 0.5f));
+            menuPausa.SetActive(true);
         }
         else
         {
             Time.timeScale = 1f;
+            StartCoroutine(Fade(transparentPanel, 0f, 0.5f));
         }
+        menuPausa.GetComponent<Animator>().SetBool("isActive", state);
     }
 
     private void AbrirMenuConfirmacion(bool state)
@@ -347,15 +370,41 @@ public class GameUIManager : MonoBehaviour
 
     private void AbrirPanelVictoria()
     {
+        transparentPanel.SetActive(true);
+        StartCoroutine(Fade(transparentPanel, 1f, 0.5f));
+        StartCoroutine(m_soundManager.SoundFadeOut("song_menu", 1.2f));
         m_soundManager.Play_SoundEffect("victoria");
         menuOpened = true;
-        transparentPanel.SetActive(true);
+        //transparentPanel.SetActive(true);
         victoriaMenu.SetActive(true);
+        victoriaMenu.GetComponent<Animator>().SetBool("isActive", true);
         if (PlayerData.playingLevel == 0) //Si está en el tutorial, por completarlo se consiguen directamente 3 estrellas
             m_gameController.numStars = 3;
         ActualizarNumEstrellas();
         t_numMov.text = m_player.numMovs.ToString() + " " + Localization.GetLocalizedValue("t_moves");
         ActualizarPlayerData(); //Actualiza si se ha logrado mejor puntuacion (movimientos y estrellas)
+        switch (levelName) //Mirar si tiene estrellas suficientes para pasar al siguiente nivel
+        {
+            case "Tutorial":
+                numEstrellasNecesarias = 3; //Pero siempre puede pasar de nivel así que esto no es necesario
+                puedePasarDeNivel = true;
+                break;
+            case "Level1":
+            case "Level2":
+                numEstrellasNecesarias = 5;
+                if (PlayerData.Stars < 5)
+                    puedePasarDeNivel = false;
+                else
+                    puedePasarDeNivel = true;
+                break;
+        }
+        if (!puedePasarDeNivel)
+        {
+            b_siguienteNivel.enabled = false;
+            b_siguienteNivel.GetComponent<CanvasGroup>().alpha = 0.5f;
+            estrellasNecesarias.GetComponent<Text>().text = numEstrellasNecesarias.ToString();
+            estrellasNecesarias.SetActive(true);
+        }
     }
 
     private void UpdateBestScore(int mejorPuntuacion, int mejorCantidadEstrellas)
@@ -367,6 +416,7 @@ public class GameUIManager : MonoBehaviour
         }
         if (m_gameController.numStars > mejorCantidadEstrellas)
         {
+            PlayerData.Stars = m_gameController.numStars - mejorCantidadEstrellas; //Si no funciona, simplemente hacer un recuento de todas las estrellas de los niveles y ya está
             mejorCantidadEstrellas = m_gameController.numStars;
         }
     }
@@ -389,10 +439,14 @@ public class GameUIManager : MonoBehaviour
 
     private void AbrirPanelDerrota(int tipoDerrota)
     {
+        transparentPanel.SetActive(true);
+        StartCoroutine(Fade(transparentPanel, 1f, 0.5f));
+        StartCoroutine(m_soundManager.SoundFadeOut("song_menu", 1.2f));
         m_soundManager.Play_SoundEffect("derrota");
         menuOpened = true;
-        transparentPanel.SetActive(true);
+        //transparentPanel.SetActive(true);
         derrotaMenu.SetActive(true);
+        derrotaMenu.GetComponent<Animator>().SetBool("isActive", true);
 
         t_sinMov.SetActive(false);
         t_alcanzEnemigo.SetActive(false);
@@ -420,31 +474,38 @@ public class GameUIManager : MonoBehaviour
     {
         if (m_cameraController.checkIfCanTurnUp())
         {
-            arrowUp.GetComponent<Image>().color = new Color(255, 255, 255, 1f);
+            arrowUp.SetActive(true);
+            arrowDown.SetActive(false);
+            //arrowUp.GetComponent<Image>().color = new Color(255, 255, 255, 1f);
         }
         else
         {
             if (m_cameraController.enabledMov)
             {
-                arrowUp.GetComponent<Image>().color = new Color(255, 255, 255, 0.5f);
+                arrowUp.SetActive(false);
+                arrowDown.SetActive(true);
+                //arrowUp.GetComponent<Image>().color = new Color(255, 255, 255, 0.5f);
             }
         }
     }
-
+    /*
     private void UpdateArrowDown()
     {
         if (m_cameraController.checkIfCanTurnDown())
         {
-            arrowDown.GetComponent<Image>().color = new Color(255, 255, 255, 1f);
+            arrowDown.SetActive(true);
+            //arrowDown.GetComponent<Image>().color = new Color(255, 255, 255, 1f);
         }
         else
         {
             if (m_cameraController.enabledMov)
             {
-                arrowDown.GetComponent<Image>().color = new Color(255, 255, 255, 0.5f);
+                arrowDown.SetActive(false);
+                //arrowDown.GetComponent<Image>().color = new Color(255, 255, 255, 0.5f);
             }
         }
     }
+    */
 
     private IEnumerator BgMoveAnimation(float endPos, float time)
     {
@@ -574,7 +635,6 @@ public class GameUIManager : MonoBehaviour
     private IEnumerator FadeOutRoutine(GameObject menu)
     {
         float startAlpha;
-        isFadeOutFinished = false;
         startAlpha = menu.GetComponent<CanvasGroup>().alpha;
         for (float t = 0.1f; t < fadeOutTime; t += Time.deltaTime)
         {
@@ -584,13 +644,11 @@ public class GameUIManager : MonoBehaviour
         }
         menu.GetComponent<CanvasGroup>().alpha = 0f;
         menu.SetActive(false);
-        isFadeOutFinished = true;
     }
 
     private IEnumerator FadeInRoutine(GameObject menu)
     {
         float startAlpha;
-        isFadeInFinished = false;
         menu.SetActive(true);
         startAlpha = menu.GetComponent<CanvasGroup>().alpha;
         for (float t = 0.1f; t < fadeOutTime; t += Time.deltaTime)
@@ -600,7 +658,6 @@ public class GameUIManager : MonoBehaviour
             yield return null;
         }
         menu.GetComponent<CanvasGroup>().alpha = 1f;
-        isFadeInFinished = true;
     }
 
     private IEnumerator Fade(GameObject gameObject, float amount, float time)

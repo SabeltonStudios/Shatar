@@ -6,6 +6,7 @@ public class SoundManager : MonoBehaviour
 {
     [Header("Sound Effects")]
     [SerializeField] private AudioSource click_button = null;
+    [SerializeField] private AudioSource comprar = null;
     [SerializeField] private AudioSource fichaArrastrandose = null;
     [SerializeField] private AudioSource ficha_comida1 = null;
     [SerializeField] private AudioSource ficha_comida2 = null;
@@ -14,6 +15,10 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private AudioSource fichas3 = null;
     [SerializeField] private AudioSource derrota = null;
     [SerializeField] private AudioSource victoria = null;
+    [SerializeField] private AudioSource teleport = null;
+    [SerializeField] private AudioSource vallas1 = null;
+    [SerializeField] private AudioSource vallas2 = null;
+    [SerializeField] private AudioSource camaraRotation = null;
 
     [Header("Music")]
     [SerializeField] private AudioSource song_menu = null;
@@ -26,6 +31,9 @@ public class SoundManager : MonoBehaviour
             {
                 case "click_button":
                     click_button.Play();
+                    break;
+                case "comprar":
+                    comprar.Play();
                     break;
                 case "fichaArrastrandose":
                     fichaArrastrandose.Play();
@@ -49,6 +57,18 @@ public class SoundManager : MonoBehaviour
                     derrota.Play();
                     break;
                 case "victoria":
+                    victoria.Play();
+                    break;
+                case "teleport":
+                    fichas2.Play();
+                    break;
+                case "vallas1":
+                    fichas3.Play();
+                    break;
+                case "vallas2":
+                    derrota.Play();
+                    break;
+                case "camaraRotation":
                     victoria.Play();
                     break;
             }

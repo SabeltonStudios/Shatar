@@ -189,7 +189,8 @@ public class GameController : MonoBehaviour
             //Si cae en una casilla de teletransporte
             if (end.teletransport)
             {
-                foreach(Node n in teletransporte)
+                m_soundManager.Play_SoundEffect("teleport");
+                foreach (Node n in teletransporte)
                 {
                     if(n!= end)
                     {
@@ -245,6 +246,7 @@ public class GameController : MonoBehaviour
                 //Subir las vallas
                 foreach(Animator a in vallasHorse)
                 {
+                    m_soundManager.Play_SoundEffect("vallas1");
                     a.SetFloat("Speed", -1);
                     a.SetInteger("State", movHorseButton);
                 }
@@ -267,6 +269,7 @@ public class GameController : MonoBehaviour
                 //Bajar las vallas
                 foreach (Animator a in vallasHorse)
                 {
+                    m_soundManager.Play_SoundEffect("vallas2");
                     a.SetFloat("Speed", 1);
                     a.SetInteger("State", movHorseButton);
                 }
@@ -295,6 +298,7 @@ public class GameController : MonoBehaviour
                 //Subir las vallas
                 foreach(Animator a in vallasCastle)
                 {
+                    m_soundManager.Play_SoundEffect("vallas1");
                     a.SetFloat("Speed", -1);
                     a.SetInteger("State", movCastleButton);
                 }
@@ -317,6 +321,7 @@ public class GameController : MonoBehaviour
                 //Bajar las vallas
                 foreach (Animator a in vallasCastle)
                 {
+                    m_soundManager.Play_SoundEffect("vallas2");
                     a.SetFloat("Speed", 11);
                     a.SetInteger("State", movCastleButton);
                 }

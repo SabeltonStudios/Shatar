@@ -12,6 +12,7 @@ public class TutorialMessages : MonoBehaviour
     public GameObject pawnGif;
     public GameObject knightGif;
     public GameController gameController;
+    public GameUIManager gameUIManager;
 
     public static TutorialMessages instance;
     public Text text;
@@ -39,6 +40,7 @@ public class TutorialMessages : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameUIManager = FindObjectOfType<GameUIManager>();
         instance = this;
         string[] stringSeparators = new string[] { "\n" };
         messages = messagesString.Split(stringSeparators, System.StringSplitOptions.None);
@@ -109,5 +111,6 @@ public class TutorialMessages : MonoBehaviour
     public void UnlockKnight()
     {
         gameController.horseUnlock = true;
+        gameUIManager.UpdateChangePieceButtonsEnabled();
     }
 }

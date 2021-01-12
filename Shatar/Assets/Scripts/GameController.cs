@@ -5,12 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
-    List<Enemie> enemigos= new List<Enemie>();
+    public List<Enemie> enemigos= new List<Enemie>();
     [SerializeField]
     List<Node> teletransporte = new List<Node>();
     [SerializeField]
     int[] stars = new int[3];
-    Player player;
+    public Player player;
     public Animator goal;
     public GameObject buttonHorse;
     public GameObject buttonCastle;
@@ -32,7 +32,8 @@ public class GameController : MonoBehaviour
     public bool isPlayerMoving = false;
     public bool horseUnlock;
     public bool castleUnlock;
-
+    public List<Animator> vallasHorse;
+    public List<Animator> vallasCastle;
     [SerializeField] private SoundManager m_soundManager = null;
 
     // Start is called before the first frame update
@@ -96,16 +97,26 @@ public class GameController : MonoBehaviour
         updateButtonCastle(undo);
         updateButtonHorse(undo);
         player.turno = false;
-        foreach(Enemie e in enemigos)
+        Debug.Log(undo);
+        foreach (Enemie e in enemigos)
         {
             e.MoveTo(undo);
         }
+        
     }
     public void destruirEnemigo(GameObject pieza)
     {
         //player.tipoPieza = pieza.GetComponent<Enemie>().playerChange;
-        enemigos.Remove(pieza.GetComponent<Enemie>());
-        Destroy(pieza);
+        pieza.GetComponent<Enemie>().shiftPreviousNodes(false);
+        pieza.GetComponent<Enemie>().ID++;
+        player.enemiesEat[0] = pieza;
+        pieza.SetActive(false);
+        enemigos.Clear();
+        Enemie[] aux = FindObjectsOfType<Enemie>();
+        for(int i = 0; i < aux.Length; i++)
+        {
+            enemigos.Add(aux[i]);
+        }
     }
     //Enumator empleado para mover las piezas suavemente
     //Recibe el objeto a mover, la posición final, el tiempo que tarda en moverse, el bool de que se trata del juegador o no, el nodo anterior para limpiar adyacencias en los enemigos
@@ -231,10 +242,18 @@ public class GameController : MonoBehaviour
         {
             if (undo)
             {
-                movHorseButton++;
                 //Subir las vallas
+                foreach(Animator a in vallasHorse)
+                {
+                    a.SetFloat("Speed", -1);
+                    a.SetInteger("State", movHorseButton);
+                }
+                
+                movHorseButton++;
+                
                 //Cambiar la textura
                 buttonHorse.GetComponent<MeshRenderer>().material.SetTexture("_EmissionMap", horseButtonTextures[movHorseButton%horseButtonTextures.Length]);
+                
                 if (movHorseButton == 5)
                 {
                     vallaSubidaHorse = false;
@@ -245,10 +264,16 @@ public class GameController : MonoBehaviour
             }
             else
             {
+                //Bajar las vallas
+                foreach (Animator a in vallasHorse)
+                {
+                    a.SetFloat("Speed", 1);
+                    a.SetInteger("State", movHorseButton);
+                }
                 movHorseButton--;
                 //Cambiar la textura
                 buttonHorse.GetComponent<MeshRenderer>().material.SetTexture("_EmissionMap", horseButtonTextures[movHorseButton]);
-                //Bajar las vallas
+                
                 if (movHorseButton == 0)
                 {
                     vallaSubidaHorse = false;
@@ -267,8 +292,14 @@ public class GameController : MonoBehaviour
         {
             if (undo)
             {
-                movCastleButton++;
                 //Subir las vallas
+                foreach(Animator a in vallasCastle)
+                {
+                    a.SetFloat("Speed", -1);
+                    a.SetInteger("State", movCastleButton);
+                }
+                
+                movCastleButton++;
                 //Cambiar la textura
                 buttonCastle.GetComponent<MeshRenderer>().material.SetTexture("_EmissionMap", castleButtonTextures[movCastleButton%castleButtonTextures.Length]);
                 if (movCastleButton == 4)
@@ -283,10 +314,16 @@ public class GameController : MonoBehaviour
             }
             else
             {
+                //Bajar las vallas
+                foreach (Animator a in vallasCastle)
+                {
+                    a.SetFloat("Speed", 11);
+                    a.SetInteger("State", movCastleButton);
+                }
                 movCastleButton--;
                 //Cambiar la textura
                 buttonCastle.GetComponent<MeshRenderer>().material.SetTexture("_EmissionMap", castleButtonTextures[movCastleButton]);
-                //Bajar las vallas
+
                 if (movCastleButton == 0)
                 {
                     nodesVallaCastle[0].adjacencieNoAlcanzable[4] = false;
@@ -331,6 +368,7 @@ public class GameController : MonoBehaviour
 
     public void cambiaPieza(TipoPieza tipoPieza, bool undo)
     {
+       
         if (player.turno)
         {
             m_soundManager.Play_SoundEffect("fichas3");
@@ -365,7 +403,7 @@ public class GameController : MonoBehaviour
             }
             else
             {
-                gameUIManager.changePieceTo(player.tipoPieza);
+                gameUIManager.changePieceTo(player.tipoPieza, undo);
             }
             EnemigosTurno(undo);
         }

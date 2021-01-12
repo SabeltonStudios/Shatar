@@ -7,9 +7,10 @@ public class Player : MonoBehaviour
 {
     [SerializeField]
     public Node node;
-    Node[] previousNodes= new Node[3];
+    public Node[] previousNodes= new Node[3];
     TipoPieza[] previousPieces= new TipoPieza[3];
     bool[] actions= new bool[3];
+    public GameObject[] enemiesEat = new GameObject[3];
     //int undoID;
     public int undoCont;
     public int maxUndos=3;
@@ -72,6 +73,17 @@ public class Player : MonoBehaviour
             {
                 node.UndrawAdjacencies();
                 node.pieza = null;
+                
+                if (enemiesEat[0] != null)
+                {
+                    enemiesEat[0].SetActive(true);
+                    gameController.enemigos.Clear();
+                    Enemie[] aux = FindObjectsOfType<Enemie>();
+                    for (int i = 0; i < aux.Length; i++)
+                    {
+                        gameController.enemigos.Add(aux[i]);
+                    }
+                }
 
                 //Añadir el nuevo nodo, mover hacia él
                 node = previousNodes[0];
@@ -96,6 +108,8 @@ public class Player : MonoBehaviour
             for(int i= 0; i<(maxUndos-undoCont); i++)
             {
                 actions[i] = actions[i + 1];
+                enemiesEat[i] = enemiesEat[i + 1];
+
                 if (!pieces)
                 {
                     previousNodes[i] = previousNodes[i + 1];
@@ -112,6 +126,8 @@ public class Player : MonoBehaviour
             for(int i=maxUndos-1; i > 0; i--)
             {
                 actions[i] = actions[i - 1];
+                enemiesEat[i] = enemiesEat[i - 1];
+
                 if (pieces)
                 {
                     previousPieces[i] = previousPieces[i - 1];

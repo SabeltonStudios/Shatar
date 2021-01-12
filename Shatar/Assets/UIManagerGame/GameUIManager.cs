@@ -162,17 +162,17 @@ public class GameUIManager : MonoBehaviour
         });
         changeToPeon.onClick.AddListener(() => {
             m_soundManager.Play_SoundEffect("click_button");
-            changePieceTo(TipoPieza.PEON);
+            changePieceTo(TipoPieza.PEON,false);
             showChangePieceMenu();
         });
         changeToCaballo.onClick.AddListener(() => {
             m_soundManager.Play_SoundEffect("click_button");
-            changePieceTo(TipoPieza.CABALLO);
+            changePieceTo(TipoPieza.CABALLO,false);
             showChangePieceMenu();
         });
         changeToTorre.onClick.AddListener(() => {
             m_soundManager.Play_SoundEffect("click_button");
-            changePieceTo(TipoPieza.TORRE);
+            changePieceTo(TipoPieza.TORRE,false);
             showChangePieceMenu();
         });
 
@@ -498,7 +498,7 @@ public class GameUIManager : MonoBehaviour
         }
     }
 
-    public void changePieceTo(TipoPieza tipoPieza)
+    public void changePieceTo(TipoPieza tipoPieza, bool undo)
     {
         i_peon.SetActive(false);
         i_caballo.SetActive(false);
@@ -506,17 +506,18 @@ public class GameUIManager : MonoBehaviour
         switch (tipoPieza)
         {
             case TipoPieza.PEON:
-                m_gameController.cambiaPieza(TipoPieza.PEON, false);
                 i_peon.SetActive(true);
                 break;
             case TipoPieza.CABALLO:
-                m_gameController.cambiaPieza(TipoPieza.CABALLO, false);
                 i_caballo.SetActive(true);
                 break;
             case TipoPieza.TORRE:
-                m_gameController.cambiaPieza(TipoPieza.TORRE, false);
                 i_torre.SetActive(true);
                 break;
+        }
+        if (!undo)
+        {
+            m_gameController.cambiaPieza(tipoPieza, false);
         }
         UpdateChangePieceButtonsEnabled();
     }

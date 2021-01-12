@@ -5,7 +5,7 @@ using UnityEngine;
 public class Enemie : MonoBehaviour
 {
     public Node node;
-    Node previousNode;
+    public Node[] previousNodes = new Node[3];
     public TipoPieza tipoPieza;
     public TipoPieza playerChange;
     public bool apertura = false;
@@ -45,7 +45,8 @@ public class Enemie : MonoBehaviour
             ID++;
             node.DrawAdjacencies(tipoPieza, apertura, colorSeleccionable);
             //Poner a null la pieza del nodo
-            previousNode = node;
+            shiftPreviousNodes(false);
+
             node.pieza = null;
             if (gameController.vallaSubidaHorse && meAfectaVallaHorse)
             {
@@ -70,7 +71,7 @@ public class Enemie : MonoBehaviour
                     move = true;
                 }
             }
-            foreach (Node n in previousNode.seleccionables)
+            foreach (Node n in previousNodes[0].seleccionables)
             {
                 if (n.pieza != null && n.pieza.tag == "Player")
                 {
@@ -78,9 +79,9 @@ public class Enemie : MonoBehaviour
                     if (tipoPieza != TipoPieza.PEON)
                     {
                         node = n;
-                        if (!previousNode.seleccionables.Contains(node))
+                        if (!previousNodes[0].seleccionables.Contains(node))
                         {
-                            node = previousNode;
+                            node = previousNodes[0];
                         }
                     }
                 }
@@ -97,9 +98,9 @@ public class Enemie : MonoBehaviour
                                 || (meAfectaVallaHorse && !gameController.vallaSubidaHorse))
                         {
                             node = nodesPath[(ID * nodesIntermedios + i) % nodesPath.Count];
-                            if (!previousNode.seleccionables.Contains(node))
+                            if (!previousNodes[0].seleccionables.Contains(node))
                             {
-                                node = previousNode;
+                                node = previousNodes[0];
                             }
 
                         }
@@ -117,7 +118,7 @@ public class Enemie : MonoBehaviour
                 }
             }
             
-            StartCoroutine(gameController.MoveOverSeconds(this.gameObject, node, 1, false, previousNode, false));
+            StartCoroutine(gameController.MoveOverSeconds(this.gameObject, node, 1, false, previousNodes[0], false));
 
         }
         else
@@ -125,9 +126,34 @@ public class Enemie : MonoBehaviour
             node.pieza = null;
             ID--;
             //node = nodesMovimiento[Mathf.Abs(ID) % nodesMovimiento.Count];
-            node = previousNode;
-            StartCoroutine(gameController.MoveOverSeconds(this.gameObject, node, 1, false, previousNode, false));
+            
+            StartCoroutine(gameController.MoveOverSeconds(this.gameObject, previousNodes[0], 1, false, node, false));
+            node = previousNodes[0];
+            shiftPreviousNodes(true);
+            
         }
     }
 
+    public void shiftPreviousNodes(bool left)
+    {
+        if (left)
+        {
+            for (int i = 0; i < (gameController.player.maxUndos - gameController.player.undoCont); i++)
+            {
+                previousNodes[i] = previousNodes[i + 1];
+
+            }
+        }
+        else
+        {
+            for (int i = 3 - 1; i > 0; i--)
+            {
+                previousNodes[i] = previousNodes[i - 1];
+               
+            }
+            previousNodes[0] = node;
+
+        }
+        //Debug.Log(actions[0] + " " + actions[1] + " " + actions[2] + " ");
+    }
 }

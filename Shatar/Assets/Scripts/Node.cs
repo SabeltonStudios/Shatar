@@ -779,7 +779,7 @@ public class Node : MonoBehaviour
         {
             for(int i=0;i<eliminar.Count;i++)
             {
-                seleccionables.Remove(eliminar[0]);
+                seleccionables.Remove(eliminar[i]);
             }
         }
     }

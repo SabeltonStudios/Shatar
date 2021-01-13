@@ -184,7 +184,7 @@ public class GameController : MonoBehaviour
             {
                 DerrotaMovs();
             }
-            if (end.pieza != null &&!undo)
+            if (end.pieza != null && end.pieza.tag != "Player" && !undo)
             {
                 destruirEnemigo(end.pieza);
             }

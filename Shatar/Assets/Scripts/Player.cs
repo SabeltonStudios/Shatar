@@ -11,6 +11,8 @@ public class Player : MonoBehaviour
     TipoPieza[] previousPieces= new TipoPieza[3];
     bool[] actions= new bool[3];
     public GameObject[] enemiesEat = new GameObject[3];
+    public int[] vallaHorseID = new int[3];
+    public int[] vallaCastleID = new int[3];
     //int undoID;
     public int undoCont;
     public int maxUndos=3;
@@ -116,7 +118,6 @@ public class Player : MonoBehaviour
                 }
                 else
                 {
-                    
                     previousPieces[i] = previousPieces[i + 1];
                 }
             }

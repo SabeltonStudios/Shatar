@@ -114,6 +114,17 @@ public class GameUIManager : MonoBehaviour
 
     void Start()
     {
+        if (SceneManager.GetActiveScene().name == "Tutorial")
+        {
+            PlayerData.playingLevel = 0;
+        }else if (SceneManager.GetActiveScene().name == "Level1")
+        {
+            PlayerData.playingLevel =1;
+        }
+        else if (SceneManager.GetActiveScene().name == "Level1")
+        {
+            PlayerData.playingLevel = 2;
+        }
         menuOpened = false;
 
         PlayerData.backFromLevel = true;
@@ -385,8 +396,10 @@ public class GameUIManager : MonoBehaviour
         menuOpened = true;
         victoriaMenu.SetActive(true);
         victoriaMenu.GetComponent<Animator>().SetBool("isActive", true);
-        if (PlayerData.playingLevel == 0) //Si está en el tutorial, por completarlo se consiguen directamente 3 estrellas
+        if (PlayerData.playingLevel == 0)
+        { //Si está en el tutorial, por completarlo se consiguen directamente 3 estrellas
             m_gameController.numStars = 3;
+        }
         ActualizarNumEstrellas();
         t_numMov.text = m_player.numMovs.ToString() + " " + Localization.GetLocalizedValue("t_moves");
         ActualizarPlayerData(); //Actualiza si se ha logrado mejor puntuacion (movimientos y estrellas)

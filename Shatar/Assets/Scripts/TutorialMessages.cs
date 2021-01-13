@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+//Clase empleada para mostrar los mensajes del nivel de tutorial
 public class TutorialMessages : MonoBehaviour
 {
-    //public enum Language { ESP, ENG }
-    //public Language language;
+    //referencias al jugador, indice del mensaje actual, gifs de peón y caballo, referencia al gamecontroller y uimanager, 
+    //objeto para marcar casilla azul y botones de giro de cámara
     public Player player;
     public int messageShownRightNow;
     public GameObject pawnGif;
@@ -15,16 +15,16 @@ public class TutorialMessages : MonoBehaviour
     public GameUIManager gameUIManager;
     public GameObject blueSquare1;
     public GameObject cameraControllerButtons;
-
+    //panel en que se muestran los mensajes y panel transparente
     public GameObject messagesPanel;
     public GameObject transparentPanel;
-
+    //UIText de los mensajes e instancia de la clase
     public static TutorialMessages instance;
     public Text text;
-
+    //Objeto y UIText para el mensaje inicial
     public GameObject messagesPanelInicial;
     public Text textInicial;
-
+    //Cadenas de mensajes en castellano e inglés
     private string messagesString = "¡Bienvenido a Shatar! Vamos a aprender los controles básicos\n" + //0
         "El peón es tu pieza inicial, que solo puede avanzar en una dirección\n" +//1
         "Toca la casilla a la que quieres ir para mover tu ficha\n" +//2
@@ -45,15 +45,15 @@ public class TutorialMessages : MonoBehaviour
         "Puedes girar el tablero con los botones de abajo\n" +//17
         "¡Mira! Lo que tienes justo delante es la casilla meta\n" +//18
         "El objetivo de cada nivel es llegar ahí, pero parece que está cerrada\n" +//19
-        "Sigue avanzando y ahora pensamos algo\n"+//20
+        "Sigue avanzando y ahora pensamos algo\n" +//20
         "Perfecto, debes saber que si la meta está cerrada, hay siempre un botón que la abre\n" +//21
         "En este caso el botón está en la cara de abajo, ve a pulsarlo para terminar el nivel\n" +//22
         "Te recuerdo que puedes cambiar al caballo cuando quieras\n" + //23
         "Si te fijas en el botón verás que tiene una forma concreta\n" +//24
         "Cada tipo de pieza tiene una forma diferente en su base\n" + //25
-        "En este caso, solo el peón, de base redonda, puede activar el botón\n"+//26
+        "En este caso, solo el peón, de base redonda, puede activar el botón\n" +//26
         "¡Muy bien! La puerta se ha abierto, ya puedes ir a la casilla meta\n" +//27
-        "Ten cuenta que solo el peón cabe por ella (y así ocurrirá en todos los niveles)\n"+//28
+        "Ten cuenta que solo el peón cabe por ella (y así ocurrirá en todos los niveles)\n" +//28
         "Pulsa en este cartel para ocultarlo";//29
 
     private string messagesStringEnglish = "¡Welcome to Shatar! Let's learn the basic controls\n" + //0
@@ -86,16 +86,18 @@ public class TutorialMessages : MonoBehaviour
         "Well done! The goal is open, you can now go and finish the level\n" +//27
         "Just have in mind that only the pawn is small enough to fit through it (and so will occur in any level)\n" +//28
         "Press here to hide this message";//29
-
+                                          //array de mensajes
     private string[] messages;
-    
+
     void Start()
     {
+        //Se inicializa el índice a -1, se desactivan los botones de cámara, se muestra el mensaje inicial y se cogen las referencias 
         messageShownRightNow = -1;
         cameraControllerButtons.SetActive(false);
         StartCoroutine(Fade(messagesPanelInicial, 1f, 0.7f));
         gameUIManager = FindObjectOfType<GameUIManager>();
         instance = this;
+        //Se hace el split de mensajes para almacenarlos en el array
         string[] stringSeparators = new string[] { "\n" };
         switch (Localization.GetLanguage())
         {
@@ -106,12 +108,14 @@ public class TutorialMessages : MonoBehaviour
                 messages = messagesString.Split(stringSeparators, System.StringSplitOptions.None);
                 break;
         }
+        //Se muestra el mensaje inicial e inicia la corrutina que muestra el siguiente
         ShowMessages(0);
         StartCoroutine(WaitAndShowMessage1());
     }
 
     private void Update()
     {
+        //Aquellos objetos que hayan llegado a alpha cero, se desactivan
         if (pawnGif.activeSelf && pawnGif.GetComponent<CanvasGroup>().alpha == 0)
         {
             pawnGif.SetActive(false);
@@ -129,28 +133,17 @@ public class TutorialMessages : MonoBehaviour
             messagesPanelInicial.SetActive(false);
         }
     }
-
+    //método empleado para mostrar una secuencia de mensajes con paso de tiempo
     public void ShowMessages(int[] indexes)
     {
         StartCoroutine(WaitAndShowNextMessage(indexes));
     }
-
+    //método empleado para mostrar cada uno de los mensajes
     public void ShowMessages(int index)
     {
         string textContent = "";
         messageShownRightNow = index;
         textContent = messages[index];
-        /*
-        switch (language)
-        {
-            case Language.ENG:
-                textContent = messages[index];
-                break;
-            case Language.ESP:
-                textContent = messages[index];
-                break;
-        }
-        */
         if (index == 0)
         {
             textInicial.text = textContent;
@@ -159,7 +152,7 @@ public class TutorialMessages : MonoBehaviour
         {
             text.text = textContent;
         }
-
+        //Según el mensaje, se muestran y desbloquean distintas cosas, como gifs de figuras o giros de cámara
         if (messageShownRightNow == 8)
         {
             FadeInTransparentPanel();
@@ -180,6 +173,7 @@ public class TutorialMessages : MonoBehaviour
             cameraControllerButtons.SetActive(true);
         }
     }
+    //método empleado para ocultar el panel de mensajes
     public void HideMessage()
     {
         if (messageShownRightNow == 29)
@@ -187,6 +181,7 @@ public class TutorialMessages : MonoBehaviour
             gameObject.SetActive(false);
         }
     }
+    //enumerator para mostrar los mensaje con paso de tiempo
     IEnumerator WaitAndShowNextMessage(int[] mes)
     {
         for (int i = 0; i < mes.Length; i++)
@@ -198,7 +193,7 @@ public class TutorialMessages : MonoBehaviour
             }
         }
     }
-
+    //método para mostrar el segundo mensaje y transicionar desde inicial
     IEnumerator WaitAndShowMessage1()
     {
         yield return new WaitForSeconds(3);
@@ -210,7 +205,7 @@ public class TutorialMessages : MonoBehaviour
         pawnGif.SetActive(true);
         StartCoroutine(Fade(pawnGif, 1f, 0.5f));
     }
-
+    //Enumerator para el paso de mensajes entre el tercer y cuarto mensaje
     IEnumerator WaitMessages2And3()
     {
         StartCoroutine(Fade(pawnGif, 0f, 0.5f));
@@ -219,23 +214,23 @@ public class TutorialMessages : MonoBehaviour
         yield return new WaitForSeconds(7);
         if (messageShownRightNow != 4) ShowMessages(3);
     }
-
+    //Método para mostrar el tercere y cuarto mensaje
     public void ShowMessages2And3()
     {
         StartCoroutine(WaitMessages2And3());
     }
-
+    //método para habilitar el movimiento del jugador
     public void LetPlayerMove()
     {
         player.move = true;
     }
-
+    //Método para desbloquear la pieza caballo
     public void UnlockKnight()
     {
         gameController.horseUnlock = true;
         gameUIManager.UpdateChangePieceButtonsEnabled();
     }
-
+    //Métodos para realizar el fade de entrada y salida de diferentes elementos
     public void FadeInTransparentPanel()
     {
         transparentPanel.SetActive(true);
@@ -264,14 +259,14 @@ public class TutorialMessages : MonoBehaviour
         }
         gameObject.GetComponent<CanvasGroup>().alpha = amount;
     }
-
+    //método para pasar al siguiente mensaje de forma manual
     public void ShowNextMessage()
     {
-        ShowMessages(messageShownRightNow+1<messages.Length? messageShownRightNow + 1: messageShownRightNow);
+        ShowMessages(messageShownRightNow + 1 < messages.Length ? messageShownRightNow + 1 : messageShownRightNow);
     }
-
+    //método para pasar al anterior mensaje de forma manual
     public void ShowPreviousMessage()
     {
-        ShowMessages(messageShownRightNow - 1> -1? messageShownRightNow -1 : messageShownRightNow);
+        ShowMessages(messageShownRightNow - 1 > -1 ? messageShownRightNow - 1 : messageShownRightNow);
     }
 }

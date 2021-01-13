@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // In order for the FaceGridCreator to work properly, the corner2's x and z coordinates should be greater than the corner1's
-
+//Clase empleada para la generación del grid
 public class FaceGridCreator : MonoBehaviour
 {
     // Two given nodes
@@ -30,7 +30,7 @@ public class FaceGridCreator : MonoBehaviour
     {
         
     }
-
+    //Método creado para la generación del grid, a partir de dos nodos dados, un número de casillas de ancho y largo y un vector forward para la cara
     private void CreateGrid()
     {
         grid = new Node[xSquares][];
@@ -71,7 +71,7 @@ public class FaceGridCreator : MonoBehaviour
             SetAdjacencies();
         }
     }
-
+    //Seteo de adyacencias de cada nodo según el forward de la cara
     private void SetAdjacencies()
     {
         if (forward.x > 0)// Forward vector is (1, 0, 0)

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
+//Definiciónd e los distintos tipos de piezas
 public enum TipoPieza
 {
     PEON,
@@ -12,30 +13,36 @@ public enum TipoPieza
     REINA,
     REY
 }
-
+//Clase empleada para la definición de cada elemento que conforma el grid
 public class Node : MonoBehaviour
 {
-    // The normal vector to the node/square
+    //Vector normal y direccion del nodo
     public Vector3 orientation;
     public Vector3 nodeForward;
+    //Booleanos que indican si se trata de una casilla de teletransporte, de meta, de boton de meta, boton de vallas de castillo,  boitón de vallas de caballo
+    //y de muestra de adyacencias
     public bool teletransport;
     public bool isGoal;
     public bool buttonGoal;
     public bool buttonCastle;
     public bool buttonHorse;
     public bool showAdjacencies;
-    // The list of adjacent nodes/squares
+    //Array de adyacencias del presente nodo, en diferentes orientaciones para los movimientos entre caras de piezas no peón
     public Node[] adjacencies;
     Node[] adjacencies90;
     Node[] adjacencies180;
     Node[] adjacencies270;
+    //Array final de nodos orientados
     public Node[] adjacenciesOrientadas;
+    //Arrays de adyacencias no alcanzables desde el presente nodo, por esquinas, obstaculos, etc.
     public bool[] adjacencieNoAlcanzable = new bool[8];
     bool[] adjacencieNoAlcanzable90 = new bool[8];
     bool[] adjacencieNoAlcanzable180 = new bool[8];
     bool[] adjacencieNoAlcanzable270 = new bool[8];
+    //Array final de adyacencias no alcanzables
     public bool[] adjacencieNoAlcanzableOrientada = new bool[8];
     bool[] adjacencieAllAlcanzable = new bool[8];
+    //Lista de nodos seleccionables, booleano de si es seleccionable, referencia a la pieza que nos ocupa y al gamecontroller
     public List<Node> seleccionables;
     public bool seleccionable = false;
     public GameObject pieza;
@@ -48,11 +55,12 @@ public class Node : MonoBehaviour
     where [-] represents this node/square
     */
 
+    //Adyacencias iniciales
     public void InitializeAdjacencies()
     {
         adjacencies = new Node[8];
     }
-    
+    //método empelado apra el pintado de gizmos que ayuden al ajuste y configuración del grid en conjunto
     private void OnDrawGizmos()
     {
         /*
@@ -91,7 +99,7 @@ public class Node : MonoBehaviour
             }
         }
     }
-
+    //método empleado para pintar flechas en el gizmo
     void DrawArrow(Vector3 pointA, Vector3 pointB)
     {
         Gizmos.DrawLine(pointA, pointB);
@@ -104,13 +112,14 @@ public class Node : MonoBehaviour
     
     public void Awake()
     {
+        //Se cogen la referencia al gamecontroller y a la dirección de la cara
         gameController = FindObjectOfType<GameController>();
         nodeForward = GetComponentInParent<FaceGridCreator>().forward;
         adjacencies90 = new Node[8];
         adjacencies180 = new Node[8];
         adjacencies270 = new Node[8];
         adjacenciesOrientadas = adjacencies;
-
+        //se declaran las adyacencias en distintas orientaciones
         adjacencies90[0] = adjacencies[2];
         adjacencies90[1] = adjacencies[4];
         adjacencies90[2] = adjacencies[7];
@@ -139,7 +148,7 @@ public class Node : MonoBehaviour
         adjacencies270[7] = adjacencies[2];
 
         adjacencieNoAlcanzableOrientada = adjacencieNoAlcanzable;
-
+        //Y de igual forma con las no alcanzables
         adjacencieNoAlcanzable90[0] = adjacencieNoAlcanzable[2];
         adjacencieNoAlcanzable90[1] = adjacencieNoAlcanzable[4];
         adjacencieNoAlcanzable90[2] = adjacencieNoAlcanzable[7];
@@ -167,7 +176,7 @@ public class Node : MonoBehaviour
         adjacencieNoAlcanzable270[6] = adjacencieNoAlcanzable[4];
         adjacencieNoAlcanzable270[7] = adjacencieNoAlcanzable[2];
     }
-
+    //Método empleado para pintar las adyacencias al nodo actual de forma recursiva, según el tipo de pieza que nos ocupe
     public void DrawAdjacencies(TipoPieza pieza, bool apertura, Color color)
     {
         seleccionables = new List<Node>();
@@ -261,7 +270,7 @@ public class Node : MonoBehaviour
         //Pone las casillas seleccionables a true y cambia el color
         setColor(color);
     }
-
+    //Método empleado para moveer en diagonal según el número de casillas indicado
     private void moverDiagonal(int casillas)
     {
         Node izqSuperior = this;
@@ -356,7 +365,7 @@ public class Node : MonoBehaviour
 
         }
     }
-
+    //Método empleado para mover en línea recta el número de casillas indicado
     private void moverRecto(int casillas)
     {
         
@@ -443,7 +452,7 @@ public class Node : MonoBehaviour
 
         }
     }
-
+    //método empleado para el desplazamiento en L
     private void moverL()
     {
         Node superior = this;
@@ -727,11 +736,12 @@ public class Node : MonoBehaviour
          }
         
     }
+    //Método empleado para pintar las posibles casillas seleccionables
     private void setColor(Color color)
     {
         foreach (Node n in seleccionables)
         {
-            //n.GetComponent<MeshRenderer>().material.color = color;
+            //Para cada nodo seleccionable se pinta su emisiva y albedo con el color de la pieza, así como sus objetos hijos, como botones o teletransportes
             n.GetComponent<MeshRenderer>().material.EnableKeyword("_EMISSION");
             n.GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", color);
             n.GetComponent<MeshRenderer>().material.color = color;
@@ -747,6 +757,7 @@ public class Node : MonoBehaviour
             }
         }
     }
+    //Método empleado para limpiar las adyacencias pintadas
     public void UndrawAdjacencies()
     {
         foreach (Node nodo in seleccionables)
@@ -764,7 +775,7 @@ public class Node : MonoBehaviour
             }
         }
     }
-
+    //método para limpiar los nodos meta seleccionables
     private void removeSeleccionableMeta()
     {
         //Lista de nodos repetidos meta a eliminar
@@ -787,7 +798,7 @@ public class Node : MonoBehaviour
             }
         }
     }
-
+    //método para limpiar los nodos botón de castillo seleccionables
     private void removeNodeButtonCastle()
     {
         //Lista de nodos repetidos meta a eliminar
@@ -810,7 +821,7 @@ public class Node : MonoBehaviour
             }
         }
     }
-
+    //método para limpiar los nodos botón de caballo seleccionables
     private void removeNodeButtonHorse()
     {
         //Lista de nodos repetidos meta a eliminar
@@ -833,20 +844,19 @@ public class Node : MonoBehaviour
             }
         }
     }
-
+    //Método enpleado para el orientado de nodos segun el nodo de procedencia y destino
     private float orientarAdjacencies(Node primero, Node adyacencia, float anguloInferior)
     {
         //Calcular ángulo
         if (adyacencia != null)
         {
-            //Pruebas de Anto
+            //De forma trigonométrica se plasman en un mismo plano los nodos, para poder comprobar la diferencia en ángulos entre sus vectores directores y emplear unas adyacencias u otras
             float diferenciaNormales = Vector3.SignedAngle(primero.orientation, adyacencia.orientation, Vector3.Cross(adyacencia.orientation, primero.orientation));
             Vector3 otherdirection = adyacencia.nodeForward;
             Vector3 fixedforward = adyacencia.nodeForward;
             fixedforward = Quaternion.AngleAxis(diferenciaNormales, Vector3.Cross(primero.orientation, adyacencia.orientation)) * fixedforward;
 
             float angulo = Vector3.SignedAngle(fixedforward, primero.nodeForward, primero.orientation);
-            //Debug.Log(angulo);
             angulo = angulo + anguloInferior;
            
             anguloInferior = angulo;

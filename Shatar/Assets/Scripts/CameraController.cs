@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//clase empleada para el control de cámara
 public class CameraController : MonoBehaviour
 {
     //Variable booleana empleada para impedir nuevos giros hasta haberse completado el anterior

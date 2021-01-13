@@ -53,7 +53,8 @@ public class TutorialMessages : MonoBehaviour
         "Cada tipo de pieza tiene una forma diferente en su base\n" + //25
         "En este caso, solo el peón, de base redonda, puede activar el botón\n"+//26
         "¡Muy bien! La puerta se ha abierto, ya puedes ir a la casilla meta\n" +//27
-        "Ten cuenta que solo el peón cabe por ella (y así ocurrirá en todos los niveles)\n";//28
+        "Ten cuenta que solo el peón cabe por ella (y así ocurrirá en todos los niveles)\n"+//28
+        "Pulsa en este cartel para ocultarlo";//29
 
     private string messagesStringEnglish = "¡Welcome to Shatar! Let's learn the basic controls\n" + //0
         "The pawn is your starting piece, which can only move in one direction\n" +//1
@@ -83,7 +84,8 @@ public class TutorialMessages : MonoBehaviour
         "Every chessman has a different shape in its base\n" + //25
         "In this case, only the pawn, having a round base can activate the button\n" +//26
         "Well done! The goal is open, you can now go and finish the level\n" +//27
-        "Just have in mind that only the pawn is small enough to fit through it (and so will occur in any level)\n";//28
+        "Just have in mind that only the pawn is small enough to fit through it (and so will occur in any level)\n" +//28
+        "Press here to hide this message";//29
 
     private string[] messages;
     
@@ -178,7 +180,13 @@ public class TutorialMessages : MonoBehaviour
             cameraControllerButtons.SetActive(true);
         }
     }
-
+    public void HideMessage()
+    {
+        if (messageShownRightNow == 29)
+        {
+            gameObject.SetActive(false);
+        }
+    }
     IEnumerator WaitAndShowNextMessage(int[] mes)
     {
         for (int i = 0; i < mes.Length; i++)
@@ -259,11 +267,11 @@ public class TutorialMessages : MonoBehaviour
 
     public void ShowNextMessage()
     {
-        ShowMessages(messageShownRightNow+1);
+        ShowMessages(messageShownRightNow+1<messages.Length? messageShownRightNow + 1: messageShownRightNow);
     }
 
     public void ShowPreviousMessage()
     {
-        ShowMessages(messageShownRightNow - 1);
+        ShowMessages(messageShownRightNow - 1> -1? messageShownRightNow -1 : messageShownRightNow);
     }
 }

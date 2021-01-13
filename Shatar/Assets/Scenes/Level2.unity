@@ -12602,13 +12602,13 @@ MonoBehaviour:
   teletransporte:
   - {fileID: 0}
   - {fileID: 0}
-  stars: 0e000000140000001e000000
+  stars: 110000001900000023000000
   player: {fileID: 0}
   goal: {fileID: 42793932}
   buttonHorse: {fileID: 840833553}
   buttonCastle: {fileID: 293301138}
   goalOpen: 0
-  maxMovs: 40
+  maxMovs: 60
   victoria: 0
   derrota: 0
   numStars: 0

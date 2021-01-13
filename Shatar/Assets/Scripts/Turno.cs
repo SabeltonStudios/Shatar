@@ -10,8 +10,9 @@ public class Turno : MonoBehaviour
     public int vallaHorseID;
     public int vallaCastleID;
     public bool cambioPieza;
+    public bool goalOpened;
 
-    public Turno(Node p,TipoPieza tp,GameObject et, int vh, int vc, bool cambioP)
+    public Turno(Node p,TipoPieza tp,GameObject et, int vh, int vc, bool cambioP, bool goalO)
     {
         previousNode = p;
         previousPieza = tp;
@@ -19,6 +20,7 @@ public class Turno : MonoBehaviour
         vallaHorseID = vh;
         vallaCastleID = vc;
         cambioPieza = cambioP;
+        goalO = goalOpened;
     }
 
     // Start is called before the first frame update

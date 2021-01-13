@@ -180,7 +180,11 @@ public class Node : MonoBehaviour
                     //Añade la casilla si es la meta y está abierta, o si otra casilla
                     if((adjacencies[1].isGoal && gameController.goalOpen) || !adjacencies[1].isGoal)
                     {
-                        seleccionables.Add(adjacencies[1]);
+                        if(adjacencies[1].pieza == null)
+                        {
+                            seleccionables.Add(adjacencies[1]);
+                        }
+                        
                     }
                     
                 }else if (adjacencieNoAlcanzable[1] && !gameController.horseUnlock)
@@ -191,7 +195,7 @@ public class Node : MonoBehaviour
                 //Si es apertura, también selecciona la siguiente
                 if (apertura)
                 {
-                    if(adjacencies[1].adjacencies[1] != null && !adjacencies[1].adjacencieNoAlcanzable[1])
+                    if(adjacencies[1].adjacencies[1] != null && !adjacencies[1].adjacencieNoAlcanzable[1] && adjacencies[1].adjacencies[1].pieza == null)
                     seleccionables.Add(adjacencies[1].adjacencies[1]);
                 }
                 if(adjacencies[0] != null)

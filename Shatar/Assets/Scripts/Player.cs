@@ -83,6 +83,12 @@ public class Player : MonoBehaviour
                         gameController.enemigos.Add(aux[i]);
                     }
                 }
+                if (previousTurno.goalOpened)
+                {
+                    gameController.goalOpen = false;
+                    gameController.goal.Play("Close");
+                }
+                
                 
                 //MIRAR SI EL SHIFT ES ANTERIOR O POSTERIOR A MOVER
                 StartCoroutine(gameController.MoveOverSeconds(this.gameObject, previousTurno.previousNode, 1, true, node, true));

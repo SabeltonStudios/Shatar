@@ -48,7 +48,7 @@ public class GameController : MonoBehaviour
         player = FindObjectOfType<Player>();
         gameUIManager = FindObjectOfType<GameUIManager>();
         goalOpen = false;
-        turnoPrevious = new Turno(player.node, player.tipoPieza, null, movHorseButton, movCastleButton, false);
+        turnoPrevious = new Turno(player.node, player.tipoPieza, null, movHorseButton, movCastleButton, false,false);
     }
 
     // Update is called once per frame
@@ -176,7 +176,7 @@ public class GameController : MonoBehaviour
         
         if (playerBool)
         {
-            Turno turnoActual = new Turno(end, player.tipoPieza, null, movHorseButton, movCastleButton, false);
+            Turno turnoActual = new Turno(end, player.tipoPieza, null, movHorseButton, movCastleButton, false,false);
             isPlayerMoving = false;
 
             //player.numMovs++;
@@ -190,7 +190,7 @@ public class GameController : MonoBehaviour
                 destruirEnemigo(end.pieza);
             }
             //Si cae en una casilla de teletransporte
-            if (end.teletransport)
+            if (end.teletransport && !undo)
             {
                 m_soundManager.Play_SoundEffect("teleport");
                 foreach (Node n in teletransporte)
@@ -211,6 +211,7 @@ public class GameController : MonoBehaviour
                 //Abre la meta
                 goal.Play("Open");
                 goalOpen = true;
+                turnoPrevious.goalOpened = goalOpen;
             }
             
             if (end.isGoal)
@@ -222,6 +223,7 @@ public class GameController : MonoBehaviour
             {
                 if(turnoPrevious.previousNode != null)
                 {
+                    
                     turnoPrevious.vallaHorseID = movHorseButton;
                     turnoPrevious.vallaCastleID = movCastleButton;
                     player.previousTurnos.Push(turnoPrevious);
@@ -434,7 +436,7 @@ public class GameController : MonoBehaviour
             if (!undo)
             {
                 player.numMovs++;
-                Turno turnoActual = new Turno(player.node, player.tipoPieza,null, movHorseButton, movCastleButton, false);
+                Turno turnoActual = new Turno(player.node, player.tipoPieza,null, movHorseButton, movCastleButton, false,false);
                 if (turnoPrevious.previousNode != null)
                 {
                     turnoPrevious.vallaHorseID = movHorseButton;

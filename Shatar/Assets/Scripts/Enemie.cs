@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class Enemie : MonoBehaviour
 {
+    #region Variables
+    //Referencia al nodo actual que ocupa la pieza
     public Node node;
+    //Referencia a los nodos anteriores, para cuando el jugador deshace turnos
     public Node[] previousNodes = new Node[3];
     public TipoPieza tipoPieza;
     public TipoPieza playerChange;
@@ -20,7 +23,7 @@ public class Enemie : MonoBehaviour
     public bool move;
     public int nodesIntermedios;
     GameController gameController;
-
+    #endregion
     // Start is called before the first frame update
     void Start()
     {

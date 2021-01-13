@@ -39,6 +39,7 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        m_soundManager = FindObjectOfType<SoundManager>();
         //Pasar el array de enemigos a una lista para un manejo más cómodo
         Enemie[] aux = FindObjectsOfType<Enemie>();
         for(int i=0; i < aux.Length; i++)
@@ -87,10 +88,10 @@ public class GameController : MonoBehaviour
             }
            
         }
-        */
+        
         if (Input.GetKeyDown(KeyCode.M)) {
             goal.Play("Open");
-        }
+        }*/
     }
 
     public void EnemigosTurno(bool undo)
@@ -107,6 +108,7 @@ public class GameController : MonoBehaviour
     }
     public void destruirEnemigo(GameObject pieza)
     {
+        m_soundManager.Play_SoundEffect("ficha_comida1");
         //player.tipoPieza = pieza.GetComponent<Enemie>().playerChange;
         pieza.GetComponent<Enemie>().shiftPreviousNodes(false);
         pieza.GetComponent<Enemie>().ID++;
@@ -131,7 +133,7 @@ public class GameController : MonoBehaviour
         {
             m_soundManager.Play_SoundEffect("fichas2");
         }
-
+        //m_soundManager.Play_SoundEffect("fichaArrastrandose");
         float elapsedTime = 0;
         Vector3 startingPos = objectToMove.transform.position;
         Vector3 startingRot = objectToMove.transform.up;
@@ -210,6 +212,7 @@ public class GameController : MonoBehaviour
             {
                 //Abre la meta
                 goal.Play("Open");
+                m_soundManager.Play_SoundEffect("goal");
                 goalOpen = true;
                 turnoPrevious.goalOpened = goalOpen;
             }
@@ -272,6 +275,7 @@ public class GameController : MonoBehaviour
                     m_soundManager.Play_SoundEffect("vallas1");
                     a.SetFloat("Speed", -1);
                     a.SetInteger("State", movHorseButton);
+                    m_soundManager.Play_SoundEffect("vallas");
                 }
                 //Cambiar la textura
                 buttonHorse.GetComponent<MeshRenderer>().material.SetTexture("_EmissionMap", horseButtonTextures[movHorseButton%horseButtonTextures.Length]);
@@ -294,6 +298,7 @@ public class GameController : MonoBehaviour
                         m_soundManager.Play_SoundEffect("vallas2");
                         a.SetFloat("Speed", 1);
                         a.SetInteger("State", movHorseButton);
+                        m_soundManager.Play_SoundEffect("vallas");
                     }
                     movHorseButton--;
                     //Cambiar la textura
@@ -329,6 +334,7 @@ public class GameController : MonoBehaviour
                     m_soundManager.Play_SoundEffect("vallas1");
                     a.SetFloat("Speed", -1);
                     a.SetInteger("State", movCastleButton);
+                    m_soundManager.Play_SoundEffect("vallas");
                 }
                 
                 //Cambiar la textura
@@ -353,6 +359,7 @@ public class GameController : MonoBehaviour
                         m_soundManager.Play_SoundEffect("vallas2");
                         a.SetFloat("Speed", 11);
                         a.SetInteger("State", movCastleButton);
+                        m_soundManager.Play_SoundEffect("vallas");
                     }
                     movCastleButton--;
                     //Cambiar la textura
@@ -379,6 +386,7 @@ public class GameController : MonoBehaviour
     }
     public void DerrotaComido()
     {
+        m_soundManager.Play_SoundEffect("ficha_comida2");
         derrota = 2;
         //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }

@@ -4,33 +4,16 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
+    //Variable booleana empleada para impedir nuevos giros hasta haberse completado el anterior
     public bool enabledMov = true;
-
-
-    // Start is called before the first frame update
+    //Referencia al script mediante el que hacer sonar los diferentes efectos de sonido, en este caso el de giro de cámara
+    private SoundManager m_soundManager = null;
+    // Update is called once per frame
     void Start()
     {
-        
+        m_soundManager = FindObjectOfType<SoundManager>();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-            /*if (Input.GetKeyDown(KeyCode.LeftArrow))
-            {
-                turnLeft();
-            }
-            else if (Input.GetKeyDown(KeyCode.UpArrow))
-            {
-                turnUp();
-            }else if (Input.GetKeyDown(KeyCode.DownArrow))
-            {
-                turnDown();
-            }else if (Input.GetKeyDown(KeyCode.RightArrow))
-            {
-                turnRight();
-            }*/
-    }
+    //Métodos empleados para girar la cámara a derecha, izquierda, arriba y abajo, respectivamente
     public void turnRight()
     {
         if (enabledMov)
@@ -45,6 +28,7 @@ public class CameraController : MonoBehaviour
             StartCoroutine(rotateSmooth(new Vector3(0, 90, 0), 1));
         }
     }
+    //En el caso de los giros susperior e inferior, se limitan los mismos entre dos ángulos, para no perder control de la cámara
     public void turnUp()
     {
         if ((transform.rotation.eulerAngles.x >= 285 && transform.rotation.eulerAngles.x < 295) && enabledMov)
@@ -59,9 +43,11 @@ public class CameraController : MonoBehaviour
             StartCoroutine(rotateSmooth(new Vector3(-70, 0, 0), 1));
         }
     }
+    //Enumator empleado para el movimiento fluido de cámara a lo largo del tiempo, una vez se inicia impide nuevos movimientos, hasta haberse completado
     IEnumerator rotateSmooth(Vector3 angle, float seconds)
     {
         enabledMov = false;
+        m_soundManager.Play_SoundEffect("camaraRotation");
         float elapsedTime = 0;
         Vector3 startingRot = transform.rotation.eulerAngles;
         Vector3 end = transform.rotation.eulerAngles + angle;
@@ -74,7 +60,7 @@ public class CameraController : MonoBehaviour
         transform.rotation = Quaternion.Euler(end);
         enabledMov = true;
     }
-
+    //Métodos empleados por el controlador de UI para habilitar los botones de giro superior e inferior sólo si la inclinación lo permite
     public bool checkIfCanTurnUp()
     {
         return (transform.rotation.eulerAngles.x >= 285 && transform.rotation.eulerAngles.x < 295);

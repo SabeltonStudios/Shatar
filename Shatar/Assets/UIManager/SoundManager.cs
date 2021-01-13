@@ -19,6 +19,8 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private AudioSource vallas1 = null;
     [SerializeField] private AudioSource vallas2 = null;
     [SerializeField] private AudioSource camaraRotation = null;
+    [SerializeField] private AudioSource goal = null;
+    [SerializeField] private AudioSource vallas = null;
 
     [Header("Music")]
     [SerializeField] private AudioSource song_menu = null;
@@ -70,6 +72,12 @@ public class SoundManager : MonoBehaviour
                     break;
                 case "camaraRotation":
                     camaraRotation.Play();
+                    break;
+                case "goal":
+                    goal.Play();
+                    break;
+                case "vallas":
+                    vallas.Play();
                     break;
             }
         }

@@ -7,12 +7,8 @@ public class Player : MonoBehaviour
 {
     [SerializeField]
     public Node node;
-    public Node[] previousNodes= new Node[3];
-    TipoPieza[] previousPieces= new TipoPieza[3];
-    bool[] actions= new bool[3];
-    public GameObject[] enemiesEat = new GameObject[3];
-    public int[] vallaHorseID = new int[3];
-    public int[] vallaCastleID = new int[3];
+    public Stack<Turno> previousTurnos = new Stack<Turno>();
+
     //int undoID;
     public int undoCont;
     public int maxUndos=3;
@@ -33,7 +29,6 @@ public class Player : MonoBehaviour
     void Start()
     {
         gameController = FindObjectOfType<GameController>();
-        previousPieces[0] = tipoPieza;
         //undoID = 0;
         undoCont = 0;
         node.pieza = this.gameObject;
@@ -71,14 +66,16 @@ public class Player : MonoBehaviour
             {
                 apertura = true;
             }
-            if (!actions[0])
+            Turno previousTurno = previousTurnos.Pop();
+            gameController.turnoPrevious = previousTurno;
+            if (!previousTurno.cambioPieza)
             {
                 node.UndrawAdjacencies();
                 node.pieza = null;
                 
-                if (enemiesEat[0] != null)
+                if (previousTurno.enemieEat != null)
                 {
-                    enemiesEat[0].SetActive(true);
+                    previousTurno.enemieEat.SetActive(true);
                     gameController.enemigos.Clear();
                     Enemie[] aux = FindObjectsOfType<Enemie>();
                     for (int i = 0; i < aux.Length; i++)
@@ -86,74 +83,25 @@ public class Player : MonoBehaviour
                         gameController.enemigos.Add(aux[i]);
                     }
                 }
-
-                //Añadir el nuevo nodo, mover hacia él
-                node = previousNodes[0];
-                //se le pasa true para despachar a la izquierda, false para la derecha, como al moverse, y si hace shift de piezas o posiciones
-                shiftPreviousNodes(true, false);
+                
                 //MIRAR SI EL SHIFT ES ANTERIOR O POSTERIOR A MOVER
-                StartCoroutine(gameController.MoveOverSeconds(this.gameObject, node, 1, true, previousNodes[0], true));
+                StartCoroutine(gameController.MoveOverSeconds(this.gameObject, previousTurno.previousNode, 1, true, node, true));
+                node = previousTurno.previousNode;
+                node.pieza = this.gameObject;
             }
             else
             {
                 //Debug.Log(previousPieces[0]);
-                gameController.cambiaPieza(previousPieces[0], true);
+                gameController.cambiaPieza(previousTurno.previousPieza, true);
             }
-            
+            gameController.movCastleButton = previousTurno.vallaCastleID;
+            gameController.movHorseButton = previousTurno.vallaHorseID;
+            gameController.updateButtonCastle(true);
+            gameController.updateButtonHorse(true);
             
         }
     }
-    public void shiftPreviousNodes(bool left, bool pieces)
-    {
-        if (left)
-        {
-            for(int i= 0; i<(maxUndos-undoCont); i++)
-            {
-                actions[i] = actions[i + 1];
-                enemiesEat[i] = enemiesEat[i + 1];
-
-                if (!pieces)
-                {
-                    previousNodes[i] = previousNodes[i + 1];
-                }
-                else
-                {
-                    previousPieces[i] = previousPieces[i + 1];
-                }
-            }
-        }
-        else
-        {
-            for(int i=maxUndos-1; i > 0; i--)
-            {
-                actions[i] = actions[i - 1];
-                enemiesEat[i] = enemiesEat[i - 1];
-
-                if (pieces)
-                {
-                    previousPieces[i] = previousPieces[i - 1];
-                    
-                }
-                else
-                {
-                    previousNodes[i] = previousNodes[i - 1];
-                }
-            }
-            if (pieces)
-            {
-                previousPieces[0] = tipoPieza;
-                actions[0] = true;
-            }
-            else
-            {
-                previousNodes[0] = node;
-                enemiesEat[0] = null;
-                actions[0] = false;
-            }
-            
-        }
-        //Debug.Log(actions[0] + " " + actions[1] + " " + actions[2] + " ");
-    }
+    
     private void MoveTo(Vector3 point)
     {
         float nearD = float.MaxValue;
@@ -174,12 +122,10 @@ public class Player : MonoBehaviour
             //Eliminar casillas seleccionables anteriores
             node.UndrawAdjacencies();
             node.pieza = null;
-            shiftPreviousNodes(false, false);
             
+            StartCoroutine(gameController.MoveOverSeconds(this.gameObject, aux, 1, true, node, false));
             //Añadir el nuevo nodo, mover hacia él
             node = aux;
-            //transform.position = node.transform.position;
-            StartCoroutine(gameController.MoveOverSeconds(this.gameObject, node, 1, true, previousNodes[0], false));
             if (node.GetComponent<MessageTrigger>())
             {
                 node.GetComponent<MessageTrigger>().showMessages();

@@ -72,6 +72,7 @@
     <Compile Include="Assets\Scripts\MessageTrigger.cs" />
     <Compile Include="Assets\Scripts\Node.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
+    <Compile Include="Assets\Scripts\Turno.cs" />
     <Compile Include="Assets\Scripts\TutorialMessages.cs" />
     <Compile Include="Assets\UIManager\BgScroll.cs" />
     <Compile Include="Assets\UIManager\CSVLoader.cs" />

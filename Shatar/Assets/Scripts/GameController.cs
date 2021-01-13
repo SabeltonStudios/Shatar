@@ -35,7 +35,7 @@ public class GameController : MonoBehaviour
     public List<Animator> vallasHorse;
     public List<Animator> vallasCastle;
     [SerializeField] private SoundManager m_soundManager = null;
-
+    public Turno turnoPrevious;
     // Start is called before the first frame update
     void Start()
     {
@@ -48,6 +48,7 @@ public class GameController : MonoBehaviour
         player = FindObjectOfType<Player>();
         gameUIManager = FindObjectOfType<GameUIManager>();
         goalOpen = false;
+        turnoPrevious = new Turno(player.node, player.tipoPieza, null, movHorseButton, movCastleButton, false);
     }
 
     // Update is called once per frame
@@ -109,8 +110,6 @@ public class GameController : MonoBehaviour
         //player.tipoPieza = pieza.GetComponent<Enemie>().playerChange;
         pieza.GetComponent<Enemie>().shiftPreviousNodes(false);
         pieza.GetComponent<Enemie>().ID++;
-        //player.shiftPreviousNodes(false, false);
-        player.enemiesEat[0] = pieza;
         pieza.SetActive(false);
         enemigos.Clear();
         Enemie[] aux = FindObjectsOfType<Enemie>();
@@ -177,6 +176,7 @@ public class GameController : MonoBehaviour
         
         if (playerBool)
         {
+            Turno turnoActual = new Turno(end, player.tipoPieza, null, movHorseButton, movCastleButton, false);
             isPlayerMoving = false;
 
             //player.numMovs++;
@@ -186,6 +186,7 @@ public class GameController : MonoBehaviour
             }
             if (end.pieza != null && end.pieza.tag != "Player" && !undo)
             {
+                turnoPrevious.enemieEat = end.pieza;
                 destruirEnemigo(end.pieza);
             }
             //Si cae en una casilla de teletransporte
@@ -198,6 +199,7 @@ public class GameController : MonoBehaviour
                     {
                         player.node = n;
                         player.node.pieza = player.gameObject;
+                        turnoActual.previousNode = n;
                         objectToMove.transform.position = n.transform.position;
                         objectToMove.transform.up = n.orientation;
                         break;
@@ -216,7 +218,18 @@ public class GameController : MonoBehaviour
                 Victoria();
             }
             end.pieza = objectToMove;
-            
+            if (!undo)
+            {
+                if(turnoPrevious.previousNode != null)
+                {
+                    turnoPrevious.vallaHorseID = movHorseButton;
+                    turnoPrevious.vallaCastleID = movCastleButton;
+                    player.previousTurnos.Push(turnoPrevious);
+                    turnoPrevious = turnoActual;
+                }
+                
+            }
+           
             //Hace falta ocupar la pieza antes de indicarles que se muevan para que puedan comprobar si estoy en su camino
             EnemigosTurno(undo);
         }
@@ -240,12 +253,17 @@ public class GameController : MonoBehaviour
         }
     }
 
-    private void updateButtonHorse(bool undo)
+    public void updateButtonHorse(bool undo)
     {
-        if (movHorseButton > 0 && vallaSubidaHorse)
+        if (vallaSubidaHorse)
         {
             if (undo)
             {
+                if (movHorseButton == -1)
+                {
+                    movHorseButton = 5;
+                }
+               
                 //Subir las vallas
                 foreach(Animator a in vallasHorse)
                 {
@@ -253,13 +271,10 @@ public class GameController : MonoBehaviour
                     a.SetFloat("Speed", -1);
                     a.SetInteger("State", movHorseButton);
                 }
-                
-                movHorseButton++;
-                
                 //Cambiar la textura
                 buttonHorse.GetComponent<MeshRenderer>().material.SetTexture("_EmissionMap", horseButtonTextures[movHorseButton%horseButtonTextures.Length]);
                 
-                if (movHorseButton == 5)
+                if (movHorseButton == 5 || movHorseButton==0)
                 {
                     vallaSubidaHorse = false;
                     nodesVallaHorse[0].adjacencieNoAlcanzable[4] = false;
@@ -269,47 +284,54 @@ public class GameController : MonoBehaviour
             }
             else
             {
-                //Bajar las vallas
-                foreach (Animator a in vallasHorse)
+                if (movHorseButton > 0)
                 {
-                    m_soundManager.Play_SoundEffect("vallas2");
-                    a.SetFloat("Speed", 1);
-                    a.SetInteger("State", movHorseButton);
+                    //Bajar las vallas
+                    foreach (Animator a in vallasHorse)
+                    {
+                        m_soundManager.Play_SoundEffect("vallas2");
+                        a.SetFloat("Speed", 1);
+                        a.SetInteger("State", movHorseButton);
+                    }
+                    movHorseButton--;
+                    //Cambiar la textura
+                    buttonHorse.GetComponent<MeshRenderer>().material.SetTexture("_EmissionMap", horseButtonTextures[movHorseButton]);
+
+                    if (movHorseButton == 0)
+                    {
+                        vallaSubidaHorse = false;
+                        nodesVallaHorse[0].adjacencieNoAlcanzable[4] = false;
+                        nodesVallaHorse[1].adjacencieNoAlcanzable[3] = false;
+                        movHorseButton = -1;
+                    }
                 }
-                movHorseButton--;
-                //Cambiar la textura
-                buttonHorse.GetComponent<MeshRenderer>().material.SetTexture("_EmissionMap", horseButtonTextures[movHorseButton]);
                 
-                if (movHorseButton == 0)
-                {
-                    vallaSubidaHorse = false;
-                    nodesVallaHorse[0].adjacencieNoAlcanzable[4] = false;
-                    nodesVallaHorse[1].adjacencieNoAlcanzable[3] = false;
-                    movHorseButton = -1;
-                }
             }
             
         }
     }
 
-    private void updateButtonCastle(bool undo)
+    public void updateButtonCastle(bool undo)
     {
-        if (movCastleButton > 0 && vallaSubidaCastle)
+        if (vallaSubidaCastle)
         {
             if (undo)
             {
+                if (movCastleButton == -1)
+                {
+                    movCastleButton = 4;
+                }
                 //Subir las vallas
-                foreach(Animator a in vallasCastle)
+                foreach (Animator a in vallasCastle)
                 {
                     m_soundManager.Play_SoundEffect("vallas1");
                     a.SetFloat("Speed", -1);
                     a.SetInteger("State", movCastleButton);
                 }
                 
-                movCastleButton++;
                 //Cambiar la textura
                 buttonCastle.GetComponent<MeshRenderer>().material.SetTexture("_EmissionMap", castleButtonTextures[movCastleButton%castleButtonTextures.Length]);
-                if (movCastleButton == 4)
+                if (movCastleButton == 4 || movCastleButton == 0)
                 {
                     nodesVallaCastle[0].adjacencieNoAlcanzable[4] = false;
                     nodesVallaCastle[1].adjacencieNoAlcanzable[4] = false;
@@ -321,26 +343,30 @@ public class GameController : MonoBehaviour
             }
             else
             {
-                //Bajar las vallas
-                foreach (Animator a in vallasCastle)
+                if (movCastleButton > 0)
                 {
-                    m_soundManager.Play_SoundEffect("vallas2");
-                    a.SetFloat("Speed", 11);
-                    a.SetInteger("State", movCastleButton);
-                }
-                movCastleButton--;
-                //Cambiar la textura
-                buttonCastle.GetComponent<MeshRenderer>().material.SetTexture("_EmissionMap", castleButtonTextures[movCastleButton]);
+                    //Bajar las vallas
+                    foreach (Animator a in vallasCastle)
+                    {
+                        m_soundManager.Play_SoundEffect("vallas2");
+                        a.SetFloat("Speed", 11);
+                        a.SetInteger("State", movCastleButton);
+                    }
+                    movCastleButton--;
+                    //Cambiar la textura
+                    buttonCastle.GetComponent<MeshRenderer>().material.SetTexture("_EmissionMap", castleButtonTextures[movCastleButton]);
 
-                if (movCastleButton == 0)
-                {
-                    nodesVallaCastle[0].adjacencieNoAlcanzable[4] = false;
-                    nodesVallaCastle[1].adjacencieNoAlcanzable[4] = false;
-                    nodesVallaCastle[1].adjacencieNoAlcanzable[3] = false;
-                    nodesVallaCastle[2].adjacencieNoAlcanzable[3] = false;
-                    vallaSubidaCastle = false;
-                    movCastleButton = -1;
+                    if (movCastleButton == 0)
+                    {
+                        nodesVallaCastle[0].adjacencieNoAlcanzable[4] = false;
+                        nodesVallaCastle[1].adjacencieNoAlcanzable[4] = false;
+                        nodesVallaCastle[1].adjacencieNoAlcanzable[3] = false;
+                        nodesVallaCastle[2].adjacencieNoAlcanzable[3] = false;
+                        vallaSubidaCastle = false;
+                        movCastleButton = -1;
+                    }
                 }
+                
             }
         }
     }
@@ -382,7 +408,7 @@ public class GameController : MonoBehaviour
             m_soundManager.Play_SoundEffect("fichas3");
 
             //if (undo) { Debug.Log("cambio a la anterior"); } else { Debug.Log("cambio a la siguiente"); }
-            player.shiftPreviousNodes(undo, true);
+            
             player.tipoPieza = tipoPieza;
             
             player.transform.GetChild(0).gameObject.SetActive(false);
@@ -408,6 +434,15 @@ public class GameController : MonoBehaviour
             if (!undo)
             {
                 player.numMovs++;
+                Turno turnoActual = new Turno(player.node, player.tipoPieza,null, movHorseButton, movCastleButton, false);
+                if (turnoPrevious.previousNode != null)
+                {
+                    turnoPrevious.vallaHorseID = movHorseButton;
+                    turnoPrevious.vallaCastleID = movCastleButton;
+                    turnoPrevious.cambioPieza = true;
+                    player.previousTurnos.Push(turnoPrevious);
+                    turnoPrevious = turnoActual;
+                }
             }
             else
             {

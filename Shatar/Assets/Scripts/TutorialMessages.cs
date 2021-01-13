@@ -57,33 +57,33 @@ public class TutorialMessages : MonoBehaviour
 
     private string messagesStringEnglish = "¡Welcome to Shatar! Let's learn the basic controls\n" + //0
         "The pawn is your starting piece, which can only move in one direction\n" +//1
-        "Touch the square you want to go to move your piece or pawn\n" +//2
-        "Green sqaures are the options you have to move\n" +//3
-        "Do you see that rook that you have by your side? You know what you have to do...\n" +//4
-        "Do you see that rook that you have by your side? You know what you have to do...\n" +//5
-        "¡Good! Squares in pink are the range of the enemies\n" +//6
-        "Well! It seems you can't jump over the fence\n" +//7
-        "It is okay. We introduce you the knight, expert in jumping over fences!\n" +//8
-        "Press the blue circle button above and choose the knight\n" + //9
-        "Do you see you can eat a rook? Well, that is not always a good idea\n" +//10
-        "If you enter in an enemy's range, it will eat you\n" +//11
+        "Touch the square you want to go to move your piece\n" +//2
+        "The green squares are the options you have to move in your turn\n" +//3
+        "Do you see that rook right next to you? Well, you know what to do...\n" +//4
+        "Do you see that rook right next to you? Well, you know what to do...\n" +//5
+        "Great! Pink squares show the enemies’ movement range\n" +//6
+        "It seems like you can’t jump the fence. Dammit!\n" +//7
+        "Don’t worry. This is the knight, an expert in hurdling!\n" +//8
+        "Press the blue round button in the upper part and choose the knight\n" + //9
+        "Can you see you could eat that rook? Well, not always is a good idea to do so\n" +//10
+        "If you enter an enemy’s movement range, they will eat you. Go to the blue square\n" +//11
         "Go to the blue square\n" +//12
-        "Great, now, to progress without the rooks seeing you, change back to the pawn\n" +//13
-        "The pawn is so little that goes unnoticed. It is the only piece with this power!\n" +//14
-        "Being a pawn you can now eat the rook above without being seeing by the one below\n" + //15
-        "¡Awesome! Now we reach the hidden side of the cube. Don't worry!\n" +//16
-        "You can rotate the board with these buttons below\n" +//17
-        "¡Look! What you have just ahead is the goal square\n" +//18
-        "The goal of each level is to get there, but it seems it's locked\n" +//19
-        "Keep moving and we will think of something\n" +//20
-        "Perfect, you must know that if the goal square is closed and inaccesible, there is always a button that opens it\n" +//21
-        "In this case the button is in the face down, go and press it to finish the level\n" +//22
-        "I remind you that you can change to the knight anytime you want\n" + //23
-        "If you look at the button you will see that it has a specific shape\n" +//24
-        "Each type of piece has a different shape at its base\n" + //25
-        "In this case, only the round-based pawn can activate the button\n" +//26
-        "Great! The door has been opened, you can now go to the goal square\n" +//27
-        "Keep in mind that only the pawn fits through it (and this will happen in all the levels)\n";//28
+        "Great! Now, to go on without being seen, switch back to pawn\n" +//13
+        "The pawn is so small that will go unnoticed. It’s the only piece with this power!\n" +//14
+        "If you’re a pawn you can eat the upper rook without being noticed by the lower one\n" + //15
+        "Good job! Now we get close to the hidden part of the cube. Don’t worry!\n" +//16
+        "Use the lower buttons to turn the board\n" +//17
+        "What you have right in front of you is the goal square\n" +//18
+        "The aim of every level is to get there, but it seems to be closed\n" +//19
+        "Okay, keep moving a bit and we’ll think of something\n" +//20
+        "Perfect, you should know that if the goal square is closed, there is always a button to open it\n" +//21
+        "In this case, that button is on the lower face of the board. Go press it to finish the level\n" +//22
+        "Friendly reminder: you can switch to being a knight at any moment\n" + //23
+        "If you look closely at the button, you’ll see that it has a specific shape\n" +//24
+        "Every chessman has a different shape in its base\n" + //25
+        "In this case, only the pawn, having a round base can activate the button\n" +//26
+        "Well done! The goal is open, you can now go and finish the level\n" +//27
+        "Just have in mind that only the pawn is small enough to fit through it (and so will occur in any level)\n";//28
 
     private string[] messages;
     

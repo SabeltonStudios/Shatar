@@ -191,6 +191,7 @@ public class MenuUIManager : MonoBehaviour
             t_currentLanguage.GetComponent<Text>().text = "English";
             Localization.SetLanguage(Localization.Language.English);
         }
+        LanguageValue = Localization.language;
 
         m_soundManager.Mute_Music("song_menu", PlayerData.MusicMuted);
         m_soundManager.Play_Music("song_menu");
@@ -392,7 +393,7 @@ public class MenuUIManager : MonoBehaviour
         {
             b_levels[i].GetComponent<Image>().sprite = unlockedLevelSprite;
             b_levels[i].enabled = true;
-            if (i > 0) { levelsEstrellasNecesarias[i - 1].SetActive(true); }
+            if (i > 0) { levelsEstrellasNecesarias[i].SetActive(true); }
             UpdateAllLevelStars(i);
         }
         for (int i = (PlayerData.NivelActual + 1); i < b_levels.Count; i++)
@@ -409,13 +410,6 @@ public class MenuUIManager : MonoBehaviour
     }
 
     private void UpdateCurrentStars()
-    {
-        int currentStars = PlayerData.Level0Estrellas + PlayerData.Level1Estrellas + PlayerData.Level2Estrellas;
-        PlayerData.Stars = currentStars;
-        t_currentStars.text = PlayerData.Stars.ToString("00");
-    }
-
-    private void UpdateLevelStars()
     {
         int currentStars = PlayerData.Level0Estrellas + PlayerData.Level1Estrellas + PlayerData.Level2Estrellas;
         PlayerData.Stars = currentStars;

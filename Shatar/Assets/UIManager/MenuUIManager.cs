@@ -673,7 +673,7 @@ public class MenuUIManager : MonoBehaviour
         if (newMenu == creditos)
         {
             //Coming Soon
-            AddSocialMediaButtonListeners(b_twitterComingSoon, b_instagramComingSoon, b_youtubeComingSoon, b_tiktokComingSoon);
+            AddSocialMediaButtonListeners(b_twitter, b_instagram, b_youtube, b_tiktok);
             b_backToMenu_creditos.onClick.AddListener(() => { PlaySoundEffect("click_button"); goToMainMenu(creditos); });
         }
         disablePanel.SetActive(true);

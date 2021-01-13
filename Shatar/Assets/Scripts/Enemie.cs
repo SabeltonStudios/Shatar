@@ -9,10 +9,15 @@ public class Enemie : MonoBehaviour
     public Node node;
     //Referencia a los nodos anteriores, para cuando el jugador deshace turnos
     public Node[] previousNodes = new Node[3];
+    //Tipo de pieza del enemigo
     public TipoPieza tipoPieza;
+    //Tipo de pieza que desbloqueamos en el jugador 
     public TipoPieza playerChange;
+    //Los enemigos nunca hacen movimiento de apertura al no ser peones
     public bool apertura = false;
+    //Color para pintar nuestras posibles adyacencias
     Color colorSeleccionable = new Color(237.0f / 255.0f, 33.0f / 255.0f, 115.0f / 255.0f, 1);
+    //ïndice
     public int ID = -1;
     public bool turno = false;
     public bool meAfectaVallaHorse;

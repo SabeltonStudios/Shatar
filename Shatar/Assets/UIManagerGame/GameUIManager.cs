@@ -398,13 +398,16 @@ public class GameUIManager : MonoBehaviour
                 puedePasarDeNivel = true;
                 break;
             case "Level1":
-            case "Level2":
                 numEstrellasNecesarias = 5;
-                if (PlayerData.Stars < 5)
+                if (PlayerData.Stars < numEstrellasNecesarias)
                     puedePasarDeNivel = false;
                 else
                     puedePasarDeNivel = true;
                 break;
+            case "Level2":
+                puedePasarDeNivel = false;
+                break;
+                
         }
         if (!puedePasarDeNivel)
         {

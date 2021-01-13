@@ -1960,16 +1960,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   node: {fileID: 150254808}
-  previousNodes:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  enemiesEat:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  vallaHorseID: 000000000000000000000000
-  vallaCastleID: 000000000000000000000000
   undoCont: 0
   maxUndos: 3
   numMovs: 0
@@ -3352,7 +3342,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 460623391}
   m_LocalRotation: {x: 0.30070576, y: 0, z: 0, w: 0.953717}
-  m_LocalPosition: {x: -0.4, y: 54.3, z: -71.8}
+  m_LocalPosition: {x: -0.4, y: 63.67, z: -71.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2066504753}
@@ -18628,6 +18618,7 @@ MonoBehaviour:
   vallasHorse: []
   vallasCastle: []
   m_soundManager: {fileID: 1312156611346315451}
+  turnoPrevious: {fileID: 0}
 --- !u!4 &1940344069
 Transform:
   m_ObjectHideFlags: 0

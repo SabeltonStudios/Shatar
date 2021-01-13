@@ -69,6 +69,7 @@
     <Compile Include="Assets\Scripts\GameController.cs" />
     <Compile Include="Assets\Scripts\Grid.cs" />
     <Compile Include="Assets\Scripts\Lvl1Messages.cs" />
+    <Compile Include="Assets\Scripts\Lvl2Messages.cs" />
     <Compile Include="Assets\Scripts\MessageTrigger.cs" />
     <Compile Include="Assets\Scripts\Node.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />

@@ -3,24 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Lvl1Messages : MonoBehaviour
+public class Lvl2Messages : MonoBehaviour
 {
     //public enum Language { ESP, ENG }
     //public Language language;
     public int messageShownRightNow;
-    private bool messagesAlreadyShown;
+    public GameObject rookGif;
 
     public GameObject messagesPanel;
 
     public Text text;
 
-    private string messagesString = "Esa casilla tan rara que ves ahí es una casilla de teletransporte\n" +//0
-        "Como puedes ver hay dos, cuando caigas en una, aparecerás en la otra\n" +//1
-        "Pulsa en este cartel para ocultarlo";//2
+    private string messagesString = "¡En este nivel puedes utilizar una nueva pieza!¡La torre!\n" +//0
+        "En este nivel hay botones especiales. Pero su efecto no dura eternamente\n" +//1
+        "Una vez que dejes de pulsar el botón, el número de luces que tenga encendidas...\n" +//2
+        "indicará los turnos que quedan para que deje de tener efecto\n" +//3
+        "Pulsa en este cartel para ocultarlo";//4
 
-    private string messagesStringEnglish = "That square right there that looks so weird is a teleporting square\n" +//0
-        "as you can see there's two of them, when you step on one, you'll appear on the other one\n" +//1
-        "Press here to hide this message";//2
+    private string messagesStringEnglish = "In this level you'll get to use a new piece! The rook!\n" +//0
+        "In this level there are special buttons. But their effect doesn't last forever\n" +//1
+        "Once you release a button, the number of lights turned on it'll have...\n" +//2
+        "will indicate you the turns left for it to stop causing any effect\n" +//3
+        "Press here to hide this message";//4
 
     private string[] messages;
 
@@ -37,6 +41,9 @@ public class Lvl1Messages : MonoBehaviour
                 messages = messagesString.Split(stringSeparators, System.StringSplitOptions.None);
                 break;
         }
+        FadeInRookGif();
+        StartCoroutine(Fade(messagesPanel, 1, 1.0f));
+        ShowMessages(0);
     }
 
     private void Update()
@@ -44,20 +51,15 @@ public class Lvl1Messages : MonoBehaviour
 
     }
 
-    public void ExplainTeleportingSquares()
+    public void ExplainButtons()
     {
-        if (!messagesAlreadyShown)
-        {
-            messagesAlreadyShown = true;
-            StartCoroutine(Fade(messagesPanel, 1, 1.0f));
-            int[] teleportingSquareExplanation = { 0, 1, 2 };
-            ShowMessages(teleportingSquareExplanation);
-        }
+        int[] buttonsMessages = { 1, 2, 3, 4 };
+        ShowMessages(buttonsMessages);
     }
 
     public void HideMessage()
     {
-        if (messageShownRightNow == 2)
+        if (messageShownRightNow == 4)
         {
             StartCoroutine(Fade(messagesPanel, 0, 1.0f));
         }
@@ -102,6 +104,16 @@ public class Lvl1Messages : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
+    }
+
+    public void FadeInRookGif()
+    {
+        StartCoroutine(Fade(rookGif, 1, 1.0f));
+    }
+
+    public void FadeOutRookGif()
+    {
+        StartCoroutine(Fade(rookGif, 0, 1.0f));
     }
 
     public void ShowNextMessage()

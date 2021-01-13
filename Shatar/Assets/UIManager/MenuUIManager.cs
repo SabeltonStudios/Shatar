@@ -9,13 +9,21 @@ public class MenuUIManager : MonoBehaviour
     #region Variables
     [Header("Main Menu")]
     [SerializeField] private GameObject mainMenu = null;
+
     [SerializeField] private Button b_play = null;
+    [SerializeField] private Button b_creditos = null;
     [SerializeField] private Button b_settings = null;
     [SerializeField] private GameObject i_settings = null;
+
+    [Header("Creditos")]
+    [SerializeField] private Button b_backToMenu_creditos = null;
+    [SerializeField] private GameObject creditos = null;
     [SerializeField] private Button b_twitter = null;
     [SerializeField] private Button b_instagram = null;
     [SerializeField] private Button b_youtube = null;
     [SerializeField] private Button b_tiktok = null;
+    [SerializeField] private GameObject creditosES = null;
+    [SerializeField] private GameObject creditosEN = null;
 
     [Header("LevelsMap")]
     [SerializeField] private GameObject levelsMap = null;
@@ -56,6 +64,7 @@ public class MenuUIManager : MonoBehaviour
     [SerializeField] private GameObject i_mutedMusic = null;
     [SerializeField] private GameObject i_unmutedMusic = null;
     [SerializeField] private Button b_backToMenu_settings = null;
+
 
     [Header("Store")]
     [SerializeField] private GameObject store = null;
@@ -132,14 +141,21 @@ public class MenuUIManager : MonoBehaviour
 
         goToLevelsMap(lastMenu);
     }
-    #endregion  
+    IEnumerator LoadCreditos(GameObject lastMenu, float time)
+    {
+
+        yield return new WaitForSeconds(time);
+
+        goToCreditos(lastMenu);
+    }
+
+    #endregion
 
     void Start()
     {
         StartCoroutine(FadeOutRoutine(sceneFadePanel));
 
         AddListeners();
-        AddSocialMediaButtonListeners(b_twitter, b_instagram, b_youtube, b_tiktok);
         AddLevelButtonListeners();
 
         /*
@@ -180,7 +196,7 @@ public class MenuUIManager : MonoBehaviour
         }
         MuteMusic(PlayerData.MusicMuted);
         MuteSoundEffects(PlayerData.SoundEffectsMuted);
-        
+
         //Ver en qué idioma estaba configurado el juego
         if (PlayerPrefs.GetInt("language", 0) == 0)
         {
@@ -272,6 +288,16 @@ public class MenuUIManager : MonoBehaviour
 
     private void AddSocialMediaButtonListeners(Button twitter, Button instagram, Button youtube, Button tiktok)
     {
+        if (PlayerPrefs.GetInt("language", 0) == 0)
+        {
+            creditosES.SetActive(true);
+            creditosEN.SetActive(false);
+        }
+        else
+        {
+            creditosEN.SetActive(true);
+            creditosES.SetActive(false);
+        }
         twitter.onClick.AddListener(() => { PlaySoundEffect("click_button"); Application.ExternalEval("window.open('https://twitter.com/SabeltonStudios','Sabelton Twitter')"); });
         instagram.onClick.AddListener(() => { PlaySoundEffect("click_button"); Application.ExternalEval("window.open('https://www.instagram.com/sabeltonstudios','Sabelton Instagram')"); });
         youtube.onClick.AddListener(() => { PlaySoundEffect("click_button"); Application.ExternalEval("window.open('https://www.youtube.com/channel/UCaw0EJIphiofJF5lcD1SEJg','Sabelton Youtube')"); });
@@ -287,8 +313,12 @@ public class MenuUIManager : MonoBehaviour
         isInLevelsMap = true;
 
         t_currentGems.text = PlayerData.Gems.ToString("00");
-        
+
         b_backToMenu_levelsMap.gameObject.SetActive(true);
+    }
+    private void goToCreditos(GameObject lastMenu)
+    {
+        DeactivateActivateMenu(lastMenu, creditos);
     }
 
     private void OpenLevelPanel(int levelNumber)
@@ -392,7 +422,7 @@ public class MenuUIManager : MonoBehaviour
         b_levels[0].onClick.AddListener(() => { PlaySoundEffect("click_button"); OpenLevelPanel(0); });
         b_levels[1].onClick.AddListener(() => { PlaySoundEffect("click_button"); OpenLevelPanel(1); });
         b_levels[2].onClick.AddListener(() => { PlaySoundEffect("click_button"); OpenLevelPanel(2); });
-        b_levels[3].onClick.AddListener(() => { PlaySoundEffect("click_button"); ActivatePanel(levelPanelComingSoon, transparentPanel, true);});
+        b_levels[3].onClick.AddListener(() => { PlaySoundEffect("click_button"); ActivatePanel(levelPanelComingSoon, transparentPanel, true); });
     }
 
     private void UpdateAvailableLevelsSprites()
@@ -640,6 +670,12 @@ public class MenuUIManager : MonoBehaviour
 
     private void DeactivateActivateMenu(GameObject lastMenu, GameObject newMenu)
     {
+        if (newMenu == creditos)
+        {
+            //Coming Soon
+            AddSocialMediaButtonListeners(b_twitterComingSoon, b_instagramComingSoon, b_youtubeComingSoon, b_tiktokComingSoon);
+            b_backToMenu_creditos.onClick.AddListener(() => { PlaySoundEffect("click_button"); goToMainMenu(creditos); });
+        }
         disablePanel.SetActive(true);
         changeStateDisablePanel = true;
         if (lastMenu != null)
@@ -688,7 +724,8 @@ public class MenuUIManager : MonoBehaviour
     private void AddListeners()
     {
         //Main Menu Buttons
-        b_play.onClick.AddListener(() => { PlaySoundEffect("click_button"); StartCoroutine(LoadMenuAfterWait(mainMenu, 0.23f)); } );
+        b_play.onClick.AddListener(() => { PlaySoundEffect("click_button"); StartCoroutine(LoadMenuAfterWait(mainMenu, 0.23f)); });
+        b_creditos.onClick.AddListener(() => { PlaySoundEffect("click_button"); StartCoroutine(LoadCreditos(mainMenu, 0.23f)); });
         b_settings.onClick.AddListener(() => { PlaySoundEffect("click_button"); i_settings.GetComponent<Animator>().SetBool("onClick", true); goToSettings(mainMenu); });
 
         //Settings Buttons
@@ -703,15 +740,14 @@ public class MenuUIManager : MonoBehaviour
         b_backToMenu_levelsMap.onClick.AddListener(() => { PlaySoundEffect("click_button"); goToMainMenu(levelsMap); isInLevelsMap = false; });
         b_backToLevelMap.onClick.AddListener(() => { PlaySoundEffect("click_button"); ActivateLevelPanel(false); });
 
-        //Coming Soon
-        AddSocialMediaButtonListeners(b_twitterComingSoon, b_instagramComingSoon, b_youtubeComingSoon, b_tiktokComingSoon);
+
         b_backToLevelMapComingSoon.onClick.AddListener(() => { PlaySoundEffect("click_button"); ActivatePanel(levelPanelComingSoon, transparentPanel, false); });
 
         //Store Buttons
         b_purchase_5gems.onClick.AddListener(() => { PlaySoundEffect("click_button"); OpenPurchasePanel("5_Gems"); });
         b_purchase_10gems.onClick.AddListener(() => { PlaySoundEffect("click_button"); OpenPurchasePanel("10_Gems"); });
         b_purchase_15gems.onClick.AddListener(() => { PlaySoundEffect("click_button"); OpenPurchasePanel("15_Gems"); });
-        b_cancel.onClick.AddListener(() => 
+        b_cancel.onClick.AddListener(() =>
         {
             PlaySoundEffect("click_button");
             b_confirm.onClick.RemoveAllListeners();

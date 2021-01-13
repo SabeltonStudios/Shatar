@@ -16976,9 +16976,9 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: b2d24573883da8a4c959880d9efa2613, type: 3}
-    m_FontSize: 100
+    m_FontSize: 15
     m_FontStyle: 0
-    m_BestFit: 1
+    m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 100
     m_Alignment: 4
@@ -24025,6 +24025,7 @@ MonoBehaviour:
   sceneFadePanel: {fileID: 672140753012302358}
   disableChangePieceButton: {fileID: 672140752376335791}
   disableChangePieceButton2: {fileID: 672140753799079093}
+  skip: {fileID: 0}
 --- !u!1 &672140752427829599
 GameObject:
   m_ObjectHideFlags: 0
@@ -24861,6 +24862,7 @@ GameObject:
   - component: {fileID: 672140752542236742}
   - component: {fileID: 672140752542236736}
   - component: {fileID: 672140752542236737}
+  - component: {fileID: 672140752542236744}
   m_Layer: 5
   m_Name: t_menu
   m_TagString: Untagged
@@ -24868,6 +24870,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &672140752542236744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 672140752542236743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5904815131a935047b9da16f56429def, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: t_menu
 --- !u!114 &672140752543496396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25312,6 +25327,7 @@ GameObject:
   - component: {fileID: 672140752707945537}
   - component: {fileID: 672140752707945539}
   - component: {fileID: 672140752707945536}
+  - component: {fileID: 672140752707945543}
   m_Layer: 5
   m_Name: t_menu
   m_TagString: Untagged
@@ -25319,6 +25335,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &672140752707945543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 672140752707945542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5904815131a935047b9da16f56429def, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: t_menu
 --- !u!222 &672140752722950332
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -32260,6 +32289,7 @@ GameObject:
   - component: {fileID: 672140754194736216}
   - component: {fileID: 672140754194736218}
   - component: {fileID: 672140754194736219}
+  - component: {fileID: 672140754194736220}
   m_Layer: 5
   m_Name: t_menu
   m_TagString: Untagged
@@ -32307,6 +32337,19 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Men\xFA"
+--- !u!114 &672140754194736220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 672140754194736217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5904815131a935047b9da16f56429def, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: t_menu
 --- !u!222 &672140754225703916
 CanvasRenderer:
   m_ObjectHideFlags: 0

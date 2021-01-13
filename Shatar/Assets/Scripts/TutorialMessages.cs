@@ -260,13 +260,23 @@ public class TutorialMessages : MonoBehaviour
         gameObject.GetComponent<CanvasGroup>().alpha = amount;
     }
     //método para pasar al siguiente mensaje de forma manual
-    public void ShowNextMessage()
+   /* public void ShowNextMessage()
     {
         ShowMessages(messageShownRightNow + 1 < messages.Length ? messageShownRightNow + 1 : messageShownRightNow);
-    }
+    }*/
     //método para pasar al anterior mensaje de forma manual
     public void ShowPreviousMessage()
     {
         ShowMessages(messageShownRightNow - 1 > -1 ? messageShownRightNow - 1 : messageShownRightNow);
+    }
+    public void skipTutorial()
+    {
+        gameObject.GetComponent<CanvasGroup>().alpha = 0;
+        UnlockKnight();
+        LetPlayerMove();
+        pawnGif.GetComponent<CanvasGroup>().alpha = 0;
+        knightGif.GetComponent<CanvasGroup>().alpha = 0;
+        cameraControllerButtons.SetActive(true);
+
     }
 }

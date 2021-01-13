@@ -16042,9 +16042,9 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: b2d24573883da8a4c959880d9efa2613, type: 3}
-    m_FontSize: 100
+    m_FontSize: 15
     m_FontStyle: 0
-    m_BestFit: 1
+    m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 100
     m_Alignment: 4
@@ -21882,6 +21882,7 @@ GameObject:
   - component: {fileID: 1312156609956280163}
   - component: {fileID: 1312156609956280161}
   - component: {fileID: 1312156609956280160}
+  - component: {fileID: 1312156609956280164}
   m_Layer: 5
   m_Name: t_menu
   m_TagString: Untagged
@@ -21908,6 +21909,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1312156609956280164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1312156609956280162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5904815131a935047b9da16f56429def, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: t_menu
 --- !u!4 &1312156610022539056
 Transform:
   m_ObjectHideFlags: 0
@@ -28826,6 +28840,7 @@ GameObject:
   - component: {fileID: 1312156611446331258}
   - component: {fileID: 1312156611446331256}
   - component: {fileID: 1312156611446331259}
+  - component: {fileID: 1312156611446331262}
   m_Layer: 5
   m_Name: t_menu
   m_TagString: Untagged
@@ -28833,6 +28848,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1312156611446331262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1312156611446331261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5904815131a935047b9da16f56429def, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: t_menu
 --- !u!114 &1312156611461360518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29346,6 +29374,7 @@ GameObject:
   - component: {fileID: 1312156611607843709}
   - component: {fileID: 1312156611607843707}
   - component: {fileID: 1312156611607843706}
+  - component: {fileID: 1312156611607843710}
   m_Layer: 5
   m_Name: t_menu
   m_TagString: Untagged
@@ -29372,6 +29401,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1312156611607843710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1312156611607843708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5904815131a935047b9da16f56429def, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: t_menu
 --- !u!1 &1312156611609095145
 GameObject:
   m_ObjectHideFlags: 0
@@ -30330,6 +30372,7 @@ MonoBehaviour:
   sceneFadePanel: {fileID: 1312156611138318637}
   disableChangePieceButton: {fileID: 1312156611778469524}
   disableChangePieceButton2: {fileID: 1312156610382608270}
+  skip: {fileID: 0}
 --- !u!114 &1312156611754896514
 MonoBehaviour:
   m_ObjectHideFlags: 0

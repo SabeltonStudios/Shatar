@@ -134,7 +134,6 @@ public class GameController : MonoBehaviour
         {
             m_soundManager.Play_SoundEffect("fichas2");
         }
-        //m_soundManager.Play_SoundEffect("fichaArrastrandose");
         //Se pasa de una rotación y posición inicial a la final indicada de forma gradual, en cuestión del tiempo pasado como argumento
         float elapsedTime = 0;
         Vector3 startingPos = objectToMove.transform.position;
@@ -265,19 +264,20 @@ public class GameController : MonoBehaviour
             m_soundManager.Play_SoundEffect("fichas2");
         }
     }
-
+    //método empleado para actualizar el número de turnos restantes para la bajada de valla, tanto texturas como animaciones
     public void updateButtonHorse(bool undo)
     {
         if (vallaSubidaHorse)
         {
             if (undo)
             {
+                //Si está subida y es undo, seteamos el indice si es -1
                 if (movHorseButton == -1)
                 {
                     movHorseButton = 5;
                 }
                
-                //Subir las vallas
+                //Se recorren las diferentes vallas para actualizar su animación, sonido
                 foreach(Animator a in vallasHorse)
                 {
                     m_soundManager.Play_SoundEffect("vallas1");
@@ -285,22 +285,23 @@ public class GameController : MonoBehaviour
                     a.SetInteger("State", movHorseButton);
                     m_soundManager.Play_SoundEffect("vallas");
                 }
-                //Cambiar la textura
+                //Se actualiza la textura del botón
                 buttonHorse.GetComponent<MeshRenderer>().material.SetTexture("_EmissionMap", horseButtonTextures[movHorseButton%horseButtonTextures.Length]);
                 
+                //Si el índice es 5 o 0 significa que la valla está bajada
                 if (movHorseButton == 5 || movHorseButton==0)
                 {
+                    //por lo que actualizamos el booleano y las adyacencias
                     vallaSubidaHorse = false;
                     nodesVallaHorse[0].adjacencieNoAlcanzable[4] = false;
                     nodesVallaHorse[1].adjacencieNoAlcanzable[3] = false;
-                    //movHorseButton = -1;
                 }
             }
             else
-            {
+            { //Si no es undo y el índice es mayor a 0
                 if (movHorseButton > 0)
                 {
-                    //Bajar las vallas
+                    //Para cada valla actualizamos su animación y sonido
                     foreach (Animator a in vallasHorse)
                     {
                         m_soundManager.Play_SoundEffect("vallas2");
@@ -308,10 +309,11 @@ public class GameController : MonoBehaviour
                         a.SetInteger("State", movHorseButton);
                         m_soundManager.Play_SoundEffect("vallas");
                     }
+                    //Bajamos el indice y actualizamos la textura
                     movHorseButton--;
-                    //Cambiar la textura
                     buttonHorse.GetComponent<MeshRenderer>().material.SetTexture("_EmissionMap", horseButtonTextures[movHorseButton]);
 
+                    //La valla está bajada y reseteamos las variables
                     if (movHorseButton == 0)
                     {
                         vallaSubidaHorse = false;
@@ -325,7 +327,7 @@ public class GameController : MonoBehaviour
             
         }
     }
-
+    //Al igual que en el método anterior, se emplea para actualizar el botón de las vallas
     public void updateButtonCastle(bool undo)
     {
         if (vallaSubidaCastle)

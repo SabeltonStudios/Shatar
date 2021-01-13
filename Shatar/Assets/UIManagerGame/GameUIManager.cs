@@ -70,6 +70,7 @@ public class GameUIManager : MonoBehaviour
     [SerializeField] private GameObject sceneFadePanel = null;
     [SerializeField] private GameObject disableChangePieceButton = null;
     [SerializeField] private GameObject disableChangePieceButton2 = null;
+    [SerializeField] private Button skip = null;
 
     private string levelName;
 
@@ -114,6 +115,7 @@ public class GameUIManager : MonoBehaviour
 
     void Start()
     {
+        
         if (SceneManager.GetActiveScene().name == "Tutorial")
         {
             PlayerData.playingLevel = 0;
@@ -371,6 +373,7 @@ public class GameUIManager : MonoBehaviour
     private void AbrirMenuUndoMov(bool state)
     {
         t_gemsNum.text = PlayerData.Gems.ToString();
+        t_movesLeft_menuUndo.text = t_undoCont.text + " " + Localization.GetLocalizedValue("t_moves");
         transparentPanel.SetActive(state);
         transparentPanel.GetComponent<CanvasGroup>().alpha = 1f;
         if (state)
@@ -401,7 +404,7 @@ public class GameUIManager : MonoBehaviour
             m_gameController.numStars = 3;
         }
         ActualizarNumEstrellas();
-        t_numMov.text = m_player.numMovs.ToString() + " " + Localization.GetLocalizedValue("t_moves");
+            t_numMov.text = m_player.numMovs.ToString() + " " + Localization.GetLocalizedValue("t_moves");
         ActualizarPlayerData(); //Actualiza si se ha logrado mejor puntuacion (movimientos y estrellas)
         PlayerData.Stars = PlayerData.Level0Estrellas + PlayerData.Level1Estrellas + PlayerData.Level2Estrellas;
         switch (levelName) //Mirar si tiene estrellas suficientes para pasar al siguiente nivel

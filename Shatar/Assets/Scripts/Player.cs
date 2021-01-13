@@ -146,6 +146,7 @@ public class Player : MonoBehaviour
             else
             {
                 previousNodes[0] = node;
+                enemiesEat[0] = null;
                 actions[0] = false;
             }
             

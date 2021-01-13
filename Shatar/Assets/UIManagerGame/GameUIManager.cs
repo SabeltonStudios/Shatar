@@ -120,7 +120,6 @@ public class GameUIManager : MonoBehaviour
         undoCont = 3;
 
         StartCoroutine(FadeOutRoutine(sceneFadePanel));
-
         movesLeft = m_gameController.maxMovs;
         t_movesLeft.text = movesLeft.ToString();
 

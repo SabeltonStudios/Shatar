@@ -109,6 +109,7 @@ public class GameController : MonoBehaviour
         //player.tipoPieza = pieza.GetComponent<Enemie>().playerChange;
         pieza.GetComponent<Enemie>().shiftPreviousNodes(false);
         pieza.GetComponent<Enemie>().ID++;
+        //player.shiftPreviousNodes(false, false);
         player.enemiesEat[0] = pieza;
         pieza.SetActive(false);
         enemigos.Clear();
@@ -148,7 +149,7 @@ public class GameController : MonoBehaviour
         }
         objectToMove.transform.position = end.transform.position;
         objectToMove.transform.up = end.orientation;
-        if (end.buttonCastle)
+        if (end.buttonCastle && !undo)
         {
             nodesVallaCastle[0].adjacencieNoAlcanzable[4] = true;
             nodesVallaCastle[1].adjacencieNoAlcanzable[4] = true;
@@ -161,12 +162,13 @@ public class GameController : MonoBehaviour
                 updateButtonCastle(false);
             }
         }
-        if (end.buttonHorse)
+        if (end.buttonHorse&& !undo)
         {
             nodesVallaHorse[0].adjacencieNoAlcanzable[4] = true;
             nodesVallaHorse[1].adjacencieNoAlcanzable[3] = true;
             movHorseButton = 5;
             vallaSubidaHorse = true;
+            // NO SÉ SI LLAMANDO A ESTO ANTES SE AHORA LA COMPROBACIÓN DEL UNDO
             if (!playerBool)
             {
                 updateButtonHorse(false);
@@ -262,7 +264,7 @@ public class GameController : MonoBehaviour
                     vallaSubidaHorse = false;
                     nodesVallaHorse[0].adjacencieNoAlcanzable[4] = false;
                     nodesVallaHorse[1].adjacencieNoAlcanzable[3] = false;
-                    movHorseButton = -1;
+                    //movHorseButton = -1;
                 }
             }
             else

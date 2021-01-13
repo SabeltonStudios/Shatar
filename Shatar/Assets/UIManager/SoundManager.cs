@@ -78,7 +78,6 @@ public class SoundManager : MonoBehaviour
     public void RandomChessPiecePlaceSound()
     {
         int eleccionAleatoria = Random.Range(1, 3);
-        Debug.Log("eleccionAleatoria = " + eleccionAleatoria);
         switch (eleccionAleatoria)
         {
             case 1:

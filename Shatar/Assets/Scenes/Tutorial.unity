@@ -3471,7 +3471,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 102, y: -188}
+  m_AnchoredPosition: {x: 0, y: -188}
   m_SizeDelta: {x: 624, y: 234.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &410237461
@@ -3499,7 +3499,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 100
-    m_Alignment: 3
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -3765,7 +3765,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 71}
-  m_SizeDelta: {x: 790, y: 234.8}
+  m_SizeDelta: {x: 683.4, y: 234.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &427021067
 MonoBehaviour:
@@ -3798,7 +3798,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "\xBFQuieres volver al men\xFA?\n Perder\xE1s el progreso de este nivel."
+  m_Text: "\xBFQuieres volver al men\xFA?                 Peder\xE1s el progreso de
+    este nivel."
 --- !u!222 &427021068
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10836,7 +10837,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1095413100
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14080,7 +14081,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47a2f280b59951840b999ba9d02f661e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  language: 0
   player: {fileID: 1501000196}
   messageShownRightNow: 0
   pawnGif: {fileID: 419627914}

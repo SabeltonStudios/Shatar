@@ -50,4 +50,9 @@ public class Localization : MonoBehaviour
     {
         language = newLanguage;
     }
+
+    public static Language GetLanguage()
+    {
+        return language;
+    }
 }

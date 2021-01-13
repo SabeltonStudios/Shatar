@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class TutorialMessages : MonoBehaviour
 {
-    public enum Language { ESP, ENG }
-    public Language language;
+    //public enum Language { ESP, ENG }
+    //public Language language;
     public Player player;
     public int messageShownRightNow;
     public GameObject pawnGif;
@@ -55,9 +55,38 @@ public class TutorialMessages : MonoBehaviour
         "¡Muy bien! La puerta se ha abierto, ya puedes ir a la casilla meta\n" +//27
         "Ten cuenta que solo el peón cabe por ella (y así ocurrirá en todos los niveles)\n";//28
 
-    private string[] messages;
+    private string messagesStringEnglish = "¡Welcome to Shatar! Let's learn the basic controls\n" + //0
+        "The pawn is your starting piece, which can only move in one direction\n" +//1
+        "Touch the square you want to go to move your piece or pawn\n" +//2
+        "Green sqaures are the options you have to move\n" +//3
+        "Do you see that rook that you have by your side? You know what you have to do...\n" +//4
+        "Do you see that rook that you have by your side? You know what you have to do...\n" +//5
+        "¡Good! Squares in pink are the range of the enemies\n" +//6
+        "Well! It seems you can't jump over the fence\n" +//7
+        "It is okay. We introduce you the knight, expert in jumping over fences!\n" +//8
+        "Press the blue circle button above and choose the knight\n" + //9
+        "Do you see you can eat a rook? Well, that is not always a good idea\n" +//10
+        "If you enter in an enemy's range, it will eat you\n" +//11
+        "Go to the blue square\n" +//12
+        "Great, now, to progress without the rooks seeing you, change back to the pawn\n" +//13
+        "The pawn is so little that goes unnoticed. It is the only piece with this power!\n" +//14
+        "Being a pawn you can now eat the rook above without being seeing by the one below\n" + //15
+        "¡Awesome! Now we reach the hidden side of the cube. Don't worry!\n" +//16
+        "You can rotate the board with these buttons below\n" +//17
+        "¡Look! What you have just ahead is the goal square\n" +//18
+        "The goal of each level is to get there, but it seems it's locked\n" +//19
+        "Keep moving and we will think of something\n" +//20
+        "Perfect, you must know that if the goal square is closed and inaccesible, there is always a button that opens it\n" +//21
+        "In this case the button is in the face down, go and press it to finish the level\n" +//22
+        "I remind you that you can change to the knight anytime you want\n" + //23
+        "If you look at the button you will see that it has a specific shape\n" +//24
+        "Each type of piece has a different shape at its base\n" + //25
+        "In this case, only the round-based pawn can activate the button\n" +//26
+        "Great! The door has been opened, you can now go to the goal square\n" +//27
+        "Keep in mind that only the pawn fits through it (and this will happen in all the levels)\n";//28
 
-    // Start is called before the first frame update
+    private string[] messages;
+    
     void Start()
     {
         messageShownRightNow = -1;
@@ -66,26 +95,34 @@ public class TutorialMessages : MonoBehaviour
         gameUIManager = FindObjectOfType<GameUIManager>();
         instance = this;
         string[] stringSeparators = new string[] { "\n" };
-        messages = messagesString.Split(stringSeparators, System.StringSplitOptions.None);
+        switch (Localization.GetLanguage())
+        {
+            case Localization.Language.English:
+                messages = messagesStringEnglish.Split(stringSeparators, System.StringSplitOptions.None);
+                break;
+            case Localization.Language.Spanish:
+                messages = messagesString.Split(stringSeparators, System.StringSplitOptions.None);
+                break;
+        }
         ShowMessages(0);
         StartCoroutine(WaitAndShowMessage1());
     }
 
     private void Update()
     {
-        if (pawnGif.GetComponent<CanvasGroup>().alpha == 0)
+        if (pawnGif.activeSelf && pawnGif.GetComponent<CanvasGroup>().alpha == 0)
         {
             pawnGif.SetActive(false);
         }
-        if (knightGif.GetComponent<CanvasGroup>().alpha == 0)
+        if (knightGif.activeSelf && knightGif.GetComponent<CanvasGroup>().alpha == 0)
         {
             knightGif.SetActive(false);
         }
-        if (transparentPanel.GetComponent<CanvasGroup>().alpha == 0)
+        if (transparentPanel.activeSelf && transparentPanel.GetComponent<CanvasGroup>().alpha == 0)
         {
             transparentPanel.SetActive(false);
         }
-        if (messagesPanelInicial.GetComponent<CanvasGroup>().alpha == 0)
+        if (transparentPanel.activeSelf && messagesPanelInicial.GetComponent<CanvasGroup>().alpha == 0)
         {
             messagesPanelInicial.SetActive(false);
         }
@@ -100,6 +137,8 @@ public class TutorialMessages : MonoBehaviour
     {
         string textContent = "";
         messageShownRightNow = index;
+        textContent = messages[index];
+        /*
         switch (language)
         {
             case Language.ENG:
@@ -109,6 +148,7 @@ public class TutorialMessages : MonoBehaviour
                 textContent = messages[index];
                 break;
         }
+        */
         if (index == 0)
         {
             textInicial.text = textContent;

@@ -240,7 +240,6 @@ public class GameUIManager : MonoBehaviour
     private void Update()
     {
         UpdateArrowUp();
-        //UpdateArrowDown();
 
         if (menuUndo.gameObject.activeSelf && menuUndo.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("popUpStore_exit"))
         {
@@ -271,7 +270,6 @@ public class GameUIManager : MonoBehaviour
         if (!m_player.turno) //Después de cada turno se actualiza el num de movimientos
         {
             movesLeft = m_gameController.maxMovs - m_player.numMovs;
-            //Debug.Log("movesLeft [" + movesLeft + "] = " + "m_gameController.maxMovs [" + m_gameController.maxMovs + "] - m_player.numMovs [ " + m_player.numMovs + " ]");
             t_movesLeft.text = movesLeft.ToString();
 
             UnableDisableChangePiece(false); //botones deshabilitados cuando no es el turno del jugador
@@ -330,7 +328,7 @@ public class GameUIManager : MonoBehaviour
             menuPausa.SetActive(false);
         }
 
-        if (transparentPanel.GetComponent<CanvasGroup>().alpha == 0)
+        if (transparentPanel.activeSelf && transparentPanel.GetComponent<CanvasGroup>().alpha == 0)
         {
             transparentPanel.SetActive(false);
         }
@@ -384,7 +382,6 @@ public class GameUIManager : MonoBehaviour
         StartCoroutine(m_soundManager.SoundFadeOut("song_menu", 1.2f));
         m_soundManager.Play_SoundEffect("victoria");
         menuOpened = true;
-        //transparentPanel.SetActive(true);
         victoriaMenu.SetActive(true);
         victoriaMenu.GetComponent<Animator>().SetBool("isActive", true);
         if (PlayerData.playingLevel == 0) //Si está en el tutorial, por completarlo se consiguen directamente 3 estrellas
@@ -416,7 +413,7 @@ public class GameUIManager : MonoBehaviour
         }
     }
 
-    private void UpdateBestScore(int mejorPuntuacion)
+    private int UpdateBestScore(int mejorPuntuacion)
     {
         if (m_player.numMovs < mejorPuntuacion)
         {
@@ -430,6 +427,7 @@ public class GameUIManager : MonoBehaviour
             }
         }
         t_mejorNumMov.text = Localization.GetLocalizedValue("t_bestMov") + " " + mejorPuntuacion + " " + Localization.GetLocalizedValue("t_moves");
+        return mejorPuntuacion;
     }
 
     private void ActualizarPlayerData()
@@ -437,21 +435,21 @@ public class GameUIManager : MonoBehaviour
         switch (PlayerData.playingLevel)
         {
             case 0:
-                UpdateBestScore(PlayerData.Level0MejorPuntuacion);
+                PlayerData.Level0MejorPuntuacion = UpdateBestScore(PlayerData.Level0MejorPuntuacion);
                 if (m_gameController.numStars > PlayerData.Level0Estrellas)
                 {
                     PlayerData.Level0Estrellas = m_gameController.numStars;
                 }
                 break;
             case 1:
-                UpdateBestScore(PlayerData.Level1MejorPuntuacion);
+                PlayerData.Level1MejorPuntuacion = UpdateBestScore(PlayerData.Level1MejorPuntuacion);
                 if (m_gameController.numStars > PlayerData.Level1Estrellas)
                 {
                     PlayerData.Level1Estrellas = m_gameController.numStars;
                 }
                 break;
             case 2:
-                UpdateBestScore(PlayerData.Level2MejorPuntuacion);
+                PlayerData.Level2MejorPuntuacion = UpdateBestScore(PlayerData.Level2MejorPuntuacion);
                 if (m_gameController.numStars > PlayerData.Level2Estrellas)
                 {
                     PlayerData.Level2Estrellas = m_gameController.numStars;
@@ -467,7 +465,6 @@ public class GameUIManager : MonoBehaviour
         StartCoroutine(m_soundManager.SoundFadeOut("song_menu", 1.2f));
         m_soundManager.Play_SoundEffect("derrota");
         menuOpened = true;
-        //transparentPanel.SetActive(true);
         derrotaMenu.SetActive(true);
         derrotaMenu.GetComponent<Animator>().SetBool("isActive", true);
 
@@ -499,7 +496,6 @@ public class GameUIManager : MonoBehaviour
         {
             arrowUp.SetActive(true);
             arrowDown.SetActive(false);
-            //arrowUp.GetComponent<Image>().color = new Color(255, 255, 255, 1f);
         }
         else
         {
@@ -507,28 +503,9 @@ public class GameUIManager : MonoBehaviour
             {
                 arrowUp.SetActive(false);
                 arrowDown.SetActive(true);
-                //arrowUp.GetComponent<Image>().color = new Color(255, 255, 255, 0.5f);
             }
         }
     }
-    /*
-    private void UpdateArrowDown()
-    {
-        if (m_cameraController.checkIfCanTurnDown())
-        {
-            arrowDown.SetActive(true);
-            //arrowDown.GetComponent<Image>().color = new Color(255, 255, 255, 1f);
-        }
-        else
-        {
-            if (m_cameraController.enabledMov)
-            {
-                arrowDown.SetActive(false);
-                //arrowDown.GetComponent<Image>().color = new Color(255, 255, 255, 0.5f);
-            }
-        }
-    }
-    */
 
     private IEnumerator BgMoveAnimation(float endPos, float time)
     {
@@ -569,20 +546,17 @@ public class GameUIManager : MonoBehaviour
 
     private void showChangePieceMenu()
     {
-        
-        
-            changePieceMenu.SetActive(true);
-            if (changeToPeon.GetComponent<Animator>().GetBool("isActive"))
-            {
-                //EXIT
-                changePieceMenuAnimationExit();
-            }
-            else
-            {
-                //ENTER  
-                changePieceMenuAnimationEnter();
-            }
-        
+        changePieceMenu.SetActive(true);
+        if (changeToPeon.GetComponent<Animator>().GetBool("isActive"))
+        {
+            //EXIT
+            changePieceMenuAnimationExit();
+        }
+        else
+        {
+            //ENTER  
+            changePieceMenuAnimationEnter();
+        }
     }
 
     public void changePieceTo(TipoPieza tipoPieza, bool undo)

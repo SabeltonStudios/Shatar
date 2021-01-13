@@ -179,9 +179,21 @@ public class MenuUIManager : MonoBehaviour
         }
         MuteMusic(PlayerData.MusicMuted);
         MuteSoundEffects(PlayerData.SoundEffectsMuted);
+        
+        //Ver en qué idioma estaba configurado el juego
+        if (PlayerPrefs.GetInt("language", 0) == 0)
+        {
+            t_currentLanguage.GetComponent<Text>().text = "Español";
+            Localization.SetLanguage(Localization.Language.Spanish);
+        }
+        else
+        {
+            t_currentLanguage.GetComponent<Text>().text = "English";
+            Localization.SetLanguage(Localization.Language.English);
+        }
+
         m_soundManager.Mute_Music("song_menu", PlayerData.MusicMuted);
         m_soundManager.Play_Music("song_menu");
-        
     }
 
     private void Update()
@@ -292,7 +304,7 @@ public class MenuUIManager : MonoBehaviour
             case 0:
                 PlayerData.playingLevel = 0;
                 UpdatePopUpLevelStars(PlayerData.Level0Estrellas, selectedLevel_stars);
-                t_levelMejorMov.text = "Mejor : " + PlayerData.Level0MejorPuntuacion.ToString() + " " + Localization.GetLocalizedValue("t_moves");
+                t_levelMejorMov.text = Localization.GetLocalizedValue("t_bestMov") + " " + PlayerData.Level0MejorPuntuacion.ToString() + " " + Localization.GetLocalizedValue("t_moves");
                 b_playLevel.onClick.AddListener(() => {
                     PlaySoundEffect("click_button");
                     StartCoroutine(m_soundManager.SoundFadeOut("song_menu", 1.2f));
@@ -303,7 +315,7 @@ public class MenuUIManager : MonoBehaviour
             case 1:
                 PlayerData.playingLevel = 1;
                 UpdatePopUpLevelStars(PlayerData.Level1Estrellas, selectedLevel_stars);
-                t_levelMejorMov.text = "Mejor : " + PlayerData.Level1MejorPuntuacion.ToString() + " " + Localization.GetLocalizedValue("t_moves");
+                t_levelMejorMov.text = Localization.GetLocalizedValue("t_bestMov") + " " + PlayerData.Level1MejorPuntuacion.ToString() + " " + Localization.GetLocalizedValue("t_moves");
                 if (PlayerData.Stars < 3) //Si jugador no tiene estrellas suficientes, deshabilitar botón y poner texto
                 {
                     t_noTienesEstrellasNecesarias.SetActive(true);
@@ -320,7 +332,7 @@ public class MenuUIManager : MonoBehaviour
             case 2:
                 PlayerData.playingLevel = 2;
                 UpdatePopUpLevelStars(PlayerData.Level2Estrellas, selectedLevel_stars);
-                t_levelMejorMov.text = "Mejor : " + PlayerData.Level2MejorPuntuacion.ToString() + " " + Localization.GetLocalizedValue("t_moves");
+                t_levelMejorMov.text = Localization.GetLocalizedValue("t_bestMov") + " " + PlayerData.Level2MejorPuntuacion.ToString() + " " + Localization.GetLocalizedValue("t_moves");
                 if (PlayerData.Stars < 5)
                 {
                     t_noTienesEstrellasNecesarias.SetActive(true);
@@ -397,6 +409,13 @@ public class MenuUIManager : MonoBehaviour
     }
 
     private void UpdateCurrentStars()
+    {
+        int currentStars = PlayerData.Level0Estrellas + PlayerData.Level1Estrellas + PlayerData.Level2Estrellas;
+        PlayerData.Stars = currentStars;
+        t_currentStars.text = PlayerData.Stars.ToString("00");
+    }
+
+    private void UpdateLevelStars()
     {
         int currentStars = PlayerData.Level0Estrellas + PlayerData.Level1Estrellas + PlayerData.Level2Estrellas;
         PlayerData.Stars = currentStars;
@@ -534,11 +553,13 @@ public class MenuUIManager : MonoBehaviour
         {
             t_currentLanguage.GetComponent<Text>().text = "Español";
             Localization.SetLanguage(Localization.Language.Spanish);
+            PlayerPrefs.SetInt("language", 0);
         }
         else
         {
             t_currentLanguage.GetComponent<Text>().text = "English";
             Localization.SetLanguage(Localization.Language.English);
+            PlayerPrefs.SetInt("language", 1);
         }
         LanguageValue = Localization.language;
     }

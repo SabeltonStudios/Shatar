@@ -23,6 +23,7 @@ public class MenuUIManager : MonoBehaviour
     //[SerializeField] private List<GameObject> niveles = new List<GameObject>();
     [SerializeField] private List<GameObject> selectedLevel_stars = new List<GameObject>();
     [SerializeField] private Button b_store = null;
+    [SerializeField] private GameObject i_store = null;
     [SerializeField] private GameObject levelPanel = null;
     [SerializeField] private List<GameObject> levelsEstrellasNecesarias = new List<GameObject>();
     [SerializeField] private GameObject t_noTienesEstrellasNecesarias;
@@ -354,7 +355,14 @@ public class MenuUIManager : MonoBehaviour
     {
         if (state)
         {
+            b_store.enabled = false;
+            i_store.GetComponent<Image>().color = new Color(255, 255, 255, 0.5f);
             levelPanel.SetActive(state);
+        }
+        else
+        {
+            b_store.enabled = true;
+            i_store.GetComponent<Image>().color = new Color(255, 255, 255, 1f);
         }
         //transparentPanel.SetActive(state);
         if (!transparentPanel.activeSelf)
@@ -606,12 +614,20 @@ public class MenuUIManager : MonoBehaviour
                 break;
         }
         ActivatePanel(confirmPurchasePanel, trasparentPanel_store, true);
-        b_confirm.onClick.AddListener(() => {
-            PlaySoundEffect("click_button");
-            confirmPurchasePanel.SetActive(false);
-            PlaySoundEffect("comprar");
-            OpenThankYouPanel(gemsPurchased);
-        });
+        if (PlayerData.Gems >= 999)
+        {
+            b_confirm.enabled = false;
+        }
+        else
+        {
+            b_confirm.enabled = true;
+            b_confirm.onClick.AddListener(() => {
+                PlaySoundEffect("click_button");
+                confirmPurchasePanel.SetActive(false);
+                PlaySoundEffect("comprar");
+                OpenThankYouPanel(gemsPurchased);
+            });
+        }
     }
 
     private void OpenThankYouPanel(int gemsPurchased)

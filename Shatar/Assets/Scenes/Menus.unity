@@ -163,6 +163,7 @@ MonoBehaviour:
   - {fileID: 3561142625749642983}
   - {fileID: 3561142627041578401}
   b_store: {fileID: 3561142625065300274}
+  i_store: {fileID: 3561142625900342927}
   levelPanel: {fileID: 3561142626251608573}
   levelsEstrellasNecesarias:
   - {fileID: 3716162244295385852}
